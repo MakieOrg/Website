@@ -90,7 +90,7 @@ function Navigation(highlighted="")
             item("Features"),
             item("Users"),
             item("Supporters"),
-            item("Team", "/team"),
+            item("Team", "/team.html"),
             item("Support"),
             item("Contact"),
         )
@@ -110,7 +110,7 @@ function page(body, highlighted)
     )
 end
 path = joinpath(@__DIR__, "src", "index.md")
-app = App() do s
+index = App() do s
     body = md2html(s, path)
     return page(body, "Home")
 end
@@ -134,6 +134,18 @@ team = App() do
     )
     return page(body, "Team")
 end
+
+function make()
+    dir = joinpath(@__DIR__, "docs")
+    # rm(dir; recursive=true, force=true); mkdir(dir)
+    routes = JSServe.Routes()
+    routes["/"] = index
+    routes["team"] = team
+    folder = AssetFolder(dir)
+    JSServe.export_static(dir, routes; asset_server=folder)
+end
+
+make()
 
 disp = display(app)
 
