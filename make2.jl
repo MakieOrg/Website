@@ -90,7 +90,7 @@ function Navigation(highlighted="")
             item("Features"),
             item("Users"),
             item("Supporters"),
-            item("Team", "/team.html"),
+            item("Team", "./team.html"),
             item("Support"),
             item("Contact"),
         )
