@@ -41,31 +41,27 @@ overview_width = 150
 ## Surgical updates & high performance
 ```julia
 # hide
-D.FlexRow(
-        DOM.a(
-        DOM.img(src=img_asset("use_cases/glacier.gif"), style="height: 400px"),
-        href="https://docs.makie.org/stable/tutorials/layout-tutorial/",
-    ),
-    DOM.div("""
-        Makie updates only what's needed using Observables.jl.
-        This example animates hundred thousand of points, by just updating the color, which only updates a few bytes per frame directly on the GPU.
-        There's no faster way to animate large data, so Makie, together with utilizing the GPU and Julia's high performance, is fit for any task!
-    """; class="w-96 text-xl m-1")
+FocusBlock(
+    """
+    Makie updates only what's needed using Observables.jl.
+    This example animates hundred thousand of points, by just updating the color, which only updates a few bytes per frame directly on the GPU.
+    There's no faster way to animate large data, so Makie, together with utilizing the GPU and Julia's high performance, is fit for any task!
+    """;
+    image="use_cases/glacier.gif",
+    link="https://makieorg.github.io/Tyler.jl/dev/examples/generated/UserGuide/iceloss_ex",
+    rev=true
 )
 ```
 ## Powerful Layouting
 
 ```julia
 # hide
-D.FlexRow(
-    DOM.div("""
-        Makie has one of the most powerful layouting systems compared to other plotting libraries,
-        allowing you to tweak any possible attribute and place your plots and subplots freely. No need to use inkscape anymore to redo your layout!
-    """; class="w-96 text-xl m-1"),
-    DOM.a(
-        DOM.img(src=img_asset("use_cases/layouting.png"), style="height: 400px"),
-        href="https://docs.makie.org/stable/tutorials/layout-tutorial/",
-    )
+FocusBlock("""
+    Makie has one of the most powerful layouting systems compared to other plotting
+    libraries, allowing you to tweak any possible attribute and place your plots
+    and subplots freely. No need to use inkscape anymore to redo your layout!""";
+    image = "use_cases/layouting.png",
+    link = "https://docs.makie.org/stable/tutorials/layout-tutorial/"
 )
 ```
 ## 2D, 3D, Volumes, Meshes, Sliders, Buttons, etc
@@ -81,121 +77,144 @@ eco_width = 150
 [
     DetailedCard(
         title="GeoMakie.jl",
-        image="ecosystem/geomakie.png",
         link="https://github.com/MakieOrg/GeoMakie.jl",
-        width=eco_width
+        image="ecosystem/geomakie.png",
+        width=eco_width,
+        details="Geographical plotting utilities for Makie.jl",
     ),
     DetailedCard(
-        width=eco_width,
         title="Tyler.jl",
+        link="https://github.com/MakieOrg/Tyler.jl",
         image="ecosystem/tyler-sam.gif",
-        details=DOM.div("")
+        width=eco_width,
+        details="Makie package to plot maptiles from various map providers"
     ),
     DetailedCard(
-        width=eco_width,
         title="FerriteViz.jl",
+        link="https://github.com/Ferrite-FEM/FerriteViz.jl",
         image="ecosystem/ferrite-heartbeat.gif",
-        details=DOM.div("")
+        width=eco_width,
+        details=md"Small package to visualize [Ferrite.jl](https://github.com/Ferrite-FEM/Ferrite.jl) results, which is a simple finite element toolbox written in Julia."
     ),
     DetailedCard(
         title="GraphMakie.jl",
+        link="https://github.com/MakieOrg/GraphMakie.jl",
         image="ecosystem/graphmakie.png",
         width=eco_width,
+        details="Plotting graphs with Makie"
     ),
     DetailedCard(
         title="BioMakie.jl",
+        link="https://github.com/kool7d/BioMakie.jl",
         image="ecosystem/biomakie.png",
         width=eco_width,
+        details="User interface tools for bioinformatics"
     ),
-        DetailedCard(
+    DetailedCard(
         title="TopoPlots.jl",
+        link="https://github.com/MakieOrg/TopoPlots.jl",
         image="ecosystem/topoplots.png",
         width=eco_width,
+        details="Makie topo plot recipes, for neuro-science, geo plots and anyone needing surface plots from unstructured data"
     ),
-        DetailedCard(
+    DetailedCard(
         title="ModelingToolkitDesigner.jl",
-        image="ecosystem/modelingtoolkitdesigner.svg",
         link="https://github.com/bradcarman/ModelingToolkitDesigner.jl",
+        image="ecosystem/modelingtoolkitdesigner.gif",
         width=eco_width,
+        details="A helper tool for visualizing and editing a ModelingToolkit.jl system connections"
     ),
     DetailedCard(
         title="PairPlots.jl",
-        image="ecosystem/pairplots.png",
         link="https://sefffal.github.io/PairPlots.jl/",
+        image="ecosystem/pairplots.png",
         width=eco_width,
+        details="Beautiful and flexible vizualizations of high dimensional data"
     ),
     DetailedCard(
         title="AlgebraOfGraphics.jl",
-        image="ecosystem/aog.png",
         link="https://aog.makie.org/",
+        image="ecosystem/aog.png",
         width=eco_width,
+        details="AlgebraOfGraphics defines a language for data visualization. It is based on a few simple building blocks that can be combined using + and *."
     ),
     DetailedCard(
         title="TidierPlots.jl",
-        image="ecosystem/tidier.png",
         link="https://github.com/TidierOrg/TidierPlots.jl",
+        image="ecosystem/tidier.png",
         width=eco_width,
+        details="100% Julia implementation of the ggplot2 R package"
     ),
     DetailedCard(
         title="MeshViz.jl",
-        image="ecosystem/meshviz.png",
         link="https://github.com/JuliaGeometry/MeshViz.jl",
+        image="ecosystem/meshviz.png",
         width=eco_width,
+        details="Makie.jl recipes for visualization of Meshes.jl"
     ),
 
     DetailedCard(
         title="OSMMakie.jl",
-        image="ecosystem/osmmakie.png",
         link="https://github.com/MakieOrg/OSMMakie.jl",
+        image="ecosystem/osmmakie.png",
         width=eco_width,
+        details="A Makie.jl recipe for plotting OpenStreetMap data."
     ),
     DetailedCard(
         title="GeneticsMakie.jl",
         image="ecosystem/geneticsmakie.png",
         link="https://github.com/mmkim1210/GeneticsMakie.jl",
         width=eco_width,
+        details="🧬High-performance genetics-related data visualization using Makie.jl"
     ),
     DetailedCard(
         title="IncompressibleNavierStokes.jl",
-        image="ecosystem/incompressiblenavierstokes.gif",
         link="https://github.com/agdestein/IncompressibleNavierStokes.jl",
+        image="ecosystem/incompressiblenavierstokes.gif",
         width=eco_width,
+        details="Incompressible Navier-Stokes solver, utilizing Makie for interactive visualizations"
     ),
     DetailedCard(
         title="InteractiveViz.jl",
-        image="ecosystem/interactiveviz.png",
         link="https://github.com/org-arl/InteractiveViz.jl",
+        image="ecosystem/interactiveviz.png",
         width=eco_width,
+        details="Interactive visualization tools for Julia"
     ),
     DetailedCard(
         title="MakiePublications.jl",
-        image="ecosystem/makiepublications.svg",
         link="https://github.com/liuyxpp/MakiePublication.jl",
+        image="ecosystem/makiepublications.svg",
         width=eco_width,
+        details="A Julia package for producing publication quality figures based on Makie.jl."
     ),
-        DetailedCard(
+    DetailedCard(
         title="UnfoldMakie.jl",
-        image="ecosystem/unfoldmakie.png",
         link="https://github.com/unfoldtoolbox/UnfoldMakie.jl",
+        image="ecosystem/unfoldmakie.png",
         width=eco_width,
+        details="Plotting tools for Unfold.jl based on Makie.jl and AlgebraOfGraphics.jl"
     ),
     DetailedCard(
         title="NestedGraphMakie.jl",
-        image="ecosystem/nestedgraphmakie.png",
         link="https://github.com/UniStuttgart-IKR/NestedGraphMakie.jl",
+        image="ecosystem/nestedgraphmakie.png",
         width=eco_width,
+        details="A package for NestedGraphs.jl to make easy visualizations."
     ),
     DetailedCard(
         title="MakieDraw.jl",
-        image="ecosystem/makiedraw.gif",
         link="https://github.com/MakieOrg/MakieDraw.jl",
+        image="ecosystem/makiedraw.gif",
         width=eco_width,
+        details="Plot an interactive canvas of GeometryBaseics Point, LineString or Polygon, or an ms-paint style canvas for any numerical or color Array"
     ),
     DetailedCard(
         title="Agents.jl",
-        image="ecosystem/agents.png",
         link="https://juliadynamics.github.io/Agents.jl/",
+        image="ecosystem/agents.png",
         width=eco_width,
+        details="Agents.jl is a pure Julia framework for agent-based modeling (ABM)"
     ),
 ]
 ```

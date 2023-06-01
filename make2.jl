@@ -60,6 +60,15 @@ function JSServe.jsrender(s::Session, card::DetailedCard)
     ))
 end
 
+function FocusBlock(description; image="", link="", height="400px", rev=false)
+    block = [
+        DOM.div(description; class="text-xl px-4", style="width:600px"),
+        DOM.a(DOM.img(src=img_asset(image), class="rounded-md p-2 shadow", style="height: $height; max-width: none"); href=link)
+    ]
+    rev && reverse!(block)
+    return D.FlexRow(block...)
+end
+
 using FileWatching
 
 function watcher(f, path)
@@ -86,7 +95,7 @@ function Navigation(highlighted="")
         class="pl-2 flex items-center navbar", # TailwindCSS classes
         DOM.div(
             class="flex",
-            item("Home", "/"),
+            item("Home", "./"),
             item("Features"),
             item("Users"),
             item("Supporters"),
@@ -109,29 +118,15 @@ function page(body, highlighted)
         body,
     )
 end
+
 path = joinpath(@__DIR__, "src", "index.md")
-index = App() do s
+index = App(title="Makie") do s
     body = md2html(s, path)
     return page(body, "Home")
 end
-team = App() do
-    body = DOM.div(
-        DOM.div(
-            DetailedCard(
-                title="Simon Danisch",
-                image="simon.jpg",
-            ),
-            DetailedCard(
-                title="Julius Krumbiegel",
-                image="julius.jpg",
-            ),
-            DetailedCard(
-                title="Frederic Freyer",
-                image="frederic.jpg",
-            );
-            class="flex flex-wrap"
-        )
-    )
+team = App(title="Makie - Team") do s
+    path = joinpath(@__DIR__, "src", "team.md")
+    body = md2html(s, path)
     return page(body, "Team")
 end
 
