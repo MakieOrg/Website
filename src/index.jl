@@ -20,7 +20,7 @@ function index_page()
                 "); class="w-80 text-xl mx-2 my-4"),
                 Showcase(
                     title="Explore billions of data points",
-                    image="use_cases/datashader.png",
+                    image="use_cases/billion-points.gif",
                     link=""
                 ),
                 Showcase(
@@ -40,7 +40,7 @@ function index_page()
                 ),
                 Showcase(
                     title="Video games",
-                    image="use_cases/miner.gif",
+                    image="use_cases/miner.png",
                     link="https://github.com/ashwani-rathee/Miner.jl"
                 )
             )

@@ -141,7 +141,7 @@ include("src/index.jl")
 index = App(title="Makie") do s
     # body = md2html(s, path)
     return page(index_page(), "Home")
-end;
+end
 
 team = App(title="Makie - Team") do s
     path = joinpath(@__DIR__, "src", "team.md")
