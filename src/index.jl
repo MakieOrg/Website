@@ -282,30 +282,34 @@ function index_page()
                 ),
             ),
         ),
-        Section(bg="bg-gray-400",
-            DOM.div("Users:"; class="text-lg text-gray-100"),
+        Section(bg="white",
+            DOM.div("Users:"; class="text-lg text-black"),
             FlexGrid(
-                Logo(image="clima-logo.png", link="https://clima.caltech.edu"),
-                Logo(image="max-planck.png", link="https://www.bgc-jena.mpg.de/en/bgi/gallery"),
-                Logo(image="nasa-jpl.svg", link="https://www.jpl.nasa.gov/"),
+                Logo(image="climaalliancelogo.png", link="https://clima.caltech.edu"),
+                Logo(image="mpg_biogeochemistry.png", link="https://www.bgc-jena.mpg.de/en/bgi/gallery"),
+                Logo(image="nasa_jpl.png", link="https://www.jpl.nasa.gov/"),
                 Logo(image="microsoft.png", link="https://www.youtube.com/watch?v=7-vN8oNAz6Y"),
                 Logo(image="instron.png", link="https://github.com/bradcarman/ModelingToolkitDesigner.jl"),
                 Logo(image="dwd.png", link="https://www.youtube.com/watch?v=-Cg6AoymaM0"),
+                class = "logo-container",
             ),
-            DOM.div("Supporters:"; class="text-lg text-gray-100"),
+            DOM.div("Supporters:"; class="text-lg text-black"),
             FlexGrid(
                 Logo(image="numfocus.png", link="https://numfocus.org/project/julia"),
                 Logo(image="pumasai.svg", link="https://pumas.ai"),
-                Logo(image="juliahub.svg", link="https://juliahub.com"),
+                Logo(image="juliahublogo.png", link="https://juliahub.com"),
                 Logo(image="beacon.svg", link="https://beacon.bio"),
                 Logo(image="mit.png", link=""),
-                Logo(image="bmbf.svg", link="")
+                Logo(image="bmbf.svg", link=""),
+                class = "logo-container",
             ),
-            DOM.div("Follow us:"; class="text-lg text-gray-100"),
+            DOM.div("Follow us:"; class="text-lg text-black"),
             FlexGrid(
                 SmallLogo(image="twitter.svg", link="https://twitter.com/MakiePlots"),
                 SmallLogo(image="linkedin.png", link="https://www.linkedin.com/company/makieorg"),
-                SmallLogo(image="GitHub-Mark-64px.png", link="https://github.com/MakieOrg"))
+                SmallLogo(image="GitHub-Mark-64px.png", link="https://github.com/MakieOrg"),
+                class = "logo-container",
+            )
         );
         class="flex flex-col items-center w-full")
 end

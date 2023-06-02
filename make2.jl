@@ -17,7 +17,7 @@ Base.@kwdef struct Logo
     image::String=""
     link::String=""
     size::Int=80
-    class::String="p-1 m-1 bg-gray-400"
+    class::String="p-1 m-1"
 end
 
 Logo(; title="", description="", image="", link="", size=80, class="p-1 m-1") = Logo(title, description, image, link, size, class)
@@ -29,7 +29,7 @@ JSServe.jsrender(s::Session, card::Vector) = JSServe.jsrender(s, DOM.div(JSServe
 img_asset(files...) = Asset(normpath(joinpath(@__DIR__, "assets", "images", files...)))
 css_asset(files...) = Asset(normpath(joinpath(@__DIR__, "assets", "css", files...)))
 
-FlexGrid(elems...) = DOM.div(elems..., class="flex flex-wrap")
+FlexGrid(elems...; class = "", kwargs...) = DOM.div(elems...; class=join(["flex flex-wrap", class], " "), kwargs...)
 
 function Block(elems...)
     DOM.div(elems...; class="p-2 m-2", style="width: 1000px")
@@ -41,9 +41,9 @@ function JSServe.jsrender(s::Session, card::Logo)
             DOM.div(card.title; class="title"),
             DOM.div(
                 DOM.div(card.description),
-                    JSServe.jsrender(s, DOM.img(src=img_asset(card.image), style="height: $(card.size)px; max-width: none")),
+                    JSServe.jsrender(s, DOM.img(src=img_asset(card.image), class="flex-logo-img")),
                 ; class="box-content");
-            href=card.link, class="box-link"); class=card.class))
+            href=card.link, class="box-link"), class="flex-logo"))
 end
 
 Base.@kwdef struct DetailedCard
@@ -142,6 +142,8 @@ index = App(title="Makie") do s
     # body = md2html(s, path)
     return page(index_page(), "Home")
 end
+
+##
 
 team = App(title="Makie - Team") do s
     path = joinpath(@__DIR__, "src", "team.md")
