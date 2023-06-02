@@ -29,8 +29,8 @@
 
 .image {
   display: block;
-  width: 100%;
-  height: auto;
+  max-height: none;
+  max-width: none;
 }
 
 .container:hover .image {

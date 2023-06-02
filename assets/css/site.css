@@ -27,3 +27,11 @@ body {
 .navbar-highlight {
     background-color: var(--background-color-highlight);
 }
+
+.makie-blue {
+    background-color: #8398a7;
+}
+
+li p {
+    display: inline
+}

@@ -64,9 +64,79 @@ FocusBlock("""
     link = "https://docs.makie.org/stable/tutorials/layout-tutorial/"
 )
 ```
+
 ## 2D, 3D, Volumes, Meshes, Sliders, Buttons, etc
 
-## Rich ecosystem
+```julia
+# hide
+FocusBlock("""
+    Makie has support for all kind of primitives for interactive data exploration. This makes it simple, to quickly build up dashboards for any kind of data.
+    """,
+    image="use_cases/clima-volume.gif",
+)
+```
+
+## Backends
+
+Makie's backends are the reason, why we can have high quality vector graphics for publication, while also delivering fast GPU accelerated renderings.
+Use exactly the same code, and change how your interactive graphic is displayed simply by switching the backend.
+
+
+```julia
+# hide
+
+[
+    DetailedCard(
+        title="GLMakie",
+        width=300,
+        image="backends/glmakie.png",
+        link="https://docs.makie.org/stable/documentation/backends/glmakie/",
+        details=md"""* Super fast, interactive desktop applications
+        * The first backend and the most feature complete
+        * Uses the GPU via OpenGL for fast 3D animations
+        * Basic UI elements for simple Dashboards
+        * Needs a GPU, or a virtual GPU (e.g. Mesa, VirtualGL)
+        """
+    ),
+        DetailedCard(
+        title="CairoMakie",
+        width=300,
+        image="backends/cairomakie.svg",
+        link="https://docs.makie.org/stable/documentation/backends/cairomakie/",
+        details=md""" * Best 2D rendering quality
+        * Can export SVGs, PDFs, etc
+        * 3D support experimental
+        * Not interactive
+        * Runs everywhere on the CPU
+        """
+    ),
+    DetailedCard(
+        title="WGLMakie",
+        width=300,
+        image="backends/wglmakie.gif",
+        link="https://docs.makie.org/stable/documentation/backends/wglmakie/",
+        details=md"""* Creates visualizations via Threejs & WebGL in the browser
+        * Has an overhead for transferring data to browser
+        * Mostly feature complete, with some things still missing
+        * Runs almost everywhere on the GPU
+        * Great for working on remote machines, plotpane and notebooks
+        """
+    ),
+    DetailedCard(
+        title="RPRMakie",
+        width=300,
+        image="backends/rprmakie.png",
+        link="https://docs.makie.org/stable/documentation/backends/rprmakie/",
+        details=md"""* Newest, supports only a subset of Makie (mostly the 3d primitives)
+        * Very slow, needs high end hardware for high quality animations
+        * Still immature
+        * looks amazing when it works"""
+    ),
+]
+```
+
+
+# Rich Ecosystem
 
 To cater to every use case, without becoming a big, bloated library, Makie is highly modular and extensible.
 What Makie doesn't offer out of the box, gets supported by a rich 3rd party ecosystem:
@@ -219,90 +289,31 @@ eco_width = 150
 ]
 ```
 
-## Backends
-
-
 ```julia
 # hide
-
-[
-    DetailedCard(
-        title="GLMakie",
-        width=300,
-        image="backends/glmakie.png",
-        link="https://docs.makie.org/stable/documentation/backends/glmakie/",
-        details=md"""* Super fast, interactive desktop applications
-        * The first backend and the most feature complete
-        * Uses the GPU via OpenGL for fast 3D animations
-        * Basic UI elements for simple Dashboards
-        * Needs a GPU, or a virtual GPU (e.g. Mesa, VirtualGL)
-        """
+DOM.div(
+    DOM.h1("Users"),
+    FlexGrid(
+        Logo(image="clima-logo.png", link="https://clima.caltech.edu"),
+        Logo(image="max-planck.png", link="https://www.bgc-jena.mpg.de/en/bgi/gallery"),
+        Logo(image="nasa-jpl.svg", link="https://www.jpl.nasa.gov/"),
+        Logo(image="microsoft.png", link="https://www.youtube.com/watch?v=7-vN8oNAz6Y"),
+        Logo(image="instron.png", link="https://github.com/bradcarman/ModelingToolkitDesigner.jl"),
+        Logo(image="dwd.png", link="https://www.youtube.com/watch?v=-Cg6AoymaM0"),
     ),
-        DetailedCard(
-        title="CairoMakie",
-        width=300,
-        image="backends/cairomakie.svg",
-        link="https://docs.makie.org/stable/documentation/backends/cairomakie/",
-        details=md""" * Best 2D rendering quality
-        * Can export SVGs, PDFs, etc
-        * 3D support experimental
-        * Not interactive
-        * Runs everywhere on the CPU
-        """
+    DOM.div("Supporters:"; class="text-lg text-gray-100"),
+    FlexGrid(
+        Logo(image="numfocus.png", link="https://numfocus.org/project/julia"),
+        Logo(image="pumasai.svg", link="https://pumas.ai"),
+        Logo(image="juliahub.svg", link="https://juliahub.com"),
+        Logo(image="beacon.svg", link="https://beacon.bio"),
+        Logo(image="mit.png", link=""),
+        Logo(image="bmbf.svg", link="")
     ),
-    DetailedCard(
-        title="WGLMakie",
-        width=300,
-        image="backends/wglmakie.gif",
-        link="https://docs.makie.org/stable/documentation/backends/wglmakie/",
-        details=md"""* Creates visualizations via Threejs & WebGL in the browser
-        * Has an overhead for transferring data to browser
-        * Mostly feature complete, with some things still missing
-        * Runs almost everywhere on the GPU
-        * Great for working on remote machines, plotpane and notebooks
-        """
-    ),
-    DetailedCard(
-        title="RPRMakie",
-        width=300,
-        image="backends/rprmakie.png",
-        link="https://docs.makie.org/stable/documentation/backends/rprmakie/",
-        details=md"""* Newest, supports only a subset of Makie (mostly the 3d primitives)
-        * Very slow, needs high end hardware for high quality animations
-        * Still immature
-        * looks amazing when it works"""
-    ),
-]
+    class=" bg-gray-400"
+)
 ```
 
-# Users
-
-```julia
-# hide
-
-[
-    Logo(image="clima-logo.png", link="https://clima.caltech.edu"),
-    Logo(image="max-planck.png", link="https://www.bgc-jena.mpg.de/en/bgi/gallery"),
-    Logo(image="nasa-jpl.svg", link="https://www.jpl.nasa.gov/"),
-    Logo(image="microsoft.png", link="https://www.youtube.com/watch?v=7-vN8oNAz6Y"),
-    Logo(image="instron.png", link="https://github.com/bradcarman/ModelingToolkitDesigner.jl"),
-    Logo(image="dwd.png", link="https://www.youtube.com/watch?v=-Cg6AoymaM0")
-]
-```
-
-# Supporters
-
-```julia
-# hide
-[
-    Logo(image="numfocus.png", link="https://numfocus.org/project/julia"),
-    Logo(image="pumasai.svg", link="https://pumas.ai"),
-    Logo(image="juliahub.svg", link="https://juliahub.com"),
-    Logo(image="beacon.svg", link="https://beacon.bio"),
-    Logo(image="mit.png", link=""),
-    Logo(image="bmbf.svg", link=""),
-]
-```
 
 # Support
 
