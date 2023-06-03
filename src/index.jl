@@ -283,7 +283,7 @@ function index_page()
             ),
         ),
         Section(bg="white",
-            DOM.div("Users"; class="text-lg text-black flex justify-center mt-14 mb-10 font-semibold"),
+            DOM.div("Users"; class="text-xl text-black flex justify-center mt-14 mb-10 font-semibold"),
             FlexGrid(
                 Logo(image="climaalliancelogo.png", link="https://clima.caltech.edu"),
                 Logo(image="mpg_biogeochemistry.png", link="https://www.bgc-jena.mpg.de/en/bgi/gallery"),
@@ -293,7 +293,7 @@ function index_page()
                 Logo(image="dwd.png", link="https://www.youtube.com/watch?v=-Cg6AoymaM0"),
                 class = "logo-container",
             ),
-            DOM.div("Supporters"; class="text-lg text-black flex justify-center mt-14 mb-10 font-semibold"),
+            DOM.div("Supporters"; class="text-xl text-black flex justify-center mt-14 mb-10 font-semibold"),
             FlexGrid(
                 Logo(image="numfocus.png", link="https://numfocus.org/project/julia"),
                 Logo(image="pumasai.svg", link="https://pumas.ai"),
@@ -303,7 +303,7 @@ function index_page()
                 Logo(image="bmbf.svg", link=""),
                 class = "logo-container",
             ),
-            DOM.div("Follow us"; class="text-lg text-black flex justify-center mt-14 mb-10 font-semibold"),
+            DOM.div("Follow us"; class="text-xl text-black flex justify-center mt-14 mb-10 font-semibold"),
             FlexGrid(
                 SmallLogo(image="twitter.svg", link="https://twitter.com/MakiePlots"),
                 SmallLogo(image="linkedin.png", link="https://www.linkedin.com/company/makieorg"),
