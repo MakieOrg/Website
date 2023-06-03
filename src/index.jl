@@ -46,7 +46,7 @@ function index_page()
             )
         ),
 
-        Section(bg="bg-gray-400",
+        Section(bg="bg-gray-100",
             H1("Features"),
 
             H2("Surgical updates & high performance"),
