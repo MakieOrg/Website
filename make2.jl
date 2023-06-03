@@ -68,12 +68,12 @@ function JSServe.jsrender(s::Session, card::DetailedCard)
         card.details
     end
     return JSServe.jsrender(s,
-        DOM.div(class="rounded-md shadow m-2 bg-white",
+        DOM.div(class="rounded-md shadow m-2 bg-white flex grow justify-center",
             D.FlexCol(
                 css_asset("detail-hover.css"),
                 DOM.div(card.title, class="text-lg text-bold text-center"),
                 DOM.div(img, DOM.div(details, class="overlay"),
-                class="container")
+                class="container"),
             )
         ))
 end
