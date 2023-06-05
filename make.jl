@@ -25,6 +25,15 @@ end
 
 SmallLogo(; kw...) = Logo(; class="rounded-md p-2 m-2 shadow bg-white w-8", kw...)
 
+
+function render_media(asset::Asset; class="", style="")
+    if asset.media_type == :mp4
+        return DOM.video(DOM.source(src=asset, type="video/mp4"); muted=true, controls=false, autoplay=true, loop=true, class=class, style=style)
+    else
+        return DOM.img(src=asset; class=class, style=style)
+    end
+end
+
 function JSServe.jsrender(s::Session, logo::Logo)
     img = DOM.img(src=img_asset(logo.image), class="w-full")
     return JSServe.jsrender(s, DOM.div(
@@ -32,7 +41,6 @@ function JSServe.jsrender(s::Session, logo::Logo)
         class=logo.class)
     )
 end
-
 
 Base.@kwdef struct DetailedCard
     title::String = ""
@@ -49,7 +57,7 @@ function JSServe.jsrender(s::Session, card::DetailedCard)
     else
         style = "height: $(card.height)px"
     end
-    img = DOM.img(src=img_asset(card.image); class="image p-4", style=style)
+    img = render_media(img_asset(card.image); class="image p-4", style=style)
     details = if card.details isa Markdown.MD
         JSServe.md_html(Session(), card.details.content[1])
     else
@@ -69,7 +77,7 @@ end
 function FocusBlock(description; image="", link="", height="400px", rev=false)
     block = [
         DOM.div(description; class="text-xl px-4", style="width: 600px"),
-        DOM.a(DOM.img(src=img_asset(image), class="rounded-md p-2 shadow bg-white", style="width: $height; max-width: none"); href=link)
+        DOM.a(render_media(img_asset(image), class="rounded-md p-2 shadow bg-white", style="width: $height; max-width: none"); href=link)
     ]
     rev && reverse!(block)
     return D.FlexRow(block...)

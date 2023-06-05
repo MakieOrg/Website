@@ -1,6 +1,6 @@
 
 function Showcase(; title, image, link)
-    img = DOM.img(src=img_asset(image); class="image p-2", style="height: 150px; ")
+    img = render_media(img_asset(image); class="image p-2", style="height: 150px; ")
     return D.FlexCol(
         DOM.div(title, class="text-lg font-semibold text-center"),
         DOM.a(img; href=link)
@@ -19,7 +19,7 @@ function index_page()
                 "); class="w-80 text-xl mx-2 my-4"),
                 Showcase(
                     title="Explore billions of data points",
-                    image="use_cases/billion-points.gif",
+                    image="use_cases/datashader.mp4",
                     link=""
                 ),
                 Showcase(
@@ -155,7 +155,7 @@ function index_page()
                 DetailedCard(
                     title="FerriteViz.jl",
                     link="https://github.com/Ferrite-FEM/FerriteViz.jl",
-                    image="ecosystem/ferrite-heartbeat.gif",
+                    image="ecosystem/ferrite.gif",
                     height=eco_width,
                     details=md"Small package to visualize [Ferrite.jl](https://github.com/Ferrite-FEM/Ferrite.jl) results, which is a simple finite element toolbox written in Julia."
                 ),
