@@ -1,11 +1,5 @@
 
-function Showcase(; title, image, link)
-    img = render_media(img_asset(image); class="image p-2", style="height: 150px; ")
-    return D.FlexCol(
-        DOM.div(title, class="text-lg font-semibold text-center"),
-        DOM.a(img; href=link)
-    )
-end
+
 
 function index_page()
     overview_width = 150
@@ -314,8 +308,4 @@ function index_page()
             )
         );
         class="flex flex-col items-center w-full")
-end
-
-function Section(content...; bg="")
-    return DOM.div(Block(content...), class="$bg flex flex-col items-center w-full")
 end

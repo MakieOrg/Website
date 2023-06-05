@@ -15,7 +15,17 @@ JSServe.jsrender(s::Session, card::Vector) = JSServe.jsrender(s, DOM.div(JSServe
 img_asset(files...) = Asset(normpath(joinpath(@__DIR__, "assets", "images", files...)))
 css_asset(files...) = Asset(normpath(joinpath(@__DIR__, "assets", "css", files...)))
 FlexGrid(elems...; class="", kwargs...) = DOM.div(elems...; class=join(["flex flex-wrap", class], " "), kwargs...)
-Block(elems...) = DOM.div(elems...; class="p-2 m-2", style="width: 1000px")
+TextBlock(text; width=600) = DOM.div(text; class="text-xl px-4", style="width: $(width)px")
+Block(elems...) = DOM.div(elems...; class="p-2 m-2 w-5/6 max-w-5xl")
+Section(content...; bg="") = DOM.div(Block(content...), class="$bg flex flex-col items-center w-full")
+function Showcase(; title, image, link)
+    img = render_media(img_asset(image); class="image p-2", style="height: 150px; ")
+    return D.FlexCol(
+        DOM.div(title, class="text-lg font-semibold text-center"),
+        DOM.a(img; href=link)
+    )
+end
+
 
 Base.@kwdef struct Logo
     image::String=""
@@ -24,7 +34,6 @@ Base.@kwdef struct Logo
 end
 
 SmallLogo(; kw...) = Logo(; class="rounded-md p-2 m-2 shadow bg-white w-8", kw...)
-
 
 function render_media(asset::Asset; class="", style="")
     if asset.media_type == :mp4
@@ -53,7 +62,7 @@ end
 
 function JSServe.jsrender(s::Session, card::DetailedCard)
     if isempty(card.height)
-        style ="width: $(card.width)px"
+        style = "width: $(card.width)px"
     else
         style = "height: $(card.height)px"
     end
@@ -76,7 +85,7 @@ end
 
 function FocusBlock(description; image="", link="", height="400px", rev=false)
     block = [
-        DOM.div(description; class="text-xl px-4", style="width: 600px"),
+        TextBlock(description),
         DOM.a(render_media(img_asset(image), class="rounded-md p-2 shadow bg-white", style="width: $height; max-width: none"); href=link)
     ]
     rev && reverse!(block)
@@ -111,8 +120,8 @@ function Navigation(highlighted="")
             class="flex",
             item("Home", "./"),
             item("Team", "./team.html"),
-            item("Support"),
-            item("Contact"),
+            item("Support", "./support.html"),
+            item("Contact", "./contact.html"),
         )
     )
 end
@@ -147,12 +156,73 @@ team = App(title="Makie - Team") do s
     return page(body, "Team")
 end
 
+function SupportCard(title, content)
+    D.Card(
+        D.FlexCol(H1(title),
+        TextBlock(content; width=400)),
+    )
+end
+
+support = App(title="Support") do s
+    body = DOM.div(
+        TextBlock("Makie is a big and active project which needs a lot of resources to keep going.
+        To make sure, core contributors have enough time to work on Makie, we've to make sure our developers and maintainers are paid for their hard work.
+        If you're a regular Makie user, we'd really appreciate if you could support us in one of the following ways:"),
+        FlexGrid(
+            SupportCard(
+                "Sponsoring",
+                """
+                If you love Makie and want to support us, you can sponsor us on GitHub.
+                This is the easiest way to support us, and we're very grateful for every sponsor.
+                """
+            ),
+            SupportCard(
+                "Support Contract",
+                """
+                We're happy to give out support contracts for Makie.
+                If you're a power user of Makie at
+                """
+            ),
+            SupportCard(
+                "Voluntary License",
+                """
+                If you're part of an organization that can't just pay for work directly, nor sponsor us, but still wants to support us, we offer a voluntary license for Makie.
+                The idea is, to offer a license with an official receipt, that instutations can buy to support us.
+                The license is fully voluntary, and doesn't give you any additional rights, but it helps us a lot to secure some basic income.
+                """
+            ),
+            SupportCard(
+                "Grants",
+                """
+                Makie has been funded by grants in the past, and we're always looking for new opportunities.
+                If you can help us secure a grant, please contact us.
+                We're happy to chat and figure out ways to make it work.
+                """
+            ),
+            SupportCard(
+                "Consulting",
+                """
+                Facing a tough challenge or considering outsourcing a complex visualization?
+                We've got you covered. Whether you're determining if Makie suits your project, tackling performance issues, or seeking general assistance, our team is at your service.
+                Reach out to us with a concise summary of your project, timeline, and budget, so we can explore the best ways to support your needs.
+                """
+            ),
+        )
+    )
+    return page(Section(body), "Support")
+end
+
+
+include("src/contact.jl")
+
 function make()
     dir = joinpath(@__DIR__, "docs")
     # rm(dir; recursive=true, force=true); mkdir(dir)
     routes = JSServe.Routes()
     routes["/"] = index
     routes["team"] = team
+    routes["conctact"] = contact
+    routes["support"] = support
     folder = AssetFolder(dir)
     JSServe.export_static(dir, routes; asset_server=folder)
 end
