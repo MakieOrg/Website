@@ -37,13 +37,11 @@ end
 
 function JSServe.jsrender(s::Session, card::Logo)
     return JSServe.jsrender(s, DOM.div(
-        DOM.a(
-            DOM.div(card.title; class="title"),
-            DOM.div(
-                DOM.div(card.description),
-                    JSServe.jsrender(s, DOM.img(src=img_asset(card.image), class="flex-logo-img")),
-                ; class="box-content");
-            href=card.link, class="box-link"), class="flex-logo"))
+        DOM.a(JSServe.jsrender(s, DOM.img(src=img_asset(card.image), class="w-full")),
+            ;
+            href=card.link, class="box-link w-full"),
+        class="w-1/5 p-8 flex justify-center")
+    )
 end
 
 Base.@kwdef struct DetailedCard
