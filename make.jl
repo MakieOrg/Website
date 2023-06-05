@@ -221,7 +221,7 @@ function make()
     routes = JSServe.Routes()
     routes["/"] = index
     routes["team"] = team
-    routes["conctact"] = contact
+    routes["contact"] = contact
     routes["support"] = support
     folder = AssetFolder(dir)
     JSServe.export_static(dir, routes; asset_server=folder)
@@ -229,10 +229,10 @@ end
 
 make()
 
-disp = display(app)
+# disp = display(app)
 
-watcher(path) do
-    @async begin
-        @time display(disp, app)
-    end
-end
+# watcher(path) do
+#     @async begin
+#         @time display(disp, app)
+#     end
+# end
