@@ -1,84 +1,160 @@
-using JSServe, Markdown, Observables
-using JSServe: ES6Module, Asset
+using JSServe
+import JSServe.TailwindDashboard as D
+JSServe.browser_display()
+using Markdown
 
-module Types
-    struct Card
-        title::String
-        description::String
-        image::String
-        link::String
-    end
-end
-
-src_path(files...) = joinpath(@__DIR__, "src", files...)
-site_path(files...) = normpath(joinpath(@__DIR__, "docs", files...))
-markdown(files...) = joinpath(@__DIR__, "pages", "blogposts", files...)
-asset(files...) = Asset(normpath(joinpath(@__DIR__, "assets", files...)))
-const Highlight = ES6Module(joinpath(@__DIR__,  "assets", "libs", "highlight", "highlight.pack.js"))
-
-function make_app(dom)
-    return JSServe.App() do
-        assets = asset.([
-            "css/makie.css",
-            "libs/highlight/github.min.css"])
-
-        highlight = DOM.div(
-            DOM.script(src=asset("libs", "highlight", "highlight.pack.js")),
-            DOM.script("hljs.highlightAll()")
-        )
-        return DOM.html(
-            DOM.head(
-                DOM.meta(charset="UTF-8"),
-                DOM.meta(name="viewport", content="width=device-width, initial-scale=1"),
-                assets...,
-                DOM.link(rel="icon", type="image/x-icon", href=asset("images", "favicon.ico")),
-            ),
-            DOM.body(dom, highlight)
-        )
-    end
-end
-
-function page(file)
+function md2html(s, file)
     source = read(file, String)
-    md = JSServe.string_to_markdown(source, Main; eval_julia_code=Main)
-    banner = DOM.a(DOM.img(src = asset("images", "bannermesh_gradient.png")), href="/")
-    body = DOM.div(DOM.div(md, class="inner-page"), class="outer-page")
-    return make_app(DOM.div(banner, body))
+    return JSServe.string_to_markdown(s, source; eval_julia_code=Main)
 end
 
-assets = asset.(["css/makie.css"])
-push!(assets, Asset("https://cdn.tailwindcss.com"; mediatype=:css))
+H1(x) = DOM.h1(x; class="text-2xl font-black text-left my-2")
+H2(x) = DOM.h2(x; class="text-lg font-bold text-left my-1")
+JSServe.jsrender(s::Session, card::Vector) = JSServe.jsrender(s, DOM.div(JSServe.TailwindCSS, card...; class="flex flex-wrap"))
 
-function JSServe.jsrender(s::Session, card::Types.Card)
-    return DOM.div(class = "box",
-        DOM.a(
-            DOM.div(card.title; class = "title"),
-            DOM.div(
-                DOM.div(card.description),
-                JSServe.jsrender(s, DOM.img(src = asset(card.image), width=300)),
-                ; class = "box-content");
-            href = card.link, class = "box-link")
+img_asset(files...) = Asset(normpath(joinpath(@__DIR__, "assets", "images", files...)))
+css_asset(files...) = Asset(normpath(joinpath(@__DIR__, "assets", "css", files...)))
+FlexGrid(elems...; class="", kwargs...) = DOM.div(elems...; class=join(["flex flex-wrap", class], " "), kwargs...)
+Block(elems...) = DOM.div(elems...; class="p-2 m-2", style="width: 1000px")
+
+Base.@kwdef struct Logo
+    image::String=""
+    link::String=""
+    class::String = "w-1/4 p-8 flex justify-center"
+end
+
+SmallLogo(; kw...) = Logo(; class="rounded-md p-2 m-2 shadow bg-white w-8", kw...)
+
+function JSServe.jsrender(s::Session, logo::Logo)
+    img = DOM.img(src=img_asset(logo.image), class="w-full")
+    return JSServe.jsrender(s, DOM.div(
+        DOM.a(img; href=logo.link, class="box-link w-full"),
+        class=logo.class)
     )
 end
 
 
-function _index()
-    App() do
-        cards = [
-            Types.Card("Simon Danisch", "Author of Makie", "images/simon.jpg", "simon.html"),
-            Types.Card("Julius Krumbiegel", "Author of MakieLayout", "images/julius.jpg", "julius.html")
-        ]
-        return DOM.div(
-            assets...,
-            DOM.img(src = Observable(asset("images", "bannermesh_gradient.png"))),
-            DOM.div(cards..., class = "mfp-content"))
-    end
+Base.@kwdef struct DetailedCard
+    title::String = ""
+    image::String = ""
+    link::String = ""
+    width::Int = 400
+    height = ""
+    details::Any = nothing
 end
 
-begin
+function JSServe.jsrender(s::Session, card::DetailedCard)
+    if isempty(card.height)
+        style ="width: $(card.width)px"
+    else
+        style = "height: $(card.height)px"
+    end
+    img = DOM.img(src=img_asset(card.image); class="image p-4", style=style)
+    details = if card.details isa Markdown.MD
+        JSServe.md_html(Session(), card.details.content[1])
+    else
+        card.details
+    end
+    return JSServe.jsrender(s,
+        DOM.div(class="rounded-md shadow m-2 bg-white flex grow justify-center",
+            D.FlexCol(
+                css_asset("detail-hover.css"),
+                DOM.div(card.title, class="text-m font-semibold text-center mb-3"),
+                DOM.div(img, DOM.div(details, class="overlay"),
+                class="container"),
+            )
+        ))
+end
+
+function FocusBlock(description; image="", link="", height="400px", rev=false)
+    block = [
+        DOM.div(description; class="text-xl px-4", style="width: 600px"),
+        DOM.a(DOM.img(src=img_asset(image), class="rounded-md p-2 shadow bg-white", style="width: $height; max-width: none"); href=link)
+    ]
+    rev && reverse!(block)
+    return D.FlexRow(block...)
+end
+
+using FileWatching
+
+function watcher(f, path)
+    Base.errormonitor(@async begin
+        while isfile(path)
+            state = watch_file(path)
+            if state.changed
+                f()
+            end
+        end
+    end)
+end
+
+
+function Navigation(highlighted="")
+    function item(name, href="#$name")
+        highlight = highlighted == name ? " navbar-highlight" : ""
+        return DOM.a(DOM.div(
+                class="text-white cursor-pointer py-1 px-2 hover:text-blue-200$highlight",
+            name,
+            ); href=href)
+    end
+    return DOM.div(
+        class="pl-8 flex items-center navbar", # TailwindCSS classes
+        DOM.div(
+            class="flex",
+            item("Home", "./"),
+            item("Team", "./team.html"),
+            item("Support"),
+            item("Contact"),
+        )
+    )
+end
+
+
+function page(body, highlighted)
+    header = DOM.img(src=img_asset("bannermesh_gradient.png"); style="width: 100%")
+    return DOM.div(
+        JSServe.TailwindCSS,
+        JSServe.MarkdownCSS,
+        css_asset("site.css"),
+        header,
+        Navigation(highlighted),
+        body,
+    )
+end
+
+path = joinpath(@__DIR__, "src", "index.md")
+
+
+include("src/index.jl")
+index = App(title="Makie") do s
+    # body = md2html(s, path)
+    return page(index_page(), "Home")
+end
+
+##
+
+team = App(title="Makie - Team") do s
+    path = joinpath(@__DIR__, "src", "team.md")
+    body = md2html(s, path)
+    return page(body, "Team")
+end
+
+function make()
+    dir = joinpath(@__DIR__, "docs")
+    # rm(dir; recursive=true, force=true); mkdir(dir)
     routes = JSServe.Routes()
-    routes["index"] = _index()
-    routes["simon"] = page(src_path("team", "simon.md"))
-    routes["julius"] = page(src_path("team", "julius.md"))
-    JSServe.export_static(site_path(), routes)
+    routes["/"] = index
+    routes["team"] = team
+    folder = AssetFolder(dir)
+    JSServe.export_static(dir, routes; asset_server=folder)
+end
+
+make()
+
+disp = display(app)
+
+watcher(path) do
+    @async begin
+        @time display(disp, app)
+    end
 end

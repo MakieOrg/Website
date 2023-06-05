@@ -1,5 +1,4 @@
 
-
 function Showcase(; title, image, link)
     img = DOM.img(src=img_asset(image); class="image p-2", style="height: 150px; ")
     return D.FlexCol(
