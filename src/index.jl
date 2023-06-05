@@ -291,7 +291,7 @@ function index_page()
                 Logo(image="microsoft.png", link="https://www.youtube.com/watch?v=7-vN8oNAz6Y"),
                 Logo(image="instron.png", link="https://github.com/bradcarman/ModelingToolkitDesigner.jl"),
                 Logo(image="dwd.png", link="https://www.youtube.com/watch?v=-Cg6AoymaM0"),
-                class = "logo-container",
+                class = "justify-center items-center -m-8",
             ),
             DOM.div("Supporters"; class="text-xl text-black flex justify-center mt-14 mb-10 font-semibold"),
             FlexGrid(
@@ -301,14 +301,14 @@ function index_page()
                 Logo(image="beacon.svg", link="https://beacon.bio"),
                 Logo(image="mit.png", link=""),
                 Logo(image="bmbf.svg", link=""),
-                class = "logo-container",
+                class = "justify-center items-center -m-8",
             ),
             DOM.div("Follow us"; class="text-xl text-black flex justify-center mt-14 mb-10 font-semibold"),
             FlexGrid(
                 SmallLogo(image="twitter.svg", link="https://twitter.com/MakiePlots"),
                 SmallLogo(image="linkedin.png", link="https://www.linkedin.com/company/makieorg"),
                 SmallLogo(image="GitHub-Mark-64px.png", link="https://github.com/MakieOrg"),
-                class = "logo-container",
+                class = "justify-center items-center -m-8",
             )
         );
         class="flex flex-col items-center w-full")
