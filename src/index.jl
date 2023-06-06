@@ -1,40 +1,47 @@
 
+using JSServe: @dom_str
 
+semibold(text) = DOM.span(text, class="font-semibold")
 
-function index_page()
+function index_page(s)
     overview_width = 150
     eco_width = 150
+    Julia = link("Julia", "https://julialang.org")
 
+    be_quote = link(DOM.img(src=img_asset("benedikt-tweet.png"); class=CARD_STYLE), "https://twitter.com/BenediktEhinger/status/1665326068973158400")
     return DOM.div(
         Section(
             FlexGrid(
-            DOM.div(
-                DOM.p(DOM.span("Makie"; class="font-semibold"), " is a modern plotting library for ", DOM.a("Julia", href="https://julialang.org"), " which is easy to use yet fast and powerful. It's packed with ", DOM.a("features", href="#Features"), " and the goal is to be not limited to any special use case, while making as few compromises as possible.
-                "); class="w-80 text-xl mx-2 my-4"),
+                TextBlock(width="w-96 pl-2 pb-2 ",
+                    dom"""
+                    $(semibold("Makie")) is a modern plotting library for $Julia,
+                    which is easy to use yet fast and powerful. It's packed with features,
+                    and the goal is to be not limited to any special use case, while making as few compromises as possible.
+                    """),
                 Showcase(
                     title="Explore billions of data points",
                     image="use_cases/datashader.mp4",
-                    link=""
-                ),
-                Showcase(
-                    title="Dashboards on the Web",
-                    image="use_cases/clima.gif",
-                    link="https://simondanisch.github.io/JSServe.jl",
+                    href=""
                 ),
                 Showcase(
                     title="Publication ready SVGs",
-                    image="use_cases/publication.png",
-                    link="https://iopscience.iop.org/article/10.3847/1538-3881/aca1af/pdf",
+                    image="use_cases/publication.jpg",
+                    href="https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2022MS003527",
                 ),
                 Showcase(
                     title="Photorealistic renderings",
                     image="backends/rprmakie.png",
-                    link="https://www.bgc-jena.mpg.de/en/bgi/gallery",
+                    href="https://www.bgc-jena.mpg.de/en/bgi/gallery",
+                ),
+                Showcase(
+                    title="Dashboards on the Web",
+                    image="use_cases/clima.gif",
+                    href="https://simondanisch.github.io/JSServe.jl",
                 ),
                 Showcase(
                     title="Video games",
                     image="use_cases/miner.png",
-                    link="https://github.com/ashwani-rathee/Miner.jl"
+                    href="https://github.com/ashwani-rathee/Miner.jl"
                 )
             )
         ),
@@ -55,11 +62,12 @@ function index_page()
                 rev=true
             ),
             H2("Powerful Layouting"),
-            FocusBlock("""
+            FocusBlock(dom"""
                 Makie has one of the most powerful layouting systems compared to other plotting
                 libraries, allowing you to tweak any possible attribute and place your plots
-                and subplots freely. No need to use inkscape anymore to redo your layout!""";
-                image = "use_cases/layouting.png",
+                and subplots freely.
+                """;
+                image=DOM.div(be_quote, render_media(img_asset("use_cases/layouting.png"); class=CARD_STYLE)),
                 link = "https://docs.makie.org/stable/tutorials/layout-tutorial/"
             ),
 
@@ -72,9 +80,9 @@ function index_page()
             ),
 
             H2("Backends"),
-            DOM.div("""Makie's backends are the reason, why we can have high quality vector graphics for publication, while also delivering fast GPU accelerated renderings.
+            TextBlock("""Makie's backends are the reason, why we can have high quality vector graphics for publication, while also delivering fast GPU accelerated renderings.
             Use exactly the same code, and change how your interactive graphic is displayed simply by switching the backend.
-            """; class="text-xl"),
+            """),
             FlexGrid(
                 DetailedCard(
                     title="GLMakie",
@@ -86,6 +94,7 @@ function index_page()
                     * Uses the GPU via OpenGL for fast 3D animations
                     * Basic UI elements for simple Dashboards
                     * Needs a GPU, or a virtual GPU (e.g. Mesa, VirtualGL)
+                    * Image from: $(link("A. N. Souza", "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2022MS003527"))
                     """
                 ),
                     DetailedCard(
@@ -98,6 +107,7 @@ function index_page()
                     * 3D support experimental
                     * Not interactive
                     * Runs everywhere on the CPU
+                    * Image from: $(link("beautiful.makie.org", "https://beautiful.makie.org"))
                     """
                 ),
                 DetailedCard(
@@ -110,6 +120,7 @@ function index_page()
                     * Mostly feature complete, with some things still missing
                     * Runs almost everywhere on the GPU
                     * Great for working on remote machines, plotpane and notebooks
+                    * Image from: $(link("VISUS", "https://www.visus.uni-stuttgart.de"))
                     """
                 ),
                 DetailedCard(
@@ -120,7 +131,9 @@ function index_page()
                     details=md"""* Newest, supports only a subset of Makie (mostly the 3d primitives)
                     * Very slow, needs high end hardware for high quality animations
                     * Still immature
-                    * looks amazing when it works"""
+                    * looks amazing when it works
+                    * Image from: $(link("Lazaro Alonso", "https://github.com/lazarusA"))
+                    """
                 ),
             ),
         ),

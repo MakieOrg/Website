@@ -22,9 +22,10 @@ function all_contributors(repo::String)
     contributors(repo)
 end
 
+if !isdefined(Main, :makie_repo)
+    makie_repo = repo("MakieOrg/Makie.jl")
 
-makie_repo = repo("MakieOrg/Makie.jl")
+    contribs = contributors(makie_repo)
 
-contribs = contributors(makie_repo)
-
-owners = [owner["contributor"] for owner in contribs[1]]
+    owners = [owner["contributor"] for owner in contribs[1]]
+end
