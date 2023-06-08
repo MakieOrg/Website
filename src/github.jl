@@ -1,4 +1,4 @@
-using GitHub
+import GitHub
 
 function JSServe.jsrender(owner::GitHub.Owner)
     name = DOM.span(string(owner.login), style="margin: 2px; color: 'gray")
@@ -23,9 +23,9 @@ function all_contributors(repo::String)
 end
 
 if !isdefined(Main, :makie_repo)
-    makie_repo = repo("MakieOrg/Makie.jl")
+    makie_repo = GitHub.repo("MakieOrg/Makie.jl")
 
-    contribs = contributors(makie_repo)
+    contribs = GitHub.contributors(makie_repo)
 
     owners = [owner["contributor"] for owner in contribs[1]]
 end
