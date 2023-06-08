@@ -1,6 +1,6 @@
 function SupportCard(title, content, value)
     c = DOM.div(D.FlexCol(H2(title), TextBlock(content)))
-    return D.Card(DOM.a(c, href="/contact?subject=" * value); class="hover:bg-gray-300")
+    return D.Card(DOM.a(c, href=JSServe.Link("/contact?subject=" * value)); class="hover:bg-gray-300")
 end
 
 support = App(title="Support") do s
