@@ -91,10 +91,10 @@ end
 
 
 function Navigation(highlighted="")
-    function item(name, href="#$name")
+    function item(name, href)
         highlight = highlighted == name ? " navbar-highlight" : ""
         class = "text-white cursor-pointer py-1 px-2 hover:text-blue-200$highlight"
-        return DOM.a(DOM.div(name, class=class); href)
+        return DOM.a(DOM.div(name, class=class); href=JSServe.Link(href))
     end
     return DOM.div(
         class="pl-8 flex items-center navbar", # TailwindCSS classes
