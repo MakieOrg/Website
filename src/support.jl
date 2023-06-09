@@ -1,19 +1,21 @@
 function SupportCard(title, content, value)
-    c = DOM.div(D.FlexCol(H2(title), TextBlock(content)))
+    c = DOM.div(D.FlexCol(H2(title), TextBlock(content; width="w-64")))
     return D.Card(DOM.a(c, href=JSServe.Link("/contact?subject=" * value)); class="hover:bg-gray-300")
 end
 
 support = App(title="Support") do s
-    body = DOM.div(
+    body = Block(
         TextBlock("Makie is a big and active project which needs a lot of resources to keep going.
         To make sure, core contributors have enough time to work on Makie, we've to make sure our developers and maintainers are paid for their hard work.
         If you're a regular Makie user, we'd really appreciate if you could support us in one of the following ways:"),
         FlexGrid(
             SupportCard(
                 "Sponsoring",
-                """
+                dom"""
                 If you love Makie and want to support us, you can sponsor us on GitHub.
                 This is the easiest way to support us, and we're very grateful for every sponsor.
+                Developers you can sponsor right now: $(DOM.br())
+                $(link("Simon", "https://github.com/sponsors/SimonDanisch"))
                 """,
                 "sponsoring"
             ),
@@ -21,7 +23,7 @@ support = App(title="Support") do s
                 "Support Contract",
                 """
                 We're happy to give out support contracts for Makie.
-                If you're a power user of Makie at
+                How it works is, that you pay a fixed amount of money per month, and we'll allocate resources to help out in any way we can.
                 """,
                 "contract"
             ),
@@ -35,15 +37,6 @@ support = App(title="Support") do s
                 "license"
             ),
             SupportCard(
-                "Grants",
-                """
-                Makie has been funded by grants in the past, and we're always looking for new opportunities.
-                If you can help us secure a grant, please contact us.
-                We're happy to chat and figure out ways to make it work.
-                """,
-                "grants"
-            ),
-            SupportCard(
                 "Consulting",
                 """
                 Facing a tough challenge or considering outsourcing a complex visualization?
@@ -52,6 +45,15 @@ support = App(title="Support") do s
                 """,
                 "consulting"
             ),
+            SupportCard(
+                "Grants",
+                """
+                Makie has been funded by grants in the past, and we're always looking for new opportunities.
+                If you can help us secure a grant, please contact us.
+                We're happy to chat and figure out ways to make it work.
+                """,
+                "grants"
+            )
         )
     )
     return page(Section(body), "Support")

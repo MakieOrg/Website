@@ -1,4 +1,3 @@
-
 contact = App(title="Contact") do
     form = DOM.form(id="contact-form", class="p-4")
     subject_label = DOM.label("Subject:", class="text-sm font-medium text-gray-700")
@@ -20,6 +19,8 @@ contact = App(title="Contact") do
     contact_js = ES6Module(joinpath(@__DIR__, "contact.js"))
     # Add elements to form
     body = D.FlexCol(
+        "We're happy to hear from you!
+        Please use our form below, or write to info at makie.org:",
         form,
         DOM.div(subject_label, subject_select, class="mb-6"),
         DOM.div(message_label, message_textarea, class="mb-6"),
@@ -32,5 +33,5 @@ contact = App(title="Contact") do
         """
     )
     body2 = DOM.div(DOM.div(body; class="w-1/2 min-w-fit max-w-5xl"), class="flex flex-col items-center w-full")
-    return page(Section(body), "Contact")
-end
+    return page(Section(Block(body)), "Contact")
+end;

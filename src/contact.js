@@ -1,3 +1,5 @@
+import * as Email from "https://esm.sh/v125/smtpjs@0.0.1/es2022/smtpjs.mjs";
+
 window.set_default_text = (text_node, value) => {
     switch (value) {
         case "license":
@@ -43,21 +45,19 @@ window.send_email = () => {
     const message = message_textarea.value;
     console.log(subject);
     console.log(message);
-    /*
     Email.send({
-        SecureToken: 'YourSMTPJSToken',
-        To: 'info@makie.org',
-        From: 'yourEmail@example.com',
+        SecureToken: "a4301337-4c13-407f-a633-a59e3feb2375",
+        To: "info@makie.org",
+        From: "send@makie.org",
         Subject: subject,
-        Body: message
-    }).then(response => {
-        if (response == 'OK') {
-            alert('Email successfully sent!');
+        Body: message,
+    }).then((response) => {
+        if (response == "OK") {
+            alert("Email successfully sent!");
         } else {
-            alert('Failed to send email: ' + response);
+            alert("Failed to send email: " + response);
         }
     });
-    */
 };
 
 export function init(textarea, select_node) {

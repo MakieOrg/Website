@@ -26,6 +26,7 @@ html {
 
 body {
     width: 100%;
+    background-color: rgb(255, 255, 255);
 }
 
 .markdown-body {
