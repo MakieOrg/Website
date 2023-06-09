@@ -17,12 +17,5 @@ routes, task, server = interactive_server([asset_path(), joinpath(@__DIR__, "src
     )
 end
 
-# routes = Routes(
-#     "/" => index,
-#     "/team" => team,
-#     "/contact" => contact,
-#     "/support" => support
-# )
-
-# dir = joinpath(@__DIR__, "docs")
-# JSServe.export_static(dir, routes)
+dir = joinpath(@__DIR__, "docs")
+JSServe.export_static(dir, routes)
