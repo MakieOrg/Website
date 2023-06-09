@@ -13,7 +13,7 @@ contact = App(title="Contact") do
         id="subject", name="subject", class=select_class, onchange="on_select"
     )
     message_label = DOM.label("Message:", class="mt-4 text-sm font-medium text-gray-700")
-    bclass = "w-24 mt-6 py-2 px-4 justify-center text-white font-semibold text-sm rounded-md hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 navbar"
+    bclass = "mt-6 py-2 px-4 justify-center text-white font-semibold text-sm rounded-md hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 navbar"
 
     submit_button = DOM.div("Send", onclick="send_email()", class=bclass)
     contact_js = ES6Module(joinpath(@__DIR__, "contact.js"))
