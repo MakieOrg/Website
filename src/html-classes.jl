@@ -89,7 +89,6 @@ function JSServe.jsrender(s::Session, card::DetailedCard)
     return JSServe.jsrender(s, card_div)
 end
 
-
 function Navigation(highlighted="")
     function item(name, href)
         highlight = highlighted == name ? " navbar-highlight" : ""
@@ -104,6 +103,7 @@ function Navigation(highlighted="")
             item("Team", "/team"),
             item("Support", "/support"),
             item("Contact", "/contact"),
+            item("Documentation", "http://docs.makie.org"),
         )
     )
 end
@@ -115,6 +115,7 @@ function page(body, highlighted)
         JSServe.TailwindCSS,
         JSServe.MarkdownCSS,
         css_asset("site.css"),
+        DOM.link(href=img_asset("icon_transparent.png"), rel="icon", type="image/png"),
         header,
         Navigation(highlighted),
         body,
