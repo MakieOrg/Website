@@ -13,9 +13,9 @@ contact = App(title="Contact") do
         id="subject", name="subject", class=select_class, onchange="on_select"
     )
     message_label = DOM.label("Message:", class="mt-4 text-sm font-medium text-gray-700")
-    bclass = class = "navbar mt-6 inline-flex justify-center py-2 px-4 text-sm rounded-md text-white  hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+    bclass = "w-24 mt-6 py-2 px-4 justify-center text-white font-semibold text-sm rounded-md hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 navbar"
 
-    submit_button = DOM.input(type="button", value="Send", onclick="send_email()", class=bclass)
+    submit_button = DOM.div("Send", onclick="send_email()", class=bclass)
     contact_js = ES6Module(joinpath(@__DIR__, "contact.js"))
     # Add elements to form
     body = D.FlexCol(
@@ -32,6 +32,6 @@ contact = App(title="Contact") do
             });
         """
     )
-    body2 = DOM.div(DOM.div(body; class="w-1/2 min-w-fit max-w-5xl"), class="flex flex-col items-center w-full")
+    body2 = DOM.div(DOM.script(src="https://smtpjs.com/v3/smtp.js"), DOM.div(body; class="w-1/2 min-w-fit max-w-5xl"), class="flex flex-col items-center w-full")
     return page(Section(Block(body)), "Contact")
 end;
