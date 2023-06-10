@@ -29,9 +29,8 @@ end
 
 function FocusBlock(description; image="", link="", height="400px", rev=false)
     img = image isa String ? render_media(img_asset(image); class=CARD_STYLE) : image
-    text_just = rev ? "text-left" : "text-right"
     block = [
-        TextBlock(description; width="w-full lg:w-1/2 text-justify lg:$(text_just)"),
+        TextBlock(description; width="w-full lg:w-1/2 text-justify"),
         DOM.div(Main.link(img, link); class="w-full lg:w-1/3")
     ]
     rev && reverse!(block)
