@@ -78,8 +78,8 @@ index = App(title="Makie") do
         H1("Features"), H2("Surgical updates & high performance"), FocusBlock(
             DOM.div("""
             Makie updates only what's needed using Observables.jl.
-            This example animates hundred thousand of points, by just updating the color, which only updates a few bytes per frame directly on the GPU.
-            There's no faster way to animate large data, so Makie, together with utilizing the GPU and Julia's high performance, is fit for any task!
+            This example animates hundreds of thousands of points just through a colormap update, modifying only a few bytes per frame directly on the GPU.
+            There's no faster way to animate large data. Combining the power of GPUs and Julia's high performance, Makie is fit for any task!
             """, alex);
             image="use_cases/glacier.mp4",
             link="https://makieorg.github.io/Tyler.jl/dev/examples/generated/UserGuide/iceloss_ex",
