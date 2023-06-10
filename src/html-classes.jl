@@ -82,7 +82,7 @@ function JSServe.jsrender(s::Session, card::DetailedCard)
         DOM.div(img, DOM.div(details, class="overlay p-2 text-sm lg:text-base"), class="container"),
     )
     card_div = DOM.div(
-        class="rounded-md shadow lg:m-2 bg-white flex justify-center $(card.imclass)",
+        class="rounded-md shadow bg-white flex justify-center $(card.imclass)",
         link(content, card.link; class="")
     )
 

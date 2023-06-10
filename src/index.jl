@@ -118,9 +118,11 @@ index = App(title="Makie") do
             rev=true
         ),
         H2("Backends"),
-        TextBlock("""Makie's backends are the reason, why we can have high quality vector graphics for publication, while also delivering fast GPU accelerated renderings.
-        Use exactly the same code, and change how your interactive graphic is displayed simply by switching the backend.
-        """),
+        DOM.div(
+            """Makie's backends are the reason, why we can have high quality vector graphics for publication, while also delivering fast GPU accelerated renderings.
+            Use exactly the same code, and change how your interactive graphic is displayed simply by switching the backend.
+            """
+        ),
         FlexGrid(
             DetailedCard(
                 imclass=backend_class,
@@ -173,6 +175,7 @@ index = App(title="Makie") do
                 * Image from: $(link("Lazaro Alonso", "https://github.com/lazarusA"))
                 """
             ),
+            class="gap-4",
         ),
     )
     eco_class = "lg:w-1/6 md:w-1/5 sm:w-1/4 w-1/3"
@@ -321,6 +324,7 @@ index = App(title="Makie") do
                 imclass=eco_class,
                 details="Agents.jl is a pure Julia framework for agent-based modeling (ABM)"
             ),
+            class="gap-4",
         ),
     )
     users = Section(bg="white",
