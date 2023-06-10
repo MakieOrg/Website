@@ -33,7 +33,7 @@ index = App(title="Makie") do
             ),
             Showcase(
                 title="Dashboards on the Web",
-                image="use_cases/clima.gif",
+                image="use_cases/clima.mp4",
                 href="https://simondanisch.github.io/JSServe.jl",
             ),
             Showcase(
@@ -43,14 +43,44 @@ index = App(title="Makie") do
             )
         )
     )
+    backend_class = "w-full md:w-96"
+
+    benedict = QuoteBlock(
+        "Benedict Ehinger",
+        "https://github.com/behinger",
+        """
+        the only way I succeeded to do this without manually replacing fonts in illustrator, is to use
+        @MakiePlots with it's fabulous layout-system.
+        """,
+        "https://twitter.com/BenediktEhinger/status/1665326068973158400"
+    )
+
+    alex = QuoteBlock(
+        "Alex S. Gardner",
+        "https://www.linkedin.com/posts/alex-s-gardner_greenland-julia-itsabrlive-activity-7056483156798947328-99pH",
+        """
+         I'm pretty stoked about this capability as it offers a new way of interactively visualizing animated geospatial data that I haven't seen done in any other language.
+        """,
+        "https://julialang.slack.com/archives/C9XBLUCVB/p1682465705219249"
+    )
+
+    garrek = QuoteBlock(
+        "Garrek Stemo",
+        "https://github.com/garrekstemo",
+        """
+        Makie was what convinced me to completely switch from Python to Julia, it was simple and the defaults looked great.
+        I was pretty quickly able to get a simple GUI that integrated with my laboratory instruments to automatically spit out plots
+        """,
+        "https://discourse.julialang.org/t/comparison-of-plotting-packages/99860/44"
+    )
     features = Section(bg="bg-gray-100",
         H1("Features"), H2("Surgical updates & high performance"), FocusBlock(
-            """
+            DOM.div("""
             Makie updates only what's needed using Observables.jl.
             This example animates hundred thousand of points, by just updating the color, which only updates a few bytes per frame directly on the GPU.
             There's no faster way to animate large data, so Makie, together with utilizing the GPU and Julia's high performance, is fit for any task!
-            """;
-            image="use_cases/glacier.gif",
+            """, alex);
+            image="use_cases/glacier.mp4",
             link="https://makieorg.github.io/Tyler.jl/dev/examples/generated/UserGuide/iceloss_ex",
             rev=true
         ),
@@ -59,22 +89,26 @@ index = App(title="Makie") do
             Makie has one of the most powerful layouting systems compared to other plotting
             libraries, allowing you to tweak any possible attribute and place your plots
             and subplots freely.
+            $(benedict)
             """;
-            image=DOM.div(be_quote, render_media(img_asset("use_cases/layouting.png"); class=CARD_STYLE)),
+            image=img_asset("use_cases/layouting.png"),
             link="https://docs.makie.org/stable/tutorials/layout-tutorial/"
-        ), H2("2D, 3D, Volumes, Meshes, Sliders, Buttons and more"),
-        FocusBlock("""
+        ),
+        H2("2D, 3D, Volumes, Meshes, Sliders, Buttons and more"),
+        FocusBlock(
+            DOM.div("""
             Makie has support for all kind of primitives for interactive data exploration. This makes it simple, to quickly build up dashboards for any kind of data.
-            """,
-            image="use_cases/clima-volume.gif",
+            """, garrek),
+            image="use_cases/clima-volume.mp4",
             rev=true
-        ), H2("Backends"),
+        ),
+        H2("Backends"),
         TextBlock("""Makie's backends are the reason, why we can have high quality vector graphics for publication, while also delivering fast GPU accelerated renderings.
         Use exactly the same code, and change how your interactive graphic is displayed simply by switching the backend.
         """),
         FlexGrid(
             DetailedCard(
-                imclass="w-80",
+                imclass=backend_class,
                 title="GLMakie",
                 image="backends/glmakie.png",
                 link="https://docs.makie.org/stable/documentation/backends/glmakie/",
@@ -87,7 +121,7 @@ index = App(title="Makie") do
                 """
             ),
             DetailedCard(
-                imclass="w-80",
+                imclass=backend_class,
                 title="CairoMakie",
                 image="backends/cairomakie.svg",
                 link="https://docs.makie.org/stable/documentation/backends/cairomakie/",
@@ -100,9 +134,9 @@ index = App(title="Makie") do
                 """
             ),
             DetailedCard(
-                imclass="w-80",
+                imclass=backend_class,
                 title="WGLMakie",
-                image="backends/wglmakie.gif",
+                image="backends/wglmakie.mp4",
                 link="https://docs.makie.org/stable/documentation/backends/wglmakie/",
                 details=md"""* Creates visualizations via Threejs & WebGL in the browser
                 * Has an overhead for transferring data to browser
@@ -113,7 +147,7 @@ index = App(title="Makie") do
                 """
             ),
             DetailedCard(
-                imclass="w-80",
+                imclass=backend_class,
                 title="RPRMakie",
                 image="use_cases/earths_creditst.png",
                 link="https://docs.makie.org/stable/documentation/backends/rprmakie/",
@@ -143,14 +177,14 @@ index = App(title="Makie") do
             DetailedCard(
                 title="Tyler.jl",
                 link="https://github.com/MakieOrg/Tyler.jl",
-                image="ecosystem/tyler-sam.gif",
+                image="ecosystem/tyler-sam.mp4",
                 imclass=eco_class,
                 details="Makie package to plot maptiles from various map providers"
             ),
             DetailedCard(
                 title="FerriteViz.jl",
                 link="https://github.com/Ferrite-FEM/FerriteViz.jl",
-                image="ecosystem/ferrite.gif",
+                image="ecosystem/ferrite.mp4",
                 imclass=eco_class,
                 details=md"Small package to visualize [Ferrite.jl](https://github.com/Ferrite-FEM/Ferrite.jl) results, which is a simple finite element toolbox written in Julia."
             ),
@@ -178,7 +212,7 @@ index = App(title="Makie") do
             DetailedCard(
                 title="ModelingToolkitDesigner.jl",
                 link="https://github.com/bradcarman/ModelingToolkitDesigner.jl",
-                image="ecosystem/modelingtoolkitdesigner.gif",
+                image="ecosystem/modelingtoolkitdesigner.svg",
                 imclass=eco_class,
                 details="A helper tool for visualizing and editing a ModelingToolkit.jl system connections"
             ),
@@ -226,7 +260,7 @@ index = App(title="Makie") do
             DetailedCard(
                 title="IncompressibleNavierStokes.jl",
                 link="https://github.com/agdestein/IncompressibleNavierStokes.jl",
-                image="ecosystem/incompressiblenavierstokes.gif",
+                image="ecosystem/incompressiblenavierstokes.mp4",
                 imclass=eco_class,
                 details="Incompressible Navier-Stokes solver, utilizing Makie for interactive visualizations"
             ),
@@ -261,7 +295,7 @@ index = App(title="Makie") do
             DetailedCard(
                 title="MakieDraw.jl",
                 link="https://github.com/MakieOrg/MakieDraw.jl",
-                image="ecosystem/makiedraw.gif",
+                image="ecosystem/makiedraw.mp4",
                 imclass=eco_class,
                 details="Plot an interactive canvas of GeometryBaseics Point, LineString or Polygon, or an ms-paint style canvas for any numerical or color Array"
             ),

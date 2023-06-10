@@ -10,7 +10,7 @@
     window.define = undefined;
     window.require = undefined;
 </script>
-      <script src="https://cdn.tailwindcss.com/3.3.1"></script>
+      <script src="../jsserve/js/tailwind.js"></script>
       <link href="../jsserve/css/markdown.css" rel="stylesheet" type="text/css" />
       <link href="../jsserve/css/site.css" rel="stylesheet" type="text/css" />
       <link href="../jsserve/css/tailwind.min.css" rel="stylesheet" type="text/css" />
@@ -22,8 +22,11 @@
     </div>
   </head>
   <body>
-    <script type="module">JSServe.lock_loading(() => JSServe.init_session('1fec3e74-3b84-43dc-8dbd-83d2b0cbfb5e', null, 'root'))</script>
-    <div id="1fec3e74-3b84-43dc-8dbd-83d2b0cbfb5e" data-jscall-id="root">
+    <script type="module">    JSServe.lock_loading(() => {
+        return JSServe.fetch_binary('../jsserve/bin/e669cfa160c1c455aeab5998f174de83c44adfbf-1569773920036004916.bin').then(msgs=> JSServe.init_session('ffe30150-5469-4e9e-a802-9c24620d6c88', msgs, 'root'));
+    })
+</script>
+    <div id="ffe30150-5469-4e9e-a802-9c24620d6c88" data-jscall-id="root">
       <div data-jscall-id="1">
         <link href="../jsserve/png/icon_transparent.png" rel="icon" data-jscall-id="2" type="image/png" />
         <img style="width: 100%" src="../jsserve/png/bannermesh_gradient.png" data-jscall-id="3" />
@@ -53,75 +56,60 @@
         To make sure, core contributors have enough time to work on Makie, we&#39;ve to make sure our developers and maintainers are paid for their hard work.
         If you&#39;re a regular Makie user, we&#39;d really appreciate if you could support us in one of the following ways:</div>
               <div class="flex flex-wrap " data-jscall-id="20">
-                <div class="rounded-md p-2 m-2 shadow hover:bg-gray-300" style="width: fit-content; height: fit-content; " data-jscall-id="21">
-                  <a href="../contact?subject=sponsoring" data-jscall-id="22">
-                    <div data-jscall-id="23">
-                      <div class="my-2 flex flex-col " data-jscall-id="24">
-                        <h2 class="text-lg font-bold text-left my-1" data-jscall-id="25">Sponsoring</h2>
-                        <div class="text-base px-4 w-64" data-jscall-id="26">
-                          <div data-jscall-id="27">If you love Makie and want to support us, you can sponsor us on GitHub.
+                <div class="rounded-md p-2 shadow bg-white m-1 m-2 p-1 hover:bg-gray-300 grow w-full lg:w-1/3" data-jscall-id="21">
+                  <div onclick="" data-jscall-id="22">
+                    <div class="my-2 flex flex-col " data-jscall-id="23">
+                      <h2 class="text-lg font-bold text-left my-1" data-jscall-id="24">Sponsoring</h2>
+                      <span class="px-2" data-jscall-id="25">
+                        <div data-jscall-id="26">If you love Makie and want to support us, you can sponsor us on GitHub.
 This is the easiest way to support us, and we&#39;re very grateful for every sponsor.
-Developers you can sponsor right now: 
-                            <br data-jscall-id="28" />
-
-                            <a class="visited:text-purple-600 text-blue-600" href="https://github.com/sponsors/SimonDanisch" style="" target="_blank" data-jscall-id="29">Simon</a>
-
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <div class="rounded-md p-2 m-2 shadow hover:bg-gray-300" style="width: fit-content; height: fit-content; " data-jscall-id="30">
-                  <a href="../contact?subject=contract" data-jscall-id="31">
-                    <div data-jscall-id="32">
-                      <div class="my-2 flex flex-col " data-jscall-id="33">
-                        <h2 class="text-lg font-bold text-left my-1" data-jscall-id="34">Support Contract</h2>
-                        <div class="text-base px-4 w-64" data-jscall-id="35">We&#39;re happy to give out support contracts for Makie.
-How it works is, that you pay a fixed amount of money per month, and we&#39;ll allocate resources to help out in any way we can.
 </div>
-                      </div>
+                      </span>
                     </div>
-                  </a>
+                  </div>
                 </div>
-                <div class="rounded-md p-2 m-2 shadow hover:bg-gray-300" style="width: fit-content; height: fit-content; " data-jscall-id="36">
-                  <a href="../contact?subject=license" data-jscall-id="37">
-                    <div data-jscall-id="38">
-                      <div class="my-2 flex flex-col " data-jscall-id="39">
-                        <h2 class="text-lg font-bold text-left my-1" data-jscall-id="40">Voluntary License</h2>
-                        <div class="text-base px-4 w-64" data-jscall-id="41">If you&#39;re part of an organization that can&#39;t just pay for work directly, nor sponsor us, but still wants to support us, we offer a voluntary license for Makie.
+                <div class="rounded-md p-2 shadow bg-white m-1 m-2 p-1 hover:bg-gray-300 grow w-full lg:w-1/3" data-jscall-id="27">
+                  <div onclick="" data-jscall-id="28">
+                    <div class="my-2 flex flex-col " data-jscall-id="29">
+                      <h2 class="text-lg font-bold text-left my-1" data-jscall-id="30">Support Contract</h2>
+                      <span class="px-2" data-jscall-id="31">We&#39;re happy to give out support contracts for Makie.
+How it works is, that you pay a fixed amount of money per month, and we&#39;ll allocate resources to help out in any way we can.
+</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="rounded-md p-2 shadow bg-white m-1 m-2 p-1 hover:bg-gray-300 grow w-full lg:w-1/3" data-jscall-id="32">
+                  <div onclick="" data-jscall-id="33">
+                    <div class="my-2 flex flex-col " data-jscall-id="34">
+                      <h2 class="text-lg font-bold text-left my-1" data-jscall-id="35">Voluntary License</h2>
+                      <span class="px-2" data-jscall-id="36">If you&#39;re part of an organization that can&#39;t just pay for work directly, nor sponsor us, but still wants to support us, we offer a voluntary license for Makie.
 The idea is, to offer a license with an official receipt, that instutations can buy to support us.
 The license is fully voluntary, and doesn&#39;t give you any additional rights, but it helps us a lot to secure some basic income.
-</div>
-                      </div>
+</span>
                     </div>
-                  </a>
+                  </div>
                 </div>
-                <div class="rounded-md p-2 m-2 shadow hover:bg-gray-300" style="width: fit-content; height: fit-content; " data-jscall-id="42">
-                  <a href="../contact?subject=consulting" data-jscall-id="43">
-                    <div data-jscall-id="44">
-                      <div class="my-2 flex flex-col " data-jscall-id="45">
-                        <h2 class="text-lg font-bold text-left my-1" data-jscall-id="46">Consulting</h2>
-                        <div class="text-base px-4 w-64" data-jscall-id="47">Facing a tough challenge or considering outsourcing a complex visualization?
+                <div class="rounded-md p-2 shadow bg-white m-1 m-2 p-1 hover:bg-gray-300 grow w-full lg:w-1/3" data-jscall-id="37">
+                  <div onclick="" data-jscall-id="38">
+                    <div class="my-2 flex flex-col " data-jscall-id="39">
+                      <h2 class="text-lg font-bold text-left my-1" data-jscall-id="40">Consulting</h2>
+                      <span class="px-2" data-jscall-id="41">Facing a tough challenge or considering outsourcing a complex visualization?
 We&#39;ve got you covered. Whether you&#39;re determining if Makie suits your project, tackling performance issues, or seeking general assistance, our team is at your service.
 Reach out to us with a concise summary of your project, timeline, and budget, so we can explore the best ways to support your needs.
-</div>
-                      </div>
+</span>
                     </div>
-                  </a>
+                  </div>
                 </div>
-                <div class="rounded-md p-2 m-2 shadow hover:bg-gray-300" style="width: fit-content; height: fit-content; " data-jscall-id="48">
-                  <a href="../contact?subject=grants" data-jscall-id="49">
-                    <div data-jscall-id="50">
-                      <div class="my-2 flex flex-col " data-jscall-id="51">
-                        <h2 class="text-lg font-bold text-left my-1" data-jscall-id="52">Grants</h2>
-                        <div class="text-base px-4 w-64" data-jscall-id="53">Makie has been funded by grants in the past, and we&#39;re always looking for new opportunities.
+                <div class="rounded-md p-2 shadow bg-white m-1 m-2 p-1 hover:bg-gray-300 grow w-full lg:w-1/3" data-jscall-id="42">
+                  <div onclick="" data-jscall-id="43">
+                    <div class="my-2 flex flex-col " data-jscall-id="44">
+                      <h2 class="text-lg font-bold text-left my-1" data-jscall-id="45">Grants</h2>
+                      <span class="px-2" data-jscall-id="46">Makie has been funded by grants in the past, and we&#39;re always looking for new opportunities.
 If you can help us secure a grant, please contact us.
 We&#39;re happy to chat and figure out ways to make it work.
-</div>
-                      </div>
+</span>
                     </div>
-                  </a>
+                  </div>
                 </div>
               </div>
             </div>

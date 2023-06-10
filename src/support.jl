@@ -1,6 +1,15 @@
-function SupportCard(title, content, value)
-    c = DOM.div(D.FlexCol(H2(title), TextBlock(content; width="w-64")))
-    return D.Card(DOM.a(c, href=JSServe.Link("/contact?subject=" * value)); class="hover:bg-gray-300")
+struct SponsorCard
+    title
+    content
+    value
+end
+
+function JSServe.jsrender(s::Session, card::SponsorCard)
+    url = JSServe.Link("/contact?subject=" * card.value)
+    url_val = JSServe.url(s, url)
+    onclick = js"()=> location.href = $(url_val)"
+    c = DOM.div(D.FlexCol(H2(card.title), DOM.span(card.content; class="px-2")); onclick=onclick)
+    return JSServe.jsrender(s, DOM.div(c; class="$(CARD_STYLE) m-2 p-1 hover:bg-gray-300 grow w-full lg:w-1/3"))
 end
 
 support = App(title="Support") do s
@@ -9,17 +18,15 @@ support = App(title="Support") do s
         To make sure, core contributors have enough time to work on Makie, we've to make sure our developers and maintainers are paid for their hard work.
         If you're a regular Makie user, we'd really appreciate if you could support us in one of the following ways:"),
         FlexGrid(
-            SupportCard(
+            SponsorCard(
                 "Sponsoring",
                 dom"""
                 If you love Makie and want to support us, you can sponsor us on GitHub.
                 This is the easiest way to support us, and we're very grateful for every sponsor.
-                Developers you can sponsor right now: $(DOM.br())
-                $(link("Simon", "https://github.com/sponsors/SimonDanisch"))
                 """,
                 "sponsoring"
             ),
-            SupportCard(
+            SponsorCard(
                 "Support Contract",
                 """
                 We're happy to give out support contracts for Makie.
@@ -27,7 +34,7 @@ support = App(title="Support") do s
                 """,
                 "contract"
             ),
-            SupportCard(
+            SponsorCard(
                 "Voluntary License",
                 """
                 If you're part of an organization that can't just pay for work directly, nor sponsor us, but still wants to support us, we offer a voluntary license for Makie.
@@ -36,7 +43,7 @@ support = App(title="Support") do s
                 """,
                 "license"
             ),
-            SupportCard(
+            SponsorCard(
                 "Consulting",
                 """
                 Facing a tough challenge or considering outsourcing a complex visualization?
@@ -45,7 +52,7 @@ support = App(title="Support") do s
                 """,
                 "consulting"
             ),
-            SupportCard(
+            SponsorCard(
                 "Grants",
                 """
                 Makie has been funded by grants in the past, and we're always looking for new opportunities.

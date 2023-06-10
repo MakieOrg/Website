@@ -5,7 +5,7 @@ function md2html(s, file)
     source = read(file, String)
     return JSServe.string_to_markdown(s, source; eval_julia_code=Main)
 end
-JSServe.jsrender(s::Session, card::Vector) = JSServe.jsrender(s, DOM.div(JSServe.TailwindCSS, card...; class="flex flex-wrap"))
+JSServe.jsrender(s::Session, card::Vector) = JSServe.jsrender(s, DOM.div(card...; class="flex flex-wrap"))
 
 const CARD_STYLE = "rounded-md p-2 shadow bg-white m-1"
 
@@ -32,7 +32,7 @@ function FocusBlock(description; image="", link="", height="400px", rev=false)
     text_just = rev ? "text-left" : "text-right"
     block = [
         TextBlock(description; width="w-full lg:w-1/2 text-justify lg:$(text_just)"),
-        DOM.div(Main.link(img, link); class="w-full md:w-1/2 lg:w-1/3")
+        DOM.div(Main.link(img, link); class="w-full lg:w-1/3")
     ]
     rev && reverse!(block)
     return DOM.div(block...; class="lg:flex")
@@ -41,7 +41,7 @@ end
 Base.@kwdef struct Logo
     image::String=""
     link::String=""
-    class::String = "w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5 p-8 flex justify-center"
+    class::String = "w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5 p-2 flex justify-center"
 end
 
 SmallLogo(; kw...) = Logo(; class="rounded-md p-2 m-2 shadow bg-white w-8", kw...)
@@ -83,11 +83,21 @@ function JSServe.jsrender(s::Session, card::DetailedCard)
         DOM.div(img, DOM.div(details, class="overlay p-2 text-sm lg:text-base"), class="container"),
     )
     card_div = DOM.div(
-        class="rounded-md shadow m-1 lg:m-2 bg-white flex grow justify-center $(card.imclass)",
+        class="rounded-md shadow m-1 lg:m-2 bg-white flex justify-center $(card.imclass)",
         link(content, card.link; class="")
     )
+
     return JSServe.jsrender(s, card_div)
 end
+
+function QuoteBlock(author, authorlink, quote_text, quote_link)
+    return DOM.div(
+        class="text-left w-full bg-white px-2 m-2 p-1 rounded-md hover:bg-gray-200",
+        link(H3(author * ":"), authorlink; class="underline"),
+        DOM.a(DOM.div(quote_text, class="text-left ml-8 text-sm lg:text-base"); href=quote_link, target="_blank"),
+    )
+end
+
 
 function Navigation(highlighted="")
     function item(name, href)
@@ -107,12 +117,12 @@ function Navigation(highlighted="")
         )
     )
 end
-
+asset = Asset(asset_path("js", "tailwind.js"))
 
 function page(body, highlighted)
     header = DOM.img(src=img_asset("bannermesh_gradient.png"); style="width: 100%")
     return DOM.div(
-        JSServe.TailwindCSS,
+        asset,
         JSServe.MarkdownCSS,
         css_asset("site.css"),
         DOM.link(href=img_asset("icon_transparent.png"), rel="icon", type="image/png"),
