@@ -17,6 +17,8 @@ routes, task, server = interactive_server([asset_path(), joinpath(@__DIR__, "src
     )
 end
 
+##
+
 dir = joinpath(@__DIR__, "docs")
 rm(dir; recursive=true, force=true); mkpath(dir)
 JSServe.export_static(dir, routes)

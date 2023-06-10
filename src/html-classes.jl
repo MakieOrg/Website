@@ -9,8 +9,8 @@ JSServe.jsrender(s::Session, card::Vector) = JSServe.jsrender(s, DOM.div(card...
 
 const CARD_STYLE = "rounded-md p-2 shadow bg-white"
 
-H1(x) = DOM.h1(x; class="text-xl font-black text-left my-2")
-H2(x) = DOM.h2(x; class="text-lg font-bold text-left my-1")
+H1(x) = DOM.h1(x; class="text-xl font-black text-left my-4")
+H2(x) = DOM.h2(x; class="text-lg font-bold text-left my-3")
 H3(x) = DOM.h3(x; class="text-sm font-semibold text-left")
 link(name, href; class="visited:text-purple-600 text-blue-600", style="") = DOM.a(name; href=href, target="_blank", class=class, style=style)
 
