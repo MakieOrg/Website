@@ -7,7 +7,7 @@ function md2html(s, file)
 end
 JSServe.jsrender(s::Session, card::Vector) = JSServe.jsrender(s, DOM.div(card...; class="flex flex-wrap"))
 
-const CARD_STYLE = "rounded-md p-2 shadow bg-white m-1"
+const CARD_STYLE = "rounded-md p-2 shadow bg-white"
 
 H1(x) = DOM.h1(x; class="text-xl font-black text-left my-2")
 H2(x) = DOM.h2(x; class="text-lg font-bold text-left my-1")
@@ -82,7 +82,7 @@ function JSServe.jsrender(s::Session, card::DetailedCard)
         DOM.div(img, DOM.div(details, class="overlay p-2 text-sm lg:text-base"), class="container"),
     )
     card_div = DOM.div(
-        class="rounded-md shadow m-1 lg:m-2 bg-white flex justify-center $(card.imclass)",
+        class="rounded-md shadow lg:m-2 bg-white flex justify-center $(card.imclass)",
         link(content, card.link; class="")
     )
 
