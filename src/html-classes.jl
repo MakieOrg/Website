@@ -35,7 +35,7 @@ function FocusBlock(description; image="", link="", height="400px", rev=false)
         DOM.div(Main.link(img, link); class="w-full lg:w-1/3")
     ]
     rev && reverse!(block)
-    return DOM.div(block...; class="lg:flex")
+    return DOM.div(block...; class="lg:flex gap-6")
 end
 
 Base.@kwdef struct Logo

@@ -40,7 +40,8 @@ index = App(title="Makie") do
                 title="Video games",
                 image="use_cases/miner.png",
                 href="https://github.com/ashwani-rathee/Miner.jl"
-            )
+            ),
+            class = "gap-6",
         )
     )
     backend_class = "w-full md:w-96"
