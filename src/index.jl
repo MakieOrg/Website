@@ -50,7 +50,7 @@ index = App(title="Makie") do
         "Benedict Ehinger",
         "https://github.com/behinger",
         """
-        the only way I succeeded to do this without manually replacing fonts in illustrator, is to use
+        The only way I succeeded to do this without manually replacing fonts in illustrator, is to use
         @MakiePlots with it's fabulous layout-system.
         """,
         "https://twitter.com/BenediktEhinger/status/1665326068973158400"
@@ -75,31 +75,45 @@ index = App(title="Makie") do
         "https://discourse.julialang.org/t/comparison-of-plotting-packages/99860/44"
     )
     features = Section(bg="bg-gray-100",
-        H1("Features"), H2("Surgical updates & high performance"), FocusBlock(
-            DOM.div("""
-            Makie updates only what's needed using Observables.jl.
-            This example animates hundreds of thousands of points just through a colormap update, modifying only a few bytes per frame directly on the GPU.
-            There's no faster way to animate large data. Combining the power of GPUs and Julia's high performance, Makie is fit for any task!
-            """, alex);
+        H1("Features"),
+        H2("Surgical updates & high performance"),
+        FocusBlock(
+            DOM.div(
+                """
+                Makie updates only what's needed using Observables.jl.
+                This example animates hundreds of thousands of points just through a colormap update, modifying only a few bytes per frame directly on the GPU.
+                There's no faster way to animate large data. Combining the power of GPUs and Julia's high performance, Makie is fit for any task!
+                """,
+                alex;
+                class="flex flex-col gap-3",
+            );
             image="use_cases/glacier.mp4",
             link="https://makieorg.github.io/Tyler.jl/dev/examples/generated/UserGuide/iceloss_ex",
             rev=true
         ),
         H2("Powerful Layouting"),
-        FocusBlock(dom"""
-            Makie has one of the most powerful layouting systems compared to other plotting
-            libraries, allowing you to tweak any possible attribute and place your plots
-            and subplots freely.
-            $(benedict)
-            """;
+        FocusBlock(
+            DOM.div(
+                """
+                Makie has one of the most powerful layouting systems compared to other plotting
+                libraries, allowing you to tweak any possible attribute and place your plots
+                and subplots freely.
+                """,
+                benedict;
+                class="flex flex-col gap-3",
+            );
             image=img_asset("use_cases/layouting.png"),
             link="https://docs.makie.org/stable/tutorials/layout-tutorial/"
         ),
         H2("2D, 3D, Volumes, Meshes, Sliders, Buttons and more"),
         FocusBlock(
-            DOM.div("""
-            Makie has support for all kind of primitives for interactive data exploration. This makes it simple, to quickly build up dashboards for any kind of data.
-            """, garrek),
+            DOM.div(
+                """
+                Makie has support for all kind of primitives for interactive data exploration. This makes it simple, to quickly build up dashboards for any kind of data.
+                """,
+                garrek;
+                class="flex flex-col gap-3",
+            ),
             image="use_cases/clima-volume.mp4",
             rev=true
         ),

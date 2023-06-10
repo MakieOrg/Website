@@ -91,9 +91,12 @@ end
 
 function QuoteBlock(author, authorlink, quote_text, quote_link)
     return DOM.div(
-        class="text-left w-full bg-white px-2 m-2 p-1 rounded-md hover:bg-gray-200",
-        link(H3(author * ":"), authorlink; class="underline"),
-        DOM.a(DOM.div(quote_text, class="text-left ml-8 text-sm lg:text-base"); href=quote_link, target="_blank"),
+        class="text-justify text-gray-600 w-full bg-white px-5 py-4 rounded-md hover:bg-gray-200",
+        DOM.span(
+            DOM.a(DOM.span("„" * strip(quote_text) * "“", class="text-left italic"); href=quote_link, target="_blank"),
+            link("(" * author * ")", authorlink),
+            class="text-sm lg:text-base",
+        ),
     )
 end
 
