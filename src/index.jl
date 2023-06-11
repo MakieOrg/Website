@@ -176,7 +176,7 @@ index = App(title="Makie") do
                 * Image from: $(link("Lazaro Alonso", "https://github.com/lazarusA"))
                 """
             ),
-            class="gap-4 md:grid-cols-2 lg:grid-cols-4",
+            class="gap-4 grid-cols-2 md:grid-cols-4",
         ),
     )
     eco_class = ""
@@ -326,7 +326,7 @@ index = App(title="Makie") do
                 imclass=eco_class,
                 details="Agents.jl is a pure Julia framework for agent-based modeling (ABM)"
             ),
-            class="gap-4 md:grid-cols-2 lg:grid-cols-5",
+            class="gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5",
         ),
     )
     users = Section(bg="white",
@@ -338,7 +338,7 @@ index = App(title="Makie") do
             Logo(image="logos/microsoft.png", link="https://www.youtube.com/watch?v=7-vN8oNAz6Y"),
             Logo(image="logos/instron.png", link="https://github.com/bradcarman/ModelingToolkitDesigner.jl"),
             Logo(image="logos/dwd.png", link="https://www.youtube.com/watch?v=-Cg6AoymaM0"),
-            class="justify-center items-center -m-8",
+            class="justify-center items-center -m-2 md:-m-4 lg:-m-8",
         ),
         DOM.div("Supporters"; class="text-xl text-black flex justify-center mt-14 mb-10 font-semibold"),
         FlexGrid(
@@ -348,7 +348,7 @@ index = App(title="Makie") do
             Logo(image="logos/beacon.svg", link="https://beacon.bio"),
             Logo(image="logos/mit.png", link=""),
             Logo(image="logos/bmbf.svg", link=""),
-            class="justify-center items-center -m-8",
+            class="justify-center items-center -m-2 md:-m-4 lg:-m-8",
         ),
         DOM.div("Follow us"; class="text-xl text-black flex justify-center mt-14 mb-10 font-semibold"),
         FlexGrid(
@@ -356,7 +356,7 @@ index = App(title="Makie") do
             SmallLogo(image="logos/linkedin.png", link="https://www.linkedin.com/company/makieorg"),
             SmallLogo(image="logos/GitHub-Mark-64px.png", link="https://github.com/MakieOrg"),
             SmallLogo(image="logos/discord-mark-blue.svg", link="https://discord.gg/2FBjYAT3cY"),
-            SmallLogo(image="logos/mastodon.svg", link="https://julialang.social/@makie"), class="justify-center items-center -m-8",
+            SmallLogo(image="logos/mastodon.svg", link="https://julialang.social/@makie"), class="justify-center items-center -m-2 md:-m-4 lg:-m-8",
         )
     )
     body = DOM.div(
