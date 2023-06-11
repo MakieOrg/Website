@@ -44,7 +44,7 @@ index = App(title="Makie") do
             class = "gap-6",
         )
     )
-    backend_class = "w-full md:w-96"
+    backend_class = "w-full"
 
     benedict = QuoteBlock(
         "Benedict Ehinger",
@@ -123,7 +123,7 @@ index = App(title="Makie") do
             Use exactly the same code, and change how your interactive graphic is displayed simply by switching the backend.
             """
         ),
-        FlexGrid(
+        Grid(
             DetailedCard(
                 imclass=backend_class,
                 title="GLMakie",
@@ -175,7 +175,7 @@ index = App(title="Makie") do
                 * Image from: $(link("Lazaro Alonso", "https://github.com/lazarusA"))
                 """
             ),
-            class="gap-4",
+            class="gap-4 md:grid-cols-2 lg:grid-cols-4",
         ),
     )
     eco_class = "lg:w-1/6 md:w-1/5 sm:w-1/4 w-1/3"
@@ -184,7 +184,8 @@ index = App(title="Makie") do
         DOM.div("""
         To cater to every use case, without becoming a big, bloated library, Makie is highly modular and extensible.
         What Makie doesn't offer out of the box, gets supported by a rich 3rd party ecosystem:
-        """; class="text-xl"), FlexGrid(
+        """),
+        FlexGrid(
             DetailedCard(
                 title="GeoMakie.jl",
                 link="https://github.com/MakieOrg/GeoMakie.jl",

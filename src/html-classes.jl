@@ -18,6 +18,7 @@ asset_path(files...) = normpath(joinpath(@__DIR__, "..", "assets", files...))
 img_asset(files...) = Asset(asset_path("images", files...))
 css_asset(files...) = Asset(asset_path("css", files...))
 FlexGrid(elems...; class="", kwargs...) = DOM.div(elems...; class=join(["flex flex-wrap", class], " "), kwargs...)
+Grid(elems...; class="", kwargs...) = DOM.div(elems...; class=join(["grid ", class], " "), kwargs...)
 TextBlock(text; width="max-w-prose") = DOM.div(text; class="text-base $width")
 Block(elems...) = DOM.div(elems...; class="p-4 max-w-5xl")
 Section(content...; bg="") = DOM.div(
@@ -94,7 +95,7 @@ end
 
 function QuoteBlock(author, authorlink, quote_text, quote_link)
     return DOM.div(
-        class="text-justify text-gray-600 w-full bg-white px-5 py-4 rounded-md hover:bg-gray-200",
+        class="text-justify text-gray-600 w-full bg-gray-200 px-5 py-4 rounded-md hover:bg-gray-300",
         DOM.span(
             DOM.a(DOM.span("„" * strip(quote_text) * "“", class="text-left italic"); href=quote_link, target="_blank"),
             link("(" * author * ")", authorlink),
