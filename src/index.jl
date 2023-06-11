@@ -178,14 +178,14 @@ index = App(title="Makie") do
             class="gap-4 md:grid-cols-2 lg:grid-cols-4",
         ),
     )
-    eco_class = "lg:w-1/6 md:w-1/5 sm:w-1/4 w-1/3"
+    eco_class = ""
     ecosystem = Section(
         H1("Rich Ecosystem"),
         DOM.div("""
         To cater to every use case, without becoming a big, bloated library, Makie is highly modular and extensible.
         What Makie doesn't offer out of the box, gets supported by a rich 3rd party ecosystem:
         """),
-        FlexGrid(
+        Grid(
             DetailedCard(
                 title="GeoMakie.jl",
                 link="https://github.com/MakieOrg/GeoMakie.jl",
@@ -325,7 +325,7 @@ index = App(title="Makie") do
                 imclass=eco_class,
                 details="Agents.jl is a pure Julia framework for agent-based modeling (ABM)"
             ),
-            class="gap-4",
+            class="gap-4 md:grid-cols-2 lg:grid-cols-5",
         ),
     )
     users = Section(bg="white",
