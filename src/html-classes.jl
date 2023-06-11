@@ -41,6 +41,7 @@ function FocusBlock(description; image="", link="", height="400px", rev=false)
     rev && reverse!(block)
     return DOM.div(block...; class="lg:flex gap-6")
 end
+Spacer(size) = DOM.div(class = "w-full my-$size")
 
 Base.@kwdef struct Logo
     image::String=""
@@ -82,9 +83,9 @@ function JSServe.jsrender(s::Session, card::DetailedCard)
         card.details
     end
     content = DOM.div(
-        class="flex flex-col mt-1",
-        DOM.div(card.title, class="text-xs lg:text-sm font-semibold text-center"),
-        DOM.div(img, DOM.div(details, class="overlay p-2 text-sm lg:text-base"), class="container"),
+        class="flex flex-col mt-1 p-2",
+        DOM.div(card.title, class="text-xs lg:text-sm font-semibold text-center break-all"),
+        DOM.div(img, DOM.div(details, class="overlay text-sm lg:text-base"), class="container"),
     )
     card_div = DOM.div(
         class="rounded-md shadow bg-white flex justify-center $(card.imclass)",

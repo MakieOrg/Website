@@ -9,12 +9,14 @@ index = App(title="Makie") do
     be_quote = link(DOM.img(src=img_asset("benedikt-tweet.png"); class=CARD_STYLE), "https://twitter.com/BenediktEhinger/status/1665326068973158400")
 
     intro = Section(
+        Spacer(4),
         FullWidthText(
             dom"""
-            $(semibold("Makie")) is a modern plotting library for $Julia,
-            which is easy to use yet fast and powerful. It's packed with features,
-            and the goal is to be not limited to any special use case, while making as few compromises as possible.
-            """, class="mb-4"),
+            $(semibold("Makie")) is a modern plotting library for $Julia
+            which is easy to use, yet fast and powerful. It's packed with features
+            and its goal is not to be limited to any special use case while making as few compromises as possible.
+            """),
+        Spacer(6),
         Grid(
             Showcase(
                 title="Explore billions of data points",
@@ -42,7 +44,8 @@ index = App(title="Makie") do
                 href="https://github.com/ashwani-rathee/Miner.jl"
             ),
             class = "gap-6 sm:grid-cols-2 lg:grid-cols-5",
-        )
+        ),
+        Spacer(4)
     )
     backend_class = "w-full"
 
@@ -80,7 +83,7 @@ index = App(title="Makie") do
         FocusBlock(
             DOM.div(
                 """
-                Makie updates only what's needed using Observables.jl.
+                Makie uses Observables.jl to only update what's necessary at a given point in time.
                 This example animates hundreds of thousands of points just through a colormap update, modifying only a few bytes per frame directly on the GPU.
                 There's no faster way to animate large data. Combining the power of GPUs and Julia's high performance, Makie is fit for any task!
                 """,
@@ -91,6 +94,7 @@ index = App(title="Makie") do
             link="https://makieorg.github.io/Tyler.jl/dev/examples/generated/UserGuide/iceloss_ex",
             rev=true
         ),
+        Spacer(10),
         H2("Powerful Layouting"),
         FocusBlock(
             DOM.div(
@@ -105,6 +109,7 @@ index = App(title="Makie") do
             image=img_asset("use_cases/layouting.png"),
             link="https://docs.makie.org/stable/tutorials/layout-tutorial/"
         ),
+        Spacer(10),
         H2("2D, 3D, Volumes, Meshes, Sliders, Buttons and more"),
         FocusBlock(
             DOM.div(
@@ -117,6 +122,7 @@ index = App(title="Makie") do
             image="use_cases/clima-volume.mp4",
             rev=true
         ),
+        Spacer(10),
         H2("Backends"),
         FullWidthText(
             """Makie's backends are the reason, why we can have high quality vector graphics for publication, while also delivering fast GPU accelerated renderings.
