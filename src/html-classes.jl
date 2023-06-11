@@ -25,9 +25,10 @@ Section(content...; bg="") = DOM.div(
     Block(content...),
     class="$bg flex flex-col items-center w-full"
 )
+FullWidthText(text; class="") = DOM.div(text, class="w-full text-justify $class")
 function Showcase(; title, image, href)
-    img = render_media(img_asset(image); style="height: 6rem")
-    content = DOM.div(H3(title), img; class="flex flex-col mx-2 mb-2")
+    img = render_media(img_asset(image); style="max-height: 6rem; width: auto")
+    content = DOM.div(H3(title), img; class="flex flex-col gap-2")
     return link(content, href; class="")
 end
 

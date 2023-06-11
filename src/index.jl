@@ -9,13 +9,13 @@ index = App(title="Makie") do
     be_quote = link(DOM.img(src=img_asset("benedikt-tweet.png"); class=CARD_STYLE), "https://twitter.com/BenediktEhinger/status/1665326068973158400")
 
     intro = Section(
-        FlexGrid(
-            TextBlock(
-                dom"""
-                $(semibold("Makie")) is a modern plotting library for $Julia,
-                which is easy to use yet fast and powerful. It's packed with features,
-                and the goal is to be not limited to any special use case, while making as few compromises as possible.
-                """),
+        FullWidthText(
+            dom"""
+            $(semibold("Makie")) is a modern plotting library for $Julia,
+            which is easy to use yet fast and powerful. It's packed with features,
+            and the goal is to be not limited to any special use case, while making as few compromises as possible.
+            """, class="mb-4"),
+        Grid(
             Showcase(
                 title="Explore billions of data points",
                 image="use_cases/datashader.mp4",
@@ -41,7 +41,7 @@ index = App(title="Makie") do
                 image="use_cases/miner.png",
                 href="https://github.com/ashwani-rathee/Miner.jl"
             ),
-            class = "gap-6",
+            class = "gap-6 sm:grid-cols-2 lg:grid-cols-5",
         )
     )
     backend_class = "w-full"
@@ -118,10 +118,11 @@ index = App(title="Makie") do
             rev=true
         ),
         H2("Backends"),
-        DOM.div(
+        FullWidthText(
             """Makie's backends are the reason, why we can have high quality vector graphics for publication, while also delivering fast GPU accelerated renderings.
             Use exactly the same code, and change how your interactive graphic is displayed simply by switching the backend.
-            """
+            """,
+            class="my-4"
         ),
         Grid(
             DetailedCard(
@@ -181,10 +182,10 @@ index = App(title="Makie") do
     eco_class = ""
     ecosystem = Section(
         H1("Rich Ecosystem"),
-        DOM.div("""
+        FullWidthText("""
         To cater to every use case, without becoming a big, bloated library, Makie is highly modular and extensible.
         What Makie doesn't offer out of the box, gets supported by a rich 3rd party ecosystem:
-        """),
+        """, class="my-4"),
         Grid(
             DetailedCard(
                 title="GeoMakie.jl",
