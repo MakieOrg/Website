@@ -19,8 +19,11 @@ img_asset(files...) = Asset(asset_path("images", files...))
 css_asset(files...) = Asset(asset_path("css", files...))
 FlexGrid(elems...; class="", kwargs...) = DOM.div(elems...; class=join(["flex flex-wrap", class], " "), kwargs...)
 TextBlock(text; width="max-w-prose") = DOM.div(text; class="text-base $width")
-Block(elems...) = DOM.div(elems...; class="p-2 m-2 w-5/6 max-w-5xl")
-Section(content...; bg="") = DOM.div(Block(content...), class="$bg flex flex-col items-center w-full")
+Block(elems...) = DOM.div(elems...; class="p-4 max-w-5xl")
+Section(content...; bg="") = DOM.div(
+    Block(content...),
+    class="$bg flex flex-col items-center w-full"
+)
 function Showcase(; title, image, href)
     img = render_media(img_asset(image); style="height: 6rem")
     content = DOM.div(H3(title), img; class="flex flex-col mx-2 mb-2")
@@ -30,8 +33,8 @@ end
 function FocusBlock(description; image="", link="", height="400px", rev=false)
     img = image isa String ? render_media(img_asset(image); class=CARD_STYLE) : image
     block = [
-        TextBlock(description; width="w-full lg:w-1/2 text-justify"),
-        DOM.div(Main.link(img, link); class="w-full lg:w-1/3")
+        TextBlock(description; width="w-full text-justify lg:basis-3/5"),
+        DOM.div(Main.link(img, link); class="w-full lg:basis-2/5")
     ]
     rev && reverse!(block)
     return DOM.div(block...; class="lg:flex gap-6")

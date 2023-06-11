@@ -362,6 +362,6 @@ index = App(title="Makie") do
         features,
         ecosystem,
         users;
-        class="flex flex-col items-center w-full")
+    )
     return page(body, "Home")
 end
