@@ -19,7 +19,7 @@ index = App(title="Makie") do
         Spacer(6),
         Grid(
             Showcase(
-                title="Explore billions of data points",
+                title="Explore billions of points",
                 image="use_cases/datashader.mp4",
                 href=""
             ),
@@ -332,7 +332,7 @@ index = App(title="Makie") do
                 imclass=eco_class,
                 details="Agents.jl is a pure Julia framework for agent-based modeling (ABM)"
             ),
-            class="gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5",
+            class="gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-5",
         ),
     )
     users = Section(bg="white",

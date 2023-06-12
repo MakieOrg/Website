@@ -76,16 +76,16 @@ Base.@kwdef struct DetailedCard
 end
 
 function JSServe.jsrender(s::Session, card::DetailedCard)
-    img = render_media(img_asset(card.image); class="image p-4 w-full")
+    img = render_media(img_asset(card.image); class="image w-full")
     details = if card.details isa Markdown.MD
         JSServe.md_html(s, card.details.content[1])
     else
         card.details
     end
     content = DOM.div(
-        class="flex flex-col mt-1 p-2",
+        class="flex flex-col mt-1 p-2 md:p-4 gap-1",
         DOM.div(card.title, class="text-xs lg:text-sm font-semibold text-center break-all"),
-        DOM.div(img, DOM.div(details, class="overlay text-sm lg:text-base"), class="container"),
+        DOM.div(img, DOM.div(details, class="overlay text-xs lg:text-base"), class="container"),
     )
     card_div = DOM.div(
         class="rounded-md shadow bg-white flex justify-center $(card.imclass)",
