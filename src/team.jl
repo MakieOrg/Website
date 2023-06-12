@@ -33,10 +33,21 @@ team = App(title="Team") do
     julius = Section(
         Block(
         H2("Julius Krumbiegel - Co-Author"),
-        FocusBlock(
-            """
-
-            """;
+        FocusBlock(DOM.p(
+            "I joined the Makie project in 2019 when I created its layout system ",
+            GHProject("jkrumbiegel/GridLayoutBase.jl"),
+            " and most of the GUI objects currently available in what used to be the separate package ",
+            GHProject("jkrumbiegel/MakieLayout.jl"),
+            ". Owing to my academic history in psychology and vision science, my focus is on 2D plots and visual quality, which is why much of my work has revolved around our default themes, plot recipes, text and figure layouting as well as vector graphics output through CairoMakie.jl. ",
+            "I'm also the author of packages such as ",
+            [
+                GHProject("jkrumbiegel/Chain.jl"), ", ",
+                GHProject("jkrumbiegel/DataFrameMacros.jl"), ", ",
+                GHProject("jkrumbiegel/ReadableRegex.jl"), ", ",
+                GHProject("jkrumbiegel/Animations.jl"), " and ",
+                GHProject("jkrumbiegel/SankeyMakie.jl"), "."
+            ]
+            ); 
             link="https://github.com/jkrumbiegel",
             image="julius.jpg"
         ))
