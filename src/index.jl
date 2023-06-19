@@ -19,31 +19,26 @@ index = App(title="Makie") do
         Spacer(6),
         Grid(
             Showcase(
-                title="Explore billions of points",
+                title="Explore large datasets",
                 image="use_cases/datashader.mp4",
                 href=""
             ),
             Showcase(
-                title="Publication ready SVGs",
+                title="Export for publications",
                 image="use_cases/publication.jpg",
                 href="https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2022MS003527",
             ),
             Showcase(
-                title="Photorealistic renderings",
+                title="Render photorealistic images",
                 image="backends/rprmakie.png",
                 href="https://www.bgc-jena.mpg.de/en/bgi/gallery",
             ),
             Showcase(
-                title="Dashboards on the Web",
+                title="Create web dashboards",
                 image="use_cases/clima.mp4",
                 href="https://simondanisch.github.io/JSServe.jl",
             ),
-            Showcase(
-                title="Video games",
-                image="use_cases/miner.png",
-                href="https://github.com/ashwani-rathee/Miner.jl"
-            ),
-            class = "gap-6 sm:grid-cols-2 lg:grid-cols-5",
+            class = "gap-6 sm:grid-cols-2 lg:grid-cols-4",
         ),
         Spacer(4)
     )
