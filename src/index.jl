@@ -339,7 +339,7 @@ index = App(title="Makie") do
             Logo(image="logos/microsoft.png", link="https://www.youtube.com/watch?v=7-vN8oNAz6Y"),
             Logo(image="logos/instron.png", link="https://github.com/bradcarman/ModelingToolkitDesigner.jl"),
             Logo(image="logos/dwd.png", link="https://www.youtube.com/watch?v=-Cg6AoymaM0"),
-            class="justify-center items-center -m-2 md:-m-4 lg:-m-8",
+            class="justify-center items-center -m-2 lg:-m-8",
         ),
         DOM.div("Supporters"; class="text-xl text-black flex justify-center mt-14 mb-10 font-semibold"),
         FlexGrid(
@@ -349,7 +349,7 @@ index = App(title="Makie") do
             Logo(image="logos/beacon.svg", link="https://beacon.bio"),
             Logo(image="logos/mit.png", link=""),
             Logo(image="logos/bmbf.svg", link=""),
-            class="justify-center items-center -m-2 md:-m-4 lg:-m-8",
+            class="justify-center items-center -m-2 lg:-m-8",
         ),
         DOM.div("Follow us"; class="text-xl text-black flex justify-center mt-14 mb-10 font-semibold"),
         FlexGrid(

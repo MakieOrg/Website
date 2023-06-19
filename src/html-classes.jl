@@ -46,7 +46,7 @@ Spacer(size) = DOM.div(class = "w-full my-$size")
 Base.@kwdef struct Logo
     image::String=""
     link::String=""
-    class::String = "w-1/2 sm:w-1/3 lg:w-1/5 lg:p-8 md:p-4 p-2 flex justify-center"
+    class::String = "w-1/2 sm:w-1/3 lg:w-1/5 lg:p-8 p-6 flex justify-center"
 end
 
 SmallLogo(; kw...) = Logo(; class="rounded-md p-2 m-2 shadow bg-white w-8", kw...)
