@@ -135,6 +135,7 @@ function page(body, highlighted)
     return DOM.html(
         DOM.head(
             DOM.meta(name="viewport", content="width=device-width, initial-scale=1.0"),
+            DOM.meta(charset="utf-8")
         ),
         DOM.body(
             DOM.div(
