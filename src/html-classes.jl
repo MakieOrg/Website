@@ -137,5 +137,7 @@ function page(body, highlighted)
         header,
         Navigation(highlighted),
         body,
+        DOM.script(src="https://scripts.simpleanalyticscdn.com/latest.js"; async=true, defer=true),
+        DOM.noscript(DOM.img(src="https://queue.simpleanalyticscdn.com/noscript.gif", alt="", referrerpolicy="no-referrer-when-downgrade")),
     )
 end

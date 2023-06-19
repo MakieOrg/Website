@@ -20,5 +20,6 @@ end
 ##
 
 dir = joinpath(@__DIR__, "docs")
-rm(dir; recursive=true, force=true); mkpath(dir)
+# only delete the jsserve generated files
+rm(joinpath(dir, "jsserve"); recursive=true, force=true)
 JSServe.export_static(dir, routes)
