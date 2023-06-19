@@ -12,9 +12,9 @@ index = App(title="Makie") do
         Spacer(4),
         FullWidthText(
             dom"""
-            $(semibold("Makie")) is a modern plotting library for $Julia
-            which is easy to use, yet fast and powerful. It's packed with features
-            and its goal is not to be limited to any special use case while making as few compromises as possible.
+            $(semibold("Makie")) is a modern plotting library for $Julia.
+            It is easy to use, fast and powerful. Packed with features,
+            it is a general-purpose tool that makes as few compromises for specialized use cases as possible.
             """),
         Spacer(6),
         Grid(
