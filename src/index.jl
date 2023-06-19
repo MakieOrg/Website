@@ -109,7 +109,7 @@ index = App(title="Makie") do
         FocusBlock(
             DOM.div(
                 """
-                Makie has support for all kind of primitives for interactive data exploration. This makes it simple, to quickly build up dashboards for any kind of data.
+                Makie has support for all kind of primitives for interactive data exploration. This makes it simple to quickly build up dashboards for any kind of data.
                 """,
                 garrek;
                 class="flex flex-col gap-3",
@@ -120,8 +120,8 @@ index = App(title="Makie") do
         Spacer(10),
         H2("Backends"),
         FullWidthText(
-            """Makie's backends are the reason, why we can have high quality vector graphics for publication, while also delivering fast GPU accelerated renderings.
-            Use exactly the same code, and change how your interactive graphic is displayed simply by switching the backend.
+            """Makie's backends are the reason why we can have high quality vector graphics for publication while also delivering fast GPU accelerated renderings.
+            Use exactly the same code and change how your interactive graphic is displayed simply by switching the backend.
             """,
             class="my-4"
         ),
@@ -184,8 +184,8 @@ index = App(title="Makie") do
     ecosystem = Section(
         H1("Rich Ecosystem"),
         FullWidthText("""
-        To cater to every use case, without becoming a big, bloated library, Makie is highly modular and extensible.
-        What Makie doesn't offer out of the box, gets supported by a rich 3rd party ecosystem:
+        To cater to every use case without becoming a big, bloated library, Makie is highly modular and extensible.
+        What Makie doesn't offer out of the box gets supported by a rich 3rd party ecosystem:
         """, class="my-4"),
         Grid(
             DetailedCard(
