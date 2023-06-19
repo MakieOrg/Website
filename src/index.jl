@@ -74,9 +74,9 @@ index = App(title="Makie") do
     )
     features = Section(bg="bg-gray-100",
         H1("Features"),
-        H2("Surgical updates & high performance"),
         FocusBlock(
             DOM.div(
+                H2("Surgical updates & high performance"),
                 """
                 Makie uses Observables.jl to only update what's necessary at a given point in time.
                 This example animates hundreds of thousands of points just through a colormap update, modifying only a few bytes per frame directly on the GPU.
@@ -90,9 +90,9 @@ index = App(title="Makie") do
             rev=true
         ),
         Spacer(10),
-        H2("Powerful Layouting"),
         FocusBlock(
             DOM.div(
+                H2("Powerful Layouting"),
                 """
                 Makie has one of the most powerful layouting systems compared to other plotting
                 libraries, allowing you to tweak any possible attribute and place your plots
@@ -101,13 +101,13 @@ index = App(title="Makie") do
                 benedict;
                 class="flex flex-col gap-3",
             );
-            image=img_asset("use_cases/layouting.png"),
+            image="use_cases/layouting.png",
             link="https://docs.makie.org/stable/tutorials/layout-tutorial/"
         ),
         Spacer(10),
-        H2("2D, 3D, Volumes, Meshes, Sliders, Buttons and more"),
         FocusBlock(
             DOM.div(
+                H2("2D, 3D, Volumes, Meshes, Sliders, Buttons and more"),
                 """
                 Makie has support for all kind of primitives for interactive data exploration. This makes it simple to quickly build up dashboards for any kind of data.
                 """,

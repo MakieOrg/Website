@@ -35,11 +35,10 @@ end
 function FocusBlock(description; image="", link="", height="400px", rev=false)
     img = image isa String ? render_media(img_asset(image); class=CARD_STYLE) : image
     block = [
-        TextBlock(description; width="w-full text-justify lg:basis-3/5"),
-        DOM.div(Main.link(img, link); class="w-full lg:basis-2/5")
+        TextBlock(description; width="w-full text-justify md:basis-3/5"),
+        DOM.div(Main.link(img, link); class="w-full md:basis-2/5")
     ]
-    rev && reverse!(block)
-    return DOM.div(block...; class="lg:flex gap-6")
+    return DOM.div(block...; class="flex gap-6 items-center flex-col $(rev ? "sm:flex-row-reverse" : "sm:flex-row")")
 end
 Spacer(size) = DOM.div(class = "w-full my-$size")
 
