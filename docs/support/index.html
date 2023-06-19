@@ -23,10 +23,10 @@
   </head>
   <body>
     <script type="module">    JSServe.lock_loading(() => {
-        return JSServe.fetch_binary('../jsserve/bin/e515e511afae6930f237480334451d6e709646c2-17528977166648681256.bin').then(msgs=> JSServe.init_session('76a2b6dd-2e8b-47a7-b86c-71a7026dbe67', msgs, 'root'));
+        return JSServe.fetch_binary('../jsserve/bin/00cf64df0ea4b6b298c80fedf975248e85ffcc94-10163004188061031760.bin').then(msgs=> JSServe.init_session('86e691eb-c8a3-4049-bb9c-60ca131e5c3a', msgs, 'root'));
     })
 </script>
-    <div id="76a2b6dd-2e8b-47a7-b86c-71a7026dbe67" data-jscall-id="root">
+    <div id="86e691eb-c8a3-4049-bb9c-60ca131e5c3a" data-jscall-id="root">
       <div data-jscall-id="1">
         <link href="../jsserve/png/icon_transparent.png" rel="icon" data-jscall-id="2" type="image/png" />
         <img style="width: 100%" src="../jsserve/png/bannermesh_gradient.png" data-jscall-id="3" />
@@ -115,10 +115,18 @@ We&#39;re happy to chat and figure out ways to make it work.
             </div>
           </div>
         </div>
-        <script async="true" defer="true" src="https://scripts.simpleanalyticscdn.com/latest.js" data-jscall-id="47"></script>
-        <noscript data-jscall-id="48">
-          <img alt="" src="https://queue.simpleanalyticscdn.com/noscript.gif" data-jscall-id="49" referrerpolicy="no-referrer-when-downgrade" />
-        </noscript>
+        <script type="module">    const _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        const u="//matomo.makie.org/";
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        const d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+    })();
+</script>
       </div>
     </div>
   </body>

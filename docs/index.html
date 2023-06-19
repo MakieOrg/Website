@@ -21,8 +21,8 @@
     </div>
   </head>
   <body>
-    <script type="module">JSServe.lock_loading(() => JSServe.init_session('35e40fab-ace2-4908-a04f-28ff2cb006e4', null, 'root'))</script>
-    <div id="35e40fab-ace2-4908-a04f-28ff2cb006e4" data-jscall-id="root">
+    <script type="module">JSServe.lock_loading(() => JSServe.init_session('9b244ff8-8a85-4ad6-8934-9d22979f5e5a', null, 'root'))</script>
+    <div id="9b244ff8-8a85-4ad6-8934-9d22979f5e5a" data-jscall-id="root">
       <div data-jscall-id="1">
         <link href="./jsserve/png/icon_transparent.png" rel="icon" data-jscall-id="2" type="image/png" />
         <img style="width: 100%" src="./jsserve/png/bannermesh_gradient.png" data-jscall-id="3" />
@@ -661,10 +661,18 @@ What Makie doesn&#39;t offer out of the box, gets supported by a rich 3rd party 
             </div>
           </div>
         </div>
-        <script async="true" defer="true" src="https://scripts.simpleanalyticscdn.com/latest.js" data-jscall-id="388"></script>
-        <noscript data-jscall-id="389">
-          <img alt="" src="https://queue.simpleanalyticscdn.com/noscript.gif" data-jscall-id="390" referrerpolicy="no-referrer-when-downgrade" />
-        </noscript>
+        <script type="module">    const _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        const u="//matomo.makie.org/";
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        const d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+    })();
+</script>
       </div>
     </div>
   </body>

@@ -127,6 +127,22 @@ function Navigation(highlighted="")
 end
 asset = Asset(asset_path("js", "tailwind.js"))
 
+function motomo_tracking()
+    js"""
+        const _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            const u="//matomo.makie.org/";
+            _paq.push(['setTrackerUrl', u+'piwik.php']);
+            _paq.push(['setSiteId', '1']);
+            const d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+        })();
+    """
+end
+
 function page(body, highlighted)
     header = DOM.img(src=img_asset("bannermesh_gradient.png"); style="width: 100%")
     return DOM.div(
@@ -137,7 +153,6 @@ function page(body, highlighted)
         header,
         Navigation(highlighted),
         body,
-        DOM.script(src="https://scripts.simpleanalyticscdn.com/latest.js"; async=true, defer=true),
-        DOM.noscript(DOM.img(src="https://queue.simpleanalyticscdn.com/noscript.gif", alt="", referrerpolicy="no-referrer-when-downgrade")),
+        motomo_tracking()
     )
 end
