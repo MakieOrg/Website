@@ -13,7 +13,7 @@ function JSServe.jsrender(s::Session, card::SponsorCard)
 end
 
 support = App(title="Support") do s
-    body = Block(
+    body = DOM.div(
         TextBlock("Makie is a big and active project which needs a lot of resources to keep going.
         To make sure, core contributors have enough time to work on Makie, we've to make sure our developers and maintainers are paid for their hard work.
         If you're a regular Makie user, we'd really appreciate if you could support us in one of the following ways:"),

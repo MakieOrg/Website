@@ -17,7 +17,6 @@ team = App(title="Team") do
     ]
 
     simon = Section(
-        Block(
         FocusBlock(
             [
                 H2("Simon Danisch - Author of Makie"),
@@ -31,10 +30,9 @@ team = App(title="Team") do
             link="https://github.com/SimonDanisch",
             image="simon.jpg",
             rev=true
-            ))
+        )
     )
     julius = Section(
-        Block(
         FocusBlock(
             [
                 H2("Julius Krumbiegel - Co-Author"),
@@ -56,7 +54,7 @@ team = App(title="Team") do
             ]; 
             link="https://github.com/jkrumbiegel",
             image="julius.jpg"
-        ))
+        )
     )
     coauthored = [
         GHProject("ffreyer/SphereSurfaceHistogram.jl"), ", ",
@@ -73,7 +71,6 @@ team = App(title="Team") do
         GHProject("JuliaGeometry/GeometryBasics.jl"),
     ]
     frederic = Section(
-        Block(
         FocusBlock(
             [
                 H2("Frederic Freyer - GLMakie expert"),
@@ -98,7 +95,7 @@ team = App(title="Team") do
             ];
             image="frederic.jpg",
             rev=true
-            ))
+        )
     )
 
     contributors = Section(
