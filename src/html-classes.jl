@@ -116,7 +116,7 @@ function Navigation(highlighted="")
     return DOM.div(
         class="flex navbar justify-center", # TailwindCSS classes
         DOM.div(
-            class="flex max-w-5xl w-full px-4 flex-wrap",
+            class="flex max-w-5xl w-full md:px-4 flex-wrap",
             item("Home", "/"),
             item("Team", "/team"),
             item("Support", "/support"),
