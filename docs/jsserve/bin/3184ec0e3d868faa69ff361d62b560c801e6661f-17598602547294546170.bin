@@ -1,0 +1,11 @@
+’Ç-j“Ù$fc1b9911-8441-455b-8212-e82ef59376e5€¤root‚§payload•È)k’Ç-j“Ù$fc1b9911-8441-455b-8212-e82ef59376e5€¤root‚§payloadÇáf“€ÙŒ((node) => {
+    node['onclick'] = ()=> location.href = '../contact?subject=sponsoring'
+})(document.querySelector('[data-jscall-id="22"]'));ÙOc:\Users\sdani\SimiWorld\ProgrammerLife\SiteMakie\dev\Website\src\support.jl:10¨msg_type¡2È'k’Ç-j“Ù$fc1b9911-8441-455b-8212-e82ef59376e5€¤root‚§payloadÇßf“€ÙŠ((node) => {
+    node['onclick'] = ()=> location.href = '../contact?subject=contract'
+})(document.querySelector('[data-jscall-id="28"]'));ÙOc:\Users\sdani\SimiWorld\ProgrammerLife\SiteMakie\dev\Website\src\support.jl:10¨msg_type¡2È&k’Ç-j“Ù$fc1b9911-8441-455b-8212-e82ef59376e5€¤root‚§payloadÇÞf“€Ù‰((node) => {
+    node['onclick'] = ()=> location.href = '../contact?subject=license'
+})(document.querySelector('[data-jscall-id="33"]'));ÙOc:\Users\sdani\SimiWorld\ProgrammerLife\SiteMakie\dev\Website\src\support.jl:10¨msg_type¡2È)k’Ç-j“Ù$fc1b9911-8441-455b-8212-e82ef59376e5€¤root‚§payloadÇáf“€ÙŒ((node) => {
+    node['onclick'] = ()=> location.href = '../contact?subject=consulting'
+})(document.querySelector('[data-jscall-id="38"]'));ÙOc:\Users\sdani\SimiWorld\ProgrammerLife\SiteMakie\dev\Website\src\support.jl:10¨msg_type¡2È%k’Ç-j“Ù$fc1b9911-8441-455b-8212-e82ef59376e5€¤root‚§payloadÇÝf“€Ùˆ((node) => {
+    node['onclick'] = ()=> location.href = '../contact?subject=grants'
+})(document.querySelector('[data-jscall-id="43"]'));ÙOc:\Users\sdani\SimiWorld\ProgrammerLife\SiteMakie\dev\Website\src\support.jl:10¨msg_type¡2¨msg_type¡9

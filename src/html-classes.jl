@@ -126,9 +126,8 @@ function Navigation(highlighted="")
     )
 end
 asset = Asset(asset_path("js", "tailwind.js"))
-
 function motomo_tracking()
-    DOM.img(referrerpolicy="no-referrer-when-downgrade", src="https://matomo.makie.org/matomo.php?idsite=2&amp;rec=1", style="border:0", alt="")
+    DOM.img(referrerpolicy="no-referrer-when-downgrade", src="https://viewer.makie.org/matomo.php?idsite=2&amp;rec=1", style="border:0", alt="")
 end
 
 function page(body, highlighted)
