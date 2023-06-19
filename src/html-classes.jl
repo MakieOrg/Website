@@ -132,13 +132,20 @@ end
 
 function page(body, highlighted)
     header = DOM.img(src=img_asset("bannermesh_gradient.png"); style="width: 100%")
-    return DOM.div(
-        asset,
-        JSServe.MarkdownCSS,
-        css_asset("site.css"),
-        DOM.link(href=img_asset("icon_transparent.png"), rel="icon", type="image/png"),
-        header,
-        Navigation(highlighted),
-        body,
-        motomo_tracking())
+    return DOM.html(
+        DOM.head(
+            DOM.meta(name="viewport", content="width=device-width, initial-scale=1.0"),
+        ),
+        DOM.body(
+            DOM.div(
+                asset,
+                JSServe.MarkdownCSS,
+                css_asset("site.css"),
+                DOM.link(href=img_asset("icon_transparent.png"), rel="icon", type="image/png"),
+                header,
+                Navigation(highlighted),
+                body,
+                motomo_tracking())
+        )
+    )
 end
