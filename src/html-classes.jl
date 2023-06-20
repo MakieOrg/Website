@@ -1,10 +1,16 @@
 
-test() = 33
-
 function md2html(s, file)
     source = read(file, String)
     return JSServe.string_to_markdown(s, source; eval_julia_code=Main)
 end
+
+camelcase_break_suggest(s::String) = DOM.span_unesc(
+    join(
+        split(s, r"(?<=[a-z])(?=[A-Z])"),
+        "&ZeroWidthSpace;"
+    )
+)
+
 JSServe.jsrender(s::Session, card::Vector) = JSServe.jsrender(s, DOM.div(card...; class="flex flex-wrap"))
 
 const CARD_STYLE = "rounded-md p-2 shadow bg-white"
@@ -84,7 +90,7 @@ function JSServe.jsrender(s::Session, card::DetailedCard)
     end
     content = DOM.div(
         class="flex flex-col mt-1 p-2 md:p-4 gap-1",
-        DOM.div(card.title, class="text-xs lg:text-sm font-semibold text-center break-all"),
+        DOM.div(camelcase_break_suggest(card.title), class="text-xs lg:text-sm font-semibold text-center"),
         DOM.div(img, DOM.div(details, class="overlay text-xs lg:text-base"), class="container"),
     )
     card_div = DOM.div(

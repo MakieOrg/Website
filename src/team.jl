@@ -1,4 +1,7 @@
-GHProject(x) = link(splitdir(x)[end], "https://github.com/$(x)")
+GHProject(x) = link(
+    camelcase_break_suggest(splitdir(x)[end]),
+    "https://github.com/$(x)"
+)
 
 team = App(title="Team") do
     projects = [
