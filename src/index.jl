@@ -38,7 +38,7 @@ index = App(title="Makie") do
                 image="use_cases/clima.mp4",
                 href="https://simondanisch.github.io/JSServe.jl",
             ),
-            class = "gap-6 sm:grid-cols-2 lg:grid-cols-4",
+            class = "gap-6 sm:grid-cols-2",
         ),
         Spacer(4)
     )
