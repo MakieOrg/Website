@@ -76,14 +76,14 @@ index = App(title="Makie") do
         H1("Features"),
         FocusBlock(
             DOM.div(
-                H2("Surgical updates & high performance"),
+                H2Focus("Surgical updates & high performance"),
                 """
                 Makie uses Observables.jl to only update what's necessary at a given point in time.
                 This example animates hundreds of thousands of points just through a colormap update, modifying only a few bytes per frame directly on the GPU.
                 There's no faster way to animate large data. Combining the power of GPUs and Julia's high performance, Makie is fit for any task!
                 """,
                 alex;
-                class="flex flex-col gap-3",
+                class="flex flex-col gap-1",
             );
             image="use_cases/glacier.mp4",
             link="https://makieorg.github.io/Tyler.jl/dev/examples/generated/UserGuide/iceloss_ex",
@@ -92,14 +92,14 @@ index = App(title="Makie") do
         Spacer(10),
         FocusBlock(
             DOM.div(
-                H2("Powerful Layouting"),
+                H2Focus("Powerful Layouting"),
                 """
                 Makie has one of the most powerful layouting systems compared to other plotting
                 libraries, allowing you to tweak any possible attribute and place your plots
                 and subplots freely.
                 """,
                 benedict;
-                class="flex flex-col gap-3",
+                class="flex flex-col gap-1",
             );
             image="use_cases/layouting.png",
             link="https://docs.makie.org/stable/tutorials/layout-tutorial/"
@@ -107,85 +107,115 @@ index = App(title="Makie") do
         Spacer(10),
         FocusBlock(
             DOM.div(
-                H2("2D, 3D, Volumes, Meshes, Sliders, Buttons and more"),
+                H2Focus("2D, 3D, Volumes, Meshes, Sliders, Buttons and more"),
                 """
                 Makie has support for all kind of primitives for interactive data exploration. This makes it simple to quickly build up dashboards for any kind of data.
                 """,
                 garrek;
-                class="flex flex-col gap-3",
+                class="flex flex-col gap-1",
             ),
             image="use_cases/clima-volume.mp4",
             rev=true
         ),
-        Spacer(10),
-        H2("Backends"),
+        Spacer(10)
+    )
+    backends = Section(
+        H1("Backends"),
         FullWidthText(
             """Makie's backends are the reason why we can have high quality vector graphics for publication while also delivering fast GPU accelerated renderings.
             Use exactly the same code and change how your interactive graphic is displayed simply by switching the backend.
             """,
             class="my-4"
         ),
-        Grid(
-            DetailedCard(
-                imclass=backend_class,
-                title="GLMakie",
-                image="backends/glmakie.png",
-                link="https://docs.makie.org/stable/documentation/backends/glmakie/",
-                details=md"""* Super fast, interactive desktop applications
-                * The first backend and the most feature complete
-                * Uses the GPU via OpenGL for fast 3D animations
-                * Basic UI elements for simple Dashboards
-                * Needs a GPU, or a virtual GPU (e.g. Mesa, VirtualGL)
-                * Image from: $(link("A. N. Souza", "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2022MS003527"))
-                """
+        FocusBlock(
+            DOM.div(
+                H2Focus("GLMakie"),
+                DOM.span(
+                    """The backend for fast, interactive desktop applications.
+                    It was Makie's first backend and uses the GPU via OpenGL for fast 3D animations.
+                    It supports basic UI elements for simple Dashboards.
+                    Either a hardware or virtual GPU (e.g. Mesa, VirtualGL) is necessary to use GLMakie.
+                    (Image from: 
+                    """,
+                    link("A. N. Souza", "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2022MS003527"),
+                    ")",
+                );
+                class="flex flex-col gap-1",
             ),
-            DetailedCard(
-                imclass=backend_class,
-                title="CairoMakie",
-                image="backends/cairomakie.svg",
-                link="https://docs.makie.org/stable/documentation/backends/cairomakie/",
-                details=md""" * Best 2D rendering quality
-                * Can export SVGs, PDFs, etc
-                * 3D support experimental
-                * Not interactive
-                * Runs everywhere on the CPU
-                * Image from: $(link("beautiful.makie.org", "https://beautiful.makie.org"))
-                """
+            image="backends/glmakie.png",
+            link="https://docs.makie.org/stable/documentation/backends/glmakie/",
+            rev=true
+        ),
+        Spacer(10),
+        FocusBlock(
+            DOM.div(
+                H2Focus("CairoMakie"),
+                DOM.span(
+                    """
+                    CairoMakie runs anywhere on the CPU and is Makie's backend for SVG and PDF vector graphics output.
+                    With CairoMakie, you can achieve the highest quality output for publications and reports.
+                    Because it uses vector graphics primitives, CairoMakie does not support 3D rendering the same way as GLMakie
+                    and has no interactive mode.
+                    (Image from: 
+                    """,
+                    link("beautiful.makie.org", "https://beautiful.makie.org"),
+                    ")",
+                );
+                class="flex flex-col gap-1",
             ),
-            DetailedCard(
-                imclass=backend_class,
-                title="WGLMakie",
-                image="backends/wglmakie.mp4",
-                link="https://docs.makie.org/stable/documentation/backends/wglmakie/",
-                details=md"""* Creates visualizations via Threejs & WebGL in the browser
-                * Has an overhead for transferring data to browser
-                * Mostly feature complete, with some things still missing
-                * Runs almost everywhere on the GPU
-                * Great for working on remote machines, plotpane and notebooks
-                * Image from: $(link("VISUS", "https://www.visus.uni-stuttgart.de"))
-                """
+            image="backends/cairomakie.svg",
+            link="https://docs.makie.org/stable/documentation/backends/cairomakie/",
+            rev=false
+        ),
+        Spacer(10),
+        FocusBlock(
+            DOM.div(
+                H2Focus("WGLMakie"),
+                DOM.span(
+                    """
+                    WGLMakie puts your visualizations in the browser using Threejs and WebGL.
+                    It runs almost anywhere on the GPU and is great for working on remote machines,
+                    with Pluto or Jupyter notebooks, or in browser-like IDEs such as VSCode.
+                    Like with all javascript-based visualization tools, there is an overhead when transferring large amounts of data to the browser.
+                    (Image from: 
+                    """,
+                    link("VISUS", "https://www.visus.uni-stuttgart.de"),
+                    ")",
+                );
+                class="flex flex-col gap-1",
             ),
-            DetailedCard(
-                imclass=backend_class,
-                title="RPRMakie",
-                image="use_cases/earths_creditst.png",
-                link="https://docs.makie.org/stable/documentation/backends/rprmakie/",
-                details=md"""* Newest, supports only a subset of Makie (mostly the 3d primitives)
-                * Very slow, needs high end hardware for high quality animations
-                * Still immature
-                * looks amazing when it works
-                * Image from: $(link("Lazaro Alonso", "https://github.com/lazarusA"))
-                """
+            image="backends/wglmakie.mp4",
+            link="https://docs.makie.org/stable/documentation/backends/wglmakie/",
+            rev=true
+        ),
+        Spacer(10),
+        FocusBlock(
+            DOM.div(
+                H2Focus("RPRMakie"),
+                DOM.span(
+                    """
+                    RPRMakie is the newest experimental backend for raytraced images using RadeonProRender.
+                    With appropriately fast hardware, you can render beautiful visualizations that show off your data
+                    using physically accurate materials and lights.
+                    (Image from: 
+                    """,
+                    link("Lazaro Alonso", "https://github.com/lazarusA"),
+                    ")",
+                );
+                class="flex flex-col gap-1",
             ),
-            class="gap-4 grid-cols-2 md:grid-cols-4",
+            image="use_cases/earths_creditst.png",
+            link="https://docs.makie.org/stable/documentation/backends/rprmakie/",
+            rev=false
         ),
     )
     eco_class = ""
-    ecosystem = Section(
+    ecosystem = Section(bg="bg-gray-100",
         H1("Rich Ecosystem"),
         FullWidthText("""
-        To cater to every use case without becoming a big, bloated library, Makie is highly modular and extensible.
-        What Makie doesn't offer out of the box gets supported by a rich 3rd party ecosystem:
+        Makie is highly modular and extensible.
+        Many use cases are already covered by its inbuilt plot types and interactive elements.
+        For more specialized applications, have a look at the rich third-party ecosystem that has developed around Makie:
         """, class="my-4"),
         Grid(
             DetailedCard(
@@ -363,6 +393,7 @@ index = App(title="Makie") do
     body = DOM.div(
         intro,
         features,
+        backends,
         ecosystem,
         users;
     )
