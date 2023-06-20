@@ -19,7 +19,7 @@ team = App(title="Team") do
     simon = Section(
         FocusBlock(
             [
-                H2("Simon Danisch - Author of Makie"),
+                H2Focus("Simon Danisch - Author of Makie"),
                 DOM.p(
                 """
                 I'm a Julia open source developer since 2012 and have helped build substantial parts of the graphics, GPU and plotting infrastructure in Julia.
@@ -35,7 +35,7 @@ team = App(title="Team") do
     julius = Section(
         FocusBlock(
             [
-                H2("Julius Krumbiegel - Co-Author"),
+                H2Focus("Julius Krumbiegel - Co-Author"),
                 DOM.p(
                 "I joined the Makie project in 2019 when I created its layout system ",
                 GHProject("jkrumbiegel/GridLayoutBase.jl"),
@@ -73,7 +73,7 @@ team = App(title="Team") do
     frederic = Section(
         FocusBlock(
             [
-                H2("Frederic Freyer - GLMakie expert"),
+                H2Focus("Frederic Freyer - GLMakie expert"),
                 DOM.p(
                 """
                 I've started using Julia in 2018 to write a Monte-Carlo simulation for my Bachelor thesis in condensed matter physics. The project continued afterwards with code running on our HPC cluster, resulting in two papers. Since then I have continued working with Julia and contributed to various open source projects.
