@@ -134,8 +134,8 @@ end
 asset = Asset(asset_path("js", "tailwind.js"))
 function tracking()
     DOM.div(
-        DOM.script(src="https://scripts.simpleanalyticscdn.com/latest.js"; async=true, defer=true),
-        DOM.noscript(DOM.img(src="https://queue.simpleanalyticscdn.com/noscript.gif"; alt="", referrerpolicy="no-referrer-when-downgrade"))
+        DOM.script(src="https://api.makie.org/latest.js"; async=true, defer=true),
+        DOM.noscript(DOM.img(src="https://api.makie.org/noscript.gif"; alt="", referrerpolicy="no-referrer-when-downgrade"))
     )
 end
 
