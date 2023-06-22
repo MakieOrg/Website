@@ -10,19 +10,6 @@
         format("woff");
 }
 
-html {
-    font-size: calc(
-        ((0.4em + 1vmin) + (0.4em + 1vmax)) / 2
-    ); /* Default font-size for screens larger than 640px */
-}
-
-@media only screen and (max-device-width: 480px) {
-    html {
-        font-size: calc(
-            ((0.4em + 1vmin) + (0.4em + 1vmax))
-        ); /* Default font-size for screens smaller than 640px */
-    }
-}
 
 body {
     width: 100%;

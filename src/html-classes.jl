@@ -132,8 +132,11 @@ function Navigation(highlighted="")
     )
 end
 asset = Asset(asset_path("js", "tailwind.js"))
-function motomo_tracking()
-    DOM.img(referrerpolicy="no-referrer-when-downgrade", src="https://viewer.makie.org/matomo.php?idsite=2&amp;rec=1", style="border:0", alt="")
+function tracking()
+    DOM.div(
+        DOM.script(src="https://scripts.simpleanalyticscdn.com/latest.js"; async=true, defer=true),
+        DOM.noscript(DOM.img(src="https://queue.simpleanalyticscdn.com/noscript.gif"; alt="", referrerpolicy="no-referrer-when-downgrade"))
+    )
 end
 
 function page(body, highlighted)
@@ -152,7 +155,7 @@ function page(body, highlighted)
                 header,
                 Navigation(highlighted),
                 body,
-                motomo_tracking())
+                tracking())
         )
     )
 end
