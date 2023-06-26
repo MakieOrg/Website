@@ -117,6 +117,20 @@ index = App(title="Makie") do
             image="use_cases/clima-volume.mp4",
             rev=true
         ),
+        Spacer(10),
+        FocusBlock(
+            DOM.div(
+                H2Focus("Powerful event system and rendering engine"),
+                """
+                Makie is certainly not a game engine, but its rich rendering and interaction features allow the creation of simple, interactive games such as Minecraft.
+                While Makie might not be the go-to for more complex games, using it to build a Minecraft-like game highlights its versatility for complex, interactive visualizations.
+                Many use cases, such as AI gyms or complex, interactive 3D simulations, greatly benefit from this.
+                """,
+                class="flex flex-col gap-1",
+            ),
+            link="https://github.com/ashwani-rathee/Miner.jl",
+            image="use_cases/miner.png",
+        ),
         Spacer(10)
     )
     backends = Section(
@@ -135,7 +149,7 @@ index = App(title="Makie") do
                     It was Makie's first backend and uses the GPU via OpenGL for fast 3D animations.
                     It supports basic UI elements for simple Dashboards.
                     Either a hardware or virtual GPU (e.g. Mesa, VirtualGL) is necessary to use GLMakie.
-                    (Image from: 
+                    (Image from:
                     """,
                     link("A. N. Souza", "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2022MS003527"),
                     ")",
@@ -156,7 +170,7 @@ index = App(title="Makie") do
                     With CairoMakie, you can achieve the highest quality output for publications and reports.
                     Because it uses vector graphics primitives, CairoMakie does not support 3D rendering the same way as GLMakie
                     and has no interactive mode.
-                    (Image from: 
+                    (Image from:
                     """,
                     link("beautiful.makie.org", "https://beautiful.makie.org"),
                     ")",
@@ -177,7 +191,7 @@ index = App(title="Makie") do
                     It runs almost anywhere on the GPU and is great for working on remote machines,
                     with Pluto or Jupyter notebooks, or in browser-like IDEs such as VSCode.
                     Like with all javascript-based visualization tools, there is an overhead when transferring large amounts of data to the browser.
-                    (Image from: 
+                    (Image from:
                     """,
                     link("VISUS", "https://www.visus.uni-stuttgart.de"),
                     ")",
@@ -197,7 +211,7 @@ index = App(title="Makie") do
                     RPRMakie is the newest experimental backend for raytraced images using RadeonProRender.
                     With appropriately fast hardware, you can render beautiful visualizations that show off your data
                     using physically accurate materials and lights.
-                    (Image from: 
+                    (Image from:
                     """,
                     link("Lazaro Alonso", "https://github.com/lazarusA"),
                     ")",
