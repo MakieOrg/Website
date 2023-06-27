@@ -67,8 +67,9 @@ index = App(title="Makie") do
         "Garrek Stemo",
         "https://github.com/garrekstemo",
         """
-        Makie was what convinced me to completely switch from Python to Julia, it was simple and the defaults looked great.
-        I was pretty quickly able to get a simple GUI that integrated with my laboratory instruments to automatically spit out plots
+        Makie was what convinced me to completely switch from Python to Julia.
+        It is simple and looks great out of the box.
+        I was pretty quickly able to make a simple GUI that integrates with my laboratory instruments to automatically spit out plots.
         """,
         "https://discourse.julialang.org/t/comparison-of-plotting-packages/99860/44"
     )

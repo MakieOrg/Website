@@ -14,9 +14,9 @@ end
 
 support = App(title="Support") do s
     body = DOM.div(
-        TextBlock("Makie is a big and active project which needs a lot of resources to keep going.
-        To make sure, core contributors have enough time to work on Makie, we've to make sure our developers and maintainers are paid for their hard work.
-        If you're a regular Makie user, we'd really appreciate if you could support us in one of the following ways:"),
+        TextBlock("Makie is a large and vibrant project which relies heavily on dedicated developer effort.
+        To ensure our core contributors can fully focus on advancing Makie, it's crucial to support our hardworking developers and maintainers.
+        As a regular Makie user, your contribution in any of the following ways would be greatly appreciated:"),
         FlexGrid(
             SponsorCard(
                 "Sponsoring",
@@ -29,17 +29,19 @@ support = App(title="Support") do s
             SponsorCard(
                 "Support Contract",
                 """
-                We're happy to give out support contracts for Makie.
-                How it works is, that you pay a fixed amount of money per month, and we'll allocate resources to help out in any way we can.
+                We are happy to give out support contracts for Makie.
+                You contribute a fixed monthly amount, and in return, we will dedicate resources to assist you in any way possible.
+                Please contact us to discuss any details.
                 """,
                 "contract"
             ),
             SponsorCard(
                 "Voluntary License",
                 """
-                If you're part of an organization that can't just pay for work directly, nor sponsor us, but still wants to support us, we offer a voluntary license for Makie.
-                The idea is, to offer a license with an official receipt, that instutations can buy to support us.
-                The license is fully voluntary, and doesn't give you any additional rights, but it helps us a lot to secure some basic income.
+                If you represent an organization that is unable to provide direct payment or sponsorship but still wish to support us,
+                we have an alternative option: a voluntary license for Makie.
+                The concept behind this license is to provide institutions with an official receipt upon purchase, categorizing it as a software purchase.
+                While the license does not grant any additional rights, it can be paid from an institutions software budget and helps us to improve Makie.
                 """,
                 "license"
             ),

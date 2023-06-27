@@ -4,18 +4,19 @@ GHProject(x) = link(
 )
 
 team = App(title="Team") do
+    c = ","
     projects = [
-        GHProject("MakieOrg/Makie.jl"), ", ",
-        GHProject("JuliaGPU/GPUArrays.jl"), ", ",
-        GHProject("JuliaIO/FileIO.jl"), ", ",
-        GHProject("SimonDanisch/JSServe.jl"), ", ",
-        GHProject("JuliaLang/PackageCompiler.jl"), ", ",
-        GHProject("JuliaGPU/CLArrays.jl"), ", ",
-        GHProject("JuliaGeometry/GeometryBasics.jl"), ", ",
-        GHProject("JuliaGraphics/FreeTypeAbstraction.jl"), ", ",
-        GHProject("SimonDanisch/Matcha.jl"), ", ",
-        GHProject("JuliaGeometry/Tetgen.jl"), ", ",
-        GHProject("JuliaGeometry/EarCut.jl"), ", ",
+        GHProject("MakieOrg/Makie.jl"), c,
+        GHProject("JuliaGPU/GPUArrays.jl"), c,
+        GHProject("JuliaIO/FileIO.jl"), c,
+        GHProject("SimonDanisch/JSServe.jl"), c,
+        GHProject("JuliaLang/PackageCompiler.jl"), c,
+        GHProject("JuliaGPU/CLArrays.jl"), c,
+        GHProject("JuliaGeometry/GeometryBasics.jl"), c,
+        GHProject("JuliaGraphics/FreeTypeAbstraction.jl"), c,
+        GHProject("SimonDanisch/Matcha.jl"), c,
+        GHProject("JuliaGeometry/Tetgen.jl"), c,
+        GHProject("JuliaGeometry/EarCut.jl"), c,
         GHProject("JuliaGL/ModernGL.jl")
     ]
 
@@ -25,10 +26,15 @@ team = App(title="Team") do
                 H2Focus("Simon Danisch - Author of Makie"),
                 DOM.p(
                 """
-                I'm a Julia open source developer since 2012 and have helped build substantial parts of the graphics, GPU and plotting infrastructure in Julia.
-                I'm  the author of: \n""",
+                I began my studies in Cognitive Science at the University of Osnabrück in 2010, with a focus on computer vision and machine learning.
+                In search of a language that could deliver superior performance for interactive computer vision and GPU computing, along with a mathematically elegant alternative to OOP,
+                I discovered Julia in 2012. It's been my language of choice ever since.
+                Working with C++ on machine learning projects in 2011, I experienced a lack of interactive tools for data visualization and model parameter manipulation.
+                This led to my Bachelor's thesis, where I developed a Makie predecessor - containing code that is still utilized in Makie today.
+                Since then, I've contributed significantly to the development of Julia's graphic, GPU, and plotting infrastructure, and authored numerous related packages:""",
                 DOM.br(),
-                projects)
+                projects,
+                "and ", GHProject("SimonDanisch/FixedSizeArrays.jl"), "which became ", GHProject("JuliaArrays/StaticArrays.jl"))
             ];
             link="https://github.com/SimonDanisch",
             image="simon.jpg",
@@ -47,30 +53,30 @@ team = App(title="Team") do
                 ". Owing to my academic history in psychology and vision science, my focus is on 2D plots and visual quality, which is why much of my work has revolved around our default themes, plot recipes, text and figure layouting as well as vector graphics output through CairoMakie.jl. ",
                 "I'm also the author of packages such as ",
                 [
-                    GHProject("jkrumbiegel/Chain.jl"), ", ",
-                    GHProject("jkrumbiegel/DataFrameMacros.jl"), ", ",
-                    GHProject("jkrumbiegel/ReadableRegex.jl"), ", ",
+                    GHProject("jkrumbiegel/Chain.jl"), c,
+                    GHProject("jkrumbiegel/DataFrameMacros.jl"), c,
+                    GHProject("jkrumbiegel/ReadableRegex.jl"), c,
                     GHProject("jkrumbiegel/Animations.jl"), " and ",
                     GHProject("jkrumbiegel/SankeyMakie.jl"), "."
                 ]
                 )
-            ]; 
+            ];
             link="https://github.com/jkrumbiegel",
             image="julius.jpg"
         )
     )
     coauthored = [
-        GHProject("ffreyer/SphereSurfaceHistogram.jl"), ", ",
-        GHProject("carstenbauer/BinningAnalysis.jl"), ", ",
-        GHProject("carstenbauer/MonteCarlo.jl"), ", ",
+        GHProject("ffreyer/SphereSurfaceHistogram.jl"), c,
+        GHProject("carstenbauer/BinningAnalysis.jl"), c,
+        GHProject("carstenbauer/MonteCarlo.jl"), c,
         GHProject("ffreyer/LatPhysPlottingMakie.jl"),
     ]
     contributions = [
-        GHProject("MakieOrg/Makie.jl"), ", ",
-        GHProject("fatteneder/MakieSlides.jl"), ", ",
-        GHProject("JuliaPlots/MakieTeX.jl"), ", ",
-        GHProject("JuliaIO/MeshIO.jl"), ", ",
-        GHProject("JuliaGizmos/Observables.jl"), ", ",
+        GHProject("MakieOrg/Makie.jl"), c,
+        GHProject("fatteneder/MakieSlides.jl"), c,
+        GHProject("JuliaPlots/MakieTeX.jl"), c,
+        GHProject("JuliaIO/MeshIO.jl"), c,
+        GHProject("JuliaGizmos/Observables.jl"), c,
         GHProject("JuliaGeometry/GeometryBasics.jl"),
     ]
     frederic = Section(
