@@ -27,9 +27,9 @@ team = App(title="Team") do
                 DOM.p(
                 """
                 I began my studies in Cognitive Science at the University of Osnabrück in 2010, with a focus on computer vision and machine learning.
-                In search of a language that could deliver superior performance for interactive computer vision and GPU computing, along with a mathematically elegant alternative to OOP,
+                In search of a language that could deliver superior performance for interactive computing and great GPU integration, along with an elegant alternative to OOP for math,
                 I discovered Julia in 2012. It's been my language of choice ever since.
-                Working with C++ on machine learning projects in 2011, I experienced a lack of interactive tools for data visualization and model parameter manipulation.
+                Working with C++ on machine learning projects in 2011, I experienced a lack of easy to use, interactive tools for data visualization and model parameter manipulation.
                 This led to my Bachelor's thesis, where I developed a Makie predecessor - containing code that is still utilized in Makie today.
                 Since then, I've contributed significantly to the development of Julia's graphic, GPU, and plotting infrastructure, and authored numerous related packages:""",
                 DOM.br(),

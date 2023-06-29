@@ -1,3 +1,4 @@
+# needs JSServe#sd/asset-plugins
 using Revise, JSServe, Markdown
 import JSServe.TailwindDashboard as D
 
@@ -18,7 +19,7 @@ routes, task, server = interactive_server([asset_path(), joinpath(@__DIR__, "src
 end
 
 ##
-
+using NodeJS
 dir = joinpath(@__DIR__, "docs")
 # only delete the jsserve generated files
 rm(joinpath(dir, "jsserve"); recursive=true, force=true)

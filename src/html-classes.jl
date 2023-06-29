@@ -112,7 +112,6 @@ function QuoteBlock(author, authorlink, quote_text, quote_link)
     )
 end
 
-
 function Navigation(highlighted="")
     function item(name, href)
         highlight = highlighted == name ? " navbar-highlight" : ""
@@ -131,7 +130,7 @@ function Navigation(highlighted="")
         )
     )
 end
-asset = Asset(asset_path("js", "tailwind.js"))
+
 function tracking()
     DOM.div(
         DOM.script(src="https://api.makie.org/latest.js"; async=true, defer=true),
@@ -144,13 +143,13 @@ function page(body, highlighted)
     return DOM.html(
         DOM.head(
             DOM.meta(name="viewport", content="width=device-width, initial-scale=1.0"),
-            DOM.meta(charset="utf-8")
+            DOM.meta(charset="utf-8"),
+            css_asset("site.css"),
+            JSServe.TailwindCSS,
         ),
         DOM.body(
             DOM.div(
-                asset,
-                JSServe.MarkdownCSS,
-                css_asset("site.css"),
+
                 DOM.link(href=img_asset("icon_transparent.png"), rel="icon", type="image/png"),
                 header,
                 Navigation(highlighted),
