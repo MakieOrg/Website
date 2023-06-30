@@ -1,4 +1,3 @@
-import GitHub
 
 function JSServe.jsrender(owner::GitHub.Owner)
     name = DOM.span(string(owner.login), style="margin: 2px; color: 'gray")
@@ -9,6 +8,7 @@ function JSServe.jsrender(owner::GitHub.Owner)
 end
 
 const GITHUB_OWNERS = Dict{String,GitHub.Owner}()
+
 function gh_owner(name)
     get!(GITHUB_OWNERS, name) do
         println("api call")
@@ -16,16 +16,18 @@ function gh_owner(name)
     end
 end
 
-
 function all_contributors(repo::String)
     repo(repo)
     contributors(repo)
 end
 
-if !isdefined(Main, :makie_repo)
+let
+    # A bit shady, but a nice way to serialzie the owners at precompile
+    # So we don't make any further requests to the github API while developing
+    # which helps to not run into githus API limits
     makie_repo = GitHub.repo("MakieOrg/Makie.jl")
 
     contribs = GitHub.contributors(makie_repo)
 
-    owners = [owner["contributor"] for owner in contribs[1]]
+    global OWNERS = [owner["contributor"] for owner in contribs[1]]
 end

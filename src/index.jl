@@ -3,8 +3,7 @@ using JSServe: @dom_str
 
 semibold(text) = DOM.span(text, class="font-semibold")
 
-index = App(title="Makie") do
-    eco_width = 150
+function index()
     Julia = link("Julia", "https://julialang.org")
     be_quote = link(DOM.img(src=img_asset("benedikt-tweet.png"); class=CARD_STYLE), "https://twitter.com/BenediktEhinger/status/1665326068973158400")
 
@@ -21,7 +20,6 @@ index = App(title="Makie") do
             Showcase(
                 title="Explore large datasets",
                 image="use_cases/datashader.mp4",
-                href=""
             ),
             Showcase(
                 title="Export for publications",

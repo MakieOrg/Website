@@ -12,7 +12,7 @@ function JSServe.jsrender(s::Session, card::SponsorCard)
     return JSServe.jsrender(s, DOM.div(c; class="$(CARD_STYLE) m-2 p-1 hover:bg-gray-300 grow w-full lg:w-1/3"))
 end
 
-support = App(title="Support") do s
+function support()
     body = DOM.div(
         TextBlock("Makie is a large and vibrant project which relies heavily on dedicated developer effort.
         To ensure our core contributors can fully focus on advancing Makie, it's crucial to support our hardworking developers and maintainers.

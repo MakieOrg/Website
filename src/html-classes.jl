@@ -21,9 +21,6 @@ H2Focus(x) = DOM.h2(x; class="text-lg font-bold text-left")
 H3(x) = DOM.h3(x; class="text-sm font-semibold text-left")
 link(name, href; class="visited:text-purple-600 text-blue-600", style="") = DOM.a(name; href=href, target="_blank", class=class, style=style)
 
-asset_path(files...) = normpath(joinpath(@__DIR__, "..", "assets", files...))
-img_asset(files...) = Asset(asset_path("images", files...))
-css_asset(files...) = Asset(asset_path("css", files...))
 FlexGrid(elems...; class="", kwargs...) = DOM.div(elems...; class=join(["flex flex-wrap", class], " "), kwargs...)
 Grid(elems...; class="", kwargs...) = DOM.div(elems...; class=join(["grid ", class], " "), kwargs...)
 TextBlock(text; width="max-w-prose") = DOM.div(text; class="text-base $width")
@@ -33,17 +30,21 @@ Section(content...; bg="") = DOM.div(
     class="$bg flex flex-col items-center w-full"
 )
 FullWidthText(text; class="") = DOM.div(text, class="w-full text-justify $class")
-function Showcase(; title, image, href)
+function Showcase(; title, image, href=nothing)
     img = render_media(img_asset(image))
     content = DOM.div(H3(title), img; class="flex flex-col gap-2")
-    return link(content, href; class="")
+    if isnothing(href)
+        return content
+    else
+        return link(content, href; class="")
+    end
 end
 
 function FocusBlock(description; image="", link="", height="400px", rev=false)
     img = image isa String ? render_media(img_asset(image); class=CARD_STYLE) : image
     block = [
         TextBlock(description; width="w-full text-justify md:basis-3/5"),
-        DOM.div(Main.link(img, link); class="w-full md:basis-2/5")
+        DOM.div(Website.link(img, link); class="w-full md:basis-2/5")
     ]
     return DOM.div(block...; class="flex gap-6 items-center flex-col $(rev ? "sm:flex-row-reverse" : "sm:flex-row")")
 end

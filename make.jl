@@ -1,25 +1,16 @@
 # needs JSServe#sd/asset-plugins
-using Revise, JSServe, Markdown
-import JSServe.TailwindDashboard as D
+using Revise, Website, JSServe
 
-includet("src/html-classes.jl")
-includet("src/index.jl")
-includet("src/github.jl")
-includet("src/support.jl")
-includet("src/team.jl")
-includet("src/contact.jl")
-
-routes, task, server = interactive_server([asset_path(), joinpath(@__DIR__, "src")]) do
+routes, task, server = interactive_server(Website.asset_paths()) do
     return Routes(
-        "/" => index,
-        "/team" => team,
-        "/contact" => contact,
-        "/support" => support
+        "/" => App(index, title="Makie"),
+        "/team" => App(team, title="Team"),
+        "/contact" => App(contact, title="Contact"),
+        "/support" => App(support, title="Support")
     )
 end
 
 ##
-using NodeJS
 dir = joinpath(@__DIR__, "docs")
 # only delete the jsserve generated files
 rm(joinpath(dir, "jsserve"); recursive=true, force=true)

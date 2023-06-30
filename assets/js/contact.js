@@ -76,46 +76,49 @@ Expected budget:
     }
 };
 
-let message_textarea;
-let subject_select;
+const message_textarea = () => document.querySelector("#message_area");
+const subject_select = () => document.querySelector("#subject");
+const email_field = () => document.querySelector("#email");
 
 window.on_select = (elem) => {
     const value = elem.srcElement.value;
-    const text_node = message_textarea;
+    const text_node = message_textarea();
     set_default_text(text_node, value);
 };
 
 window.send_email = () => {
-    const subject = subject_select.value;
-    const message = message_textarea.value;
+    const subject = subject_select().value;
+    const message = message_textarea().value;
+    const from = email_field().value;
     console.log(subject);
     console.log(message);
-    Email.send({
-        SecureToken: "a4301337-4c13-407f-a633-a59e3feb2375",
+    console.log(from);
+    const email = {
+        SecureToken: "61fa11a0-f54c-4477-af6f-3769bb6855b3",
         To: "info@makie.org",
-        From: "send@makie.org",
+        From: from,
         Subject: subject,
         Body: message,
-    }).then((response) => {
+    };
+    Email.send(email).then((response) => {
         if (response == "OK") {
             alert("Email successfully sent!");
         } else {
             alert("Failed to send email: " + response);
         }
     });
-};
+}
 
-export function init(textarea, select_node) {
-    message_textarea = textarea;
-    subject_select = select_node;
+export function init() {
     // Assuming the URL is something like: http://example.com/?param=value
     // Get the value of the 'param' query parameter from the URL
     const param = new URLSearchParams(window.location.search);
     const selection = param.get("subject") || "consulting";
     // Find the select dropdown element by its ID or any other suitable selector
     // Set the value of the select dropdown to the extracted parameter value
+    const select_node = subject_select();
     if (select_node) {
         select_node.value = selection;
-        set_default_text(textarea, selection);
+        set_default_text(message_textarea(), selection);
     }
 }

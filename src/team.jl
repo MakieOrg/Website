@@ -3,7 +3,7 @@ GHProject(x) = link(
     "https://github.com/$(x)"
 )
 
-team = App(title="Team") do
+function team()
     c = ","
     projects = [
         GHProject("MakieOrg/Makie.jl"), c,
@@ -109,7 +109,7 @@ team = App(title="Team") do
 
     contributors = Section(
         H2("Makie Contributors"),
-        FlexGrid(DOM.div.(owners, class="px-4 py-1")...)
+        FlexGrid(DOM.div.(OWNERS, class="px-4 py-1")...)
     )
     return page(DOM.div(simon, julius, frederic, contributors; class="flex flex-col items-center w-full"), "Team")
 end
