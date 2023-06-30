@@ -10,7 +10,7 @@
     </div>
   </head>
   <body data-jscall-id="5">
-    <script type="module">JSServe.lock_loading(() => JSServe.init_session('fd578d99-2676-4eb1-897b-9d16a785e62a', null, 'root'))</script>
+    <script type="module">JSServe.lock_loading(() => JSServe.init_session('acfdc578-7817-4381-8bef-31aac6e1c5c4', null, 'root'))</script>
     <div data-jscall-id="6">
       <link href="../jsserve/png/icon_transparent.png" rel="icon" data-jscall-id="7" type="image/png" />
       <img style="width: 100%" src="../jsserve/png/bannermesh_gradient.png" data-jscall-id="8" />
@@ -36,7 +36,7 @@
       <div class=" flex flex-col items-center w-full" data-jscall-id="21">
         <div class="p-4 max-w-5xl" data-jscall-id="22">
           <div class="p-4 max-w-5xl" data-jscall-id="23">
-            <div class="my-2 flex flex-col bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" data-jscall-id="24">We&#39;re happy tooo hear from you&#33;
+            <div class="my-2 flex flex-col bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" data-jscall-id="24">We&#39;re happy to hear from you&#33;
         Please use our form below, or write directly to info at makie.org:
               <form class="p-4" id="contact-form" data-jscall-id="25"></form>
               <div class="mb-6" data-jscall-id="26">
@@ -45,7 +45,7 @@
               </div>
               <div class="mb-6" data-jscall-id="29">
                 <label class="text-sm font-medium text-gray-700" data-jscall-id="30">Subject:</label>
-                <select name="subject" class="mt-1 w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="subject" data-jscall-id="31" onchange="on_select">
+                <select name="subject" class="mt-1 w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="subject" data-jscall-id="31">
                   <option data-jscall-id="32" value="consulting">Consulting</option>
                   <option data-jscall-id="33" value="sponsoring">Sponsoring</option>
                   <option data-jscall-id="34" value="contract">Support Contract</option>
@@ -58,10 +58,8 @@
                 <label class="mt-4 text-sm font-medium text-gray-700" data-jscall-id="39">Message:</label>
                 <textarea name="message" class="h-64 mt-1 w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="message_area" data-jscall-id="40"></textarea>
               </div>
-              <div onclick="send_email()" class="mt-6 py-2 px-4 justify-center text-white font-semibold text-sm rounded-md hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 navbar" data-jscall-id="41">Send</div>
-              <script type="module">    import('../jsserve/js/contact.bundled.js').then((Contact) => {
-        Contact.init(document.querySelector('[data-jscall-id="40"]'), document.querySelector('[data-jscall-id="31"]'));
-    });
+              <div class="mt-6 py-2 px-4 justify-center text-white font-semibold text-sm rounded-md hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 navbar" id="send_button" data-jscall-id="41">Send</div>
+              <script type="module">    import('../jsserve/js/contact.bundled.js').then((Contact) => Contact.init());
 </script>
             </div>
           </div>
