@@ -63,12 +63,12 @@ Expected budget:
 const message_textarea = ()=>document.querySelector("#message_area");
 const subject_select = ()=>document.querySelector("#subject");
 const email_field = ()=>document.querySelector("#email");
-window.on_select = (elem)=>{
+function on_select(elem) {
     const value = elem.srcElement.value;
     const text_node = message_textarea();
     set_default_text(text_node, value);
-};
-window.send_email = ()=>{
+}
+function send_email() {
     const subject = subject_select().value;
     const message = message_textarea().value;
     const from = email_field().value;
@@ -77,8 +77,8 @@ window.send_email = ()=>{
     console.log(from);
     const email = {
         SecureToken: "61fa11a0-f54c-4477-af6f-3769bb6855b3",
-        To: "info@makie.org",
-        From: from,
+        From: "info@makie.org",
+        To: from,
         Subject: subject,
         Body: message
     };
@@ -89,7 +89,7 @@ window.send_email = ()=>{
             alert("Failed to send email: " + response);
         }
     });
-};
+}
 function init() {
     const param = new URLSearchParams(window.location.search);
     const selection = param.get("subject") || "consulting";
@@ -98,6 +98,9 @@ function init() {
         select_node.value = selection;
         set_default_text(message_textarea(), selection);
     }
+    select_node.addEventListener("change", on_select);
+    const send_button = document.querySelector("#send_button");
+    send_button.addEventListener("click", send_email);
 }
 export { init as init };
 

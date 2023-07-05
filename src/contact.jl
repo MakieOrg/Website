@@ -14,16 +14,16 @@ function contact()
         DOM.option("Voluntary License", value="license"),
         DOM.option("Grants", value="grants"),
         DOM.option("Feedback", value="feedback"),
-        id="subject", name="subject", class=select_class, onchange="on_select"
+        id="subject", name="subject", class=select_class
     )
     message_label = DOM.label("Message:", class="mt-4 text-sm font-medium text-gray-700")
     bclass = "mt-6 py-2 px-4 justify-center text-white font-semibold text-sm rounded-md hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 navbar"
 
     contact_js = ES6Module(asset_path("js", "contact.js"))
-    submit_button = DOM.div("Send", onclick="send_email()", class=bclass)
+    submit_button = DOM.div("Send", id="send_button", class=bclass)
     # Add elements to form
     body = D.FlexCol(
-        "We're happy tooo hear from you!
+        "We're happy to hear from you!
         Please use our form below, or write directly to info at makie.org:",
         form,
         DOM.div(email_label, email_input, class="mb-6"),
@@ -32,9 +32,7 @@ function contact()
         submit_button,
         class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4",
         js"""
-            $(contact_js).then((Contact) => {
-                Contact.init($message_textarea, $subject_select);
-            });
+            $(contact_js).then((Contact) => Contact.init());
         """
     )
 

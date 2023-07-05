@@ -1,5 +1,6 @@
 # needs JSServe#sd/asset-plugins
-using Revise, Website, JSServe
+using Revise, Website
+using Website.JSServe
 
 routes, task, server = interactive_server(Website.asset_paths()) do
     return Routes(
