@@ -205,16 +205,13 @@ function index()
         FocusBlock(
             DOM.div(
                 H2Focus("RPRMakie"),
-                DOM.span(
-                    """
-                    RPRMakie is the newest experimental backend for raytraced images using RadeonProRender.
+                dom"""
+                    RPRMakie is the newest experimental backend for raytraced images using $(link("RadeonProRender", "https://github.com/GPUOpen-LibrariesAndSDKs/RadeonProRenderSDK")) from AMD.
+                    RadeonProRender is not only a production ready high quality raytracing engine, but even though the name suggests otherwise, its truely cross platform and runs on AMD/NVIDIA GPUs and any CPU.
                     With appropriately fast hardware, you can render beautiful visualizations that show off your data
                     using physically accurate materials and lights.
-                    (Image from:
-                    """,
-                    link("Lazaro Alonso", "https://github.com/lazarusA"),
-                    ")",
-                );
+                    (Image from: $(link("Lazaro Alonso", "https://github.com/lazarusA")))
+                """,
                 class="flex flex-col gap-1",
             ),
             image="use_cases/earths_creditst.png",

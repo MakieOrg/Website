@@ -114,11 +114,13 @@ function QuoteBlock(author, authorlink, quote_text, quote_link)
 end
 
 function Navigation(highlighted="")
-    function item(name, href)
+    function item(name, href; target="")
         highlight = highlighted == name ? " navbar-highlight" : ""
-        class = "text-white cursor-pointer py-1 px-2 hover:text-blue-200$highlight"
-        return DOM.a(DOM.div(name, class=class); href=JSServe.Link(href))
+        class = "text-white cursor-pointer py-1 px-2 hover:opacity-50 $highlight"
+        return DOM.a(DOM.div(name, class=class); href=JSServe.Link(href), target=target)
     end
+    github = img_asset("logos/GitHub-Mark-Light-64px.png")
+    img_style = "height: 1.2rem; display: inline-block; vertical-align: text-bottom;"
     return DOM.div(
         class="flex navbar justify-center", # TailwindCSS classes
         DOM.div(
@@ -127,7 +129,8 @@ function Navigation(highlighted="")
             item("Team", "/team"),
             item("Support", "/support"),
             item("Contact", "/contact"),
-            item("Docs", "http://docs.makie.org"),
+            item("Docs", "http://docs.makie.org"; target="_blank"),
+            item(DOM.img(src=github, style=img_style), "https://github.com/MakieOrg/Makie.jl"; target="_blank")
         )
     )
 end
