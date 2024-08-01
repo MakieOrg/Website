@@ -299,8 +299,8 @@ function index()
                 details="100% Julia implementation of the ggplot2 R package"
             ),
             DetailedCard(
-                title="MeshViz.jl",
-                link="https://github.com/JuliaGeometry/MeshViz.jl",
+                title="Meshes.jl",
+                link="https://github.com/JuliaGeometry/Meshes.jl",
                 image="ecosystem/meshviz.png",
                 imclass=eco_class,
                 details="Makie.jl recipes for visualization of Meshes.jl"
