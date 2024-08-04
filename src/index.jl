@@ -34,7 +34,7 @@ function index()
             Showcase(
                 title="Create web dashboards",
                 image="use_cases/clima.mp4",
-                href="https://simondanisch.github.io/JSServe.jl",
+                href="https://github.com/SimonDanisch/Bonito.jl",
             ),
             class = "gap-6 md:gap-10 sm:grid-cols-2",
         ),
@@ -85,7 +85,7 @@ function index()
                 class="flex flex-col gap-1",
             );
             image="use_cases/glacier.mp4",
-            link="https://makieorg.github.io/Tyler.jl/dev/examples/generated/UserGuide/iceloss_ex",
+            link="https://makieorg.github.io/Tyler.jl/v0.1.4/iceloss_ex",
             rev=true
         ),
         Spacer(10),
