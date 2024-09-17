@@ -9,7 +9,7 @@ function team()
         GHProject("MakieOrg/Makie.jl"), c,
         GHProject("JuliaGPU/GPUArrays.jl"), c,
         GHProject("JuliaIO/FileIO.jl"), c,
-        GHProject("SimonDanisch/JSServe.jl"), c,
+        GHProject("SimonDanisch/Bonito.jl"), c,
         GHProject("JuliaLang/PackageCompiler.jl"), c,
         GHProject("JuliaGPU/CLArrays.jl"), c,
         GHProject("JuliaGeometry/GeometryBasics.jl"), c,

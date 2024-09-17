@@ -1,19 +1,33 @@
 <!doctype html>
 <html data-jscall-id="1">
   <head data-jscall-id="2">
-    <script src="../jsserve/js/JSServe.bundled.js" type="module"></script>
+    <script src="../bonito/js/Bonito.bundled.js" type="module"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" data-jscall-id="3" />
     <meta charset="utf-8" data-jscall-id="4" />
     <div>
-      <link href="../jsserve/css/site.css" rel="stylesheet" type="text/css" />
-      <link href="../jsserve/css/tailwind.css" rel="stylesheet" type="text/css" />
+      <script>    window.__define = window.define;
+    window.__require = window.require;
+    window.define = undefined;
+    window.require = undefined;
+</script>
+      <link href="../bonito/css/site.css" rel="stylesheet" type="text/css" />
+      <script src="https://cdn.tailwindcss.com/3.3.1"></script>
+      <link href="../bonito/css/tailwind.min.css" rel="stylesheet" type="text/css" />
+      <script>    window.define = window.__define;
+    window.require = window.__require;
+    window.__define = undefined;
+    window.__require = undefined;
+</script>
     </div>
   </head>
   <body data-jscall-id="5">
-    <script type="module">JSServe.lock_loading(() => JSServe.init_session('736cb2a7-b450-4d30-88fa-c49ba8b87da6', null, 'root'))</script>
+    <script type="module">    Bonito.lock_loading(() => {
+        return Bonito.fetch_binary('../bonito/bin/5069668b61679c0fb44c5f6785fdc011e7d573c6-13361702956262830066.bin').then(msgs=> Bonito.init_session('a7ad2727-1c43-4665-9e4e-aa046564a245', msgs, 'root'));
+    })
+</script>
     <div data-jscall-id="6">
-      <link href="../jsserve/png/icon_transparent.png" rel="icon" data-jscall-id="7" type="image/png" />
-      <img style="width: 100%" src="../jsserve/png/bannermesh_gradient.png" data-jscall-id="8" />
+      <link href="../bonito/png/icon_transparent.png" data-jscall-id="7" rel="icon" type="image/png" />
+      <img style="width: 100%" data-jscall-id="8" src="../bonito/png/bannermesh_gradient.png" />
       <div class="flex navbar justify-center" data-jscall-id="9">
         <div class="flex max-w-5xl w-full md:px-4 flex-wrap" data-jscall-id="10">
           <a href="../" data-jscall-id="11" target="">
@@ -33,7 +47,7 @@
           </a>
           <a href="https://github.com/MakieOrg/Makie.jl" data-jscall-id="21" target="_blank">
             <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="22">
-              <img style="height: 1.2rem; display: inline-block; vertical-align: text-bottom;" src="../jsserve/png/GitHub-Mark-Light-64px.png" data-jscall-id="23" />
+              <img style="height: 1.2rem; display: inline-block; vertical-align: text-bottom;" data-jscall-id="23" src="../bonito/png/GitHub-Mark-Light-64px.png" />
             </div>
           </a>
         </div>
@@ -45,7 +59,7 @@
         To ensure our core contributors can fully focus on advancing Makie, it&#39;s crucial to support our hardworking developers and maintainers.
         As a regular Makie user, your contribution in any of the following ways would be greatly appreciated:</div>
             <div class="flex flex-wrap " data-jscall-id="28">
-              <div class="rounded-md p-2 shadow bg-white m-2 p-1 hover:bg-gray-300 grow w-full lg:w-1/3" data-jscall-id="29">
+              <div class="rounded-md p-2 px-3 shadow bg-white m-2 p-1 hover:bg-gray-300 grow w-full lg:w-1/3" data-jscall-id="29">
                 <div onclick="" data-jscall-id="30">
                   <div class="my-2 flex flex-col " data-jscall-id="31">
                     <h2 class="text-lg font-bold text-left my-3" data-jscall-id="32">Sponsoring</h2>
@@ -57,7 +71,7 @@ This is the easiest way to support us, and we&#39;re very grateful for every spo
                   </div>
                 </div>
               </div>
-              <div class="rounded-md p-2 shadow bg-white m-2 p-1 hover:bg-gray-300 grow w-full lg:w-1/3" data-jscall-id="35">
+              <div class="rounded-md p-2 px-3 shadow bg-white m-2 p-1 hover:bg-gray-300 grow w-full lg:w-1/3" data-jscall-id="35">
                 <div onclick="" data-jscall-id="36">
                   <div class="my-2 flex flex-col " data-jscall-id="37">
                     <h2 class="text-lg font-bold text-left my-3" data-jscall-id="38">Support Contract</h2>
@@ -68,7 +82,7 @@ Please contact us to discuss any details.
                   </div>
                 </div>
               </div>
-              <div class="rounded-md p-2 shadow bg-white m-2 p-1 hover:bg-gray-300 grow w-full lg:w-1/3" data-jscall-id="40">
+              <div class="rounded-md p-2 px-3 shadow bg-white m-2 p-1 hover:bg-gray-300 grow w-full lg:w-1/3" data-jscall-id="40">
                 <div onclick="" data-jscall-id="41">
                   <div class="my-2 flex flex-col " data-jscall-id="42">
                     <h2 class="text-lg font-bold text-left my-3" data-jscall-id="43">Voluntary License</h2>
@@ -80,7 +94,7 @@ While the license does not grant any additional rights, it can be paid from an i
                   </div>
                 </div>
               </div>
-              <div class="rounded-md p-2 shadow bg-white m-2 p-1 hover:bg-gray-300 grow w-full lg:w-1/3" data-jscall-id="45">
+              <div class="rounded-md p-2 px-3 shadow bg-white m-2 p-1 hover:bg-gray-300 grow w-full lg:w-1/3" data-jscall-id="45">
                 <div onclick="" data-jscall-id="46">
                   <div class="my-2 flex flex-col " data-jscall-id="47">
                     <h2 class="text-lg font-bold text-left my-3" data-jscall-id="48">Consulting</h2>
@@ -91,7 +105,7 @@ Reach out to us with a concise summary of your project, timeline, and budget, so
                   </div>
                 </div>
               </div>
-              <div class="rounded-md p-2 shadow bg-white m-2 p-1 hover:bg-gray-300 grow w-full lg:w-1/3" data-jscall-id="50">
+              <div class="rounded-md p-2 px-3 shadow bg-white m-2 p-1 hover:bg-gray-300 grow w-full lg:w-1/3" data-jscall-id="50">
                 <div onclick="" data-jscall-id="51">
                   <div class="my-2 flex flex-col " data-jscall-id="52">
                     <h2 class="text-lg font-bold text-left my-3" data-jscall-id="53">Grants</h2>
@@ -107,45 +121,11 @@ We&#39;re happy to chat and figure out ways to make it work.
         </div>
       </div>
       <div data-jscall-id="55">
-        <script async="true" defer="true" src="https://api.makie.org/latest.js" data-jscall-id="56"></script>
+        <script async="true" defer="true" data-jscall-id="56" src="https://api.makie.org/latest.js"></script>
         <noscript data-jscall-id="57">
-          <img alt="" src="https://api.makie.org/noscript.gif" data-jscall-id="58" referrerpolicy="no-referrer-when-downgrade" />
+          <img alt="" data-jscall-id="58" src="https://api.makie.org/noscript.gif" referrerpolicy="no-referrer-when-downgrade" />
         </noscript>
       </div>
     </div>
-    <script type="module">window.addEventListener("load", (event) => {
-        /*File: 'c:\Users\sdani\SimiWorld\ProgrammerLife\SiteMakie\dev\Website\src\support.jl:10'*/
-    (()=> {
-        ((node) => {
-    node['onclick'] = ()=> location.href = '../contact?subject=sponsoring'
-})(document.querySelector('[data-jscall-id="30"]'));
-    })();
-    /*File: 'c:\Users\sdani\SimiWorld\ProgrammerLife\SiteMakie\dev\Website\src\support.jl:10'*/
-    (()=> {
-        ((node) => {
-    node['onclick'] = ()=> location.href = '../contact?subject=contract'
-})(document.querySelector('[data-jscall-id="36"]'));
-    })();
-    /*File: 'c:\Users\sdani\SimiWorld\ProgrammerLife\SiteMakie\dev\Website\src\support.jl:10'*/
-    (()=> {
-        ((node) => {
-    node['onclick'] = ()=> location.href = '../contact?subject=license'
-})(document.querySelector('[data-jscall-id="41"]'));
-    })();
-    /*File: 'c:\Users\sdani\SimiWorld\ProgrammerLife\SiteMakie\dev\Website\src\support.jl:10'*/
-    (()=> {
-        ((node) => {
-    node['onclick'] = ()=> location.href = '../contact?subject=consulting'
-})(document.querySelector('[data-jscall-id="46"]'));
-    })();
-    /*File: 'c:\Users\sdani\SimiWorld\ProgrammerLife\SiteMakie\dev\Website\src\support.jl:10'*/
-    (()=> {
-        ((node) => {
-    node['onclick'] = ()=> location.href = '../contact?subject=grants'
-})(document.querySelector('[data-jscall-id="51"]'));
-    })();
-
-})
-</script>
   </body>
 </html>

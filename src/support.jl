@@ -4,12 +4,11 @@ struct SponsorCard
     value
 end
 
-function JSServe.jsrender(s::Session, card::SponsorCard)
-    url = JSServe.Link("/contact?subject=" * card.value)
-    url_val = JSServe.url(s, url)
+function Bonito.jsrender(s::Session, card::SponsorCard)
+    url_val = startswith(card.value, "https") ? card.value : Bonito.url(s, Bonito.Link("/contact"))
     onclick = js"()=> location.href = $(url_val)"
     c = DOM.div(D.FlexCol(H2(card.title), DOM.span(card.content; class="px-2")); onclick=onclick)
-    return JSServe.jsrender(s, DOM.div(c; class="$(CARD_STYLE) m-2 p-1 hover:bg-gray-300 grow w-full lg:w-1/3"))
+    return Bonito.jsrender(s, DOM.div(c; class="$(CARD_STYLE) m-2 p-1 hover:bg-gray-300 grow w-full lg:w-1/3"))
 end
 
 function support()
@@ -24,7 +23,7 @@ function support()
                 If you love Makie and want to support us, you can sponsor us on GitHub.
                 This is the easiest way to support us, and we're very grateful for every sponsor.
                 """,
-                "sponsoring"
+                "https://github.com/sponsors/MakieOrg"
             ),
             SponsorCard(
                 "Support Contract",

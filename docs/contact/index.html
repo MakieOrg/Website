@@ -1,19 +1,29 @@
 <!doctype html>
 <html data-jscall-id="1">
   <head data-jscall-id="2">
-    <script src="../jsserve/js/JSServe.bundled.js" type="module"></script>
+    <script src="../bonito/js/Bonito.bundled.js" type="module"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" data-jscall-id="3" />
     <meta charset="utf-8" data-jscall-id="4" />
     <div>
-      <link href="../jsserve/css/site.css" rel="stylesheet" type="text/css" />
-      <link href="../jsserve/css/tailwind.css" rel="stylesheet" type="text/css" />
+      <script>    window.__define = window.define;
+    window.__require = window.require;
+    window.define = undefined;
+    window.require = undefined;
+</script>
+      <link href="../bonito/css/site.css" rel="stylesheet" type="text/css" />
+      <script src="https://cdn.tailwindcss.com/3.3.1"></script>
+      <script>    window.define = window.__define;
+    window.require = window.__require;
+    window.__define = undefined;
+    window.__require = undefined;
+</script>
     </div>
   </head>
   <body data-jscall-id="5">
-    <script type="module">JSServe.lock_loading(() => JSServe.init_session('881f88b5-32c3-468e-8c83-8d658a717c93', null, 'root'))</script>
+    <script type="module">Bonito.lock_loading(() => Bonito.init_session('ca277255-9ce7-44a9-ae6b-19e4b949d6d8', null, 'root'))</script>
     <div data-jscall-id="6">
-      <link href="../jsserve/png/icon_transparent.png" rel="icon" data-jscall-id="7" type="image/png" />
-      <img style="width: 100%" src="../jsserve/png/bannermesh_gradient.png" data-jscall-id="8" />
+      <link href="../bonito/png/icon_transparent.png" data-jscall-id="7" rel="icon" type="image/png" />
+      <img style="width: 100%" data-jscall-id="8" src="../bonito/png/bannermesh_gradient.png" />
       <div class="flex navbar justify-center" data-jscall-id="9">
         <div class="flex max-w-5xl w-full md:px-4 flex-wrap" data-jscall-id="10">
           <a href="../" data-jscall-id="11" target="">
@@ -33,47 +43,68 @@
           </a>
           <a href="https://github.com/MakieOrg/Makie.jl" data-jscall-id="21" target="_blank">
             <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="22">
-              <img style="height: 1.2rem; display: inline-block; vertical-align: text-bottom;" src="../jsserve/png/GitHub-Mark-Light-64px.png" data-jscall-id="23" />
+              <img style="height: 1.2rem; display: inline-block; vertical-align: text-bottom;" data-jscall-id="23" src="../bonito/png/GitHub-Mark-Light-64px.png" />
             </div>
           </a>
         </div>
       </div>
       <div class=" flex flex-col items-center w-full" data-jscall-id="24">
         <div class="p-4 max-w-5xl" data-jscall-id="25">
-          <div class="p-4 max-w-5xl" data-jscall-id="26">
-            <div class="my-2 flex flex-col bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" data-jscall-id="27">We&#39;re happy to hear from you&#33;
-        Please use our form below, or write directly to info at makie.org:
-              <form class="p-4" id="contact-form" data-jscall-id="28"></form>
-              <div class="mb-6" data-jscall-id="29">
-                <label class="text-sm font-medium text-gray-700" data-jscall-id="30">Email:</label>
-                <input name="email" class="mt-1 w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="email" data-jscall-id="31" type="email" />
+          <div class="rounded-md p-2 px-3 shadow bg-white" data-jscall-id="26">
+            <div class="text-base max-w-prose" data-jscall-id="27">
+              <div data-jscall-id="28">
+        We&#39;re happy to hear from you&#33; 
+                <br data-jscall-id="29" />
+
+        Write us an email to info&#64;makie.org, join the 
+                <a class="visited:text-purple-600 text-blue-600" href="https://julialang.org/slack" data-jscall-id="30" style="" target="_blank">julia slack Makie channel</a>, 
+                <br data-jscall-id="31" />
+
+        or write us on any of our social media channels: 
+                <br data-jscall-id="32" />
               </div>
-              <div class="mb-6" data-jscall-id="32">
-                <label class="text-sm font-medium text-gray-700" data-jscall-id="33">Subject:</label>
-                <select name="subject" class="mt-1 w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="subject" data-jscall-id="34">
-                  <option data-jscall-id="35" value="consulting">Consulting</option>
-                  <option data-jscall-id="36" value="sponsoring">Sponsoring</option>
-                  <option data-jscall-id="37" value="contract">Support Contract</option>
-                  <option data-jscall-id="38" value="license">Voluntary License</option>
-                  <option data-jscall-id="39" value="grants">Grants</option>
-                  <option data-jscall-id="40" value="feedback">Feedback</option>
-                </select>
+            </div>
+            <div class="flex flex-wrap justify-center items-center -m-2 md:-m-4 lg:-m-8 p-8" data-jscall-id="33">
+              <div class="flex flex-wrap justify-center items-center -m-2 md:-m-4 lg:-m-8 p-10" data-jscall-id="34">
+                <h3 class="text-sm font-semibold text-left" data-jscall-id="35">Discord: </h3>
+                <div class="rounded-md p-2 m-2 shadow bg-white w-8" data-jscall-id="36">
+                  <a class="w-full" href="https://discord.gg/2FBjYAT3cY" data-jscall-id="37" style="" target="_blank">
+                    <img class="w-full" data-jscall-id="38" src="../bonito/svg/discord-mark-blue.svg" />
+                  </a>
+                </div>
               </div>
-              <div class="mb-6" data-jscall-id="41">
-                <label class="mt-4 text-sm font-medium text-gray-700" data-jscall-id="42">Message:</label>
-                <textarea name="message" class="h-64 mt-1 w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="message_area" data-jscall-id="43"></textarea>
+              <div class="flex flex-wrap justify-center items-center -m-2 md:-m-4 lg:-m-8 p-10" data-jscall-id="39">
+                <h3 class="text-sm font-semibold text-left" data-jscall-id="40">Linkedin:</h3>
+                <div class="rounded-md p-2 m-2 shadow bg-white w-8" data-jscall-id="41">
+                  <a class="w-full" href="https://www.linkedin.com/company/makieorg" data-jscall-id="42" style="" target="_blank">
+                    <img class="w-full" data-jscall-id="43" src="../bonito/png/linkedin.png" />
+                  </a>
+                </div>
               </div>
-              <div class="mt-6 py-2 px-4 justify-center text-white font-semibold text-sm rounded-md hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 navbar" id="send_button" data-jscall-id="44">Send</div>
-              <script type="module">    import('../jsserve/js/contact.bundled.js').then((Contact) => Contact.init());
-</script>
+              <div class="flex flex-wrap justify-center items-center -m-2 md:-m-4 lg:-m-8 p-10" data-jscall-id="44">
+                <h3 class="text-sm font-semibold text-left" data-jscall-id="45">Github:</h3>
+                <div class="rounded-md p-2 m-2 shadow bg-white w-8" data-jscall-id="46">
+                  <a class="w-full" href="https://github.com/MakieOrg" data-jscall-id="47" style="" target="_blank">
+                    <img class="w-full" data-jscall-id="48" src="../bonito/png/GitHub-Mark-64px.png" />
+                  </a>
+                </div>
+              </div>
+              <div class="flex flex-wrap justify-center items-center -m-2 md:-m-4 lg:-m-8 p-10" data-jscall-id="49">
+                <h3 class="text-sm font-semibold text-left" data-jscall-id="50">Mastodon:</h3>
+                <div class="rounded-md p-2 m-2 shadow bg-white w-8" data-jscall-id="51">
+                  <a class="w-full" href="https://julialang.social/@makie" data-jscall-id="52" style="" target="_blank">
+                    <img class="w-full" data-jscall-id="53" src="../bonito/svg/mastodon.svg" />
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div data-jscall-id="45">
-        <script async="true" defer="true" src="https://api.makie.org/latest.js" data-jscall-id="46"></script>
-        <noscript data-jscall-id="47">
-          <img alt="" src="https://api.makie.org/noscript.gif" data-jscall-id="48" referrerpolicy="no-referrer-when-downgrade" />
+      <div data-jscall-id="54">
+        <script async="true" defer="true" data-jscall-id="55" src="https://api.makie.org/latest.js"></script>
+        <noscript data-jscall-id="56">
+          <img alt="" data-jscall-id="57" src="https://api.makie.org/noscript.gif" referrerpolicy="no-referrer-when-downgrade" />
         </noscript>
       </div>
     </div>

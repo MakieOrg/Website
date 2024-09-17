@@ -94,7 +94,7 @@ function create_visual(idx_obs)
 end
 
 App() do
-    s = JSServe.Slider(1:length(temps[1]))
+    s = Bonito.Slider(1:length(temps[1]))
     DOM.div(s, create_visual(s.value))
 end |> display
 

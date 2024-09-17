@@ -1,7 +1,7 @@
 
 function md2html(s, file)
     source = read(file, String)
-    return JSServe.string_to_markdown(s, source; eval_julia_code=Main)
+    return Bonito.string_to_markdown(s, source; eval_julia_code=Main)
 end
 
 camelcase_break_suggest(s::String) = DOM.span_unesc(
@@ -11,9 +11,9 @@ camelcase_break_suggest(s::String) = DOM.span_unesc(
     )
 )
 
-JSServe.jsrender(s::Session, card::Vector) = JSServe.jsrender(s, DOM.div(card...; class="flex flex-wrap"))
+Bonito.jsrender(s::Session, card::Vector) = Bonito.jsrender(s, DOM.div(card...; class="flex flex-wrap"))
 
-const CARD_STYLE = "rounded-md p-2 shadow bg-white"
+const CARD_STYLE = "rounded-md p-2 px-3 shadow bg-white"
 
 H1(x) = DOM.h1(x; class="text-xl font-black text-left my-4")
 H2(x) = DOM.h2(x; class="text-lg font-bold text-left my-3")
@@ -66,9 +66,9 @@ function render_media(asset::Asset; class="", style="")
     end
 end
 
-function JSServe.jsrender(s::Session, logo::Logo)
+function Bonito.jsrender(s::Session, logo::Logo)
     img = DOM.img(src=img_asset(logo.image), class="w-full")
-    return JSServe.jsrender(s, DOM.div(
+    return Bonito.jsrender(s, DOM.div(
         link(img, logo.link; class="w-full"),
         class=logo.class)
     )
@@ -82,10 +82,10 @@ Base.@kwdef struct DetailedCard
     details::Any = nothing
 end
 
-function JSServe.jsrender(s::Session, card::DetailedCard)
+function Bonito.jsrender(s::Session, card::DetailedCard)
     img = render_media(img_asset(card.image); class="image w-full")
     details = if card.details isa Markdown.MD
-        JSServe.md_html(s, card.details.content[1])
+        Bonito.md_html(s, card.details.content[1])
     else
         card.details
     end
@@ -99,7 +99,7 @@ function JSServe.jsrender(s::Session, card::DetailedCard)
         link(content, card.link; class="")
     )
 
-    return JSServe.jsrender(s, card_div)
+    return Bonito.jsrender(s, card_div)
 end
 
 function QuoteBlock(author, authorlink, quote_text, quote_link)
@@ -117,7 +117,7 @@ function Navigation(highlighted="")
     function item(name, href; target="")
         highlight = highlighted == name ? " navbar-highlight" : ""
         class = "text-white cursor-pointer py-1 px-2 hover:opacity-50 $highlight"
-        return DOM.a(DOM.div(name, class=class); href=JSServe.Link(href), target=target)
+        return DOM.a(DOM.div(name, class=class); href=Bonito.Link(href), target=target)
     end
     github = img_asset("logos/GitHub-Mark-Light-64px.png")
     img_style = "height: 1.2rem; display: inline-block; vertical-align: text-bottom;"
@@ -149,7 +149,7 @@ function page(body, highlighted)
             DOM.meta(name="viewport", content="width=device-width, initial-scale=1.0"),
             DOM.meta(charset="utf-8"),
             css_asset("site.css"),
-            JSServe.TailwindCSS,
+            Bonito.TailwindCSS,
         ),
         DOM.body(
             DOM.div(

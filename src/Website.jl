@@ -1,7 +1,7 @@
 module Website
 
-using JSServe, Markdown
-import JSServe.TailwindDashboard as D
+using Bonito, Markdown
+import Bonito.TailwindDashboard as D
 import GitHub
 using NodeJS
 

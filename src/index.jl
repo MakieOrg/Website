@@ -1,5 +1,5 @@
 
-using JSServe: @dom_str
+using Bonito: @dom_str
 
 semibold(text) = DOM.span(text, class="font-semibold")
 
@@ -33,8 +33,8 @@ function index()
             ),
             Showcase(
                 title="Create web dashboards",
-                image="use_cases/clima.mp4",
-                href="https://simondanisch.github.io/JSServe.jl",
+                image="use_cases/clima.gif",
+                href="https://simondanisch.github.io/Bonito.jl",
             ),
             class = "gap-6 md:gap-10 sm:grid-cols-2",
         ),
@@ -367,6 +367,118 @@ function index()
                 imclass=eco_class,
                 details="Agents.jl is a pure Julia framework for agent-based modeling (ABM)"
             ),
+            DetailedCard(
+                title="Multibody.jl",
+                link="https://help.juliahub.com/multibody/",
+                image="ecosystem/robot.gif",
+                imclass=eco_class,
+                details="Multibody.jl is a powerful and flexible component of JuliaSim designed to model, analyze, and simulate multibody systems in Julia."
+            ),
+            DetailedCard(
+                title="PlantGeom.jl",
+                link="https://vezy.github.io/PlantGeom.jl",
+                image="ecosystem/PlantGeom.png",
+                imclass=eco_class,
+                details="The package is designed around MultiScaleTreeGraph that serves as the basic structure for the plant topology and attributes."
+            ),
+            DetailedCard(
+                title="GridapMakie.jl",
+                link="https://github.com/gridap/GridapMakie.jl",
+                image="ecosystem/gridap.gif",
+                imclass=eco_class,
+                details="Makie plotting recipes for Gridap."
+            ),
+            DetailedCard(
+                title="ProtPlot.jl",
+                link="https://github.com/MurrellGroup/ProtPlot.jl",
+                image="ecosystem/protplot.png",
+                imclass=eco_class,
+                details="Protein ribbon plots implemented in Julia using Makie."
+            ),
+            DetailedCard(
+                title="PDDLViz.jl",
+                link="https://github.com/JuliaPlanners/PDDLViz.jl",
+                image="ecosystem/pddlviz.gif",
+                imclass=eco_class,
+                details="A library for visualizing and animating PDDL domains."
+            ),
+            DetailedCard(
+                title="KiteViewers.jl",
+                link="https://github.com/aenarete/KiteViewers.jl",
+                image="ecosystem/kiteviewer.png",
+                imclass=eco_class,
+                details="3D viewer for airborne wind energy systems."
+            ),
+            DetailedCard(
+                title="ObservableCortex.jl",
+                link="https://github.com/myersm0/ObservableCortex.jl",
+                image="ecosystem/ObservableCortex.png",
+                imclass=eco_class,
+                details="A Julia package for interactively visualizing and animating 3d cortical surface meshes."
+            ),
+            DetailedCard(
+                title="AllenNeuropixels.jl",
+                link="https://github.com/brendanjohnharris/AllenNeuropixels.jl",
+                image="ecosystem/allenneuropix.png",
+                imclass=eco_class,
+                details="Load, format, analyze, and plot the Allen Neuropixels datasets."
+            ),
+            DetailedCard(
+                title="Implicit3DPlotting.jl",
+                link="https://github.com/matthiashimmelmann/Implicit3DPlotting.jl",
+                image="ecosystem/Implicit3DPlotting.png",
+                imclass=eco_class,
+                details="Load, format, analyze, and plot the Allen Neuropixels datasets."
+            ),
+            DetailedCard(
+                title="CellBasedModels.jl",
+                link="https://github.com/dsb-lab/CellBasedModels.jl",
+                image="ecosystem/cellbasedmodels.mp4",
+                imclass=eco_class,
+                details="Load, format, analyze, and plot the Allen Neuropixels datasets."
+            ),
+            DetailedCard(
+                title="Sunny.jl",
+                link="https://github.com/SunnySuite/Sunny.jl",
+                image="ecosystem/sunny.png",
+                imclass=eco_class,
+                details="Spin dynamics and generalization to SU(N) coherent states."
+            ),
+            DetailedCard(
+                title="Bagyo.jl",
+                link="https://github.com/alstat/Bagyo.jl",
+                image="ecosystem/bagyo.png",
+                imclass=eco_class,
+                details="Toolkit for extraction and analysis of typhoon/climate data in the Western-North Pacific (WNP) region."
+            ),
+            DetailedCard(
+                title="EnergyModelsGUI.jl",
+                link="https://github.com/EnergyModelsX/EnergyModelsGUI.jl",
+                image="ecosystem/energymodel.png",
+                imclass=eco_class,
+                details="EnergyModelsX is an operational, multi nodeal energy system model, written in Julia."
+            ),
+            DetailedCard(
+                title="SpinDoctor.jl",
+                link="https://github.com/SpinDoctorMRI/SpinDoctor.jl",
+                image="ecosystem/SpinDoctor.png",
+                imclass=eco_class,
+                details="Diffusion MRI Simulation Toolbox in Julia."
+            ),
+            DetailedCard(
+                title="TempestSDR.jl",
+                link="https://github.com/JuliaTelecom/TempestSDR.jl",
+                image="ecosystem/tempestsdr.png",
+                imclass=eco_class,
+                details="Screen eavesdrop in real time leveraging SDR and pure Julia implementation."
+            ),
+            DetailedCard(
+                title="MintsMakieRecipes.jl",
+                link="https://github.com/mi3nts/MintsMakieRecipes.jl",
+                image="ecosystem/mintsmakierecipes.png",
+                imclass=eco_class,
+                details="This package is a collection of Makie plotting recipes, themes, and configurations for generating publication-ready figures for the MINTS research group."
+            ),
             class="gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4",
         ),
     )
@@ -387,13 +499,15 @@ function index()
             Logo(image="logos/pumasai.svg", link="https://pumas.ai"),
             Logo(image="logos/juliahublogo.png", link="https://juliahub.com"),
             Logo(image="logos/beacon.svg", link="https://beacon.bio"),
-            Logo(image="logos/mit.png", link=""),
-            Logo(image="logos/bmbf.svg", link=""),
+            Logo(image="logos/lanl-light.svg", link="https://lanl.gov"),
+            Logo(image="logos/ornl-light.svg", link="https://www.ornl.gov"),
+            Logo(image="logos/mit.png", link="https://web.mit.edu/"),
+            Logo(image="logos/bmbf.svg", link="https://www.bmbf.de"),
             class="justify-center items-center -m-2 lg:-m-8",
         ),
         DOM.div("Follow us"; class="text-xl text-black flex justify-center mt-14 mb-10 font-semibold"),
         FlexGrid(
-            SmallLogo(image="logos/twitter.svg", link="https://twitter.com/MakiePlots"),
+            SmallLogo(image="logos/bluesky.svg", link="https://bsky.app/profile/makieplots.bsky.social"),
             SmallLogo(image="logos/linkedin.png", link="https://www.linkedin.com/company/makieorg"),
             SmallLogo(image="logos/GitHub-Mark-64px.png", link="https://github.com/MakieOrg"),
             SmallLogo(image="logos/discord-mark-blue.svg", link="https://discord.gg/2FBjYAT3cY"),
