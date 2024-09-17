@@ -13,5 +13,5 @@ end
 ##
 dir = joinpath(@__DIR__, "docs")
 # only delete the jsserve generated files
-rm(joinpath(dir, "jsserve"); recursive=true, force=true)
+rm(joinpath(dir, "bonito"); recursive=true, force=true)
 Bonito.export_static(dir, routes)
