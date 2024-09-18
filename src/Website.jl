@@ -3,7 +3,6 @@ module Website
 using Bonito, Markdown
 import Bonito.TailwindDashboard as D
 import GitHub
-using NodeJS
 
 asset_path(files...) = normpath(joinpath(@__DIR__, "..", "assets", files...))
 img_asset(files...) = Asset(asset_path("images", files...))

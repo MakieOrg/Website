@@ -20,14 +20,14 @@ function all_contributors(repo::String)
     repo(repo)
     contributors(repo)
 end
-
+OWNERS = []
 let
-    # A bit shady, but a nice way to serialzie the owners at precompile
-    # So we don't make any further requests to the github API while developing
-    # which helps to not run into githus API limits
-    makie_repo = GitHub.repo("MakieOrg/Makie.jl")
+    # # A bit shady, but a nice way to serialzie the owners at precompile
+    # # So we don't make any further requests to the github API while developing
+    # # which helps to not run into githus API limits
+    # makie_repo = GitHub.repo("MakieOrg/Makie.jl")
 
-    contribs = GitHub.contributors(makie_repo)
+    # contribs = GitHub.contributors(makie_repo)
 
-    global OWNERS = [owner["contributor"] for owner in contribs[1]]
+    # global OWNERS = [owner["contributor"] for owner in contribs[1]]
 end

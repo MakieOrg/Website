@@ -1,3 +1,4 @@
 [deps]
+Aqua = "4c88cf16-eb10-579e-8560-4a9242c79595"
 Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
 Website = "75363ec7-b184-4002-9572-26a7eb910f3c"
