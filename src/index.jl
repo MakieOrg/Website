@@ -42,8 +42,8 @@ function index()
     )
     backend_class = "w-full"
 
-    benedict = QuoteBlock(
-        "Benedict Ehinger",
+    benedikt = QuoteBlock(
+        "Benedikt Ehinger",
         "https://github.com/behinger",
         """
         The only way I succeeded to do this without manually replacing fonts in illustrator, is to use
@@ -97,7 +97,7 @@ function index()
                 libraries, allowing you to tweak any possible attribute and place your plots
                 and subplots freely.
                 """,
-                benedict;
+                benedikt;
                 class="flex flex-col gap-1",
             );
             image="use_cases/layouting.png",
