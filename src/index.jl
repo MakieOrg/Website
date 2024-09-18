@@ -5,7 +5,6 @@ semibold(text) = DOM.span(text, class="font-semibold")
 
 function index()
     Julia = link("Julia", "https://julialang.org")
-    be_quote = link(DOM.img(src=img_asset("benedikt-tweet.png"); class=CARD_STYLE), "https://twitter.com/BenediktEhinger/status/1665326068973158400")
 
     intro = Section(
         Spacer(4),
@@ -490,7 +489,7 @@ function index()
             Logo(image="logos/nasa_jpl.png", link="https://www.jpl.nasa.gov/"),
             Logo(image="logos/microsoft.png", link="https://www.youtube.com/watch?v=7-vN8oNAz6Y"),
             Logo(image="logos/instron.png", link="https://github.com/bradcarman/ModelingToolkitDesigner.jl"),
-            Logo(image="logos/dwd.png", link="https://www.youtube.com/watch?v=-Cg6AoymaM0"),
+            Logo(image="logos/DWD.png", link="https://www.youtube.com/watch?v=-Cg6AoymaM0"),
             class="justify-center items-center -m-2 lg:-m-8",
         ),
         DOM.div("Supporters"; class="text-xl text-black flex justify-center mt-14 mb-10 font-semibold"),

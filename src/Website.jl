@@ -4,7 +4,16 @@ using Bonito, Markdown
 import Bonito.TailwindDashboard as D
 import GitHub
 
-asset_path(files...) = normpath(joinpath(@__DIR__, "..", "assets", files...))
+function asset_path(files...)
+    path = normpath(joinpath(@__DIR__, "..", "assets", files...))
+    folder = readdir(dirname(path))
+    if !isempty(files)
+        if !(basename(last(files)) in folder)
+            error("$(repr(last(files))) not in $(folder)")
+        end
+    end
+    return path
+end
 img_asset(files...) = Asset(asset_path("images", files...))
 css_asset(files...) = Asset(asset_path("css", files...))
 
