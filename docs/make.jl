@@ -37,7 +37,7 @@ using Documenter
 docs_url = "makie.org"
 repo = "github.com/MakieOrg/Website.git"
 push_preview = true
-devbranch = "master"
+devbranch = "sd/jsserve"
 devurl = "dev"
 include("utils.jl")
 

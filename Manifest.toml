@@ -2,7 +2,7 @@
 
 julia_version = "1.11.0-rc3"
 manifest_format = "2.0"
-project_hash = "5d3f0e411f13a8370573f3d07a29e27cf67ed778"
+project_hash = "d5b92897cb569d27053d7abefcc23f60f3c2cc8a"
 
 [[deps.ArgTools]]
 uuid = "0dad84c5-d112-42e6-8d28-ef12dabb789f"
@@ -215,12 +215,6 @@ version = "1.2.1"
 [[deps.NetworkOptions]]
 uuid = "ca575930-c2e3-43a9-ace4-1e988b2c1908"
 version = "1.2.0"
-
-[[deps.NodeJS]]
-deps = ["Pkg"]
-git-tree-sha1 = "bf1f49fd62754064bc42490a8ddc2aa3694a8e7a"
-uuid = "2bd173c7-0d6d-553b-b6af-13a54713934c"
-version = "2.0.0"
 
 [[deps.Observables]]
 git-tree-sha1 = "7438a59546cf62428fc9d1bc94729146d37a7225"
