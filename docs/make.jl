@@ -1,14 +1,6 @@
 using Website
 using Website.Bonito
 
-begin
-    println("####################")
-    println(Website.img_asset())
-    println(readdir(Website.img_asset().local_path))
-    println(readdir(Website.img_asset("logos").local_path))
-    println("####################")
-end
-
 # Use for interactive dev
 # routes, task, server = interactive_server(Website.asset_paths()) do
 #     return Routes(

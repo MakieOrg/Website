@@ -2,6 +2,7 @@
 function deployparameters(; repo, push_preview, devbranch, devurl)
     cfg = Documenter.GitHubActions()
     deploy_decision = Documenter.deploy_folder(cfg; repo, push_preview, devbranch, devurl)
+    @show deploy_decision.subfolder
     (;
         all_ok=deploy_decision.all_ok,
         branch=deploy_decision.branch,
