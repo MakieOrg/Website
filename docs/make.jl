@@ -19,10 +19,8 @@ routes = Routes(
 )
 
 ##
-dir = joinpath(@__DIR__, "docs", "build")
+dir = joinpath(@__DIR__, "build")
 !isdir(dir) && mkdir(dir)
-# only delete the jsserve generated files
-rm(joinpath(dir, "bonito"); recursive=true, force=true)
 Bonito.export_static(dir, routes)
 cp(joinpath(@__DIR__, "assets/images/favicon.ico"), joinpath(dir, "favicon.ico"); force=true)
 
