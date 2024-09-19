@@ -22,7 +22,6 @@ routes = Routes(
 dir = joinpath(@__DIR__, "build")
 !isdir(dir) && mkdir(dir)
 Bonito.export_static(dir, routes)
-cp(joinpath(@__DIR__, "..", "assets", "images", "favicon.ico"), joinpath(dir, "favicon.ico"); force=true)
 
 using Documenter
 
@@ -30,7 +29,7 @@ docs_url = "makie.org"
 repo = "github.com/MakieOrg/Website.git"
 push_preview = true
 devbranch = "main"
-devurl = "dev"
+devurl = "website"
 include("utils.jl")
 
 params = deployparameters(; repo, devbranch, devurl, push_preview)
