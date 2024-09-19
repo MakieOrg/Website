@@ -2,6 +2,7 @@
 function deployparameters(; repo, push_preview, devbranch, devurl)
     cfg = Documenter.GitHubActions()
     deploy_decision = Documenter.deploy_folder(cfg; repo, push_preview, devbranch, devurl)
+    @show deploy_decision.subfolder
     (;
         all_ok=deploy_decision.all_ok,
         branch=deploy_decision.branch,
@@ -101,48 +102,6 @@ function push_build(;
         # Copy docs to `subfolder` directory.
         deploy_dir = subfolder === nothing ? dirname : joinpath(dirname, subfolder)
         Documenter.gitrm_copy(target_dir, deploy_dir)
-
-        open(joinpath(deploy_dir, "siteinfo.js"), "w") do io
-            println(
-                io,
-                """
-    var DOCUMENTER_CURRENT_VERSION = "$subfolder";
-    """
-            )
-        end
-
-        all_folders = [x for x in readdir(dirname) if isdir(joinpath(dirname, x))]
-        version_folders = filter(all_folders) do x
-            tryparse(VersionNumber, x) !== nothing
-        end
-        sort!(version_folders, by=VersionNumber, rev=true)
-
-        max_version = version_folders[begin]
-
-        open(joinpath(dirname, "versions.js"), "w") do io
-            println(
-                io,
-                """
-    var DOCUMENTER_NEWEST = "$max_version";
-    var DOCUMENTER_STABLE = "stable";
-    """
-            )
-
-            println(io, "var DOC_VERSIONS = [")
-            for folder in ["stable"; version_folders; "dev"]
-                println(io, "  \"", folder, "\",")
-            end
-            println(io, "];")
-        end
-
-        # generate the sitemap only for the highest version so google doesn't advertise old docs
-        generate_sitemap(dirname, max_version)
-
-        stablelink = joinpath(dirname, "stable")
-        rm(stablelink, force=true)
-        rm(stablelink, recursive=true, force=true)
-        symlink(max_version, stablelink; dir_target=true)
-
         # Add, commit, and push the docs to the remote.
         run(`$(git()) add -A .`)
         if !success(`$(git()) diff --cached --exit-code`)
