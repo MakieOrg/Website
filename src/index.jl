@@ -506,7 +506,7 @@ function index()
         ),
         DOM.div("Follow us"; class="text-xl text-black flex justify-center mt-14 mb-10 font-semibold"),
         FlexGrid(
-            SmallLogo(image="logos/bluesky.svg", link="https://bsky.app/profile/makieplots.bsky.social"),
+            SmallLogo(image="logos/bluesky.svg", link="https://bsky.app/profile/makie.org"),
             SmallLogo(image="logos/linkedin.png", link="https://www.linkedin.com/company/makieorg"),
             SmallLogo(image="logos/GitHub-Mark-64px.png", link="https://github.com/MakieOrg"),
             SmallLogo(image="logos/discord-mark-blue.svg", link="https://discord.gg/2FBjYAT3cY"),
