@@ -14,12 +14,13 @@ function asset_path(files...)
     end
     return path
 end
+
 img_asset(files...) = Asset(asset_path("images", files...))
 css_asset(files...) = Asset(asset_path("css", files...))
 
  # for Revise, since it doesn't track folders recursively
 function asset_paths()
-    return [asset_path(), asset_path("css"), asset_path("js"), asset_path("images")]
+    return [@__DIR__, asset_path(), asset_path("css"), asset_path("js"), asset_path("images")]
 end
 
 include("html-classes.jl")
@@ -28,6 +29,7 @@ include("github.jl")
 include("support.jl")
 include("team.jl")
 include("contact.jl")
+include("blog.jl")
 
 export index, team, contact, support, asset_path
 

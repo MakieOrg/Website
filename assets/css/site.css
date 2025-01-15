@@ -11,6 +11,7 @@
 }
 
 
+
 body {
     width: 100%;
     background-color: rgb(255, 255, 255);
@@ -84,4 +85,23 @@ li p {
 
 .container:hover .image {
     filter: blur(4px);
+}
+
+div.blog_entry h3 {
+    font-weight:700;
+    font-size:1.125rem;
+    line-height:1.75rem;
+}
+
+div.blog_entry h4 {
+    font-weight:500;
+    font-size:1.0rem;
+    line-height:1.6rem;
+}
+
+div.blog_entry .date {
+    font-weight:400;
+    font-size:1.0rem;
+    line-height:1.6rem;
+    color: gray;
 }
