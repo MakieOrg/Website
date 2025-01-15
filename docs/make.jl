@@ -27,9 +27,9 @@ end
 
 # Use for interactive dev
 # using Revise
-routes, task, server = interactive_server(Website.asset_paths()) do
-    return create_routes()
-end
+# routes, task, server = interactive_server(Website.asset_paths()) do
+#     return create_routes()
+# end
 
 
 ##

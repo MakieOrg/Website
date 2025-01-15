@@ -33,7 +33,6 @@ function blog()
         title="Makie Blog rss feed",
         href="./rss.xml"
     )
-    println("jo")
     entries = all_posts()
     site_entries = map(entries) do (_, entry)
         style = """
