@@ -36,6 +36,12 @@ end
 dir = joinpath(@__DIR__, "build")
 !isdir(dir) && mkdir(dir)
 Bonito.export_static(dir, create_routes())
+title = "Makie Blog"
+link = "https://blog.makie.org"
+description = "A Blog about anything new in the Makie world"
+rss_path = joinpath(dir, "rss.xml")
+entries = last.(Website.all_posts())
+BonitoSites.generate_rss_feed(entries, rss_path; title, link, description, relative_path="./website/")
 
 ##
 BonitoSites.deploy(

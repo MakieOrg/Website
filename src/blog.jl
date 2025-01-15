@@ -23,6 +23,7 @@ function add_blogposts!(routes)
             page(Section(body), "Blog")
         end
     end
+
     return routes
 end
 

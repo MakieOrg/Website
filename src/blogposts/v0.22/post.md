@@ -10,9 +10,37 @@ The work we'll be doing is documented in the project proposal and we'll post mor
 
 ### Improvements to the Blog and website
 
-Makie's website and Blog are created with Bonito.jl (the backbone of WGLMakie.jl), which isn't the best idea in terms of feature completeness and design, but helps to use Bonito more and improve it for general use cases, therefore helping WGLMakie to mature.
-We finally added an RSS feed, brought the docs, website and blog closer together and updated a few sections and made sure the blogposts doesn't contain any dead links anymore.
-We also updated the build system for the blog and made it easier to create new blogposts for new Makie versions and general news.
+Makie's website and blog are powered by [Bonito.jl](https://github.com/SimonDanisch/Bonito.jl), which also serves as the foundation for Makie's WebGL backend. Bonito.jl is gradually evolving to support the creation of static websites, thanks in part to its use here.
+
+Our goal is to continue enhancing it and develop a robust julia component system that simplifies the process of building blogs, websites and dashboards.
+
+We have introduced an RSS feed, unified the documentation, website, and blog for a more cohesive experience, and updated several sections to ensure the blog posts are free from dead links.
+
+Additionally, we improved the website's build system, making it more easier to create new blog posts for Makie releases and general updates.
+
+## Volume Texture for meshes (GLMakie only)
+
+A new feature in 0.22 is to allow mesh color to accept a 3D array of numbers or colors.
+With this, one can e.g. implement slicing of volumes:
+
+```julia
+using GLMakie, GeometryBasics, NIfTI
+# Simple Quad
+triangles = GLTriangleFace[(1, 2, 3), (3, 4, 1)]
+# use positions as texture coordinates
+uv3_mesh(p) = GeometryBasics.Mesh(p, triangles; uv=Vec3f.(p))
+r = -5:0.1:5
+brain = Float32.(niread(Makie.assetpath("brain.nii.gz")).raw)
+
+positions = [Point3f(0.5, 0, 0), Point3f(0.5, 1, 0), Point3f(0.5, 1, 1), Point3f(0.5, 0, 1)]
+# Pass the volume plot to the color
+f, ax, pl = mesh(uv3_mesh(positions), color=brain, shading=NoShading, axis=(; show_axis=false))
+positions = [Point3f(0.0, 0.5, 0), Point3f(1.0, 0.5, 0), Point3f(1, 0.5, 1), Point3f(0.0, 0.5, 1)]
+mesh!(ax, uv3_mesh(positions); color=brain, shading=NoShading)
+positions = [Point3f(0.0, 0.0, 0.3), Point3f(1.0, 0, 0.3), Point3f(1, 1, 0.3), Point3f(0.0, 1, 0.3)]
+mesh!(ax, uv3_mesh(positions); color=brain, shading=NoShading)
+f
+```
 
 ## GeometryBasics 0.5
 
