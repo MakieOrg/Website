@@ -1,5 +1,8 @@
 using Pkg
+isfile(joinpath(@__DIR__, "Project.toml")) && rm(joinpath(@__DIR__, "Project.toml"))
+isfile(joinpath(@__DIR__, "Manifest.toml")) && rm(joinpath(@__DIR__, "Manifest.toml"))
 Pkg.activate(@__DIR__)
+
 website = normpath(joinpath(@__DIR__, ".."))
 Pkg.add(url="https://github.com/SimonDanisch/BonitoSites.jl")
 Pkg.develop(PackageSpec(path=website))
