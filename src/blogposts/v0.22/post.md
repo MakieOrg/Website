@@ -1,12 +1,16 @@
 # Makie v0.22
 
-## Announcement
+We just released Makie's latest minor release which as usual comes with lots of bugfixes, new features and mostly invisible but important backend work to ensure Makie's long-term performance and robustness.
+
+Before we take a closer look at those developments, there's one more thing we'd like to mention!
 
 ### Working together with the Sovereign Tech Agency
 
 We're happy to announce that Makie qualified for an investment from the [Sovereign Tech Agency](https://www.sovereign.tech)!
 This allows [Simon](https://github.com/simondanisch) and [Frederic](https://github.com/ffreyer) to work on maintenance and improvements for Makie until the end of 2025.
 The work we'll be doing is documented in the project proposal and we'll post more about it in the future.
+
+Now, let's get into Makie v0.22!
 
 ## Volume Texture for meshes (GLMakie only)
 
