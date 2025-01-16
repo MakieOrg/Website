@@ -441,4 +441,4 @@ Our goal is to continue enhancing it and develop a robust julia component system
 
 We have introduced an RSS feed, unified the documentation, website, and blog for a more cohesive experience, and updated several sections to ensure the blog posts are free from dead links.
 
-Additionally, we improved the website's build system, making it more easier to create new blog posts for Makie releases and general updates.
+Additionally, we improved the website's build system, making it easier to create new blog posts for Makie releases and general updates.
