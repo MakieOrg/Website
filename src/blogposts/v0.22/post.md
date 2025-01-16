@@ -4,19 +4,9 @@
 
 ### Working together with the Sovereign Tech Agency
 
-We're happy to announce, that Makie qualified for an investment from the [Sovereign Tech Agency](https://www.sovereign.tech)!
+We're happy to announce that Makie qualified for an investment from the [Sovereign Tech Agency](https://www.sovereign.tech)!
 This allows [Simon](https://github.com/simondanisch) and [Frederic](https://github.com/ffreyer) to work on maintenance and improvements for Makie until the end of 2025.
 The work we'll be doing is documented in the project proposal and we'll post more about it in the future.
-
-### Improvements to the Blog and website
-
-Makie's website and blog are powered by [Bonito.jl](https://github.com/SimonDanisch/Bonito.jl), which also serves as the foundation for Makie's WebGL backend. Bonito.jl is gradually evolving to support the creation of static websites, thanks in part to its use here.
-
-Our goal is to continue enhancing it and develop a robust julia component system that simplifies the process of building blogs, websites and dashboards.
-
-We have introduced an RSS feed, unified the documentation, website, and blog for a more cohesive experience, and updated several sections to ensure the blog posts are free from dead links.
-
-Additionally, we improved the website's build system, making it more easier to create new blog posts for Makie releases and general updates.
 
 ## Volume Texture for meshes (GLMakie only)
 
@@ -381,3 +371,13 @@ BonitoSites.Video(Bonito.Asset("./images/heatmap-resampler.CZhgLAWl.mp4"))
 Visit the [docs](https://docs.makie.org/stable/reference/plots/heatmap#Plotting-large-Heatmaps) for more information about this feature.
 
 [#4317](https://github.com/MakieOrg/Makie.jl/pull/4317)
+
+### Improvements to the Blog and website
+
+Makie's website and blog are powered by [Bonito.jl](https://github.com/SimonDanisch/Bonito.jl), which also serves as the foundation for Makie's WebGL backend. Bonito.jl is gradually evolving to support the creation of static websites, thanks in part to its use here.
+
+Our goal is to continue enhancing it and develop a robust julia component system that simplifies the process of building blogs, websites and dashboards.
+
+We have introduced an RSS feed, unified the documentation, website, and blog for a more cohesive experience, and updated several sections to ensure the blog posts are free from dead links.
+
+Additionally, we improved the website's build system, making it more easier to create new blog posts for Makie releases and general updates.
