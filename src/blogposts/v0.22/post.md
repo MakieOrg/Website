@@ -154,7 +154,7 @@ update_cam!(a.scene, Vec3f(-15, 7, 1), Vec3f(3, 5, 0), Vec3f(0,1,0))
 
 Note that Makie can currently only handle a very limited subset of the material properties an mtl file can set. As such, the results may differ from what the mtl file sets and will improve in the future.
 
-![sponza](https://gist.github.com/user-attachments/assets/af1bd4d2-59aa-440f-b29f-13c83fd751dc)
+![sponza](./images/sponza.png)
 
 [MeshIO#98](https://github.com/JuliaIO/MeshIO.jl/pull/98), [#4368](https://github.com/MakieOrg/Makie.jl/pull/4368), [#4496](https://github.com/MakieOrg/Makie.jl/pull/4496)
 
