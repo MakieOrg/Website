@@ -10,30 +10,15 @@ A new raytracing backend got added, which is based on AMDs high quality and prod
 It's still experimental and not all Makie features are supported, but it's already at a staged where one can create some pretty amazing visualizations.
 From the [backend docs](https://makie.juliaplots.org/stable/documentation/backends/rprmakie/):
 
-```julia
-# hide
-using Bonito, Blog
-images = ["lego_walk.mp4", "submarine_cables.png", "materials.png", "opengl_interop.mp4", "topographie.png"]
-entries = map(images) do img
-    path = "../../images/$img"
-    elem = if endswith(img, ".mp4")
-        return DOM.video(
-            DOM.source(src=path, type="video/mp4"),
-            autoplay=false, controls=true)
-    else
-        DOM.img(src=path)
-    end
-    return DOM.div(elem)
-end
-DOM.div(
-    entries...,
-    class="column"
-)
-```
+|  |  |  |
+|:---:|:---:|:---:|
+| ![lego_walk](./images/lego_walk.mp4) | ![submarine_cables](./images/submarine_cables.png) | ![materials](./images/materials.png) |
+| ![opengl_interop](./images/opengl_interop.mp4) | ![topographie](./images/topographie.png) |  |
 
 ```julia
 # hide
-Blog.gh_by("SimonDanisch")
+using BonitoSites, Bonito
+BonitoSites.gh_by("SimonDanisch")
 ```
 
 ### Fix fuzzy text
@@ -47,7 +32,8 @@ GLMakie offers high quality text rendering again now :)
 
 ```julia
 # hide
-Blog.gh_by("ffreyer")
+using BonitoSites, Bonito
+BonitoSites.gh_by("ffreyer")
 ```
 
 
@@ -68,7 +54,8 @@ Also, lights got moved from being a plot attributes to being a scene attribute, 
 
 ```julia
 # hide
-Blog.gh_by("SimonDanisch")
+using BonitoSites, Bonito
+BonitoSites.gh_by("SimonDanisch")
 ```
 
 ### Resize to layout
@@ -83,18 +70,20 @@ f = Figure(resolution = (800, 500), backgroundcolor = :gray80)
 ax = Axis(f[1, 1], title = "Before resize_to_layout!")
 Colorbar(f[1, 2])
 colsize!(f.layout, 1, Aspect(1, 1.0))
-f
-```
-
-```julia
+save("resize_to_prev.png", f)
 ax.title = "After resize_to_layout!"
 resize_to_layout!(f)
-f
+save("resize_to_after.png", f)
+nothing
 ```
+![](./resize_to_prev.png)
+![](./resize_to_after.png)
+
 
 ```julia
 # hide
-Blog.gh_by("jkrumbiegel")
+using BonitoSites, Bonito
+BonitoSites.gh_by("jkrumbiegel")
 ```
 
 ### OIT
@@ -119,7 +108,8 @@ fig
 
 ```julia
 # hide
-Blog.gh_by("ffreyer")
+using BonitoSites, Bonito
+BonitoSites.gh_by("ffreyer")
 ```
 
 ### using Cycled for single plots
@@ -141,7 +131,7 @@ f
 
 ```julia
 # hide
-Blog.gh_by("jkrumbiegel")
+BonitoSites.gh_by("jkrumbiegel")
 ```
 
 ### Depth shift
@@ -163,7 +153,7 @@ f
 
 ```julia
 # hide
-Blog.gh_by("ffreyer")
+BonitoSites.gh_by("ffreyer")
 ```
 
 ### Add depth to volumes
@@ -184,7 +174,7 @@ fig
 
 ```julia
 # hide
-Blog.gh_by("ffreyer")
+BonitoSites.gh_by("ffreyer")
 ```
 
 
@@ -197,11 +187,9 @@ There are lots of others who have contributed to this release:
 ```julia
 # hide
 using Serialization
+using GitHub
 using BonitoSites
-using BonitoSites
-using BonitoSites.GitHub
-folder = joinpath(dirname(pathof(Blog)), "pages", "blogposts", "v0.16")
-author_path = joinpath(folder, "authors_v0.16.jls")
+author_path = "./authors_v0.16.jls"
 authors = open(Serialization.deserialize, author_path)
 DOM.div(authors..., class="wrap")
 ```

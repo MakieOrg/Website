@@ -4,19 +4,18 @@ We like to thank the [Max Planck Institute for Biogeochemistry](https://www.bgc-
 
 At MakieCon, we were happy to announce that Makie is now the most starred Julia plotting library:
 
-[![stars](./images/6e437b43-3f69-43b8-8531-046fc40f5785)](https://star-history.com/#MakieOrg/Makie.jl&JuliaPlots/Plots.jl&GiovineItalia/Gadfly.jl&JuliaPy/PyPlot.jl&jheinen/GR.jl&JuliaPlots/UnicodePlots.jl&Date)
+[![stars](./images/stars.png)](https://star-history.com/#MakieOrg/Makie.jl&JuliaPlots/Plots.jl&GiovineItalia/Gadfly.jl&JuliaPy/PyPlot.jl&jheinen/GR.jl&JuliaPlots/UnicodePlots.jl&Date)
 
 While one shouldn't put too much emphasis on GitHub star counts, we like to think that it's an indicator that Makie is on a good trajectory and people are excited to see where it's going next.
 
-We recorded all talks, which you can watch in the MakieCon playlist on youtube:
+We recorded all talks, which you can watch in the MakieCon [playlist on youtube](https://www.youtube.com/playlist?list=PLP8iPy9hna6TXEn99mhG5KaTgjsrCkDzQ):
 
-```julia
-# hide
-using BonitoSites, Bonito
-DOM.div(map(readdir(Blog.assetpath("images", "makiecon-cards"); join=true)) do img
-    DOM.a(DOM.img(src=Bonito.Asset(img), style="height: 64px"), href="https://www.youtube.com/playlist?list=PLP8iPy9hna6TXEn99mhG5KaTgjsrCkDzQ")
-end...)
-```
+| ![card_BRichard.png](./images/makiecon-cards/card_BRichard.png) | ![card_Ehinger.png](./images/makiecon-cards/card_Ehinger.png) | ![card_anshul.png](./images/makiecon-cards/card_anshul.png) | ![card_bogumil.png](./images/makiecon-cards/card_bogumil.png) |
+|-----------------------------------------------------------------|----------------------------------------------------------------|----------------------------------------------------------------|----------------------------------------------------------------|
+| ![card_dan.png](./images/makiecon-cards/card_dan.png)           | ![card_dennis.png](./images/makiecon-cards/card_dennis.png)   | ![card_iga.png](./images/makiecon-cards/card_iga.png)         | ![card_james.png](./images/makiecon-cards/card_james.png)     |
+| ![card_lazaro.png](./images/makiecon-cards/card_lazaro.png)     | ![card_markus.png](./images/makiecon-cards/card_markus.png)   | ![card_max.png](./images/makiecon-cards/card_max.png)         | ![card_pietro.png](./images/makiecon-cards/card_pietro.png)   |
+| ![card_rafael.png](./images/makiecon-cards/card_rafael.png)     | ![card_simon.png](./images/makiecon-cards/card_simon.png)     | ![card_tabea.png](./images/makiecon-cards/card_tabea.png)     | ![julius_card.png](./images/makiecon-cards/julius_card.png)   |
+
 
 
 ## Fast TopoPlots and Julia native interpolator
@@ -27,7 +26,7 @@ At MakieCon, we successfully addressed the reliance of TopPlots on numerous Pyth
 ```julia
 # hide
 using BonitoSites, Bonito
-Blog.gh_by("behinger", "fatteneder")
+BonitoSites.gh_by("behinger", "fatteneder")
 ```
 
 ## `Observable{Vector{PlotSpec}}` prototype
@@ -41,7 +40,7 @@ This functionality is crucial for improving the integration of WGLMakie within P
 
 ```julia
 # hide
-Blog.gh_by("asinghvi17", "SimonDanisch")
+BonitoSites.gh_by("asinghvi17", "SimonDanisch")
 ```
 
 
@@ -60,7 +59,7 @@ Once the implementation is finalized, we will publish an official announcement w
 
 ```julia
 # hide
-Blog.gh_by("jkrumbiegel", "cjdoris", "SimonDanisch")
+BonitoSites.gh_by("jkrumbiegel", "cjdoris", "SimonDanisch")
 ```
 
 ## Progress on axes in nonlinear spaces
@@ -76,7 +75,7 @@ These were implemented in a [PR](https://github.com/MakieOrg/GeoMakie.jl/pull/16
 
 ```julia
 # hide
-Blog.gh_by("asinghvi17", "SimonDanisch")
+BonitoSites.gh_by("asinghvi17", "SimonDanisch")
 ```
 
 ## Scatterjitter
@@ -87,7 +86,7 @@ Benedikt Ehinger also worked on [a recipe](https://github.com/MakieOrg/Makie.jl/
 
 ```julia
 # hide
-Blog.gh_by("behinger")
+BonitoSites.gh_by("behinger")
 ```
 
 ---
@@ -105,9 +104,9 @@ See the well documented [PR](https://github.com/MakieOrg/Makie.jl/pull/2843) for
 
 [t-bltg](https://github.com/t-bltg) put lots of work into [enabling proper contour labels for Makie](https://docs.makie.org/stable/examples/plotting_functions/contour/index.html#contour):
 
-![contour3d](https://github.com/MakieOrg/Makie.jl/assets/1010467/0c94a1f6-8e10-4dc9-afbd-a1720c14d8b5)
+![contour3d](./images/contour3d.png)
 
-![contours](https://github.com/MakieOrg/Makie.jl/assets/1010467/dcb57c08-fba7-4ad4-8c19-fb7cd25ac0f7)
+![contours](./images/contour2d.svg)
 
 
 ## Fixes for `Makie.inline!()` [#2919](https://github.com/MakieOrg/Makie.jl/pull/2919) [#2937](https://github.com/MakieOrg/Makie.jl/pull/2937)
@@ -142,13 +141,10 @@ It's still a prototype, but already shows that it's possible to create a game wi
 
 ```julia
 # hide
-DOM.img(src=Blog.asset("images", "miner.gif"))
+using Bonito
+Bonito.Asset("./images/miner.gif")
 ```
 
-```julia
-# hide
-Blog.gh_by("ashwani-rathee")
-```
 
 ## [ModelingToolkitDesigner.jl](https://github.com/bradcarman/ModelingToolkitDesigner.jl)
 
@@ -161,7 +157,7 @@ From the README:
 
 ```julia
 # hide
-Blog.gh_by("bradcarman")
+BonitoSites.gh_by("bradcarman")
 ```
 
 ## [Tyler](https://github.com/MakieOrg/Tyler.jl)
@@ -176,13 +172,13 @@ During MakieCon and before, lots of cool use cases have been opened up:
 
 Simon Danisch has made an [initial demo](https://github.com/SimonDanisch/MakieSAM.jl) directly calling [segment-anything](https://github.com/facebookresearch/segment-anything) via PyCall and integrating it with Tyler, to easily segment satellite data:
 
-![tyler-sam](./images/2cf43375-cbea-4c9f-9d9f-df1ec670a5fe.gif)
+![tyler-sam](./images/tyler-sam.gif)
 
 Rafael Schouten took this demo and created [SegmentAnything.jl](https://github.com/rafaqz/SegmentAnything.jl) from it, which wraps the python dependencies much nicer via PythonCall.
 
 ```julia
 # hide
-Blog.gh_by("rafaqz", "SimonDanisch")
+BonitoSites.gh_by("rafaqz", "SimonDanisch")
 ```
 
 ### Greenland ice loss
@@ -195,7 +191,7 @@ BonitoSites.Video("https://github-production-user-asset-6210df.s3.amazonaws.com/
 
 ```julia
 # hide
-Blog.gh_by("alex-s-gardner")
+BonitoSites.gh_by("alex-s-gardner")
 ```
 
 
@@ -214,7 +210,7 @@ A Gaussian pyramid is a hierarchical structure of scaled-down images created usi
 
 ```julia
 # hide
-Blog.gh_by("felixcremer", "meggart")
+BonitoSites.gh_by("felixcremer", "meggart")
 ```
 
 ## [GtkMakie.jl](https://github.com/JuliaGtk/GtkMakie.jl)
@@ -225,7 +221,7 @@ Jared Wahlstrand took the heroic task of wrapping [Gtk4](https://github.com/Juli
 
 ```julia
 # hide
-Blog.gh_by("jwahlstrand", "SimonDanisch")
+BonitoSites.gh_by("jwahlstrand", "SimonDanisch")
 ```
 
 
@@ -253,7 +249,7 @@ ggplot(data = penguins) +
 
 ```julia
 # hide
-Blog.gh_by("rdboyes", "pdimens")
+BonitoSites.gh_by("rdboyes", "pdimens")
 ```
 
 # Social Media
