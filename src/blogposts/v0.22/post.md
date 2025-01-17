@@ -18,7 +18,9 @@ A new feature in 0.22 is to allow mesh color to accept a 3D array of numbers or 
 With this, one can e.g. implement slicing of volumes:
 
 ```julia
+
 using GLMakie, GeometryBasics, NIfTI
+GLMakie.activate!()
 # Simple Quad
 triangles = GLTriangleFace[(1, 2, 3), (3, 4, 1)]
 # use positions as texture coordinates
@@ -207,8 +209,9 @@ The second is the `scatter` pipeline. It was previously built with `markerspace 
 Introduces an option to close an Axis3's outline box with a new `front_spines` feature, enhancing the visualization of 3D plots by drawing the box spines in front.
 
 ```julia
-using GLMakie, FileIO
 
+using GLMakie, FileIO
+GLMakie.activate!()
 fig = Figure()
 brain = load(assetpath("brain.stl"))
 ax = Axis3(fig[1, 1], front_spines = true) # see also x/y/zspinecolor_4
@@ -223,7 +226,9 @@ fig
 Curvilinear contour plots are enabled using Contour.jl's capabilities, now supporting grids for more flexible contour visualizations:
 
 ```julia
-using GLMakie
+
+using CairoMakie
+CairoMakie.activate!(type="svg")
 x = -10:10
 y = -10:10
 # The curvilinear grid:
@@ -251,6 +256,7 @@ Implements screen reusability by using `empty!` instead of closing and reopening
 Version 0.21.17 added the ability to rotate `Toggle` blocks using the `orientation` attribute.
 
 ```julia
+
 using GLMakie
 f = Figure(size = (400, 100))
 Toggle(f[1, 1], orientation = :horizontal) # default
@@ -280,8 +286,9 @@ In version 0.21.6 we added the `uv_transform` attribute to `image`, `surface`, `
 It acts as a transformation matrix on texture coordinates similar to how model transforms coordinates. The attribute accepts 2x3 and 3x3 matrices (which will get truncated to 2x3), a `Symbol` for named transformations, `LinearAlgebra.I`, a `Vec2f` representing scaling, a `Tuple{Vec2f, Vec2f}` representing translation and scaling, or a tuple containing multiple operations which will get chained (last operation applies first). See `?Makie.uv_transform` for more information.
 
 ```julia
-using LinearAlgebra, GeometryBasics, FileIO, GLMakie, ColorSchemes
 
+using LinearAlgebra, GeometryBasics, FileIO, GLMakie, ColorSchemes
+GLMakie.activate!()
 cow = load(assetpath("cow.png"))
 f = Figure()
 image(f[1, 1], cow, uv_transform = :transpose)
@@ -319,7 +326,9 @@ In version 0.21.6 an optional position argument and the `offset_radius` attribut
 The position argument can be used to translate the whole plot or each sector individually and the `offset radius` can be used to translate sectors along radial direction.
 
 ```julia
-using GLMakie
+
+using CairoMakie, BonitoSites
+CairoMakie.activate!(type="svg")
 fig = Figure(size = (400, 400))
 ax = Axis(fig[1, 1]; autolimitaspect=1)
 
@@ -333,8 +342,7 @@ pie!(ax, 0, -2.5, vs; color=cs, normalize=false, offset=π/2, inner_radius=0.3)
 xs =  2.5 .+ [0.0, 0.0, -0.2, -0.2, -0.2,  0.0, 0.2]
 ys = -2.5 .+ [0.2, 0.2,  0.2,  0.0,  0.0, -0.2, 0.0]
 pie!(ax, xs, ys, vs; color=cs, normalize=false, offset=π/2, inner_radius=0.3)
-
-fig
+BonitoSites.ToSVG(fig)
 ```
 
 [#4027](https://github.com/MakieOrg/Makie.jl/pull/4027)
@@ -384,8 +392,9 @@ It is now possible to create facet layouts in which different facets have comple
 Here's an example where four columns of a dataset, two categorical and two continuous, are combined in a 2x2 facet plot with different plot types depending on the combination of scales:
 
 ```julia
-using AlgebraOfGraphics, CairoMakie
 
+using AlgebraOfGraphics, CairoMakie, BonitoSites
+CairoMakie.activate!(type="svg")
 dat = data((;
     fruit = rand(["Apple", "Orange", "Pear"], 150),
     taste = randn(150) .* repeat(1:3, inner = 50),
@@ -427,11 +436,9 @@ layer4 = mapping(
 ) * visual(Scatter)
 
 spec = dat * (layer1 + layer2 + layer3 + layer4)
-
-draw(spec, scales(Row = (; show_labels = false), Col = (; show_labels = false)))
+s = scales(Row = (; show_labels = false), Col = (; show_labels = false))
+BonitoSites.ToSVG(draw(spec, s))
 ```
-
-![](./images/splitfacetscales.svg)
 
 ## Improvements to the Blog and website
 

@@ -1,3 +1,8 @@
+title = "Makie Blog"
+link = "https://blog.makie.org"
+description = "A Blog about anything new in the Makie world"
+
+# Not sure why this is so complicated, but packages with unregistered dependencies are a pain
 using Pkg
 isfile(joinpath(@__DIR__, "Project.toml")) && rm(joinpath(@__DIR__, "Project.toml"))
 isfile(joinpath(@__DIR__, "Manifest.toml")) && rm(joinpath(@__DIR__, "Manifest.toml"))
@@ -36,9 +41,8 @@ end
 dir = joinpath(@__DIR__, "build")
 !isdir(dir) && mkdir(dir)
 Bonito.export_static(dir, create_routes())
-title = "Makie Blog"
-link = "https://blog.makie.org"
-description = "A Blog about anything new in the Makie world"
+
+
 rss_path = joinpath(dir, "rss.xml")
 entries = last.(Website.all_posts())
 BonitoSites.generate_rss_feed(entries, rss_path; title, link, description, relative_path="./website/")
