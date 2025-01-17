@@ -85,7 +85,7 @@ end
 function Bonito.jsrender(s::Session, card::DetailedCard)
     img = render_media(img_asset(card.image); class="image w-full")
     details = if card.details isa Markdown.MD
-        Bonito.md_html(s, card.details.content[1])
+        Bonito.md_html(card.details.content[1])
     else
         card.details
     end
@@ -129,6 +129,7 @@ function Navigation(highlighted="")
             item("Team", "/team"),
             item("Support", "/support"),
             item("Contact", "/contact"),
+            item("Blog", "/blog"),
             item("Docs", "http://docs.makie.org"; target="_blank"),
             item(DOM.img(src=github, style=img_style), "https://github.com/MakieOrg/Makie.jl"; target="_blank")
         )
