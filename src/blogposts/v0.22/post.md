@@ -375,11 +375,13 @@ f, ax, pl = heatmap(Resampler(img); axis=(; aspect=DataAspect()), figure=(;size=
 hidedecorations!(ax)
 f
 ```
+
 ```julia
 # hide
 using BonitoSites, Bonito
 BonitoSites.Video(Bonito.Asset("./images/heatmap-resampler.CZhgLAWl.mp4"))
 ```
+
 Visit the [docs](https://docs.makie.org/stable/reference/plots/heatmap#Plotting-large-Heatmaps) for more information about this feature.
 
 [#4317](https://github.com/MakieOrg/Makie.jl/pull/4317)
