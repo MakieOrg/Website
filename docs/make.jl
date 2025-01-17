@@ -41,7 +41,7 @@ dir = joinpath(@__DIR__, "build")
 !isdir(dir) && mkdir(dir)
 Bonito.export_static(dir, create_routes())
 
-
+## TODO, add xml to routes
 rss_path = joinpath(dir, "rss.xml")
 entries = last.(Website.all_posts())
 BonitoSites.generate_rss_feed(entries, rss_path; title, link, description, relative_path="./website/")
@@ -50,6 +50,6 @@ BonitoSites.generate_rss_feed(entries, rss_path; title, link, description, relat
 BonitoSites.deploy(
     "github.com/MakieOrg/Website.git";
     push_preview=true,
-    devbranch="master",
+    devbranch="main",
     devurl="website"
 )
