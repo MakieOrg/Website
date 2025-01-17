@@ -396,7 +396,7 @@ Here's an example where four columns of a dataset, two categorical and two conti
 ```julia
 
 using AlgebraOfGraphics, CairoMakie, BonitoSites
-CairoMakie.activate!(type="svg")
+CairoMakie.activate!()
 dat = data((;
     fruit = rand(["Apple", "Orange", "Pear"], 150),
     taste = randn(150) .* repeat(1:3, inner = 50),

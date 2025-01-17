@@ -9,9 +9,8 @@ isfile(joinpath(@__DIR__, "Manifest.toml")) && rm(joinpath(@__DIR__, "Manifest.t
 Pkg.activate(@__DIR__)
 
 website = normpath(joinpath(@__DIR__, ".."))
-Pkg.add(url="https://github.com/SimonDanisch/BonitoSites.jl")
+pkg"add Bonito#sd/static-sites https://github.com/SimonDanisch/BonitoSites.jl"
 Pkg.develop(PackageSpec(path=website))
-pkg"add Bonito#sd/static-sites"
 Pkg.instantiate()
 
 using Website
