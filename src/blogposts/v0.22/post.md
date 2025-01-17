@@ -1,22 +1,16 @@
 # Makie v0.22
 
-## Announcement
+We just released Makie's latest minor release which as usual comes with lots of bugfixes, new features and mostly invisible but important backend work to ensure Makie's long-term performance and robustness.
+
+Before we take a closer look at those developments, there's one more thing we'd like to mention!
 
 ### Working together with the Sovereign Tech Agency
 
-We're happy to announce, that Makie qualified for an investment from the [Sovereign Tech Agency](https://www.sovereign.tech)!
+We're happy to announce that Makie qualified for an investment from the [Sovereign Tech Agency](https://www.sovereign.tech)!
 This allows [Simon](https://github.com/simondanisch) and [Frederic](https://github.com/ffreyer) to work on maintenance and improvements for Makie until the end of 2025.
 The work we'll be doing is documented in the project proposal and we'll post more about it in the future.
 
-### Improvements to the Blog and website
-
-Makie's website and blog are powered by [Bonito.jl](https://github.com/SimonDanisch/Bonito.jl), which also serves as the foundation for Makie's WebGL backend. Bonito.jl is gradually evolving to support the creation of static websites, thanks in part to its use here.
-
-Our goal is to continue enhancing it and develop a robust julia component system that simplifies the process of building blogs, websites and dashboards.
-
-We have introduced an RSS feed, unified the documentation, website, and blog for a more cohesive experience, and updated several sections to ensure the blog posts are free from dead links.
-
-Additionally, we improved the website's build system, making it more easier to create new blog posts for Makie releases and general updates.
+Now, let's get into Makie v0.22!
 
 ## Volume Texture for meshes (GLMakie only)
 
@@ -381,3 +375,70 @@ BonitoSites.Video(Bonito.Asset("./images/heatmap-resampler.CZhgLAWl.mp4"))
 Visit the [docs](https://docs.makie.org/stable/reference/plots/heatmap#Plotting-large-Heatmaps) for more information about this feature.
 
 [#4317](https://github.com/MakieOrg/Makie.jl/pull/4317)
+
+## Split X and Y scales for AlgebraOfGraphics
+
+AlgebraOfGraphics, the grammar-of-graphics package built on Makie, recently had an interesting feature release as well.
+It is now possible to create facet layouts in which different facets have completely separate x or y scales. This means that it's possible to combine different categorical and continuous scales, which opens up a whole new range of plots possible with the basic `data * mapping * visual` system.
+
+Here's an example where four columns of a dataset, two categorical and two continuous, are combined in a 2x2 facet plot with different plot types depending on the combination of scales:
+
+```julia
+using AlgebraOfGraphics, CairoMakie
+
+dat = data((;
+    fruit = rand(["Apple", "Orange", "Pear"], 150),
+    taste = randn(150) .* repeat(1:3, inner = 50),
+    weight = repeat(["Heavy", "Light", "Medium"], inner = 50),
+    cost = randn(150) .+ repeat([10, 20, 30], inner = 50),
+))
+
+fruit = :fruit => "Fruit" => scale(:X1)
+weights = :weight => "Weight" => scale(:Y1)
+taste = :taste => "Taste Score" => scale(:X2)
+cost = :cost => "Cost" => scale(:Y2)
+
+layer1 = mapping(
+    fruit,
+    weights,
+    col = direct("col1"), # this controls what facet this mapping belongs to
+    row = direct("row1")
+) * frequency()
+
+layer2 = mapping(
+    fruit,
+    cost,
+    col = direct("col1"),
+    row = direct("row2")
+) * visual(Violin)
+
+layer3 = mapping(
+    weights, # note X and Y are flipped here for a horizontal violin
+    taste,
+    col = direct("col2"),
+    row = direct("row1")
+) * visual(Violin, orientation = :horizontal)
+
+layer4 = mapping(
+    taste,
+    cost,
+    col = direct("col2"),
+    row = direct("row2")
+) * visual(Scatter)
+
+spec = dat * (layer1 + layer2 + layer3 + layer4)
+
+draw(spec, scales(Row = (; show_labels = false), Col = (; show_labels = false)))
+```
+
+![](./images/splitfacetscales.svg)
+
+## Improvements to the Blog and website
+
+Makie's website and blog are powered by [Bonito.jl](https://github.com/SimonDanisch/Bonito.jl), which also serves as the foundation for Makie's WebGL backend. Bonito.jl is gradually evolving to support the creation of static websites, thanks in part to its use here.
+
+Our goal is to continue enhancing it and develop a robust julia component system that simplifies the process of building blogs, websites and dashboards.
+
+We have introduced an RSS feed, unified the documentation, website, and blog for a more cohesive experience, and updated several sections to ensure the blog posts are free from dead links.
+
+Additionally, we improved the website's build system, making it easier to create new blog posts for Makie releases and general updates.
