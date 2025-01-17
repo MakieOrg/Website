@@ -89,7 +89,7 @@ version = "0.1.9"
 
 [[deps.Bonito]]
 deps = ["Base64", "CodecZlib", "Colors", "Dates", "Deno_jll", "HTTP", "Hyperscript", "LinearAlgebra", "Markdown", "MsgPack", "Observables", "RelocatableFolders", "SHA", "Sockets", "Tables", "ThreadPools", "URIs", "UUIDs", "WidgetsBase"]
-git-tree-sha1 = "ea9a0e412295c3dcd15c750fde7bc95d52683f22"
+git-tree-sha1 = "5497c1caaea4eff6b5500c22a7ddf8cfad2ab933"
 repo-rev = "sd/static-sites"
 repo-url = "https://github.com/SimonDanisch/Bonito.jl.git"
 uuid = "824d6782-a2ef-11e9-3a09-e5662e0c26f8"
@@ -97,7 +97,7 @@ version = "4.0.1"
 
 [[deps.BonitoSites]]
 deps = ["Bonito", "Dates", "Documenter", "Downloads", "FileIO", "GitHub", "HTTP", "ImageBase", "ImageIO", "JSON3", "Malt", "Markdown", "OpenAI", "XML"]
-git-tree-sha1 = "54130090b15aa6af5c9160ab6113cfc416ea0399"
+git-tree-sha1 = "9912abff9c76f1dada484200299ae1dba33ee764"
 repo-rev = "main"
 repo-url = "https://github.com/SimonDanisch/BonitoSites.jl"
 uuid = "8b3cd1a5-63d9-421b-9fde-46b64b830918"
