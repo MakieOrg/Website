@@ -23,7 +23,7 @@
     </div>
   </head>
   <body data-jscall-id="5">
-    <script type="module">Bonito.lock_loading(() => Bonito.init_session('2a44d377-256f-43be-918b-b7777c11851a', null, 'root', false))</script>
+    <script type="module">Bonito.lock_loading(() => Bonito.init_session('21a82bb0-c7b4-48c6-915f-31e86fa0c0e2', null, 'root', false))</script>
     <div data-jscall-id="6">
       <link href="../../bonito/png/icon_transparent1037186205570625945.png" data-jscall-id="7" rel="icon" type="image/png" />
       <img style="width: 100%" data-jscall-id="8" src="../../bonito/png/bannermesh_gradient12222907222071057261.png" />
@@ -525,21 +525,25 @@ f, ax, pl &#61; heatmap&#40;Resampler&#40;img&#41;; axis&#61;&#40;; aspect&#61;D
 hidedecorations&#33;&#40;ax&#41;
 f</code>
                 </pre>
-                <div class="markdown-body" data-jscall-id="286"><video controls="true" data-jscall-id="1" autoplay="true"><source data-jscall-id="2" src="../../bonito/mp4/heatmap-resampler.CZhgLAWl14735616398232722953.mp4" type="video/mp4" /></video></div>
-                <p data-jscall-id="287">Visit the 
-                  <a href="https://docs.makie.org/stable/reference/plots/heatmap#Plotting-large-Heatmaps" data-jscall-id="288">docs</a> for more information about this feature.
+                <div class="markdown-body" data-jscall-id="286">
+                  <video controls="true" data-jscall-id="287" autoplay="true">
+                    <source data-jscall-id="288" src="../../bonito/mp4/cell_output_714735616398232722953.mp4" type="video/mp4" />
+                  </video>
+                </div>
+                <p data-jscall-id="289">Visit the 
+                  <a href="https://docs.makie.org/stable/reference/plots/heatmap#Plotting-large-Heatmaps" data-jscall-id="290">docs</a> for more information about this feature.
                 </p>
-                <p data-jscall-id="289">
-                  <a href="https://github.com/MakieOrg/Makie.jl/pull/4317" data-jscall-id="290">#4317</a>
+                <p data-jscall-id="291">
+                  <a href="https://github.com/MakieOrg/Makie.jl/pull/4317" data-jscall-id="292">#4317</a>
                 </p>
-                <h2 id="Split X and Y scales for AlgebraOfGraphics" data-jscall-id="291">Split X and Y scales for AlgebraOfGraphics</h2>
-                <p data-jscall-id="292">AlgebraOfGraphics, the grammar-of-graphics package built on Makie, recently had an interesting feature release as well. It is now possible to create facet layouts in which different facets have completely separate x or y scales. This means that it&#39;s possible to combine different categorical and continuous scales, which opens up a whole new range of plots possible with the basic 
-                  <code data-jscall-id="293">data * mapping * visual</code> system.
+                <h2 id="Split X and Y scales for AlgebraOfGraphics" data-jscall-id="293">Split X and Y scales for AlgebraOfGraphics</h2>
+                <p data-jscall-id="294">AlgebraOfGraphics, the grammar-of-graphics package built on Makie, recently had an interesting feature release as well. It is now possible to create facet layouts in which different facets have completely separate x or y scales. This means that it&#39;s possible to combine different categorical and continuous scales, which opens up a whole new range of plots possible with the basic 
+                  <code data-jscall-id="295">data * mapping * visual</code> system.
                 </p>
-                <p data-jscall-id="294">Here&#39;s an example where four columns of a dataset, two categorical and two continuous, are combined in a 2x2 facet plot with different plot types depending on the combination of scales:</p>
-                <div class="markdown-body" data-jscall-id="295">
-                  <pre data-jscall-id="296">
-                    <code class="language-julia" data-jscall-id="297">
+                <p data-jscall-id="296">Here&#39;s an example where four columns of a dataset, two categorical and two continuous, are combined in a 2x2 facet plot with different plot types depending on the combination of scales:</p>
+                <div class="markdown-body" data-jscall-id="297">
+                  <pre data-jscall-id="298">
+                    <code class="language-julia" data-jscall-id="299">
 using AlgebraOfGraphics, CairoMakie, BonitoSites
 CairoMakie.activate&#33;&#40;&#41;
 dat &#61; data&#40;&#40;;
@@ -586,29 +590,29 @@ spec &#61; dat * &#40;layer1 &#43; layer2 &#43; layer3 &#43; layer4&#41;
 s &#61; scales&#40;Row &#61; &#40;; show_labels &#61; false&#41;, Col &#61; &#40;; show_labels &#61; false&#41;&#41;
 BonitoSites.ToSVG&#40;draw&#40;spec, s&#41;&#41;</code>
                   </pre>
-                  <img data-jscall-id="298" src="../../bonito/svg/cell_output_818293449465383994842.svg" />
+                  <img data-jscall-id="300" src="../../bonito/svg/cell_output_818293449465383994842.svg" />
                 </div>
-                <h2 id="Improvements to the Blog and website" data-jscall-id="299">Improvements to the Blog and website</h2>
-                <p data-jscall-id="300">Makie&#39;s website and blog are powered by 
-                  <a href="https://github.com/SimonDanisch/Bonito.jl" data-jscall-id="301">Bonito.jl</a>, which also serves as the foundation for Makie&#39;s WebGL backend. Bonito.jl is gradually evolving to support the creation of static websites, thanks in part to its use here.
+                <h2 id="Improvements to the Blog and website" data-jscall-id="301">Improvements to the Blog and website</h2>
+                <p data-jscall-id="302">Makie&#39;s website and blog are powered by 
+                  <a href="https://github.com/SimonDanisch/Bonito.jl" data-jscall-id="303">Bonito.jl</a>, which also serves as the foundation for Makie&#39;s WebGL backend. Bonito.jl is gradually evolving to support the creation of static websites, thanks in part to its use here.
                 </p>
-                <p data-jscall-id="302">Our goal is to continue enhancing it and develop a robust julia component system that simplifies the process of building blogs, websites and dashboards.</p>
-                <p data-jscall-id="303">We have introduced an RSS feed, unified the documentation, website, and blog for a more cohesive experience, and updated several sections to ensure the blog posts are free from dead links.</p>
-                <p data-jscall-id="304">Additionally, we improved the website&#39;s build system, making it easier to create new blog posts for Makie releases and general updates.</p>
+                <p data-jscall-id="304">Our goal is to continue enhancing it and develop a robust julia component system that simplifies the process of building blogs, websites and dashboards.</p>
+                <p data-jscall-id="305">We have introduced an RSS feed, unified the documentation, website, and blog for a more cohesive experience, and updated several sections to ensure the blog posts are free from dead links.</p>
+                <p data-jscall-id="306">Additionally, we improved the website&#39;s build system, making it easier to create new blog posts for Makie releases and general updates.</p>
               </div>
-              <div data-jscall-id="305">
-                <script data-jscall-id="306" src="../../bonito/js/highlight.pack13102628173626074447.js"></script>
-                <script data-jscall-id="307">hljs.highlightAll()</script>
+              <div data-jscall-id="307">
+                <script data-jscall-id="308" src="../../bonito/js/highlight.pack13102628173626074447.js"></script>
+                <script data-jscall-id="309">hljs.highlightAll()</script>
               </div>
             </div>
             <span></span>
           </div>
         </div>
       </div>
-      <div data-jscall-id="308">
-        <script async="true" defer="true" data-jscall-id="309" src="https://api.makie.org/latest.js"></script>
-        <noscript data-jscall-id="310">
-          <img alt="" data-jscall-id="311" src="https://api.makie.org/noscript.gif" referrerpolicy="no-referrer-when-downgrade" />
+      <div data-jscall-id="310">
+        <script async="true" defer="true" data-jscall-id="311" src="https://api.makie.org/latest.js"></script>
+        <noscript data-jscall-id="312">
+          <img alt="" data-jscall-id="313" src="https://api.makie.org/noscript.gif" referrerpolicy="no-referrer-when-downgrade" />
         </noscript>
       </div>
     </div>
