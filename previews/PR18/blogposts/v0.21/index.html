@@ -27,7 +27,7 @@
     </div>
   </head>
   <body data-jscall-id="5">
-    <script type="module">Bonito.lock_loading(() => Bonito.init_session('f0d58569-30ec-4066-aa7f-0f8650849781', null, 'root', false))</script>
+    <script type="module">Bonito.lock_loading(() => Bonito.init_session('9f528832-1e55-498b-8efb-bc9897771d01', null, 'root', false))</script>
     <div data-jscall-id="6">
       <link href="../../bonito/png/icon_transparent1037186205570625945.png" data-jscall-id="7" rel="icon" type="image/png" />
       <img style="width: 100%" data-jscall-id="8" src="../../bonito/png/bannermesh_gradient12222907222071057261.png" />
@@ -70,13 +70,13 @@
                   <a href="https://joss.theoj.org/papers/10.21105/joss.03349" data-jscall-id="35">JOSS paper</a>&#41;
                 </p>
                 <p data-jscall-id="36">
-                  <img alt="citations" data-jscall-id="37" src="../../images/makie-citations.png" />
+                  <img alt="citations" data-jscall-id="37" src="../../bonito/png/makie-citations12403387331490581474.png" />
                 </p>
                 <p data-jscall-id="38">We&#39;re also excited to show off the redesign of our documentation using 
                   <a href="https://github.com/LuxDL/DocumenterVitepress.jl" data-jscall-id="39">DocumenterVitepress.jl</a> which improves overall clarity, benefits from new Documenter.jl features and has a better search functionality than our old custom Franklin.jl setup. We are determined to keep improving the documentation more and more, to really enable our users to tap into the vast range of features Makie offers today.
                 </p>
                 <p data-jscall-id="40">
-                  <img alt="image" data-jscall-id="41" src="../../images/makie-docs.png" />
+                  <img alt="image" data-jscall-id="41" src="../../bonito/png/makie-docs17065271465458770809.png" />
                 </p>
                 <p data-jscall-id="42">With that said, let&#39;s dive into the most important changes and additions in v0.21&#33;</p>
                 <h2 id="Unit and Categorical support" data-jscall-id="43">Unit and Categorical support</h2>
@@ -100,7 +100,7 @@ barplot&#40;f&#91;1, 2&#93;, Categorical&#40;&#91;&#34;a&#34;, &#34;b&#34;, &#34
 series&#40;f&#91;2, :&#93;, now&#40;&#41; .&#43; Second.&#40;1:100&#41;, data&#41;
 f</code>
                   </pre>
-                  <img data-jscall-id="54" src="../../bonito/png/cell_output_25445247396067497152.png" />
+                  <img data-jscall-id="54" src="../../bonito/png/cell_output_27806301031643811637.png" />
                 </div>
                 <h3 id="Integration with the conversion pipeline" data-jscall-id="55">Integration with the conversion pipeline</h3>
                 <p data-jscall-id="56">One of the complications to implement dim converts was to enable 
@@ -159,7 +159,7 @@ f</code>
                   <code data-jscall-id="85">&#64;recipe</code> macro and rewritten all our recipes to use it. This variant allows to declare at compile time which attributes are valid for a given plotting function, and also documenting these attributes in-place. We can now throw a helpful error for the example above:
                 </p>
                 <p data-jscall-id="86">
-                  <img alt="grafik" data-jscall-id="87" src="../../images/HJ42WmcM0.png" />
+                  <img alt="grafik" data-jscall-id="87" src="../../bonito/png/HJ42WmcM03977996229563286880.png" />
                 </p>
                 <p data-jscall-id="88">There are more improvements to be made in this area, but this refactor is a big step forward in making Makie more robust and user-friendly.</p>
                 <div class="markdown-body" data-jscall-id="89"><div class="admonition warning" data-jscall-id="1"><p class="title" data-jscall-id="2">Warning&#33;</p>    Note that the new &#96;&#64;recipe&#96; syntax is undocumented and considered internal for now. It could experience breaking changes in patch versions as we  make further improvements to it. This also means that third party recipes written with the old &#96;&#64;recipe&#96; syntax will continue to work as they are and not automatically receive the benefits of the new system.
@@ -188,7 +188,7 @@ ax &#61; LScene&#40;fig&#91;1, 1&#93;&#41;
 voxels&#33;&#40;ax, -2..2, -2..2, -2..2, chunk, colorrange &#61; &#40;0.1, 0.2&#41;, lowclip &#61; :transparent, highclip &#61; :transparent&#41;
 fig</code>
                   </pre>
-                  <img data-jscall-id="103" src="../../bonito/png/cell_output_58388208939953453484.png" />
+                  <img data-jscall-id="103" src="../../bonito/png/cell_output_512284340570487089265.png" />
                 </div>
                 <p data-jscall-id="104">If you are interested in what&#39;s below the surface you can add transparency &#40;via the 
                   <code data-jscall-id="105">colormap</code> or 
@@ -203,10 +203,10 @@ fig</code>
                   </tr>
                   <tr data-jscall-id="113">
                     <td data-jscall-id="114" align="center">
-                      <img alt="voxel_isosurface_transparent" data-jscall-id="115" src="../../images/rJYi3UN1C.png" />
+                      <img alt="voxel_isosurface_transparent" data-jscall-id="115" src="../../bonito/png/rJYi3UN1C13703621970489152880.png" />
                     </td>
                     <td data-jscall-id="116" align="center">
-                      <img alt="voxel_isosurface_gapped" data-jscall-id="117" src="../../images/Bkyh2UEy0.png" />
+                      <img alt="voxel_isosurface_gapped" data-jscall-id="117" src="../../bonito/png/Bkyh2UEy07992854830694814053.png" />
                     </td>
                   </tr>
                 </table>
@@ -262,7 +262,7 @@ cameracontrols&#40;ax.scene&#41;.settings.center &#61; false
 update_cam&#33;&#40;ax.scene, Vec3f&#40;35, 55, 10&#41;, Vec3f&#40;2, 7, -9&#41;&#41;
 fig</code>
                   </pre>
-                  <img data-jscall-id="127" src="../../bonito/png/cell_output_610623256900113795830.png" />
+                  <img data-jscall-id="127" src="../../bonito/png/cell_output_69658410583864726926.png" />
                 </div>
                 <h2 id="Lines" data-jscall-id="128">Lines</h2>
                 <h4 id="Internal/Backend changes" data-jscall-id="129">Internal/Backend changes</h4>
@@ -274,10 +274,10 @@ fig</code>
                   </tr>
                   <tr data-jscall-id="135">
                     <td data-jscall-id="136" align="center">
-                      <img alt="lines_master" data-jscall-id="137" src="../../images/B1CBlrN1R.png" />
+                      <img alt="lines_master" data-jscall-id="137" src="../../bonito/png/B1CBlrN1R1149557095748711452.png" />
                     </td>
                     <td data-jscall-id="138" align="center">
-                      <img alt="lines_21" data-jscall-id="139" src="../../images/HJX8erVyA.png" />
+                      <img alt="lines_21" data-jscall-id="139" src="./images/HJX8erVyA.png" />
                     </td>
                   </tr>
                 </table>
@@ -299,7 +299,7 @@ xlims&#33;&#40;a, -1.2, 1.2&#41;
 ylims&#33;&#40;a, -0.1, 1.15&#41;
 fig</code>
                   </pre>
-                  <img data-jscall-id="147" src="../../bonito/png/cell_output_74288702218056017226.png" />
+                  <img data-jscall-id="147" src="../../bonito/png/cell_output_715724018159066969965.png" />
                 </div>
                 <table data-jscall-id="148">
                   <tr data-jscall-id="149">
@@ -309,13 +309,13 @@ fig</code>
                   </tr>
                   <tr data-jscall-id="153">
                     <td data-jscall-id="154" align="center">
-                      <img alt="lines_colormap_master" data-jscall-id="155" src="../../images/rkkVSS41A.png" />
+                      <img alt="lines_colormap_master" data-jscall-id="155" src="../../bonito/png/rkkVSS41A10908462674834151630.png" />
                     </td>
                     <td data-jscall-id="156" align="center">
-                      <img alt="lines_colormap_21" data-jscall-id="157" src="../../images/SkwEHHN1C.png" />
+                      <img alt="lines_colormap_21" data-jscall-id="157" src="../../bonito/png/SkwEHHN1C11764537166090949705.png" />
                     </td>
                     <td data-jscall-id="158" align="center">
-                      <img alt="lines_color_21" data-jscall-id="159" src="../../images/BkxSSH4JR.png" />
+                      <img alt="lines_color_21" data-jscall-id="159" src="../../bonito/png/BkxSSH4JR15929664307516228825.png" />
                     </td>
                   </tr>
                 </table>
@@ -350,13 +350,13 @@ fig</code>
 scatter&#40;data&#41;</code>
                 </pre>
                 <p data-jscall-id="185">
-                  <img alt="image" data-jscall-id="186" src="../../images/SynFsTaXA.png" />
+                  <img alt="image" data-jscall-id="186" src="../../bonito/png/SynFsTaXA15185432111670387387.png" />
                 </p>
                 <p data-jscall-id="187">In Makie 0.21, an additional step was inserted in the conversion pipeline for 
                   <code data-jscall-id="188">Axis</code> which rescales data before handing it off to the backends in reduced precision, thereby mostly circumventing quantization problems. The same plot in Makie 0.21 shows a nice straight line and the limits are also not shifted incorrectly anymore:
                 </p>
                 <p data-jscall-id="189">
-                  <img alt="image" data-jscall-id="190" src="../../images/ByXe2apmC.png" />
+                  <img alt="image" data-jscall-id="190" src="../../bonito/png/ByXe2apmC2254905594954215701.png" />
                 </p>
                 <p data-jscall-id="191">In a large amount of internal code, we could move from 
                   <code data-jscall-id="192">Float32</code> by default to 
