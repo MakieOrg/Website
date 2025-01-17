@@ -227,8 +227,8 @@ Curvilinear contour plots are enabled using Contour.jl's capabilities, now suppo
 
 ```julia
 
-using CairoMakie
-CairoMakie.activate!(type="svg")
+using CairoMakie, BonitoSites
+CairoMakie.activate!()
 x = -10:10
 y = -10:10
 # The curvilinear grid:
