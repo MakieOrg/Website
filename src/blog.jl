@@ -20,7 +20,7 @@ function add_blogposts!(routes)
             post = BonitoSites.MarkdownPage(dir)
             bsky = isempty(entry.bsky_link) ? nothing : BonitoSites.BlueSkyComment(entry.bsky_link)
             body = DOM.div(Bonito.MarkdownCSS, post, bsky)
-            page(Section(body), "Blog")
+            page(Block(body), "Blog")
         end
     end
     return routes
@@ -45,7 +45,7 @@ function blog()
         DOM.div(entry, class="$CARD_STYLE blog_entry max-w-prose", style=style)
     end
     body = DOM.div(rss_link, Bonito.Col(site_entries...))
-    return page(Block(body), "Blog")
+    return page(Section(body), "Blog")
 end
 
 export blog
