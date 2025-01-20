@@ -45,7 +45,7 @@ function blog()
         DOM.div(entry, class="$CARD_STYLE blog_entry max-w-prose", style=style)
     end
     body = DOM.div(rss_link, Bonito.Col(site_entries...))
-    return page(Section(body), "Blog")
+    return page(Block(body), "Blog")
 end
 
 export blog
