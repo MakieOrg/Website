@@ -7,7 +7,7 @@
 ![](./images/franka_impedance_control.mp4)
 
 
-## [Synny.jl](https://sunnysuite.github.io/Sunny.jl/stable/)
+## [Sunny.jl](https://sunnysuite.github.io/Sunny.jl/stable/)
 
 ![](https://sunnysuite.github.io/Sunny.jl/stable/examples/01_LSWT_CoRh2O4-61dcd450.png)
 
