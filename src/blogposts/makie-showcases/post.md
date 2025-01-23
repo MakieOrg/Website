@@ -62,6 +62,10 @@ Sometimes the best way to understand data is to play around with it interactivel
 
 ## [PDDLViz.jl](https://github.com/JuliaPlanners/PDDLViz.jl)
 
+PDDLViz.jl is a library for visualizing, animating, and interacting with AI planning domains specified in the Planning Domain Definition Language (PDDL).
+PDDLViz.jl is part of the [JuliaPlanners ecosystem](https://github.com/JuliaPlanners), and operates on top of the [PDDL.jl](https://github.com/JuliaPlanners/PDDL.jl) interpreter and compiler for PDDL.
+PDDLViz.jl also supports the animation and rendering of planning algorithms and solutions supported by the [SymbolicPlanners.jl](https://github.com/JuliaPlanners/SymbolicPlanners.jl) library.
+
 ![](https://github.com/JuliaPlanners/PDDLViz.jl/raw/main/assets/gridworld.gif)
 
 ![](https://github.com/JuliaPlanners/PDDLViz.jl/raw/main/assets/zeno_travel.gif)
