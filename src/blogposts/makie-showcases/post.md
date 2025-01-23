@@ -3,6 +3,9 @@
 
 ## [VMRobotControl.jl](https://cambridge-control-lab.github.io/VMRobotControl.jl/dev/)
 
+VMRobotControl allows you to build dynamic controllers for your robot as intuitive virtual mechanisms. You design your controller by building a virtual mechanism. You connect the virtual mechanism to the robot through compliant elements (like springs and dampers). The control action is automatically translated to the robot actuators (desired joint forces/torques).
+
+This package is designed for building, simulating and controlling robots using passivity-based controllers represented by virtual mechanisms. This is in the tradition of virtual model control and energy shaping/damping injection. For a defined robot geometry, you can select specific coordinates and connect components to shape the robot dynamic properties. properties. This provides a simple way to program complex robot behaviour incrementally, from mechanical primitives.
 
 ![](./images/franka_impedance_control.mp4)
 
@@ -24,6 +27,8 @@ The modeling-language is responsible for deriving the equations of motion of the
 
 
 ## [EnergyModelsGUI.jl](https://github.com/EnergyModelsX/EnergyModelsGUI.jl)
+
+EnergyModelsGUI is a graphical interface built on top of the [EnergyModelsX](https://github.com/EnergyModelsX/) framework that utilizes Makie for interactive visualizations. It provides clear, intuitive depictions of multi-energy system topologies, input data, and results, making it much easier for users to verify that their system is correctly specified and to understand model outcomes. While it does not allow altering system setups or parameters, it serves as a powerful tool for checking configurations and exploring complex results.
 
 ![](https://github.com/EnergyModelsX/EnergyModelsGUI.jl/raw/main/docs/src/figures/EMI_geography_Oslo.png)
 
