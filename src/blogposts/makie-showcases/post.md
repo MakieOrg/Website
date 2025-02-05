@@ -1,5 +1,8 @@
-# Cool Makie Projects
+# Makie Showcases
 
+We're thrilled to highlight some great packages using Makie.jl.
+From intuitive GUIs and visualizing robots to interactive apps and dynamic simulation visualizations, these examples demonstrate the flexibility that Makie brings to any project.
+Let's dive in and explore some of the most recent packages using Makie!
 
 ## [VMRobotControl.jl](https://cambridge-control-lab.github.io/VMRobotControl.jl/dev/)
 
@@ -16,9 +19,16 @@ Sunny is a package for simulating atomic scale magnetism in real materials. It f
 
 ![](https://sunnysuite.github.io/Sunny.jl/stable/examples/01_LSWT_CoRh2O4-61dcd450.png)
 
+## [Comodo](https://github.com/COMODO-research/Comodo.jl)
+
+Comodo.jl is a Julia package for computational (bio)mechanics and computational design. Comodo offers a range of geometry processing methods. This included CAD-like operations such as extrusion, revolution, and lofting. Furthermore it offers various surface and volumetric meshing methods, which can be combined with finite element analysis. Together this provides a powerful set of tools allowing users to create frameworks for parameterised and automated design and design optimisation. Comodo is currently being extended with image-based modelling methods, such that users may segment medical image data to create surface and volumetric meshes, e.g. for finite element analysis based medical device design optimisation.
+
+![](https://github.com/COMODO-research/Comodo_data_docs/raw/main/img_anim/comodo_snippets.gif)
+
+
 ## [Multibody.jl](https://help.juliahub.com/multibody/dev/#Multibody)
 
-Multibody.jl is a library of model components for ModelingToolkit, an equation-based modeling language. With Multibody.jl, the user can assemble dynamical models for simulation of mechanical systems, such as robots, cars, drive lines and aircraft, by connecting ready-made components such as rods, boxes, joints and wheels. 
+Multibody.jl is a library of model components for ModelingToolkit, an equation-based modeling language. With Multibody.jl, the user can assemble dynamical models for simulation of mechanical systems, such as robots, cars, drive lines and aircraft, by connecting ready-made components such as rods, boxes, joints and wheels.
 The modeling-language is responsible for deriving the equations of motion of the assembled model, lifting this burden off the shoulders of the modeler. 3D mechanical modeling benefits greatly from being able to visualize the mechanical system, both during the model-building process and while analyzing the result of a simulation. The interactive features of Makie fits this bill perfectly, allowing the user to produce both animations and interactive renders of their model.
 
 ![](https://help.juliahub.com/multibody/dev/examples/robot.gif)
@@ -45,26 +55,11 @@ Sometimes the best way to understand data is to play around with it interactivel
 ![](https://github.com/dgleich/GraphPlayground.jl/raw/main/figures/mesh.gif)
 
 
-## [ProtPlot.jl](https://github.com/MurrellGroup/ProtPlot.jl)
-
-![](https://github.com/MurrellGroup/ProtPlot.jl/raw/main/images/1ASS.png)
-
-
 ## [TempestSDR.jl](https://juliatelecom.github.io/TempestSDR.jl/dev/gui/)
 
 This package proposes a Graphical User Interface (GUI) leveraging Makie to perform real time screen eavesdrop. Screen are connected to devices by cables, often HDMI or VGA. This can lead to an unwanted emission of the image signal through electromagnetic wave. A passive listener can retrieve the image signal without be in the same room of the targeted PC!
 
 ![](https://juliatelecom.github.io/TempestSDR.jl/dev/img/screen_ok.png)
-
-
-## [GridapMakie.jl](https://github.com/gridap/GridapMakie.jl)
-
-![](https://github.com/gridap/GridapMakie.jl/raw/master/_readme/images/animation.gif)
-
-
-## [ObservableCortex.jl](https://github.com/myersm0/ObservableCortex.jl)
-
-![](https://github.com/myersm0/ObservableCortex.jl/raw/main/examples/demo4.png)
 
 
 ## [PDDLViz.jl](https://github.com/JuliaPlanners/PDDLViz.jl)
@@ -76,3 +71,27 @@ PDDLViz.jl also supports the animation and rendering of planning algorithms and 
 ![](https://github.com/JuliaPlanners/PDDLViz.jl/raw/main/assets/gridworld.gif)
 
 ![](https://github.com/JuliaPlanners/PDDLViz.jl/raw/main/assets/zeno_travel.gif)
+
+
+## [NDViewer](https://github.com/MakieOrg/NDViewer.jl)
+
+NDViewer is an early-stage prototype from the Makie team, aimed at exploring multidimensional datasets.
+It supports loading [YAXArrays](https://github.com/JuliaDataCubes/YAXArrays.jl) and most other Julia array types and it uses a simple YAML syntax for defining slices and plots, making it easier to create custom dataset viewers.
+
+Key features include:
+
+- **Modular**: Utilizes Makie's plotting capabilities with plug-ins for customizable axes and attributes, making it easy to create very different domain specific viewers.
+- **Basic UI**: Offers a straightforward interface for viewing data slices and including a colorbar for context.
+- **Data Handling**: Designed to handle large datasets, such as satellite data or neuroimaging, with support for 2D to 4D data.
+- **Plug into Makie ecosystem**: Makes it easy to integrate new plot types from other Packages, like [Tyler.jl](https://github.com/MakieOrg/Tyler.jl)
+
+While NDViewer is still in the prototype stage, it lays the groundwork for versatile data visualization and interaction within the Makie framework.
+Work on it is currently not funded, if you're interested in this project to succeed, please [contact us](https://makie.org/website/contact) 😊
+
+#### Tyler.jl integration
+
+![](./images/ndviewer-tyler.mp4)
+
+#### Visualizing a dataset from [SpeedyWeather.jl](https://github.com/SpeedyWeather/SpeedyWeather.jl)
+
+![](./images/ndviewer-speedy.mp4)
