@@ -1,14 +1,15 @@
 # Makie Showcases
 
-We're thrilled to highlight some great packages using Makie.jl.
-From intuitive GUIs and visualizing robots to interactive apps and dynamic simulation visualizations, these examples demonstrate the flexibility that Makie brings to any project.
-Let's dive in and explore some of the most recent packages using Makie!
+We're excited to feature some great packages utilizing Makie.jl.
+From intuitive GUIs and robotic visualizations to interactive apps and dynamic simulation displays, these examples show the wide range of visualizations Makie can bring to any project.
+If you're using Makie and would like to be featured in our next blog post, [please contact us](https://makie.org/website/contact)!
+Let's dive in and explore some of the latest packages leveraging Makie!
 
 ## [VMRobotControl.jl](https://cambridge-control-lab.github.io/VMRobotControl.jl/dev/)
 
 VMRobotControl allows you to build dynamic controllers for your robot as intuitive virtual mechanisms. You design your controller by building a virtual mechanism. You connect the virtual mechanism to the robot through compliant elements (like springs and dampers). The control action is automatically translated to the robot actuators (desired joint forces/torques).
 
-This package is designed for building, simulating and controlling robots using passivity-based controllers represented by virtual mechanisms. This is in the tradition of virtual model control and energy shaping/damping injection. For a defined robot geometry, you can select specific coordinates and connect components to shape the robot dynamic properties. properties. This provides a simple way to program complex robot behaviour incrementally, from mechanical primitives.
+This package is designed for building, simulating and controlling robots using passivity-based controllers represented by virtual mechanisms. This is in the tradition of virtual model control and energy shaping/damping injection. For a defined robot geometry, you can select specific coordinates and connect components to shape the robot dynamic properties. This provides a simple way to program complex robot behaviour incrementally, from mechanical primitives.
 
 ![](./images/franka_impedance_control.mp4)
 
@@ -21,7 +22,7 @@ Sunny is a package for simulating atomic scale magnetism in real materials. It f
 
 ## [Comodo](https://github.com/COMODO-research/Comodo.jl)
 
-Comodo.jl is a Julia package for computational (bio)mechanics and computational design. Comodo offers a range of geometry processing methods. This included CAD-like operations such as extrusion, revolution, and lofting. Furthermore it offers various surface and volumetric meshing methods, which can be combined with finite element analysis. Together this provides a powerful set of tools allowing users to create frameworks for parameterised and automated design and design optimisation. Comodo is currently being extended with image-based modelling methods, such that users may segment medical image data to create surface and volumetric meshes, e.g. for finite element analysis based medical device design optimisation.
+Comodo.jl is a Julia package for computational (bio)mechanics and computational design. Comodo offers a range of geometry processing methods. This included CAD-like operations such as extrusion, revolution, and lofting. Furthermore it offers various surface and volumetric meshing methods, which can be combined with finite element analysis. Together this provides a powerful set of tools allowing users to create frameworks for parameterized and automated design and design optimization. Comodo is currently being extended with image-based modelling methods, such that users may segment medical image data to create surface and volumetric meshes, e.g. for finite element analysis based medical device design optimization.
 
 ![](https://github.com/COMODO-research/Comodo_data_docs/raw/main/img_anim/comodo_snippets.gif)
 
@@ -50,14 +51,14 @@ EnergyModelsGUI is a graphical interface built on top of the [EnergyModelsX](htt
 
 ## [GraphPlayground.jl](https://github.com/dgleich/GraphPlayground.jl)
 
-Sometimes the best way to understand data is to play around with it interactively. There is a lovely package in JavaScript to do this by Mike Bostock called d3. In particular, the d3-force library includes all sorts of fun demos. GraphPlayground.jl includes a port of the d3-force library to Julia to enable an interactive graph exploration tool in Makie (via GraphMakie.jl). It's capable of force calculations (attractions, repulsions, collisions) with tens of thousands of simple objects. I've used it to explore graphs of session conflicts at conferences as well as to generate layouts for small graphs. Given any undirected graph from Graphs.jl, using it is as simple as playground(g) to get an interactive window with labels, the ability to pin nodes, and the ability to export coordinates of the final layout.
+Sometimes the best way to understand data is to play around with it interactively. There is a lovely package in JavaScript to do this by Mike Bostock called d3. In particular, the d3-force library includes all sorts of fun demos. GraphPlayground.jl includes a port of the d3-force library to Julia to enable an interactive graph exploration tool in Makie (via [GraphMakie.jl](https://github.com/MakieOrg/GraphMakie.jl)). It's capable of force calculations (attractions, repulsions, collisions) with tens of thousands of simple objects. I've used it to explore graphs of session conflicts at conferences as well as to generate layouts for small graphs. Given any undirected graph from Graphs.jl, using it is as simple as playground(g) to get an interactive window with labels, the ability to pin nodes, and the ability to export coordinates of the final layout.
 
 ![](https://github.com/dgleich/GraphPlayground.jl/raw/main/figures/mesh.gif)
 
 
 ## [TempestSDR.jl](https://juliatelecom.github.io/TempestSDR.jl/dev/gui/)
 
-This package proposes a Graphical User Interface (GUI) leveraging Makie to perform real time screen eavesdrop. Screen are connected to devices by cables, often HDMI or VGA. This can lead to an unwanted emission of the image signal through electromagnetic wave. A passive listener can retrieve the image signal without be in the same room of the targeted PC!
+This package proposes a Graphical User Interface (GUI) leveraging Makie to perform real-time screen eavesdrop. Screens are connected to devices by cables, often HDMI or VGA. This can lead to an unwanted emission of the image signal through electromagnetic waves. A passive listener can retrieve the image signal without being in the same room as the targeted PC!
 
 ![](https://juliatelecom.github.io/TempestSDR.jl/dev/img/screen_ok.png)
 
@@ -75,7 +76,7 @@ PDDLViz.jl also supports the animation and rendering of planning algorithms and 
 
 ## [NDViewer](https://github.com/MakieOrg/NDViewer.jl)
 
-NDViewer is an early-stage prototype from the Makie team, aimed at exploring multidimensional datasets.
+NDViewer is an early-stage prototype created by the Makie team at [JuliaEO 2024](https://www.aircentre.org/the-juliaeo-2024-workshop), aimed at exploring multidimensional datasets.
 It supports loading [YAXArrays](https://github.com/JuliaDataCubes/YAXArrays.jl) and most other Julia array types and it uses a simple YAML syntax for defining slices and plots, making it easier to create custom dataset viewers.
 
 Key features include:
