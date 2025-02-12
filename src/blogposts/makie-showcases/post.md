@@ -38,8 +38,8 @@ The modeling-language is responsible for deriving the equations of motion of the
 
 Jutul.jl is a finite-volume modelling framework based on automatic differentiation for coupled, non-linear partial differential equations that powers several different applications that include Makie extensions for visualization. This includes [BattMo.jl](https://github.com/BattMoTeam/BattMo.jl), a package for fast and differentiable battery simulation and [JutulDarcy.jl](https://github.com/sintefmath/JutulDarcy.jl), a high-performance simulator for flow in porous media discretized on unstructured meshes.
 
-![](https://github.com/BattMoTeam/BattMo.jl/raw/main/docs/src/assets/3d_plot.png)
-![](https://sintefmath.github.io/JutulDarcy.jl/dev/assets/mostnty.BTVM5CAw.jpeg)
+![](./images/batmo.png)
+![](./images/jutul.jpeg)
 
 
 ## [EnergyModelsGUI.jl](https://github.com/EnergyModelsX/EnergyModelsGUI.jl)
