@@ -24,7 +24,7 @@ Sunny is a package for simulating atomic scale magnetism in real materials. It f
 
 Comodo.jl is a Julia package for computational (bio)mechanics and computational design. Comodo offers a range of geometry processing methods. This included CAD-like operations such as extrusion, revolution, and lofting. Furthermore it offers various surface and volumetric meshing methods, which can be combined with finite element analysis. Together this provides a powerful set of tools allowing users to create frameworks for parameterized and automated design and design optimization. Comodo is currently being extended with image-based modelling methods, such that users may segment medical image data to create surface and volumetric meshes, e.g. for finite element analysis based medical device design optimization.
 
-![](https://github.com/COMODO-research/Comodo_data_docs/raw/main/img_anim/comodo_snippets.gif)
+![](./images/comodo.mp4)
 
 
 ## [Multibody.jl](https://help.juliahub.com/multibody/dev/#Multibody)
@@ -76,11 +76,12 @@ PDDLViz.jl also supports the animation and rendering of planning algorithms and 
 
 ## [NDViewer](https://github.com/MakieOrg/NDViewer.jl)
 
-NDViewer is an early-stage prototype created by the Makie team at [JuliaEO 2024](https://www.aircentre.org/the-juliaeo-2024-workshop), aimed at exploring multidimensional datasets.
+NDViewer is an early-stage prototype created by the Makie team at [JuliaEO 2024](https://www.aircentre.org/the-juliaeo-2024-workshop) ([workshop page](https://aircentre.github.io/JuliaEO24/)), aimed at exploring multidimensional datasets.
 It supports loading [YAXArrays](https://github.com/JuliaDataCubes/YAXArrays.jl) and most other Julia array types and it uses a simple YAML syntax for defining slices and plots, making it easier to create custom dataset viewers.
 
 Key features include:
 
+- **Runs anywhere**: This can run locally directly on the GPU, while it can also be integrated into any website, to let a wide audience interact with the data.
 - **Modular**: Utilizes Makie's plotting capabilities with plug-ins for customizable axes and attributes, making it easy to create very different domain specific viewers.
 - **Basic UI**: Offers a straightforward interface for viewing data slices and including a colorbar for context.
 - **Data Handling**: Designed to handle large datasets, such as satellite data or neuroimaging, with support for 2D to 4D data.
