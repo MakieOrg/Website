@@ -3,7 +3,21 @@
 We're excited to feature some great packages utilizing Makie.jl.
 From intuitive GUIs and robotic visualizations to interactive apps and dynamic simulation displays, these examples show the wide range of visualizations Makie can bring to any project.
 If you're using Makie and would like to be featured in our next blog post, [please contact us](https://makie.org/website/contact)!
+
 Let's dive in and explore some of the latest packages leveraging Makie!
+
+## [RainbowAlga](https://github.com/tamasgal/RainbowAlga.jl)
+
+On February 12, 2025, The KM3NeT Collaboration has announced the detection from the abyss of the Mediterranean Sea of a cosmic neutrino with a record-breaking energy of about 220 PeV. This groundbreaking discovery was published in Nature on the same date.
+RainbowAlga.jl is a 3D event display used in KM3NeT to visualize the detector's response to neutrino interactions and particles emitting Cherenkov radiation. Written in Julia, it leverages Makie to generate high-quality, interactive 3D scenes that can be explored in real-time using a keyboard and mouse, with the flexibility to modify the scene directly from the Julia REPL. Notably, Figure 1 of the [Nature paper](https://www.nature.com/articles/s41586-024-08543-1) was created using RainbowAlga.jl, with the rendering and computational heavy lifting handled entirely by GLMakie.
+
+### The final figure from the [Nature paper](https://www.nature.com/articles/s41586-024-08543-1)
+![](./images/k3mnet.png)
+### Animated video from RainbowAlga
+![](./images/rainbowalga.mp4)
+### Ray traced version with RPRMakie
+![](./images/k3mnet-ray.png)
+
 
 ## [VMRobotControl.jl](https://cambridge-control-lab.github.io/VMRobotControl.jl/dev/)
 
