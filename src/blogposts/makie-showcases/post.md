@@ -90,8 +90,6 @@ PDDLViz.jl also supports the animation and rendering of planning algorithms and 
 
 ## [NDViewer](https://github.com/MakieOrg/NDViewer.jl)
 
-Certainly! Here's the revised sentence:
-
 NDViewer started as a prototype at a hackathon at [JuliaEO 2024](https://www.aircentre.org/the-juliaeo-2024-workshop) ([workshop page](https://aircentre.github.io/JuliaEO24/)), and got turned into a more polished prototype with funding from the [MPI](https://www.bgc-jena.mpg.de/en/bgi/gallery).
 Its aim is to make it very simple to explore multidimensional datasets for non expert users, while making it easy for experts to customize all aspects of the viewer.
 It supports loading [YAXArrays](https://github.com/JuliaDataCubes/YAXArrays.jl) and most other Julia array types and it uses a simple YAML syntax for defining slices and plots, making it easier to create custom dataset viewers.
