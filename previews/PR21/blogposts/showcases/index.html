@@ -27,7 +27,7 @@
     </div>
   </head>
   <body data-jscall-id="5">
-    <script type="module">Bonito.lock_loading(() => Bonito.init_session('827b3947-ed86-4d64-8e60-03668858726d', null, 'root', false))</script>
+    <script type="module">Bonito.lock_loading(() => Bonito.init_session('3c8028cf-76dc-44bd-b395-f7c5da7f61ab', null, 'root', false))</script>
     <div data-jscall-id="6">
       <link href="../../bonito/png/icon_transparent1037186205570625945.png" data-jscall-id="7" rel="icon" type="image/png" />
       <img style="width: 100%" data-jscall-id="8" src="../../bonito/png/bannermesh_gradient12222907222071057261.png" />
@@ -64,160 +64,183 @@
             <div class="markdown-body" data-jscall-id="29">
               <h1 id="Makie Showcases" data-jscall-id="30">Makie Showcases</h1>
               <p data-jscall-id="31">We&#39;re excited to feature some great packages utilizing Makie.jl. From intuitive GUIs and robotic visualizations to interactive apps and dynamic simulation displays, these examples show the wide range of visualizations Makie can bring to any project. If you&#39;re using Makie and would like to be featured in our next blog post, 
-                <a href="https://makie.org/website/contact" data-jscall-id="32">please contact us</a>&#33; Let&#39;s dive in and explore some of the latest packages leveraging Makie&#33;
+                <a href="https://makie.org/website/contact" data-jscall-id="32">please contact us</a>&#33;
               </p>
-              <h2 id="" data-jscall-id="33">
-                <a href="https://cambridge-control-lab.github.io/VMRobotControl.jl/dev/" data-jscall-id="34">VMRobotControl.jl</a>
+              <p data-jscall-id="33">Let&#39;s dive in and explore some of the latest packages leveraging Makie&#33;</p>
+              <h2 id="" data-jscall-id="34">
+                <a href="https://github.com/tamasgal/RainbowAlga.jl" data-jscall-id="35">RainbowAlga</a>
               </h2>
-              <p data-jscall-id="35">VMRobotControl allows you to build dynamic controllers for your robot as intuitive virtual mechanisms. You design your controller by building a virtual mechanism. You connect the virtual mechanism to the robot through compliant elements &#40;like springs and dampers&#41;. The control action is automatically translated to the robot actuators &#40;desired joint forces/torques&#41;.</p>
-              <p data-jscall-id="36">This package is designed for building, simulating and controlling robots using passivity-based controllers represented by virtual mechanisms. This is in the tradition of virtual model control and energy shaping/damping injection. For a defined robot geometry, you can select specific coordinates and connect components to shape the robot dynamic properties. This provides a simple way to program complex robot behaviour incrementally, from mechanical primitives.</p>
-              <p data-jscall-id="37">
-                <video controls="true" data-jscall-id="38" autoplay="true">
-                  <source data-jscall-id="39" src="../../bonito/mp4/franka_impedance_control8673247262132244775.mp4" type="video/mp4" />
+              <p data-jscall-id="36">On February 12, 2025, The KM3NeT Collaboration has announced the detection from the abyss of the Mediterranean Sea of a cosmic neutrino with a record-breaking energy of about 220 PeV. This groundbreaking discovery was published in Nature on the same date. RainbowAlga.jl is a 3D event display used in KM3NeT to visualize the detector&#39;s response to neutrino interactions and particles emitting Cherenkov radiation. Written in Julia, it leverages Makie to generate high-quality, interactive 3D scenes that can be explored in real-time using a keyboard and mouse, with the flexibility to modify the scene directly from the Julia REPL. Notably, Figure 1 of the 
+                <a href="https://www.nature.com/articles/s41586-024-08543-1" data-jscall-id="37">Nature paper</a> was created using RainbowAlga.jl, with the rendering and computational heavy lifting handled entirely by GLMakie.
+              </p>
+              <h3 id="" data-jscall-id="38">The final figure from the 
+                <a href="https://www.nature.com/articles/s41586-024-08543-1" data-jscall-id="39">Nature paper</a>
+              </h3>
+              <p data-jscall-id="40">
+                <img alt="" data-jscall-id="41" src="../../bonito/png/k3mnet5504716002858316116.png" />
+              </p>
+              <h3 id="Animated video from RainbowAlga" data-jscall-id="42">Animated video from RainbowAlga</h3>
+              <p data-jscall-id="43">
+                <video controls="true" data-jscall-id="44" autoplay="true">
+                  <source data-jscall-id="45" src="../../bonito/mp4/rainbowalga2880371444409121228.mp4" type="video/mp4" />
                 </video>
               </p>
-              <h2 id="" data-jscall-id="40">
-                <a href="https://sunnysuite.github.io/Sunny.jl/stable/" data-jscall-id="41">Sunny.jl</a>
-              </h2>
-              <p data-jscall-id="42">Sunny is a package for simulating atomic scale magnetism in real materials. It facilitates specification of a broad class of spin models and includes a diverse suite of numerical solvers. These include powerful methods for simulating spin dynamics both in and out of equilibrium. Uniquely, it generalizes the traditional dynamics of spin dipoles to a dynamics of SU&#40;N&#41; coherent states, which better captures local quantum mechanical effects. Sunny also offers a well-developed framework for calculating the dynamical spin structure factor, enabling direct comparison with scattering experiments. Ease of use is a priority, with Makie-powered GUI tools for interactive symmetry analysis and model visualization. 
-                <a href="https://arxiv.org/abs/2501.13095" data-jscall-id="43">arXiv:2501.13095</a>
+              <h3 id="Ray traced version with RPRMakie" data-jscall-id="46">Ray traced version with RPRMakie</h3>
+              <p data-jscall-id="47">
+                <img alt="" data-jscall-id="48" src="../../bonito/png/k3mnet-ray9522368008699598416.png" />
               </p>
-              <p data-jscall-id="44">
-                <img alt="" data-jscall-id="45" src="../../bonito/png/ff7e669747fcb611a865d7e1f2c7809fa595ea2911673008878522947123.png" />
-              </p>
-              <h2 id="" data-jscall-id="46">
-                <a href="https://github.com/COMODO-research/Comodo.jl" data-jscall-id="47">Comodo</a>
+              <h2 id="" data-jscall-id="49">
+                <a href="https://cambridge-control-lab.github.io/VMRobotControl.jl/dev/" data-jscall-id="50">VMRobotControl.jl</a>
               </h2>
-              <p data-jscall-id="48">Comodo.jl is a Julia package for computational &#40;bio&#41;mechanics and computational design. Comodo offers a range of geometry processing methods. This included CAD-like operations such as extrusion, revolution, and lofting. Furthermore it offers various surface and volumetric meshing methods, which can be combined with finite element analysis. Together this provides a powerful set of tools allowing users to create frameworks for parameterized and automated design and design optimization. Comodo is currently being extended with image-based modelling methods, such that users may segment medical image data to create surface and volumetric meshes, e.g. for finite element analysis based medical device design optimization.</p>
-              <p data-jscall-id="49">
-                <video controls="true" data-jscall-id="50" autoplay="true">
-                  <source data-jscall-id="51" src="../../bonito/mp4/comodo4834655199197976883.mp4" type="video/mp4" />
+              <p data-jscall-id="51">VMRobotControl allows you to build dynamic controllers for your robot as intuitive virtual mechanisms. You design your controller by building a virtual mechanism. You connect the virtual mechanism to the robot through compliant elements &#40;like springs and dampers&#41;. The control action is automatically translated to the robot actuators &#40;desired joint forces/torques&#41;.</p>
+              <p data-jscall-id="52">This package is designed for building, simulating and controlling robots using passivity-based controllers represented by virtual mechanisms. This is in the tradition of virtual model control and energy shaping/damping injection. For a defined robot geometry, you can select specific coordinates and connect components to shape the robot dynamic properties. This provides a simple way to program complex robot behaviour incrementally, from mechanical primitives.</p>
+              <p data-jscall-id="53">
+                <video controls="true" data-jscall-id="54" autoplay="true">
+                  <source data-jscall-id="55" src="../../bonito/mp4/franka_impedance_control8673247262132244775.mp4" type="video/mp4" />
                 </video>
               </p>
-              <h2 id="" data-jscall-id="52">
-                <a href="https://help.juliahub.com/multibody/dev/#Multibody" data-jscall-id="53">Multibody.jl</a>
+              <h2 id="" data-jscall-id="56">
+                <a href="https://sunnysuite.github.io/Sunny.jl/stable/" data-jscall-id="57">Sunny.jl</a>
               </h2>
-              <p data-jscall-id="54">Multibody.jl is a library of model components for ModelingToolkit, an equation-based modeling language. With Multibody.jl, the user can assemble dynamical models for simulation of mechanical systems, such as robots, cars, drive lines and aircraft, by connecting ready-made components such as rods, boxes, joints and wheels. The modeling-language is responsible for deriving the equations of motion of the assembled model, lifting this burden off the shoulders of the modeler. 3D mechanical modeling benefits greatly from being able to visualize the mechanical system, both during the model-building process and while analyzing the result of a simulation. The interactive features of Makie fits this bill perfectly, allowing the user to produce both animations and interactive renders of their model.</p>
-              <p data-jscall-id="55">
-                <img alt="" data-jscall-id="56" src="../../bonito/gif/24845adec28c2378e1227451f0bd28c93159936915622530154097907283.gif" />
+              <p data-jscall-id="58">Sunny is a package for simulating atomic scale magnetism in real materials. It facilitates specification of a broad class of spin models and includes a diverse suite of numerical solvers. These include powerful methods for simulating spin dynamics both in and out of equilibrium. Uniquely, it generalizes the traditional dynamics of spin dipoles to a dynamics of SU&#40;N&#41; coherent states, which better captures local quantum mechanical effects. Sunny also offers a well-developed framework for calculating the dynamical spin structure factor, enabling direct comparison with scattering experiments. Ease of use is a priority, with Makie-powered GUI tools for interactive symmetry analysis and model visualization. 
+                <a href="https://arxiv.org/abs/2501.13095" data-jscall-id="59">arXiv:2501.13095</a>
               </p>
-              <h2 id="" data-jscall-id="57">
-                <a href="https://github.com/sintefmath/Jutul.jl" data-jscall-id="58">Jutul.jl</a>
+              <p data-jscall-id="60">
+                <img alt="" data-jscall-id="61" src="../../bonito/png/ff7e669747fcb611a865d7e1f2c7809fa595ea2911673008878522947123.png" />
+              </p>
+              <h2 id="" data-jscall-id="62">
+                <a href="https://github.com/COMODO-research/Comodo.jl" data-jscall-id="63">Comodo</a>
               </h2>
-              <p data-jscall-id="59">Jutul.jl is a finite-volume modelling framework based on automatic differentiation for coupled, non-linear partial differential equations that powers several different applications that include Makie extensions for visualization. This includes 
-                <a href="https://github.com/BattMoTeam/BattMo.jl" data-jscall-id="60">BattMo.jl</a>, a package for fast and differentiable battery simulation and 
-                <a href="https://github.com/sintefmath/JutulDarcy.jl" data-jscall-id="61">JutulDarcy.jl</a>, a high-performance simulator for flow in porous media discretized on unstructured meshes.
+              <p data-jscall-id="64">Comodo.jl is a Julia package for computational &#40;bio&#41;mechanics and computational design. Comodo offers a range of geometry processing methods. This included CAD-like operations such as extrusion, revolution, and lofting. Furthermore it offers various surface and volumetric meshing methods, which can be combined with finite element analysis. Together this provides a powerful set of tools allowing users to create frameworks for parameterized and automated design and design optimization. Comodo is currently being extended with image-based modelling methods, such that users may segment medical image data to create surface and volumetric meshes, e.g. for finite element analysis based medical device design optimization.</p>
+              <p data-jscall-id="65">
+                <video controls="true" data-jscall-id="66" autoplay="true">
+                  <source data-jscall-id="67" src="../../bonito/mp4/comodo4834655199197976883.mp4" type="video/mp4" />
+                </video>
               </p>
-              <p data-jscall-id="62">
-                <img alt="" data-jscall-id="63" src="../../bonito/png/batmo12709691123700221816.png" /> 
-                <img alt="" data-jscall-id="64" src="../../bonito/jpeg/jutul331610939693888981.jpeg" />
-              </p>
-              <h2 id="" data-jscall-id="65">
-                <a href="https://github.com/EnergyModelsX/EnergyModelsGUI.jl" data-jscall-id="66">EnergyModelsGUI.jl</a>
+              <h2 id="" data-jscall-id="68">
+                <a href="https://help.juliahub.com/multibody/dev/#Multibody" data-jscall-id="69">Multibody.jl</a>
               </h2>
-              <p data-jscall-id="67">EnergyModelsGUI is a graphical interface built on top of the 
-                <a href="https://github.com/EnergyModelsX/" data-jscall-id="68">EnergyModelsX</a> framework that utilizes Makie for interactive visualizations. It provides clear, intuitive depictions of multi-energy system topologies, input data, and results, making it much easier for users to verify that their system is correctly specified and to understand model outcomes. While it does not allow altering system setups or parameters, it serves as a powerful tool for checking configurations and exploring complex results.
+              <p data-jscall-id="70">Multibody.jl is a library of model components for ModelingToolkit, an equation-based modeling language. With Multibody.jl, the user can assemble dynamical models for simulation of mechanical systems, such as robots, cars, drive lines and aircraft, by connecting ready-made components such as rods, boxes, joints and wheels. The modeling-language is responsible for deriving the equations of motion of the assembled model, lifting this burden off the shoulders of the modeler. 3D mechanical modeling benefits greatly from being able to visualize the mechanical system, both during the model-building process and while analyzing the result of a simulation. The interactive features of Makie fits this bill perfectly, allowing the user to produce both animations and interactive renders of their model.</p>
+              <p data-jscall-id="71">
+                <img alt="" data-jscall-id="72" src="../../bonito/gif/24845adec28c2378e1227451f0bd28c93159936915622530154097907283.gif" />
               </p>
-              <p data-jscall-id="69">
-                <img alt="" data-jscall-id="70" src="../../bonito/png/653de9f8cb3b7430473f9eb53a992ed849eeff3f18130042698384929612.png" />
-              </p>
-              <h2 id="" data-jscall-id="71">
-                <a href="https://github.com/dgleich/GraphPlayground.jl" data-jscall-id="72">GraphPlayground.jl</a>
+              <h2 id="" data-jscall-id="73">
+                <a href="https://github.com/sintefmath/Jutul.jl" data-jscall-id="74">Jutul.jl</a>
               </h2>
-              <p data-jscall-id="73">Sometimes the best way to understand data is to play around with it interactively. There is a lovely package in JavaScript to do this by Mike Bostock called d3. In particular, the d3-force library includes all sorts of fun demos. GraphPlayground.jl includes a port of the d3-force library to Julia to enable an interactive graph exploration tool in Makie &#40;via 
-                <a href="https://github.com/MakieOrg/GraphMakie.jl" data-jscall-id="74">GraphMakie.jl</a>&#41;. It&#39;s capable of force calculations &#40;attractions, repulsions, collisions&#41; with tens of thousands of simple objects. I&#39;ve used it to explore graphs of session conflicts at conferences as well as to generate layouts for small graphs. Given any undirected graph from Graphs.jl, using it is as simple as playground&#40;g&#41; to get an interactive window with labels, the ability to pin nodes, and the ability to export coordinates of the final layout.
+              <p data-jscall-id="75">Jutul.jl is a finite-volume modelling framework based on automatic differentiation for coupled, non-linear partial differential equations that powers several different applications that include Makie extensions for visualization. This includes 
+                <a href="https://github.com/BattMoTeam/BattMo.jl" data-jscall-id="76">BattMo.jl</a>, a package for fast and differentiable battery simulation and 
+                <a href="https://github.com/sintefmath/JutulDarcy.jl" data-jscall-id="77">JutulDarcy.jl</a>, a high-performance simulator for flow in porous media discretized on unstructured meshes.
               </p>
-              <p data-jscall-id="75">
-                <img alt="" data-jscall-id="76" src="../../bonito/gif/e6cbf16938107459d9c9bf45645b07265826ef758127994867019587794.gif" />
+              <p data-jscall-id="78">
+                <img alt="" data-jscall-id="79" src="../../bonito/png/batmo12709691123700221816.png" /> 
+                <img alt="" data-jscall-id="80" src="../../bonito/jpeg/jutul331610939693888981.jpeg" />
               </p>
-              <h2 id="" data-jscall-id="77">
-                <a href="https://juliatelecom.github.io/TempestSDR.jl/dev/gui/" data-jscall-id="78">TempestSDR.jl</a>
+              <h2 id="" data-jscall-id="81">
+                <a href="https://github.com/EnergyModelsX/EnergyModelsGUI.jl" data-jscall-id="82">EnergyModelsGUI.jl</a>
               </h2>
-              <p data-jscall-id="79">This package proposes a Graphical User Interface &#40;GUI&#41; leveraging Makie to perform real-time screen eavesdrop. Screens are connected to devices by cables, often HDMI or VGA. This can lead to an unwanted emission of the image signal through electromagnetic waves. A passive listener can retrieve the image signal without being in the same room as the targeted PC&#33;</p>
-              <p data-jscall-id="80">
-                <img alt="" data-jscall-id="81" src="../../bonito/png/8b4c3db396070586efbe9aabae5680df2bdff6cc15272140023311527920.png" />
+              <p data-jscall-id="83">EnergyModelsGUI is a graphical interface built on top of the 
+                <a href="https://github.com/EnergyModelsX/" data-jscall-id="84">EnergyModelsX</a> framework that utilizes Makie for interactive visualizations. It provides clear, intuitive depictions of multi-energy system topologies, input data, and results, making it much easier for users to verify that their system is correctly specified and to understand model outcomes. While it does not allow altering system setups or parameters, it serves as a powerful tool for checking configurations and exploring complex results.
               </p>
-              <h2 id="" data-jscall-id="82">
-                <a href="https://github.com/JuliaPlanners/PDDLViz.jl" data-jscall-id="83">PDDLViz.jl</a>
+              <p data-jscall-id="85">
+                <img alt="" data-jscall-id="86" src="../../bonito/png/653de9f8cb3b7430473f9eb53a992ed849eeff3f18130042698384929612.png" />
+              </p>
+              <h2 id="" data-jscall-id="87">
+                <a href="https://github.com/dgleich/GraphPlayground.jl" data-jscall-id="88">GraphPlayground.jl</a>
               </h2>
-              <p data-jscall-id="84">PDDLViz.jl is a library for visualizing, animating, and interacting with AI planning domains specified in the Planning Domain Definition Language &#40;PDDL&#41;. PDDLViz.jl is part of the 
-                <a href="https://github.com/JuliaPlanners" data-jscall-id="85">JuliaPlanners ecosystem</a>, and operates on top of the 
-                <a href="https://github.com/JuliaPlanners/PDDL.jl" data-jscall-id="86">PDDL.jl</a> interpreter and compiler for PDDL. PDDLViz.jl also supports the animation and rendering of planning algorithms and solutions supported by the 
-                <a href="https://github.com/JuliaPlanners/SymbolicPlanners.jl" data-jscall-id="87">SymbolicPlanners.jl</a> library.
+              <p data-jscall-id="89">Sometimes the best way to understand data is to play around with it interactively. There is a lovely package in JavaScript to do this by Mike Bostock called d3. In particular, the d3-force library includes all sorts of fun demos. GraphPlayground.jl includes a port of the d3-force library to Julia to enable an interactive graph exploration tool in Makie &#40;via 
+                <a href="https://github.com/MakieOrg/GraphMakie.jl" data-jscall-id="90">GraphMakie.jl</a>&#41;. It&#39;s capable of force calculations &#40;attractions, repulsions, collisions&#41; with tens of thousands of simple objects. I&#39;ve used it to explore graphs of session conflicts at conferences as well as to generate layouts for small graphs. Given any undirected graph from Graphs.jl, using it is as simple as playground&#40;g&#41; to get an interactive window with labels, the ability to pin nodes, and the ability to export coordinates of the final layout.
               </p>
-              <p data-jscall-id="88">
-                <img alt="" data-jscall-id="89" src="../../bonito/gif/ff7cdb46647a3794cb49af7f596f1ba9d7cc73766979268094501068365.gif" />
+              <p data-jscall-id="91">
+                <img alt="" data-jscall-id="92" src="../../bonito/gif/e6cbf16938107459d9c9bf45645b07265826ef758127994867019587794.gif" />
               </p>
-              <p data-jscall-id="90">
-                <img alt="" data-jscall-id="91" src="../../bonito/gif/fbd78dd6ba460529ad5a4140e006c996a5f0331313168654563330973721.gif" />
-              </p>
-              <h2 id="" data-jscall-id="92">
-                <a href="https://github.com/MakieOrg/NDViewer.jl" data-jscall-id="93">NDViewer</a>
+              <h2 id="" data-jscall-id="93">
+                <a href="https://juliatelecom.github.io/TempestSDR.jl/dev/gui/" data-jscall-id="94">TempestSDR.jl</a>
               </h2>
-              <p data-jscall-id="94">NDViewer is an early-stage prototype created by the Makie team at 
-                <a href="https://www.aircentre.org/the-juliaeo-2024-workshop" data-jscall-id="95">JuliaEO 2024</a> &#40;
-                <a href="https://aircentre.github.io/JuliaEO24/" data-jscall-id="96">workshop page</a>&#41;, aimed at exploring multidimensional datasets. It supports loading 
-                <a href="https://github.com/JuliaDataCubes/YAXArrays.jl" data-jscall-id="97">YAXArrays</a> and most other Julia array types and it uses a simple YAML syntax for defining slices and plots, making it easier to create custom dataset viewers.
+              <p data-jscall-id="95">This package proposes a Graphical User Interface &#40;GUI&#41; leveraging Makie to perform real-time screen eavesdrop. Screens are connected to devices by cables, often HDMI or VGA. This can lead to an unwanted emission of the image signal through electromagnetic waves. A passive listener can retrieve the image signal without being in the same room as the targeted PC&#33;</p>
+              <p data-jscall-id="96">
+                <img alt="" data-jscall-id="97" src="../../bonito/png/8b4c3db396070586efbe9aabae5680df2bdff6cc15272140023311527920.png" />
               </p>
-              <p data-jscall-id="98">Key features include:</p>
-              <ul class=" style_2" style="" data-jscall-id="99">
-                <li data-jscall-id="100">
-                  <p data-jscall-id="101">
-                    <strong data-jscall-id="102">Runs anywhere</strong>: This can run locally directly on the GPU, while it can also be integrated into any website, to let a wide audience interact with the data.
+              <h2 id="" data-jscall-id="98">
+                <a href="https://github.com/JuliaPlanners/PDDLViz.jl" data-jscall-id="99">PDDLViz.jl</a>
+              </h2>
+              <p data-jscall-id="100">PDDLViz.jl is a library for visualizing, animating, and interacting with AI planning domains specified in the Planning Domain Definition Language &#40;PDDL&#41;. PDDLViz.jl is part of the 
+                <a href="https://github.com/JuliaPlanners" data-jscall-id="101">JuliaPlanners ecosystem</a>, and operates on top of the 
+                <a href="https://github.com/JuliaPlanners/PDDL.jl" data-jscall-id="102">PDDL.jl</a> interpreter and compiler for PDDL. PDDLViz.jl also supports the animation and rendering of planning algorithms and solutions supported by the 
+                <a href="https://github.com/JuliaPlanners/SymbolicPlanners.jl" data-jscall-id="103">SymbolicPlanners.jl</a> library.
+              </p>
+              <p data-jscall-id="104">
+                <img alt="" data-jscall-id="105" src="../../bonito/gif/ff7cdb46647a3794cb49af7f596f1ba9d7cc73766979268094501068365.gif" />
+              </p>
+              <p data-jscall-id="106">
+                <img alt="" data-jscall-id="107" src="../../bonito/gif/fbd78dd6ba460529ad5a4140e006c996a5f0331313168654563330973721.gif" />
+              </p>
+              <h2 id="" data-jscall-id="108">
+                <a href="https://github.com/MakieOrg/NDViewer.jl" data-jscall-id="109">NDViewer</a>
+              </h2>
+              <p data-jscall-id="110">NDViewer is an early-stage prototype created by the Makie team at 
+                <a href="https://www.aircentre.org/the-juliaeo-2024-workshop" data-jscall-id="111">JuliaEO 2024</a> &#40;
+                <a href="https://aircentre.github.io/JuliaEO24/" data-jscall-id="112">workshop page</a>&#41;, aimed at exploring multidimensional datasets. It supports loading 
+                <a href="https://github.com/JuliaDataCubes/YAXArrays.jl" data-jscall-id="113">YAXArrays</a> and most other Julia array types and it uses a simple YAML syntax for defining slices and plots, making it easier to create custom dataset viewers.
+              </p>
+              <p data-jscall-id="114">Key features include:</p>
+              <ul class=" style_2" style="" data-jscall-id="115">
+                <li data-jscall-id="116">
+                  <p data-jscall-id="117">
+                    <strong data-jscall-id="118">Runs anywhere</strong>: This can run locally directly on the GPU, while it can also be integrated into any website, to let a wide audience interact with the data.
                   </p>
                 </li>
-                <li data-jscall-id="103">
-                  <p data-jscall-id="104">
-                    <strong data-jscall-id="105">Modular</strong>: Utilizes Makie&#39;s plotting capabilities with plug-ins for customizable axes and attributes, making it easy to create very different domain specific viewers.
+                <li data-jscall-id="119">
+                  <p data-jscall-id="120">
+                    <strong data-jscall-id="121">Modular</strong>: Utilizes Makie&#39;s plotting capabilities with plug-ins for customizable axes and attributes, making it easy to create very different domain specific viewers.
                   </p>
                 </li>
-                <li data-jscall-id="106">
-                  <p data-jscall-id="107">
-                    <strong data-jscall-id="108">Basic UI</strong>: Offers a straightforward interface for viewing data slices and including a colorbar for context.
+                <li data-jscall-id="122">
+                  <p data-jscall-id="123">
+                    <strong data-jscall-id="124">Basic UI</strong>: Offers a straightforward interface for viewing data slices and including a colorbar for context.
                   </p>
                 </li>
-                <li data-jscall-id="109">
-                  <p data-jscall-id="110">
-                    <strong data-jscall-id="111">Data Handling</strong>: Designed to handle large datasets, such as satellite data or neuroimaging, with support for 2D to 4D data.
+                <li data-jscall-id="125">
+                  <p data-jscall-id="126">
+                    <strong data-jscall-id="127">Data Handling</strong>: Designed to handle large datasets, such as satellite data or neuroimaging, with support for 2D to 4D data.
                   </p>
                 </li>
-                <li data-jscall-id="112">
-                  <p data-jscall-id="113">
-                    <strong data-jscall-id="114">Plug into Makie ecosystem</strong>: Makes it easy to integrate new plot types from other Packages, like 
-                    <a href="https://github.com/MakieOrg/Tyler.jl" data-jscall-id="115">Tyler.jl</a>
+                <li data-jscall-id="128">
+                  <p data-jscall-id="129">
+                    <strong data-jscall-id="130">Plug into Makie ecosystem</strong>: Makes it easy to integrate new plot types from other Packages, like 
+                    <a href="https://github.com/MakieOrg/Tyler.jl" data-jscall-id="131">Tyler.jl</a>
                   </p>
                 </li>
               </ul>
-              <p data-jscall-id="116">While NDViewer is still in the prototype stage, it lays the groundwork for versatile data visualization and interaction within the Makie framework. Work on it is currently not funded, if you&#39;re interested in this project to succeed, please 
-                <a href="https://makie.org/website/contact" data-jscall-id="117">contact us</a> 😊
+              <p data-jscall-id="132">While NDViewer is still in the prototype stage, it lays the groundwork for versatile data visualization and interaction within the Makie framework. Work on it is currently not funded, if you&#39;re interested in this project to succeed, please 
+                <a href="https://makie.org/website/contact" data-jscall-id="133">contact us</a> 😊
               </p>
-              <h4 id="Tyler.jl integration" data-jscall-id="118">Tyler.jl integration</h4>
-              <p data-jscall-id="119">
-                <video controls="true" data-jscall-id="120" autoplay="true">
-                  <source data-jscall-id="121" src="../../bonito/mp4/ndviewer-tyler2098064467428485622.mp4" type="video/mp4" />
+              <h4 id="Tyler.jl integration" data-jscall-id="134">Tyler.jl integration</h4>
+              <p data-jscall-id="135">
+                <video controls="true" data-jscall-id="136" autoplay="true">
+                  <source data-jscall-id="137" src="../../bonito/mp4/ndviewer-tyler2098064467428485622.mp4" type="video/mp4" />
                 </video>
               </p>
-              <h4 id="" data-jscall-id="122">Visualizing a dataset from 
-                <a href="https://github.com/SpeedyWeather/SpeedyWeather.jl" data-jscall-id="123">SpeedyWeather.jl</a>
+              <h4 id="" data-jscall-id="138">Visualizing a dataset from 
+                <a href="https://github.com/SpeedyWeather/SpeedyWeather.jl" data-jscall-id="139">SpeedyWeather.jl</a>
               </h4>
-              <p data-jscall-id="124">
-                <video controls="true" data-jscall-id="125" autoplay="true">
-                  <source data-jscall-id="126" src="../../bonito/mp4/ndviewer-speedy15618967355821780246.mp4" type="video/mp4" />
+              <p data-jscall-id="140">
+                <video controls="true" data-jscall-id="141" autoplay="true">
+                  <source data-jscall-id="142" src="../../bonito/mp4/ndviewer-speedy15618967355821780246.mp4" type="video/mp4" />
                 </video>
               </p>
             </div>
-            <div data-jscall-id="127">
-              <script data-jscall-id="128" src="../../bonito/js/highlight.pack13102628173626074447.js"></script>
-              <script data-jscall-id="129">hljs.highlightAll()</script>
+            <div data-jscall-id="143">
+              <script data-jscall-id="144" src="../../bonito/js/highlight.pack13102628173626074447.js"></script>
+              <script data-jscall-id="145">hljs.highlightAll()</script>
             </div>
           </div>
           <span></span>
         </div>
       </div>
-      <div data-jscall-id="130">
-        <script async="true" defer="true" data-jscall-id="131" src="https://api.makie.org/latest.js"></script>
-        <noscript data-jscall-id="132">
-          <img alt="" data-jscall-id="133" src="https://api.makie.org/noscript.gif" referrerpolicy="no-referrer-when-downgrade" />
+      <div data-jscall-id="146">
+        <script async="true" defer="true" data-jscall-id="147" src="https://api.makie.org/latest.js"></script>
+        <noscript data-jscall-id="148">
+          <img alt="" data-jscall-id="149" src="https://api.makie.org/noscript.gif" referrerpolicy="no-referrer-when-downgrade" />
         </noscript>
       </div>
     </div>
