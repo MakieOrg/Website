@@ -1,4 +1,4 @@
-# Makie Showcases
+# Showcasing Makie.jl: From KM3NeT's Neutrino Discovery and Beyond
 
 We're excited to feature some great packages utilizing Makie.jl.
 From intuitive GUIs and robotic visualizations to interactive apps and dynamic simulation displays, these examples show the wide range of visualizations Makie can bring to any project.
