@@ -5,6 +5,15 @@
     <link>https://blog.makie.org</link>
     <description>A Blog about anything new in the Makie world</description>
     <item>
+      <title>Makie Showcases</title>
+      <link>./blogposts/showcases</link>
+      <description>Showing off some nice projects created with Makie.jl</description>
+      <pubDate>Wed, 22 Jan 2025 15:20:39</pubDate>
+      <image>
+        <url>/home/runner/work/Website/Website/src/blogposts/makie-showcases/./website/images/robot.png</url>
+      </image>
+    </item>
+    <item>
       <title>v0.22</title>
       <link>./blogposts/v0.22</link>
       <description>Makie.jl 0.22's is out: Better Geometry handling, curvilinear contour plots, and
