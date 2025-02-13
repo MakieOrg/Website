@@ -1,0 +1,10 @@
+<item>
+  <title>Makie Showcases</title>
+  <link>./blogposts/showcases</link>
+  <description> Showing off some nice projects created with Makie.jl </description>
+  <pubDate>Wed, 22 Jan 2025 15:20:39</pubDate>
+  <!-- <bluesky> https://bsky.app/profile/makie.org/post/3lfxcmapomk2o </bluesky> -->
+  <image>
+    <url>./images/robot.png</url>
+  </image>
+</item>

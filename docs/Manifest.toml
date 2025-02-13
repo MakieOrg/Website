@@ -1,6 +1,6 @@
 # This file is machine-generated - editing it directly is not advised
 
-julia_version = "1.11.2"
+julia_version = "1.11.3"
 manifest_format = "2.0"
 project_hash = "cb24a5a29b1c075c97987b6404068d71eccd074c"
 
@@ -39,15 +39,15 @@ version = "0.1.9"
 
 [[deps.Bonito]]
 deps = ["Base64", "CodecZlib", "Colors", "Dates", "Deno_jll", "HTTP", "Hyperscript", "LinearAlgebra", "Markdown", "MsgPack", "Observables", "RelocatableFolders", "SHA", "Sockets", "Tables", "ThreadPools", "URIs", "UUIDs", "WidgetsBase"]
-git-tree-sha1 = "eea84119ff33576e520d8ae3a2a09a20915948df"
-repo-rev = "sd/static-sites"
+git-tree-sha1 = "5497c1caaea4eff6b5500c22a7ddf8cfad2ab933"
+repo-rev = "master"
 repo-url = "https://github.com/SimonDanisch/Bonito.jl.git"
 uuid = "824d6782-a2ef-11e9-3a09-e5662e0c26f8"
 version = "4.0.1"
 
 [[deps.BonitoSites]]
 deps = ["Bonito", "Dates", "Documenter", "Downloads", "FileIO", "GitHub", "HTTP", "ImageBase", "ImageIO", "JSON3", "Malt", "Markdown", "OpenAI", "XML"]
-git-tree-sha1 = "f9dd7d1b8e263790990c903cf7a4264d616faa91"
+git-tree-sha1 = "164ffaaa9749f87d5402beea2b367816855051fc"
 repo-rev = "main"
 repo-url = "https://github.com/SimonDanisch/BonitoSites.jl"
 uuid = "8b3cd1a5-63d9-421b-9fde-46b64b830918"
