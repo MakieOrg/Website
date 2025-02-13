@@ -15,7 +15,7 @@ RainbowAlga.jl is a 3D event display used in KM3NeT to visualize the detector's 
 ![](./images/k3mnet.png)
 #### Animated video from RainbowAlga
 ![](./images/rainbowalga.mp4)
-#### Ray traced version with RPRMakie
+#### Ray traced render created with [RPRMakie](https://docs.makie.org/stable/explanations/backends/rprmakie#rprmakie)
 ![](./images/k3mnet-ray.png)
 
 
