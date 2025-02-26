@@ -4,13 +4,13 @@ Makie 0.22.2 is finally here and introduces many fixes and improvements.
 
 ## [Cleanup Patterns/Hatching](https://github.com/MakieOrg/Makie.jl/pull/4715)
 
-Enhanced Patterns and Hatching features by improving line quality, adding unit and reference image tests, handling patterns in CairoMakie, fixing related issues in other backends, and [updating documentation](https://docs.makie.org/dev/explanations/colors#Textures,-Patterns-and-MatCaps). This also introduced pattern anchoring to model space.
+We have improved the support for patterns. We added tests and fixed various issues we found along the way. Patterns should now work more consistently across plot types and backends. We also improved the line rendering for `LinePattern` and anchored patterns to plot coordinates to improve the visual quality. If you are not yet aware of patterns you can now read up on them as well other texture-like color options in the [updated color documentation](https://docs.makie.org/dev/explanations/colors#Textures,-Patterns-and-MatCaps).
 
 ![](./images/pattern.png)
 
 ## [Nudge Axis3 clip planes to avoid clipping at 0 margin](https://github.com/MakieOrg/Makie.jl/pull/4742)
 
-Adjusted Axis3 clip planes to prevent unintended clipping when the margin is set to zero. Updated reference images to illustrate the change.
+When we updated `Axis3` to feature zooming and translation controls we also added clipping at the axis boundary. If a plot element sits right at the boundary, e.g. due to setting margins to 0, they would sometimes get clipped and sometimes not. To avoid this, we moved the clip planes slightly outside the axis. As noted below we also added the option to completely turn off clipping in a separate pull request.
 
 | v0.22 | v0.22.2 |
 | --- | --- |
@@ -31,13 +31,13 @@ Introduced a [tutorial](https://docs.makie.org/dev/tutorials/inset-plot-tutorial
 
 ## [Cleanup volume](https://github.com/MakieOrg/Makie.jl/pull/4726)
 
-Addressed discrepancies in volume plot algorithms between different platforms and added more detailed documentation and tests for volume rendering.
+We addressed discrepancies in volume plot algorithms between GLMakie and WGLMakie and added more detailed documentation and tests for volume rendering. We fixed an issue with `:mip` truncating values at `0`, fixed `RGBA` algorithms not accepting `RGBA` data and connected the `absorption` keyword to `:absorptionrgba` and `:indexedabsorption`.
 ![](./images/volume1.png)
 ![](./images/volume2.png)
 
 ## [Improve nan handling in surface plots](https://github.com/MakieOrg/Makie.jl/pull/4735)
 
-Improved handling of NaN values in surface plots, ensuring consistency across different backends and updated reference images to reflect these changes.
+We improved handling of NaN values in surface plots, ensuring consistency across different backends and updated reference images to reflect these changes. Specifically we are now treating NaNs in positions as invalid data, resulting in the relevant vertices being cut instead of defaulting to 0.
 
 | v0.22 | v0.22.2 |
 | --- | --- |
@@ -51,9 +51,13 @@ Added DPI metadata to PNG files, allowing external applications to interpret and
 
 ## Voxel improvements
 
-* Replace voxel uvmap interface with uv_transform interface [#4758](https://github.com/MakieOrg/Makie.jl/pull/4758)
-* Fix voxels on linux firefox [#4756](https://github.com/MakieOrg/Makie.jl/pull/4756).
-* Fix voxel rotation [#4824](https://github.com/MakieOrg/Makie.jl/pull/4824)
+In [#4758](https://github.com/MakieOrg/Makie.jl/pull/4758) we changed how textures are handled by `voxels`. They now rely on `uv_transform` instead of `uvmap` which gives you further control about texture coordinates. For example, it allows you to rotate the texture. The texture coordinates generated for the different voxel sides have changed to be more consistent with expectation, see [the texture mapping documentation](https://docs.makie.org/stable/reference/plots/voxels#Texture-maps). We also adjusted texture coordinates to scale with `gap` so that voxels remain fully covered by the texture they are assigned.
+
+Beyond that we have some smaller fixes:
+
+* Fixed an issue with voxels not rendering on linux with firefox [#4756](https://github.com/MakieOrg/Makie.jl/pull/4756).
+* Fixed an issue causing voxel planes to shift when using `rotate!(plot, ...)` [#4824](https://github.com/MakieOrg/Makie.jl/pull/4824)
+* Fixed `uv_transform = :rotr90` and `:rotl90` being swapped [#4758](https://github.com/MakieOrg/Makie.jl/pull/4758)
 
 | v0.22 | v0.22.2 |
 | --- | --- |
@@ -71,17 +75,17 @@ Resolved an issue with `voronoiplot` to work correctly with clipped tessellation
 
 ## [Add option to turn off clipping](https://github.com/MakieOrg/Makie.jl/pull/4791)
 
-Introduced a feature that allows users to disable clipping in plots by setting `ax.clip[] = false`, providing more control over plotting output.
+We introduced a feature that allows users to disable clipping in `Axis3` by setting `ax.clip[] = false`. Note that you could already do this on a per-plot basis by overwriting the `clip = Plane3f[]` attribute when creating a plot.
+
 ## [Resolve :data space when deciding whether to connect transformations](https://github.com/MakieOrg/Makie.jl/pull/4723)
 
-Improved transformation handling by tracing `:data` space back to the scene, ensuring correct transformation connections.
+When a plot is created its transformations, i.e. the `transform_func` (for example the `log` transform of an Axis) and model transformations (as set by `scale!()`, `rotate!()` and `translate!()`) are inherited from its parent based on whether their `space` is compatible. This only used to check the direct parent, which created a problem when `space = :data` represented pixel, clip or relative space through a pixel, empty or relative camera. We now trace the space up to the parent scene to resolve this issue.
 
 ## [Improvements for Slider updates](https://github.com/MakieOrg/Makie.jl/pull/4748)
 
 Added options to slider updates, including `update_while_dragging` and `throttle`, and introduced `lowres_background` to the `Resampler` to optimize performance when updating `heatmap(Resampler(data))` often.
 
 ## Internal fixes for (W)GLMakie
-
 
 * Fix rare shader compilation error[#4755](https://github.com/MakieOrg/Makie.jl/pull/4755)
 * [Upgrade to threejs 0.173, fixing a rare problem with NaNs in buffers](https://github.com/MakieOrg/Makie.jl/pull/4809)
@@ -92,27 +96,23 @@ Added options to slider updates, including `update_while_dragging` and `throttle
 
 Restored support for rendering higher-dimensional geometries with the `poly()` function, enabling 3D shape visualization as a mesh with outlines.
 
-
 ## [allow setting inspectable in the theme](https://github.com/MakieOrg/Makie.jl/pull/4739)
 
 Enabled setting the `inspectable` attribute within themes, allowing for theme-wide customization of inspectability options across plots.
 
-
 ## [Allow `Block.attri...` to autocomplete](https://github.com/MakieOrg/Makie.jl/pull/4786)
 
-Improved developer experience by enabling autocomplete for Block attributes, facilitating easier exploration and usage of block properties.
-
-
+We added support for autocompletion for attributes on Block types. This allows you to tab-complete attributes while looking for documentation, e.g. `?Axis.xl` will complete to `?Axis.xlabel`.
 
 ## [Consider visible in PolarAxis protrusions](https://github.com/MakieOrg/Makie.jl/pull/4823)
 
-Fixed the issue where PolarAxis protrusions did not consider visibility states, ensuring accurate rendering of visible elements only.
+Fixed an issue where PolarAxis protrusions did not consider visibility states, e.g. due to being hidden by `hidedecorations!(ax)`.
 
 ## [Widget optimizations](https://github.com/MakieOrg/Makie.jl/pull/4821)
 
-Optimized widget updates by reducing redundant updates, particularly removing `pick()` usage where possible.
+Optimized widget updates by reducing redundant updates, and by removing `pick()` usage where possible.
 This solves a rare issue, where `Textfield` would stop working on a server with higher latency.
 
 ## [Fix WGLMakie tick and window_open events](https://github.com/MakieOrg/Makie.jl/pull/4818)
 
-Fixed issues related to tick and window_open events in WGLMakie, ensuring accurate event handling and fixing the toggle button for WGLMakie.
+We fixed an issue causing tick events to not be spawned in WGLMakie and connected the window_open event. This also fixes issues with animated Widgets, e.g. Toggle not working in WGLMakie.
