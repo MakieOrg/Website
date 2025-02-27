@@ -4,7 +4,11 @@ Makie 0.22.2 is finally here and introduces many fixes and improvements.
 
 ## [Cleanup Patterns/Hatching](https://github.com/MakieOrg/Makie.jl/pull/4715)
 
-We have improved the support for patterns. We added tests and fixed various issues we found along the way. Patterns should now work more consistently across plot types and backends. We also improved the line rendering for `LinePattern` and anchored patterns to plot coordinates to improve the visual quality. If you are not yet aware of patterns you can now read up on them as well other texture-like color options in the [updated color documentation](https://docs.makie.org/dev/explanations/colors#Textures,-Patterns-and-MatCaps).
+We've enhanced pattern support by adding tests and fixing various issues along the way.
+Patterns should now work more consistently across different plot types and backends. Additionally, we've improved line rendering for `LinePattern` and anchored patterns to plot coordinates for better visual quality.
+
+If you're not yet familiar with patterns, you can now learn more about them, along with other texture-like color options in the [updated color documentation](https://docs.makie.org/dev/explanations/colors#Textures,-Patterns-and-MatCaps).
+
 
 ![](./images/pattern.png)
 
