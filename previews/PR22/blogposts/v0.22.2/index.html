@@ -27,7 +27,7 @@
     </div>
   </head>
   <body data-jscall-id="5">
-    <script type="module">Bonito.lock_loading(() => Bonito.init_session('33236158-e9e0-4807-99c8-8dac5c649393', null, 'root', false))</script>
+    <script type="module">Bonito.lock_loading(() => Bonito.init_session('a4fb3ea0-eee7-4aa8-a753-985649085dd4', null, 'root', false))</script>
     <div data-jscall-id="6">
       <link href="../../bonito/png/icon_transparent1037186205570625945.png" data-jscall-id="7" rel="icon" type="image/png" />
       <img style="width: 100%" data-jscall-id="8" src="../../bonito/png/bannermesh_gradient12222907222071057261.png" />
@@ -67,261 +67,263 @@
               <h2 id="" data-jscall-id="32">
                 <a href="https://github.com/MakieOrg/Makie.jl/pull/4715" data-jscall-id="33">Cleanup Patterns/Hatching</a>
               </h2>
-              <p data-jscall-id="34">We have improved the support for patterns. We added tests and fixed various issues we found along the way. Patterns should now work more consistently across plot types and backends. We also improved the line rendering for 
-                <code data-jscall-id="35">LinePattern</code> and anchored patterns to plot coordinates to improve the visual quality. If you are not yet aware of patterns you can now read up on them as well other texture-like color options in the 
-                <a href="https://docs.makie.org/dev/explanations/colors#Textures,-Patterns-and-MatCaps" data-jscall-id="36">updated color documentation</a>.
+              <p data-jscall-id="34">We&#39;ve enhanced pattern support by adding tests and fixing various issues along the way. Patterns should now work more consistently across different plot types and backends. Additionally, we&#39;ve improved line rendering for 
+                <code data-jscall-id="35">LinePattern</code> and anchored patterns to plot coordinates for better visual quality.
               </p>
-              <p data-jscall-id="37">
-                <img alt="" data-jscall-id="38" src="../../bonito/png/pattern14612713701760729287.png" />
+              <p data-jscall-id="36">If you&#39;re not yet familiar with patterns, you can now learn more about them, along with other texture-like color options in the 
+                <a href="https://docs.makie.org/dev/explanations/colors#Textures,-Patterns-and-MatCaps" data-jscall-id="37">updated color documentation</a>.
               </p>
-              <h2 id="" data-jscall-id="39">
-                <a href="https://github.com/MakieOrg/Makie.jl/pull/4742" data-jscall-id="40">Nudge Axis3 clip planes to avoid clipping at 0 margin</a>
+              <p data-jscall-id="38">
+                <img alt="" data-jscall-id="39" src="../../bonito/png/pattern14612713701760729287.png" />
+              </p>
+              <h2 id="" data-jscall-id="40">
+                <a href="https://github.com/MakieOrg/Makie.jl/pull/4742" data-jscall-id="41">Nudge Axis3 clip planes to avoid clipping at 0 margin</a>
               </h2>
-              <p data-jscall-id="41">When we updated 
-                <code data-jscall-id="42">Axis3</code> to feature zooming and translation controls we also added clipping at the axis boundary. If a plot element sits right at the boundary, e.g. due to setting margins to 0, they would sometimes get clipped and sometimes not. To avoid this, we moved the clip planes slightly outside the axis. As noted below we also added the option to completely turn off clipping in a separate pull request.
+              <p data-jscall-id="42">When we updated 
+                <code data-jscall-id="43">Axis3</code> to feature zooming and translation controls we also added clipping at the axis boundary. If a plot element sits right at the boundary, e.g. due to setting margins to 0, they would sometimes get clipped and sometimes not. To avoid this, we moved the clip planes slightly outside the axis. As noted below we also added the option to completely turn off clipping in a separate pull request.
               </p>
-              <table data-jscall-id="43">
-                <tr data-jscall-id="44">
-                  <th data-jscall-id="45" align="right">v0.22</th>
-                  <th data-jscall-id="46" align="right">v0.22.2</th>
+              <table data-jscall-id="44">
+                <tr data-jscall-id="45">
+                  <th data-jscall-id="46" align="right">v0.22</th>
+                  <th data-jscall-id="47" align="right">v0.22.2</th>
                 </tr>
-                <tr data-jscall-id="47">
-                  <td data-jscall-id="48" align="right">
-                    <img alt="0.22.2" data-jscall-id="49" src="../../bonito/png/img111003437329908463615.png" />
+                <tr data-jscall-id="48">
+                  <td data-jscall-id="49" align="right">
+                    <img alt="0.22.2" data-jscall-id="50" src="../../bonito/png/img111003437329908463615.png" />
                   </td>
-                  <td data-jscall-id="50" align="right">
-                    <img alt="0.22.2" data-jscall-id="51" src="../../bonito/png/img212419365762722853921.png" />
-                  </td>
-                </tr>
-              </table>
-              <h2 id="" data-jscall-id="52">
-                <a href="https://github.com/MakieOrg/Makie.jl/pull/4697" data-jscall-id="53">Added a tutorial on creating an inset plot</a>
-              </h2>
-              <p data-jscall-id="54">Introduced a 
-                <a href="https://docs.makie.org/dev/tutorials/inset-plot-tutorial#Creating-an-Inset-Plot" data-jscall-id="55">tutorial</a> explaining how to create inset plots. Mention the 
-                <a href="https://juliaaplavin.github.io/MakieExtraDocs.jl/notebooks/examples.html#3526c688-aea9-411b-a837-dc02ff81a7ee" data-jscall-id="56">zoom_lines</a> function from 
-                <a href="https://github.com/JuliaAPlavin/MakieExtra.jl" data-jscall-id="57">MakieExtras.jl</a> for connecting inset plots.
-              </p>
-              <p data-jscall-id="58">
-                <img alt="" data-jscall-id="59" src="../../bonito/png/inset7245674520621088302.png" />
-              </p>
-              <h2 id="" data-jscall-id="60">
-                <a href="https://github.com/MakieOrg/Makie.jl/pull/4787" data-jscall-id="61">Add documentation on mesh normal generation</a>
-              </h2>
-              <p data-jscall-id="62">
-                <a href="https://docs.makie.org/dev/reference/plots/mesh#Simple-mesh-plots" data-jscall-id="63">Documented</a> how vertex order affects normal generation in mesh plots, providing clarity on how different vertex arrangements can impact plot appearance.
-              </p>
-              <p data-jscall-id="64">
-                <img alt="" data-jscall-id="65" src="../../bonito/png/face-normals8989128420233458314.png" />
-              </p>
-              <h2 id="" data-jscall-id="66">
-                <a href="https://github.com/MakieOrg/Makie.jl/pull/4726" data-jscall-id="67">Cleanup volume</a>
-              </h2>
-              <p data-jscall-id="68">We addressed discrepancies in volume plot algorithms between GLMakie and WGLMakie and added more detailed documentation and tests for volume rendering. We fixed an issue with 
-                <code data-jscall-id="69">:mip</code> truncating values at 
-                <code data-jscall-id="70">0</code>, fixed 
-                <code data-jscall-id="71">RGBA</code> algorithms not accepting 
-                <code data-jscall-id="72">RGBA</code> data and connected the 
-                <code data-jscall-id="73">absorption</code> keyword to 
-                <code data-jscall-id="74">:absorptionrgba</code> and 
-                <code data-jscall-id="75">:indexedabsorption</code>. 
-                <img alt="" data-jscall-id="76" src="../../bonito/png/volume113311261046055130649.png" /> 
-                <img alt="" data-jscall-id="77" src="../../bonito/png/volume29523768477341890371.png" />
-              </p>
-              <h2 id="" data-jscall-id="78">
-                <a href="https://github.com/MakieOrg/Makie.jl/pull/4735" data-jscall-id="79">Improve nan handling in surface plots</a>
-              </h2>
-              <p data-jscall-id="80">We improved handling of NaN values in surface plots, ensuring consistency across different backends and updated reference images to reflect these changes. Specifically we are now treating NaNs in positions as invalid data, resulting in the relevant vertices being cut instead of defaulting to 0.</p>
-              <table data-jscall-id="81">
-                <tr data-jscall-id="82">
-                  <th data-jscall-id="83" align="right">v0.22</th>
-                  <th data-jscall-id="84" align="right">v0.22.2</th>
-                </tr>
-                <tr data-jscall-id="85">
-                  <td data-jscall-id="86" align="right">
-                    <img alt="v0.22" data-jscall-id="87" src="../../bonito/png/nan-surf-before18156068849872803389.png" />
-                  </td>
-                  <td data-jscall-id="88" align="right">
-                    <img alt="v0.22.2" data-jscall-id="89" src="../../bonito/png/nan-surf-after9235714684512960594.png" />
+                  <td data-jscall-id="51" align="right">
+                    <img alt="0.22.2" data-jscall-id="52" src="../../bonito/png/img212419365762722853921.png" />
                   </td>
                 </tr>
               </table>
-              <h2 id="" data-jscall-id="90">
-                <a href="https://github.com/MakieOrg/Makie.jl/pull/4812" data-jscall-id="91">DPI metadata for png</a>
+              <h2 id="" data-jscall-id="53">
+                <a href="https://github.com/MakieOrg/Makie.jl/pull/4697" data-jscall-id="54">Added a tutorial on creating an inset plot</a>
               </h2>
-              <p data-jscall-id="92">Added DPI metadata to PNG files, allowing external applications to interpret and display images at the correct size specified by their px
-                <em data-jscall-id="93">per</em>unit setting.
+              <p data-jscall-id="55">Introduced a 
+                <a href="https://docs.makie.org/dev/tutorials/inset-plot-tutorial#Creating-an-Inset-Plot" data-jscall-id="56">tutorial</a> explaining how to create inset plots. Mention the 
+                <a href="https://juliaaplavin.github.io/MakieExtraDocs.jl/notebooks/examples.html#3526c688-aea9-411b-a837-dc02ff81a7ee" data-jscall-id="57">zoom_lines</a> function from 
+                <a href="https://github.com/JuliaAPlavin/MakieExtra.jl" data-jscall-id="58">MakieExtras.jl</a> for connecting inset plots.
               </p>
-              <p data-jscall-id="94">
-                <img alt="Image with DPI metadata" data-jscall-id="95" src="../../bonito/png/img32318762424089043279.png" />
+              <p data-jscall-id="59">
+                <img alt="" data-jscall-id="60" src="../../bonito/png/inset7245674520621088302.png" />
               </p>
-              <h2 id="Voxel improvements" data-jscall-id="96">Voxel improvements</h2>
-              <p data-jscall-id="97">In 
-                <a href="https://github.com/MakieOrg/Makie.jl/pull/4758" data-jscall-id="98">#4758</a> we changed how textures are handled by 
-                <code data-jscall-id="99">voxels</code>. They now rely on 
-                <code data-jscall-id="100">uv_transform</code> instead of 
-                <code data-jscall-id="101">uvmap</code> which gives you further control about texture coordinates. For example, it allows you to rotate the texture. The texture coordinates generated for the different voxel sides have changed to be more consistent with expectation, see 
-                <a href="https://docs.makie.org/stable/reference/plots/voxels#Texture-maps" data-jscall-id="102">the texture mapping documentation</a>. We also adjusted texture coordinates to scale with 
-                <code data-jscall-id="103">gap</code> so that voxels remain fully covered by the texture they are assigned.
+              <h2 id="" data-jscall-id="61">
+                <a href="https://github.com/MakieOrg/Makie.jl/pull/4787" data-jscall-id="62">Add documentation on mesh normal generation</a>
+              </h2>
+              <p data-jscall-id="63">
+                <a href="https://docs.makie.org/dev/reference/plots/mesh#Simple-mesh-plots" data-jscall-id="64">Documented</a> how vertex order affects normal generation in mesh plots, providing clarity on how different vertex arrangements can impact plot appearance.
               </p>
-              <p data-jscall-id="104">Beyond that we have some smaller fixes:</p>
-              <ul class=" style_2" style="" data-jscall-id="105">
-                <li data-jscall-id="106">
-                  <p data-jscall-id="107">Fixed an issue with voxels not rendering on linux with firefox 
-                    <a href="https://github.com/MakieOrg/Makie.jl/pull/4756" data-jscall-id="108">#4756</a>.
+              <p data-jscall-id="65">
+                <img alt="" data-jscall-id="66" src="../../bonito/png/face-normals8989128420233458314.png" />
+              </p>
+              <h2 id="" data-jscall-id="67">
+                <a href="https://github.com/MakieOrg/Makie.jl/pull/4726" data-jscall-id="68">Cleanup volume</a>
+              </h2>
+              <p data-jscall-id="69">We addressed discrepancies in volume plot algorithms between GLMakie and WGLMakie and added more detailed documentation and tests for volume rendering. We fixed an issue with 
+                <code data-jscall-id="70">:mip</code> truncating values at 
+                <code data-jscall-id="71">0</code>, fixed 
+                <code data-jscall-id="72">RGBA</code> algorithms not accepting 
+                <code data-jscall-id="73">RGBA</code> data and connected the 
+                <code data-jscall-id="74">absorption</code> keyword to 
+                <code data-jscall-id="75">:absorptionrgba</code> and 
+                <code data-jscall-id="76">:indexedabsorption</code>. 
+                <img alt="" data-jscall-id="77" src="../../bonito/png/volume113311261046055130649.png" /> 
+                <img alt="" data-jscall-id="78" src="../../bonito/png/volume29523768477341890371.png" />
+              </p>
+              <h2 id="" data-jscall-id="79">
+                <a href="https://github.com/MakieOrg/Makie.jl/pull/4735" data-jscall-id="80">Improve nan handling in surface plots</a>
+              </h2>
+              <p data-jscall-id="81">We improved handling of NaN values in surface plots, ensuring consistency across different backends and updated reference images to reflect these changes. Specifically we are now treating NaNs in positions as invalid data, resulting in the relevant vertices being cut instead of defaulting to 0.</p>
+              <table data-jscall-id="82">
+                <tr data-jscall-id="83">
+                  <th data-jscall-id="84" align="right">v0.22</th>
+                  <th data-jscall-id="85" align="right">v0.22.2</th>
+                </tr>
+                <tr data-jscall-id="86">
+                  <td data-jscall-id="87" align="right">
+                    <img alt="v0.22" data-jscall-id="88" src="../../bonito/png/nan-surf-before18156068849872803389.png" />
+                  </td>
+                  <td data-jscall-id="89" align="right">
+                    <img alt="v0.22.2" data-jscall-id="90" src="../../bonito/png/nan-surf-after9235714684512960594.png" />
+                  </td>
+                </tr>
+              </table>
+              <h2 id="" data-jscall-id="91">
+                <a href="https://github.com/MakieOrg/Makie.jl/pull/4812" data-jscall-id="92">DPI metadata for png</a>
+              </h2>
+              <p data-jscall-id="93">Added DPI metadata to PNG files, allowing external applications to interpret and display images at the correct size specified by their px
+                <em data-jscall-id="94">per</em>unit setting.
+              </p>
+              <p data-jscall-id="95">
+                <img alt="Image with DPI metadata" data-jscall-id="96" src="../../bonito/png/img32318762424089043279.png" />
+              </p>
+              <h2 id="Voxel improvements" data-jscall-id="97">Voxel improvements</h2>
+              <p data-jscall-id="98">In 
+                <a href="https://github.com/MakieOrg/Makie.jl/pull/4758" data-jscall-id="99">#4758</a> we changed how textures are handled by 
+                <code data-jscall-id="100">voxels</code>. They now rely on 
+                <code data-jscall-id="101">uv_transform</code> instead of 
+                <code data-jscall-id="102">uvmap</code> which gives you further control about texture coordinates. For example, it allows you to rotate the texture. The texture coordinates generated for the different voxel sides have changed to be more consistent with expectation, see 
+                <a href="https://docs.makie.org/stable/reference/plots/voxels#Texture-maps" data-jscall-id="103">the texture mapping documentation</a>. We also adjusted texture coordinates to scale with 
+                <code data-jscall-id="104">gap</code> so that voxels remain fully covered by the texture they are assigned.
+              </p>
+              <p data-jscall-id="105">Beyond that we have some smaller fixes:</p>
+              <ul class=" style_2" style="" data-jscall-id="106">
+                <li data-jscall-id="107">
+                  <p data-jscall-id="108">Fixed an issue with voxels not rendering on linux with firefox 
+                    <a href="https://github.com/MakieOrg/Makie.jl/pull/4756" data-jscall-id="109">#4756</a>.
                   </p>
                 </li>
-                <li data-jscall-id="109">
-                  <p data-jscall-id="110">Fixed an issue causing voxel planes to shift when using 
-                    <code data-jscall-id="111">rotate&#33;&#40;plot, ...&#41;</code> 
-                    <a href="https://github.com/MakieOrg/Makie.jl/pull/4824" data-jscall-id="112">#4824</a>
+                <li data-jscall-id="110">
+                  <p data-jscall-id="111">Fixed an issue causing voxel planes to shift when using 
+                    <code data-jscall-id="112">rotate&#33;&#40;plot, ...&#41;</code> 
+                    <a href="https://github.com/MakieOrg/Makie.jl/pull/4824" data-jscall-id="113">#4824</a>
                   </p>
                 </li>
-                <li data-jscall-id="113">
-                  <p data-jscall-id="114">Fixed 
-                    <code data-jscall-id="115">uv_transform &#61; :rotr90</code> and 
-                    <code data-jscall-id="116">:rotl90</code> being swapped 
-                    <a href="https://github.com/MakieOrg/Makie.jl/pull/4758" data-jscall-id="117">#4758</a>
+                <li data-jscall-id="114">
+                  <p data-jscall-id="115">Fixed 
+                    <code data-jscall-id="116">uv_transform &#61; :rotr90</code> and 
+                    <code data-jscall-id="117">:rotl90</code> being swapped 
+                    <a href="https://github.com/MakieOrg/Makie.jl/pull/4758" data-jscall-id="118">#4758</a>
                   </p>
                 </li>
               </ul>
-              <table data-jscall-id="118">
-                <tr data-jscall-id="119">
-                  <th data-jscall-id="120" align="right">v0.22</th>
-                  <th data-jscall-id="121" align="right">v0.22.2</th>
+              <table data-jscall-id="119">
+                <tr data-jscall-id="120">
+                  <th data-jscall-id="121" align="right">v0.22</th>
+                  <th data-jscall-id="122" align="right">v0.22.2</th>
                 </tr>
-                <tr data-jscall-id="122">
-                  <td data-jscall-id="123" align="right">
-                    <img alt="0.22.2" data-jscall-id="124" src="../../bonito/png/img514023420059895710979.png" />
+                <tr data-jscall-id="123">
+                  <td data-jscall-id="124" align="right">
+                    <img alt="0.22.2" data-jscall-id="125" src="../../bonito/png/img514023420059895710979.png" />
                   </td>
-                  <td data-jscall-id="125" align="right">
-                    <img alt="0.22.2" data-jscall-id="126" src="../../bonito/png/voxel-0.22.216712681972412075591.png" />
+                  <td data-jscall-id="126" align="right">
+                    <img alt="0.22.2" data-jscall-id="127" src="../../bonito/png/voxel-0.22.216712681972412075591.png" />
                   </td>
                 </tr>
               </table>
-              <h2 id="" data-jscall-id="127">
-                <a href="https://github.com/MakieOrg/Makie.jl/pull/4744" data-jscall-id="128">Curvilinear 
-                  <code data-jscall-id="129">contourf</code>
+              <h2 id="" data-jscall-id="128">
+                <a href="https://github.com/MakieOrg/Makie.jl/pull/4744" data-jscall-id="129">Curvilinear 
+                  <code data-jscall-id="130">contourf</code>
                 </a>
               </h2>
-              <p data-jscall-id="130">Enabled curvilinear 
-                <code data-jscall-id="131">contourf</code> plots by allowing contour calculations to be dispatched on and transforming Isoband output using bilinear interpolation.
+              <p data-jscall-id="131">Enabled curvilinear 
+                <code data-jscall-id="132">contourf</code> plots by allowing contour calculations to be dispatched on and transforming Isoband output using bilinear interpolation.
               </p>
-              <p data-jscall-id="132">
-                <img alt="" data-jscall-id="133" src="../../bonito/png/filled contour 2d with curvilinear grid2707315524451281246.png" />
+              <p data-jscall-id="133">
+                <img alt="" data-jscall-id="134" src="../../bonito/png/filled contour 2d with curvilinear grid2707315524451281246.png" />
               </p>
-              <h2 id="" data-jscall-id="134">
-                <a href="https://github.com/MakieOrg/Makie.jl/pull/4740" data-jscall-id="135">Fix broken 
-                  <code data-jscall-id="136">voronoiplot</code> for clipped tessellations
+              <h2 id="" data-jscall-id="135">
+                <a href="https://github.com/MakieOrg/Makie.jl/pull/4740" data-jscall-id="136">Fix broken 
+                  <code data-jscall-id="137">voronoiplot</code> for clipped tessellations
                 </a>
               </h2>
-              <p data-jscall-id="137">Resolved an issue with 
-                <code data-jscall-id="138">voronoiplot</code> to work correctly with clipped tessellations and automatic color generation which was previously causing errors.
+              <p data-jscall-id="138">Resolved an issue with 
+                <code data-jscall-id="139">voronoiplot</code> to work correctly with clipped tessellations and automatic color generation which was previously causing errors.
               </p>
-              <h2 id="" data-jscall-id="139">
-                <a href="https://github.com/MakieOrg/Makie.jl/pull/4791" data-jscall-id="140">Add option to turn off clipping</a>
+              <h2 id="" data-jscall-id="140">
+                <a href="https://github.com/MakieOrg/Makie.jl/pull/4791" data-jscall-id="141">Add option to turn off clipping</a>
               </h2>
-              <p data-jscall-id="141">We introduced a feature that allows users to disable clipping in 
-                <code data-jscall-id="142">Axis3</code> by setting 
-                <code data-jscall-id="143">ax.clip&#91;&#93; &#61; false</code>. Note that you could already do this on a per-plot basis by overwriting the 
-                <code data-jscall-id="144">clip &#61; Plane3f&#91;&#93;</code> attribute when creating a plot.
+              <p data-jscall-id="142">We introduced a feature that allows users to disable clipping in 
+                <code data-jscall-id="143">Axis3</code> by setting 
+                <code data-jscall-id="144">ax.clip&#91;&#93; &#61; false</code>. Note that you could already do this on a per-plot basis by overwriting the 
+                <code data-jscall-id="145">clip &#61; Plane3f&#91;&#93;</code> attribute when creating a plot.
               </p>
-              <h2 id="" data-jscall-id="145">
-                <a href="https://github.com/MakieOrg/Makie.jl/pull/4723" data-jscall-id="146">Resolve :data space when deciding whether to connect transformations</a>
+              <h2 id="" data-jscall-id="146">
+                <a href="https://github.com/MakieOrg/Makie.jl/pull/4723" data-jscall-id="147">Resolve :data space when deciding whether to connect transformations</a>
               </h2>
-              <p data-jscall-id="147">When a plot is created its transformations, i.e. the 
-                <code data-jscall-id="148">transform_func</code> &#40;for example the 
-                <code data-jscall-id="149">log</code> transform of an Axis&#41; and model transformations &#40;as set by 
-                <code data-jscall-id="150">scale&#33;&#40;&#41;</code>, 
-                <code data-jscall-id="151">rotate&#33;&#40;&#41;</code> and 
-                <code data-jscall-id="152">translate&#33;&#40;&#41;</code>&#41; are inherited from its parent based on whether their 
-                <code data-jscall-id="153">space</code> is compatible. This only used to check the direct parent, which created a problem when 
-                <code data-jscall-id="154">space &#61; :data</code> represented pixel, clip or relative space through a pixel, empty or relative camera. We now trace the space up to the parent scene to resolve this issue.
+              <p data-jscall-id="148">When a plot is created its transformations, i.e. the 
+                <code data-jscall-id="149">transform_func</code> &#40;for example the 
+                <code data-jscall-id="150">log</code> transform of an Axis&#41; and model transformations &#40;as set by 
+                <code data-jscall-id="151">scale&#33;&#40;&#41;</code>, 
+                <code data-jscall-id="152">rotate&#33;&#40;&#41;</code> and 
+                <code data-jscall-id="153">translate&#33;&#40;&#41;</code>&#41; are inherited from its parent based on whether their 
+                <code data-jscall-id="154">space</code> is compatible. This only used to check the direct parent, which created a problem when 
+                <code data-jscall-id="155">space &#61; :data</code> represented pixel, clip or relative space through a pixel, empty or relative camera. We now trace the space up to the parent scene to resolve this issue.
               </p>
-              <h2 id="" data-jscall-id="155">
-                <a href="https://github.com/MakieOrg/Makie.jl/pull/4748" data-jscall-id="156">Improvements for Slider updates</a>
+              <h2 id="" data-jscall-id="156">
+                <a href="https://github.com/MakieOrg/Makie.jl/pull/4748" data-jscall-id="157">Improvements for Slider updates</a>
               </h2>
-              <p data-jscall-id="157">Added options to slider updates, including 
-                <code data-jscall-id="158">update_while_dragging</code> and 
-                <code data-jscall-id="159">throttle</code>, and introduced 
-                <code data-jscall-id="160">lowres_background</code> to the 
-                <code data-jscall-id="161">Resampler</code> to optimize performance when updating 
-                <code data-jscall-id="162">heatmap&#40;Resampler&#40;data&#41;&#41;</code> often.
+              <p data-jscall-id="158">Added options to slider updates, including 
+                <code data-jscall-id="159">update_while_dragging</code> and 
+                <code data-jscall-id="160">throttle</code>, and introduced 
+                <code data-jscall-id="161">lowres_background</code> to the 
+                <code data-jscall-id="162">Resampler</code> to optimize performance when updating 
+                <code data-jscall-id="163">heatmap&#40;Resampler&#40;data&#41;&#41;</code> often.
               </p>
-              <h2 id="Internal fixes for (W)GLMakie" data-jscall-id="163">Internal fixes for &#40;W&#41;GLMakie</h2>
-              <ul class=" style_2" style="" data-jscall-id="164">
-                <li data-jscall-id="165">
-                  <p data-jscall-id="166">Fix rare shader compilation error
-                    <a href="https://github.com/MakieOrg/Makie.jl/pull/4755" data-jscall-id="167">#4755</a>
+              <h2 id="Internal fixes for (W)GLMakie" data-jscall-id="164">Internal fixes for &#40;W&#41;GLMakie</h2>
+              <ul class=" style_2" style="" data-jscall-id="165">
+                <li data-jscall-id="166">
+                  <p data-jscall-id="167">Fix rare shader compilation error
+                    <a href="https://github.com/MakieOrg/Makie.jl/pull/4755" data-jscall-id="168">#4755</a>
                   </p>
                 </li>
-                <li data-jscall-id="168">
-                  <p data-jscall-id="169">
-                    <a href="https://github.com/MakieOrg/Makie.jl/pull/4809" data-jscall-id="170">Upgrade to threejs 0.173, fixing a rare problem with NaNs in buffers</a>
+                <li data-jscall-id="169">
+                  <p data-jscall-id="170">
+                    <a href="https://github.com/MakieOrg/Makie.jl/pull/4809" data-jscall-id="171">Upgrade to threejs 0.173, fixing a rare problem with NaNs in buffers</a>
                   </p>
                 </li>
-                <li data-jscall-id="171">
-                  <p data-jscall-id="172">Fix WGLMakie nan error in cut plane, which broke Axis3 
-                    <a href="https://github.com/MakieOrg/Makie.jl/pull/4772" data-jscall-id="173">#4772</a>
+                <li data-jscall-id="172">
+                  <p data-jscall-id="173">Fix WGLMakie nan error in cut plane, which broke Axis3 
+                    <a href="https://github.com/MakieOrg/Makie.jl/pull/4772" data-jscall-id="174">#4772</a>
                   </p>
                 </li>
-                <li data-jscall-id="174">
-                  <p data-jscall-id="175">fix UInt underflow in line indices 
-                    <a href="https://github.com/MakieOrg/Makie.jl/pull/4782" data-jscall-id="176">#4782</a>
+                <li data-jscall-id="175">
+                  <p data-jscall-id="176">fix UInt underflow in line indices 
+                    <a href="https://github.com/MakieOrg/Makie.jl/pull/4782" data-jscall-id="177">#4782</a>
                   </p>
                 </li>
               </ul>
-              <h2 id="" data-jscall-id="177">
-                <a href="https://github.com/MakieOrg/Makie.jl/pull/4738" data-jscall-id="178">Allow higher dimensional geometries in poly</a>
+              <h2 id="" data-jscall-id="178">
+                <a href="https://github.com/MakieOrg/Makie.jl/pull/4738" data-jscall-id="179">Allow higher dimensional geometries in poly</a>
               </h2>
-              <p data-jscall-id="179">Restored support for rendering higher-dimensional geometries with the 
-                <code data-jscall-id="180">poly&#40;&#41;</code> function, enabling 3D shape visualization as a mesh with outlines.
+              <p data-jscall-id="180">Restored support for rendering higher-dimensional geometries with the 
+                <code data-jscall-id="181">poly&#40;&#41;</code> function, enabling 3D shape visualization as a mesh with outlines.
               </p>
-              <h2 id="" data-jscall-id="181">
-                <a href="https://github.com/MakieOrg/Makie.jl/pull/4739" data-jscall-id="182">allow setting inspectable in the theme</a>
+              <h2 id="" data-jscall-id="182">
+                <a href="https://github.com/MakieOrg/Makie.jl/pull/4739" data-jscall-id="183">allow setting inspectable in the theme</a>
               </h2>
-              <p data-jscall-id="183">Enabled setting the 
-                <code data-jscall-id="184">inspectable</code> attribute within themes, allowing for theme-wide customization of inspectability options across plots.
+              <p data-jscall-id="184">Enabled setting the 
+                <code data-jscall-id="185">inspectable</code> attribute within themes, allowing for theme-wide customization of inspectability options across plots.
               </p>
-              <h2 id="" data-jscall-id="185">
-                <a href="https://github.com/MakieOrg/Makie.jl/pull/4786" data-jscall-id="186">Allow 
-                  <code data-jscall-id="187">Block.attri...</code> to autocomplete
+              <h2 id="" data-jscall-id="186">
+                <a href="https://github.com/MakieOrg/Makie.jl/pull/4786" data-jscall-id="187">Allow 
+                  <code data-jscall-id="188">Block.attri...</code> to autocomplete
                 </a>
               </h2>
-              <p data-jscall-id="188">We added support for autocompletion for attributes on Block types. This allows you to tab-complete attributes while looking for documentation, e.g. 
-                <code data-jscall-id="189">?Axis.xl</code> will complete to 
-                <code data-jscall-id="190">?Axis.xlabel</code>.
+              <p data-jscall-id="189">We added support for autocompletion for attributes on Block types. This allows you to tab-complete attributes while looking for documentation, e.g. 
+                <code data-jscall-id="190">?Axis.xl</code> will complete to 
+                <code data-jscall-id="191">?Axis.xlabel</code>.
               </p>
-              <h2 id="" data-jscall-id="191">
-                <a href="https://github.com/MakieOrg/Makie.jl/pull/4823" data-jscall-id="192">Consider visible in PolarAxis protrusions</a>
+              <h2 id="" data-jscall-id="192">
+                <a href="https://github.com/MakieOrg/Makie.jl/pull/4823" data-jscall-id="193">Consider visible in PolarAxis protrusions</a>
               </h2>
-              <p data-jscall-id="193">Fixed an issue where PolarAxis protrusions did not consider visibility states, e.g. due to being hidden by 
-                <code data-jscall-id="194">hidedecorations&#33;&#40;ax&#41;</code>.
+              <p data-jscall-id="194">Fixed an issue where PolarAxis protrusions did not consider visibility states, e.g. due to being hidden by 
+                <code data-jscall-id="195">hidedecorations&#33;&#40;ax&#41;</code>.
               </p>
-              <h2 id="" data-jscall-id="195">
-                <a href="https://github.com/MakieOrg/Makie.jl/pull/4821" data-jscall-id="196">Widget optimizations</a>
+              <h2 id="" data-jscall-id="196">
+                <a href="https://github.com/MakieOrg/Makie.jl/pull/4821" data-jscall-id="197">Widget optimizations</a>
               </h2>
-              <p data-jscall-id="197">Optimized widget updates by reducing redundant updates, and by removing 
-                <code data-jscall-id="198">pick&#40;&#41;</code> usage where possible. This solves a rare issue, where 
-                <code data-jscall-id="199">Textfield</code> would stop working on a server with higher latency.
+              <p data-jscall-id="198">Optimized widget updates by reducing redundant updates, and by removing 
+                <code data-jscall-id="199">pick&#40;&#41;</code> usage where possible. This solves a rare issue, where 
+                <code data-jscall-id="200">Textfield</code> would stop working on a server with higher latency.
               </p>
-              <h2 id="" data-jscall-id="200">
-                <a href="https://github.com/MakieOrg/Makie.jl/pull/4818" data-jscall-id="201">Fix WGLMakie tick and window_open events</a>
+              <h2 id="" data-jscall-id="201">
+                <a href="https://github.com/MakieOrg/Makie.jl/pull/4818" data-jscall-id="202">Fix WGLMakie tick and window_open events</a>
               </h2>
-              <p data-jscall-id="202">We fixed an issue causing tick events to not be spawned in WGLMakie and connected the window_open event. This also fixes issues with animated Widgets, e.g. Toggle not working in WGLMakie.</p>
+              <p data-jscall-id="203">We fixed an issue causing tick events to not be spawned in WGLMakie and connected the window_open event. This also fixes issues with animated Widgets, e.g. Toggle not working in WGLMakie.</p>
             </div>
-            <div data-jscall-id="203">
-              <script data-jscall-id="204" src="../../bonito/js/highlight.pack13102628173626074447.js"></script>
-              <script data-jscall-id="205">hljs.highlightAll()</script>
+            <div data-jscall-id="204">
+              <script data-jscall-id="205" src="../../bonito/js/highlight.pack13102628173626074447.js"></script>
+              <script data-jscall-id="206">hljs.highlightAll()</script>
             </div>
           </div>
           <span></span>
         </div>
       </div>
-      <div data-jscall-id="206">
-        <script async="true" defer="true" data-jscall-id="207" src="https://api.makie.org/latest.js"></script>
-        <noscript data-jscall-id="208">
-          <img alt="" data-jscall-id="209" src="https://api.makie.org/noscript.gif" referrerpolicy="no-referrer-when-downgrade" />
+      <div data-jscall-id="207">
+        <script async="true" defer="true" data-jscall-id="208" src="https://api.makie.org/latest.js"></script>
+        <noscript data-jscall-id="209">
+          <img alt="" data-jscall-id="210" src="https://api.makie.org/noscript.gif" referrerpolicy="no-referrer-when-downgrade" />
         </noscript>
       </div>
     </div>
