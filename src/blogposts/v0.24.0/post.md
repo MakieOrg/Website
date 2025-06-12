@@ -16,6 +16,7 @@ Some styles of passing attributes through a recipe no longer work.
 
 Splatting "Attributes" no longer works, because attributes are now a `ComputeGraph` instead of the Dict-like `Attributes`.
 ```julia
+# no-eval
 plot!(parent, args...; kwargs..., parent.attributes...)
 # or
 attr = Attributes(parent)
@@ -25,6 +26,7 @@ plot!(parent, args...; attr...)
 Instead they can be passed directly as the second argument:
 
 ```julia
+# no-eval
 attr = Attributes(parent)
 plot!(parent, attr, args...; kwargs...)
 ```
@@ -35,6 +37,7 @@ Keyword arguments take priority over the nodes in `attr` here. Any node that is 
 
 Copying and adjusting "Attributes" does not work anymore for the same reason
 ```julia
+# no-eval
 attr = copy(Attributes(plot)) # MethodError: copy(::ComputeGraph)
 pop!(attr, :removed) # MethodError: pop!(::ComputeGraph, ...)
 attr[:changed] = value # MethodError: setindex!(::ComputeGraph, ...)
@@ -44,6 +47,7 @@ plot!(parent, attr, args...; kwargs...)
 
 Instead of this you can again directly pass attributes. Instead of overwriting `attr[key] = val` you can pass that attribute as a keyword argument. Instead of deleting `pop!(attr, key)` you can [TODO]
 ```julia
+# no-eval
 attr = Attributes(plot)
 plot!(parent, attr, args..., changed = value, TODO)
 ```
@@ -52,11 +56,13 @@ plot!(parent, attr, args..., changed = value, TODO)
 
 `replace_automatic!()` has been removed as it is incompatible with the new `ComputeGraph`. Instead of
 ```julia
+# no-eval
 obs = replace_automatic!(() -> attr[:default], attr, :maybe_automatic)
 plot!(..., something = obs)
 ```
 use
 ```julia
+# no-eval
 # ComputeGraph (preferable)
 map!(default_automatic, attr, [:maybe_automatic, :default], :new_name)
 plot!(parent, ..., something = parent.new_name)
