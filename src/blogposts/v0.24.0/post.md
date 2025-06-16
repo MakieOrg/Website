@@ -95,6 +95,16 @@ Text has been refactored to rely solely on the compute graph and avoid the neste
 
 These functions should replace calls to `unchecked_boundingbox()`, `gl_bboxes()`, `string_boundingbox()` etc. Each of them also has a `register_$(name)!(plot)` version which registers the associated compute node, and a `$(name)_obs(plot)` version which returns an observable instead of a (vector of) boundingbox(es). Note that updating text inputs with these may result in infinite loops.
 
+## MakieCore removed
+
+...
+
+## Package Organization
+
+- Makie/src -> Makie/Makie/src
+- asset folder to artifact
+- should reduce package size by avoiding unnecessary/duplicate data to be bundled with the Makie module
+
 ## Other breaking changes
 
 - `annotations!()` has been removed (use `text!` instead)
