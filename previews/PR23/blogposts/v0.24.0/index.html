@@ -24,7 +24,7 @@
 </script>
   </head>
   <body data-jscall-id="5">
-    <script type="module">Bonito.lock_loading(() => Bonito.init_session('bfb600d8-dc0c-4e86-9372-700eef39aad8', null, 'root', false))</script>
+    <script type="module">Bonito.lock_loading(() => Bonito.init_session('08cba6bf-d368-45be-8733-c63a9c53ea4d', null, 'root', false))</script>
     <div data-jscall-id="6">
       <link href="../../bonito/png/icon_transparent1037186205570625945.png" data-jscall-id="7" rel="icon" type="image/png" />
       <img style="width: 100%" data-jscall-id="8" src="../../bonito/png/bannermesh_gradient12222907222071057261.png" />
@@ -214,60 +214,74 @@ plot&#33;&#40;parent, ..., something &#61; obs&#41;</code>
                 <code data-jscall-id="122">register_&#36;&#40;name&#41;&#33;&#40;plot&#41;</code> version which registers the associated compute node, and a 
                 <code data-jscall-id="123">&#36;&#40;name&#41;_obs&#40;plot&#41;</code> version which returns an observable instead of a &#40;vector of&#41; boundingbox&#40;es&#41;. Note that updating text inputs with these may result in infinite loops.
               </p>
-              <h2 id="Other breaking changes" data-jscall-id="124">Other breaking changes</h2>
-              <ul class=" style_2" style="" data-jscall-id="125">
-                <li data-jscall-id="126">
-                  <p data-jscall-id="127">
-                    <code data-jscall-id="128">annotations&#33;&#40;&#41;</code> has been removed &#40;use 
-                    <code data-jscall-id="129">text&#33;</code> instead&#41;
-                  </p>
+              <h2 id="MakieCore removed" data-jscall-id="124">MakieCore removed</h2>
+              <p data-jscall-id="125">...</p>
+              <h2 id="Package Organization" data-jscall-id="126">Package Organization</h2>
+              <ul class=" style_2" style="" data-jscall-id="127">
+                <li data-jscall-id="128">
+                  <p data-jscall-id="129">Makie/src -&#62; Makie/Makie/src</p>
                 </li>
                 <li data-jscall-id="130">
-                  <p data-jscall-id="131">
-                    <code data-jscall-id="132">&#64;recipe PlotType &#40;argnames...&#41;</code> now controls the names of the converted arguments and thus has to match the output of 
-                    <code data-jscall-id="133">convert_arguments&#40;::PlotType, ...&#41;</code>
+                  <p data-jscall-id="131">asset folder to artifact</p>
+                </li>
+                <li data-jscall-id="132">
+                  <p data-jscall-id="133">should reduce package size by avoiding unnecessary/duplicate data to be bundled with the Makie module</p>
+                </li>
+              </ul>
+              <h2 id="Other breaking changes" data-jscall-id="134">Other breaking changes</h2>
+              <ul class=" style_2" style="" data-jscall-id="135">
+                <li data-jscall-id="136">
+                  <p data-jscall-id="137">
+                    <code data-jscall-id="138">annotations&#33;&#40;&#41;</code> has been removed &#40;use 
+                    <code data-jscall-id="139">text&#33;</code> instead&#41;
                   </p>
                 </li>
-                <li data-jscall-id="134">
-                  <p data-jscall-id="135">
-                    <code data-jscall-id="136">plot.attribute&#91;&#93; &#61; value</code> no longer works. Use 
-                    <code data-jscall-id="137">plot.attribute &#61; value</code>
+                <li data-jscall-id="140">
+                  <p data-jscall-id="141">
+                    <code data-jscall-id="142">&#64;recipe PlotType &#40;argnames...&#41;</code> now controls the names of the converted arguments and thus has to match the output of 
+                    <code data-jscall-id="143">convert_arguments&#40;::PlotType, ...&#41;</code>
+                  </p>
+                </li>
+                <li data-jscall-id="144">
+                  <p data-jscall-id="145">
+                    <code data-jscall-id="146">plot.attribute&#91;&#93; &#61; value</code> no longer works. Use 
+                    <code data-jscall-id="147">plot.attribute &#61; value</code>
                   </p>
                 </li>
               </ul>
-              <h1 id="Fixes" data-jscall-id="138">Fixes</h1>
-              <ul class=" style_2" style="" data-jscall-id="139">
-                <li data-jscall-id="140">
-                  <p data-jscall-id="141">
-                    <code data-jscall-id="142">surface&#40;&#41;</code> now correctly aligns colors for 2x2 matrices in WGLMakie
+              <h1 id="Fixes" data-jscall-id="148">Fixes</h1>
+              <ul class=" style_2" style="" data-jscall-id="149">
+                <li data-jscall-id="150">
+                  <p data-jscall-id="151">
+                    <code data-jscall-id="152">surface&#40;&#41;</code> now correctly aligns colors for 2x2 matrices in WGLMakie
                   </p>
                 </li>
-                <li data-jscall-id="143">
-                  <p data-jscall-id="144">
-                    <code data-jscall-id="145">meshscatter&#40;&#41;</code> with per-element 
-                    <code data-jscall-id="146">uv_transform</code> now works in WGLMakie
+                <li data-jscall-id="153">
+                  <p data-jscall-id="154">
+                    <code data-jscall-id="155">meshscatter&#40;&#41;</code> with per-element 
+                    <code data-jscall-id="156">uv_transform</code> now works in WGLMakie
                   </p>
                 </li>
-                <li data-jscall-id="147">
-                  <p data-jscall-id="148">
-                    <code data-jscall-id="149">local_update&#33;&#40;::Voxels&#41;</code> now requires the updated data to be passed. I.e. 
-                    <code data-jscall-id="150">Makie.local_update&#33;&#40;plot, new_value, is, js, ks&#41;</code>
+                <li data-jscall-id="157">
+                  <p data-jscall-id="158">
+                    <code data-jscall-id="159">local_update&#33;&#40;::Voxels&#41;</code> now requires the updated data to be passed. I.e. 
+                    <code data-jscall-id="160">Makie.local_update&#33;&#40;plot, new_value, is, js, ks&#41;</code>
                   </p>
                 </li>
               </ul>
             </div>
-            <div data-jscall-id="151">
-              <script data-jscall-id="152" src="../../bonito/js/highlight.pack13102628173626074447.js"></script>
-              <script data-jscall-id="153">hljs.highlightAll()</script>
+            <div data-jscall-id="161">
+              <script data-jscall-id="162" src="../../bonito/js/highlight.pack13102628173626074447.js"></script>
+              <script data-jscall-id="163">hljs.highlightAll()</script>
             </div>
           </div>
           <span></span>
         </div>
       </div>
-      <div data-jscall-id="154">
-        <script async="true" defer="true" data-jscall-id="155" src="https://api.makie.org/latest.js"></script>
-        <noscript data-jscall-id="156">
-          <img alt="" data-jscall-id="157" src="https://api.makie.org/noscript.gif" referrerpolicy="no-referrer-when-downgrade" />
+      <div data-jscall-id="164">
+        <script async="true" defer="true" data-jscall-id="165" src="https://api.makie.org/latest.js"></script>
+        <noscript data-jscall-id="166">
+          <img alt="" data-jscall-id="167" src="https://api.makie.org/noscript.gif" referrerpolicy="no-referrer-when-downgrade" />
         </noscript>
       </div>
     </div>
