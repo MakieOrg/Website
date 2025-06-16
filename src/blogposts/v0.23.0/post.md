@@ -4,18 +4,172 @@ Makie 0.23.0 is a relatively small breaking release before the big 0.24.0 Comput
 
 ## Arrows
 
-show new plots, exemplifying
-- fully size considered in alignment
-- marker attributes + scaling
-- How to fight scaling (especially 3D)
-- 3D quality improvement, Cone
-- argmode, maybe shrink-align
+Arrows have been refactored to address a number of issues, most importantly issues with scaling and alignment.
+Before 0.23 `arrows` did not consider the arrow tip as part of the length, which meant that arrows were always longer than they should be.
+When aligning to their tip, they actually aligned to the endpoint of the shaft (called tail pre 0.23) instead.
+
+The new `arrows2d` and `arrows3d` now strictly follow the rule that the final arrow length must match the length derived from `directions`, `normalize` and `lengthscale`.
+The arrows may stretch their shaft or scale as a whole to achieve this.
+
+```julia
+using CairoMakie
+CairoMakie.activate!()
+
+f = Figure(size = (600, 300))
+hlines(f[1, 1], [0, 0.2, 2, 5])
+arrows2d!(1:3, zeros(3), zeros(3), [0.2, 2, 5])
+hlines(f[1, 2], [0, 0.2, 2, 5])
+arrows3d!(1:3, zeros(3), zeros(3), [0.2, 2, 5], markerscale = 1)
+f
+```
+
+As you can see short arrows shrink while long arrows get a longer shaft.
+This is controlled by `minshaftlength` and `maxshaftlength`.
+If the calculated shaftlength falls in this range, the shaft is scaled to that length.
+If it does not, the length is clamped to that range and the full arrow is scaled instead.
+If you want just shaftlength scaling you can set `minshaftlength = 0`.
+(Scaling will still happen if the shaftlength drops to 0.)
+If you want just scaling, you can set `shaftlength` to a fixed value.
+
+```julia
+using CairoMakie
+CairoMakie.activate!()
+
+f = Figure(size = (600, 300))
+hlines(f[1, 1], [0, 0.2, 2, 5])
+arrows2d!(1:3, zeros(3), zeros(3), [0.2, 2, 5], minshaftlength = 0)
+a, p = hlines(f[1, 2], [0, 0.2, 2, 5])
+arrows2d!(1:3, zeros(3), zeros(3), [0.2, 2, 5], shaftlength = 20)
+xlims!(a, 0.9, 3.8)
+f
+```
+
+The styling attributes `arrowsize`, `linewidth`, `arrowtail` and `arrowhead` have been broken up and renamed.
+There are now three components to an arrow, the (usually 0 length) tail, shaft and tip.
+Each have a length and width (2D) or radius (3D).
+In 2D they are given in `markerspace`, i.e. pixel space by default.
+Unlike before they are not necessarily the true size of the final arrow, as scaling can still apply.
+In 3D they are given in a boundingbox relative space if `markerscale = automatic` (default), or in data units scaled by `markerscale` if its is set to a number.
+The tail, shaft and tip can each be set to a vector of points (2D) or mesh to change the look of the arrows.
+
+![arrow components](./images/arrow_components.png)
+
+The total arrow length follows from the `direction` argument, `lengthscale` and `normalize`.
+If `normalize = true` directions are normalized first.
+Then they are multiplied by `lengthscale`.
+The result is target length of the arrow, which the drawn arrow marker must be equal to.
+
+```julia
+using CairoMakie
+CairoMakie.activate!()
+
+f,a,p = arrows2d(1:3, fill(0, 3), zeros(3), [0.2, 0.5, 1])
+arrows2d!(1:3, fill(2, 3), zeros(3), [0.2, 0.5, 1], normalize = true)
+arrows2d!(1:3, fill(4, 3), zeros(3), [0.2, 0.5, 1], lengthscale = [5, 1, 0.2])
+arrows2d!(fill(4, 3), [0, 2, 4], zeros(3), [0.2, 0.5, 1], taillength = 10)
+f
+```
+
+The `align` attribute has been reduced to only accepting `:tail`, `:center`, `:tip` or a number.
+`:tail` (0) and `:tip` (1) are the two endpoints of the arrow and `:center` (0.5) is the center of full arrow.
+Note that you can also create a gap by setting `align` to a value outside the 0..1 range.
+
+```julia
+using CairoMakie
+CairoMakie.activate!()
+
+ps = Makie.coordinates(Rect2f(-1, -1, 2, 2))
+f = Figure(size = (600, 300))
+scatter(f[1, 1], ps, markersize = 20)
+arrows2d!(ps, ps, align = :center, lengthscale = 0.3)
+
+scatter(f[1, 2], ps, markersize = 20)
+arrows2d!(ps, ps, align = :tail, lengthscale = 0.3, color = :orange)
+arrows2d!(ps, ps, align = 1.2, lengthscale = 0.3, color = :blue)
+
+tail = Point2f[(0, 0), (1, -0.5), (1, 0.5)]
+arrows2d!(
+    ps, [ps[2:end]; ps[1:1]], argmode = :endpoint,
+    align = :center, lengthscale = 0.8, color = :green,
+    tail = tail, taillength = 8
+)
+
+f
+```
+
+Another addition is `argmode` which allows you to change the interpretation of the second argument.
+With `argmode = :endpoint` the second argument is treated as as the target position for the tip.
+The directions are then derived from that, with `normalize` and `lengthscale` applying afterwards.
+`align` works a bit different in this mode.
+Instead of aligning a fraction of the final arrow with origin (first argument), it aligns that fraction with the same fraction between the endpoints.
+So with `align = :center`, the center of the arrow aligns with center of the two endpoints.
+
+All of these concepts also apply to `arrows3d`:
+
+```julia
+using GLMakie
+GLMakie.activate!()
+
+f = Figure(size = (500, 500))
+ax = Axis3(f[1, 1], aspect = :data)
+
+r = Rect3f(-1, -1, -1, 2, 2, 2)
+ps = coordinates(r)
+meshscatter!(ps, color = :white)
+arrows3d!(ps, ps, align = -0.2, tipcolor = :yellow, shaftcolor = :lightblue, lengthscale = 0.5)
+
+tail = Makie.Cone(Point3f(0,0,1), Point3f(0), 0.5)
+startstop = Makie.convert_arguments(LineSegments, r)[1]
+arrows3d!(
+    startstop[1:2:end], startstop[2:2:end], argmode = :endpoint,
+    align = 0.5, lengthscale = 0.8,
+    tail = tail, taillength = 0.4, tailcolor = :red,
+    markerscale = 0.5,
+    color = :orange
+)
+
+f
+```
+
+Note that `arrows2d` and `arrows3d` can both be used in 2D and 3D space.
+They differ in how they represent arrows - as a 2D mesh or a 3D mesh respectively.
+Note as well that we introduced `Cone(origin, extremity, radius)` as a GeometryPrimitive in `GeometryBasics` with this release.
 
 [#4925](https://github.com/MakieOrg/Makie.jl/pull/4925)
 
 ## Dendrogram
 
-show new plot
+We have (finally) added the `dendrogram` recipe.
+Given a collection of leaf node positions and merge indices, a tree visualization is created.
+
+```julia
+using CairoMakie
+CairoMakie.activate!()
+
+# node positions and indices of pairs that merge
+ps = Point2f.(1:8, 0)
+merges = [(i, i+1) for i in 1:2:13]
+
+f,a,p = dendrogram(ps, merges)
+
+dendrogram(
+    f[2,1], ps, merges, groups = [1, 1, 1, 1, 2, 2, 3, 3],
+    colormap = [:red, :green, :blue], linewidth = 3,
+    branch_shape = :tree, rotation = :up
+)
+
+ax = PolarAxis(f[1:2,2:3])
+cs = vcat(fill(:black, 8), fill(:green, 4), fill(:orange, 2), fill(:red, 1))
+p = dendrogram!(ax, ps, merges, color = cs, width = 2pi - 2pi/9, linewidth = 5)
+node_ps = Makie.dendrogram_node_positions(p)
+textlabel!(
+    ax, node_ps, text = string.(1:15), shape = Circle(Point2f(0), 1),
+    shape_limits = Rect2f(-1,-1,2,2), keep_aspect = true
+)
+rlims!(ax, 0, 3.5)
+
+f
+```
 
 [#2755](https://github.com/MakieOrg/Makie.jl/pull/2755)
 
