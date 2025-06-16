@@ -1,13 +1,11 @@
 <!doctype html>
-<html data-jscall-id="1">
-  <head data-jscall-id="2">
+<html class="bonito-fragment">
+  <head>
     <script src="../../bonito/js/Bonito.bundled15432232505923397289.js" type="module"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" data-jscall-id="3" />
-    <meta charset="utf-8" data-jscall-id="4" />
-    <style>.style_2 {
-  list-style-type: disc;
-}
-</style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <title>Makie v0.23.0</title>
+    <style></style>
     <script>    window.__define = window.define;
     window.__require = window.require;
     window.define = undefined;
@@ -16,123 +14,223 @@
     <link href="../../bonito/css/site12702644314707762978.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com/3.3.1"></script>
     <link href="../../bonito/css/markdown17382678153536898021.css" rel="stylesheet" type="text/css" />
-    <link href="../../bonito/css/github.min8213811099958948332.css" rel="stylesheet" type="text/css" />
     <script>    window.define = window.__define;
     window.require = window.__require;
     window.__define = undefined;
     window.__require = undefined;
 </script>
   </head>
-  <body data-jscall-id="5">
-    <script type="module">Bonito.lock_loading(() => Bonito.init_session('a297745c-2fd9-4d15-aed4-aa6695b096d2', null, 'root', false))</script>
-    <div data-jscall-id="6">
-      <link href="../../bonito/png/icon_transparent1037186205570625945.png" data-jscall-id="7" rel="icon" type="image/png" />
-      <img style="width: 100%" data-jscall-id="8" src="../../bonito/png/bannermesh_gradient12222907222071057261.png" />
-      <div class="flex navbar justify-center" data-jscall-id="9">
-        <div class="flex max-w-5xl w-full md:px-4 flex-wrap" data-jscall-id="10">
-          <a href="../../" data-jscall-id="11" target="">
-            <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="12">Home</div>
-          </a>
-          <a href="../../team" data-jscall-id="13" target="">
-            <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="14">Team</div>
-          </a>
-          <a href="../../support" data-jscall-id="15" target="">
-            <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="16">Support</div>
-          </a>
-          <a href="../../contact" data-jscall-id="17" target="">
-            <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="18">Contact</div>
-          </a>
-          <a href="../../blog" data-jscall-id="19" target="">
-            <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50  navbar-highlight" data-jscall-id="20">Blog</div>
-          </a>
-          <a href="http://docs.makie.org" data-jscall-id="21" target="_blank">
-            <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="22">Docs</div>
-          </a>
-          <a href="https://github.com/MakieOrg/Makie.jl" data-jscall-id="23" target="_blank">
-            <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="24">
-              <img style="height: 1.2rem; display: inline-block; vertical-align: text-bottom;" data-jscall-id="25" src="../../bonito/png/GitHub-Mark-Light-64px12574665218786438484.png" />
-            </div>
-          </a>
-        </div>
-      </div>
-      <div class="p-4 max-w-5xl" data-jscall-id="26">
-        <div data-jscall-id="27">
-          <div data-jscall-id="28">
-            <div class="markdown-body" data-jscall-id="29">
-              <h1 id="Makie v0.23.0" data-jscall-id="30">Makie v0.23.0</h1>
-              <p data-jscall-id="31">Makie 0.23.0 is a relatively small breaking release before the big 0.24.0 ComputePipeline refactor. It&#39;s only breaking change is the 
-                <code data-jscall-id="32">arrows&#40;&#41;</code> refactor.
-              </p>
-              <h2 id="Arrows" data-jscall-id="33">Arrows</h2>
-              <p data-jscall-id="34">show new plots, exemplifying</p>
-              <ul class=" style_2" style="" data-jscall-id="35">
-                <li data-jscall-id="36">
-                  <p data-jscall-id="37">fully size considered in alignment</p>
-                </li>
-                <li data-jscall-id="38">
-                  <p data-jscall-id="39">marker attributes &#43; scaling</p>
-                </li>
-                <li data-jscall-id="40">
-                  <p data-jscall-id="41">How to fight scaling &#40;especially 3D&#41;</p>
-                </li>
-                <li data-jscall-id="42">
-                  <p data-jscall-id="43">3D quality improvement, Cone</p>
-                </li>
-                <li data-jscall-id="44">
-                  <p data-jscall-id="45">argmode, maybe shrink-align</p>
-                </li>
-              </ul>
-              <h2 id="Dendrogram" data-jscall-id="46">Dendrogram</h2>
-              <p data-jscall-id="47">show new plot</p>
-              <h2 id="Backlog" data-jscall-id="48">Backlog</h2>
-              <p data-jscall-id="49">0.22.8</p>
-              <h3 id="Annotation" data-jscall-id="50">Annotation</h3>
-              <p data-jscall-id="51">show new plot</p>
-              <p data-jscall-id="52">0.22.5</p>
-              <h3 id="Legend entries for mesh, meshscatter, image, heatmap and surface plots" data-jscall-id="53">Legend entries for mesh, meshscatter, image, heatmap and surface plots</h3>
-              <p data-jscall-id="54">show example with new entries</p>
-              <h3 id="Hide/show interaction for Legend" data-jscall-id="55">Hide/show interaction for Legend</h3>
-              <p data-jscall-id="56">show animation</p>
-              <h3 id="PolarAxis Ticks" data-jscall-id="57">PolarAxis Ticks</h3>
-              <p data-jscall-id="58">show new feature</p>
-              <h3 id="Anisotropic marker rendering in GLMakie &#38; WGLMakie" data-jscall-id="59">Anisotropic marker rendering in GLMakie &#38; WGLMakie</h3>
-              <p data-jscall-id="60">show old vs new</p>
-              <p data-jscall-id="61">0.22.3</p>
-              <h3 id="Textlabel" data-jscall-id="62">Textlabel</h3>
-              <p data-jscall-id="63">show new plot</p>
-              <h3 id="" data-jscall-id="64">
-                <code data-jscall-id="65">space</code>, 
-                <code data-jscall-id="66">transformation</code> changes
-              </h3>
-              <p data-jscall-id="67">explain:</p>
-              <ul class=" style_2" style="" data-jscall-id="68">
-                <li data-jscall-id="69">
-                  <p data-jscall-id="70">always apply transformations</p>
-                </li>
-                <li data-jscall-id="71">
-                  <p data-jscall-id="72">rely on plot construction to avoid transformations instead</p>
-                </li>
-                <li data-jscall-id="73">
-                  <p data-jscall-id="74">symbols for transformation inheritance settings</p>
-                </li>
-              </ul>
-              <h3 id="Scatter font" data-jscall-id="75">Scatter font</h3>
-              <p data-jscall-id="76">show that scatter fonts can be adjusted</p>
-            </div>
-            <div data-jscall-id="77">
-              <script data-jscall-id="78" src="../../bonito/js/highlight.pack13102628173626074447.js"></script>
-              <script data-jscall-id="79">hljs.highlightAll()</script>
-            </div>
-          </div>
-          <span></span>
-        </div>
-      </div>
-      <div data-jscall-id="80">
-        <script async="true" defer="true" data-jscall-id="81" src="https://api.makie.org/latest.js"></script>
-        <noscript data-jscall-id="82">
-          <img alt="" data-jscall-id="83" src="https://api.makie.org/noscript.gif" referrerpolicy="no-referrer-when-downgrade" />
-        </noscript>
-      </div>
+  <body>
+    <script type="module">Bonito.lock_loading(() => Bonito.init_session('5e87fcb1-0618-4a78-a14c-0ea3628985f6', null, 'root', false))</script>
+    <div id="5e87fcb1-0618-4a78-a14c-0ea3628985f6" data-jscall-id="root">
+      <pre class="backtrace" style="overflow-x: auto;" data-jscall-id="29">
+        <h3 style="color: red;" data-jscall-id="30">ArgumentError: Package CairoMakie not found in current path.
+- Run &#96;import Pkg; Pkg.add&#40;&#34;CairoMakie&#34;&#41;&#96; to install the CairoMakie package.</h3>
+        <span data-jscall-id="31">Stacktrace:</span>
+        <br data-jscall-id="32" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="33">  &#91;1&#93; macro expansion</span>
+        <br data-jscall-id="34" />
+        <span data-jscall-id="35">    &#64; 
+          <a href="vscode://file/./loading.jl:2296" data-jscall-id="36">./loading.jl:2296</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="37" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="38">  &#91;2&#93; macro expansion</span>
+        <br data-jscall-id="39" />
+        <span data-jscall-id="40">    &#64; 
+          <a href="vscode://file/./lock.jl:273" data-jscall-id="41">./lock.jl:273</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="42" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="43">  &#91;3&#93; __require&#40;into::Module, mod::Symbol&#41;</span>
+        <br data-jscall-id="44" />
+        <span data-jscall-id="45">    &#64; Base 
+          <a href="vscode://file/./loading.jl:2271" data-jscall-id="46">./loading.jl:2271</a>
+        </span>
+        <br data-jscall-id="47" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="48">  &#91;4&#93; #invoke_in_world#3</span>
+        <br data-jscall-id="49" />
+        <span data-jscall-id="50">    &#64; 
+          <a href="vscode://file/./essentials.jl:1089" data-jscall-id="51">./essentials.jl:1089</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="52" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="53">  &#91;5&#93; invoke_in_world</span>
+        <br data-jscall-id="54" />
+        <span data-jscall-id="55">    &#64; 
+          <a href="vscode://file/./essentials.jl:1086" data-jscall-id="56">./essentials.jl:1086</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="57" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="58">  &#91;6&#93; require&#40;into::Module, mod::Symbol&#41;</span>
+        <br data-jscall-id="59" />
+        <span data-jscall-id="60">    &#64; Base 
+          <a href="vscode://file/./loading.jl:2260" data-jscall-id="61">./loading.jl:2260</a>
+        </span>
+        <br data-jscall-id="62" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="63">  &#91;7&#93; top-level scope</span>
+        <br data-jscall-id="64" />
+        <span data-jscall-id="65">    &#64; none:1</span>
+        <br data-jscall-id="66" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="67">  &#91;8&#93; eval&#40;m::Module, e::Any&#41;</span>
+        <br data-jscall-id="68" />
+        <span data-jscall-id="69">    &#64; Core 
+          <a href="vscode://file/./boot.jl:430" data-jscall-id="70">./boot.jl:430</a>
+        </span>
+        <br data-jscall-id="71" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="72">  &#91;9&#93; eval&#40;md::Bonito.ModuleRunner, expr::Expr&#41;</span>
+        <br data-jscall-id="73" />
+        <span data-jscall-id="74">    &#64; Bonito ~/.julia/packages/Bonito/PiA4w/src/rendering/markdown_integration.jl:12</span>
+        <br data-jscall-id="75" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="76"> &#91;10&#93; replace_expressions&#40;markdown::Markdown.Code, replacements::Dict&#123;Any, Function&#125;, runner::Bonito.ModuleRunner&#41;</span>
+        <br data-jscall-id="77" />
+        <span data-jscall-id="78">    &#64; Bonito ~/.julia/packages/Bonito/PiA4w/src/rendering/markdown_integration.jl:222</span>
+        <br data-jscall-id="79" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="80"> &#91;11&#93; _broadcast_getindex_evalf</span>
+        <br data-jscall-id="81" />
+        <span data-jscall-id="82">    &#64; 
+          <a href="vscode://file/./broadcast.jl:678" data-jscall-id="83">./broadcast.jl:678</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="84" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="85"> &#91;12&#93; _broadcast_getindex</span>
+        <br data-jscall-id="86" />
+        <span data-jscall-id="87">    &#64; 
+          <a href="vscode://file/./broadcast.jl:651" data-jscall-id="88">./broadcast.jl:651</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="89" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="90"> &#91;13&#93; getindex</span>
+        <br data-jscall-id="91" />
+        <span data-jscall-id="92">    &#64; 
+          <a href="vscode://file/./broadcast.jl:610" data-jscall-id="93">./broadcast.jl:610</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="94" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="95"> &#91;14&#93; macro expansion</span>
+        <br data-jscall-id="96" />
+        <span data-jscall-id="97">    &#64; 
+          <a href="vscode://file/./broadcast.jl:973" data-jscall-id="98">./broadcast.jl:973</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="99" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="100"> &#91;15&#93; macro expansion</span>
+        <br data-jscall-id="101" />
+        <span data-jscall-id="102">    &#64; 
+          <a href="vscode://file/./simdloop.jl:77" data-jscall-id="103">./simdloop.jl:77</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="104" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="105"> &#91;16&#93; copyto&#33;</span>
+        <br data-jscall-id="106" />
+        <span data-jscall-id="107">    &#64; 
+          <a href="vscode://file/./broadcast.jl:972" data-jscall-id="108">./broadcast.jl:972</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="109" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="110"> &#91;17&#93; copyto&#33;</span>
+        <br data-jscall-id="111" />
+        <span data-jscall-id="112">    &#64; 
+          <a href="vscode://file/./broadcast.jl:925" data-jscall-id="113">./broadcast.jl:925</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="114" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="115"> &#91;18&#93; materialize&#33;</span>
+        <br data-jscall-id="116" />
+        <span data-jscall-id="117">    &#64; 
+          <a href="vscode://file/./broadcast.jl:883" data-jscall-id="118">./broadcast.jl:883</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="119" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="120"> &#91;19&#93; materialize&#33;</span>
+        <br data-jscall-id="121" />
+        <span data-jscall-id="122">    &#64; 
+          <a href="vscode://file/./broadcast.jl:880" data-jscall-id="123">./broadcast.jl:880</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="124" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="125"> &#91;20&#93; replace_expressions&#40;markdown::Markdown.MD, replacements::Dict&#123;Any, Function&#125;, runner::Bonito.ModuleRunner&#41;</span>
+        <br data-jscall-id="126" />
+        <span data-jscall-id="127">    &#64; Bonito ~/.julia/packages/Bonito/PiA4w/src/rendering/markdown_integration.jl:177</span>
+        <br data-jscall-id="128" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="129"> &#91;21&#93; #string_to_markdown#84</span>
+        <br data-jscall-id="130" />
+        <span data-jscall-id="131">    &#64; ~/.julia/packages/Bonito/PiA4w/src/rendering/markdown_integration.jl:253 &#91;inlined&#93;</span>
+        <br data-jscall-id="132" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="133"> &#91;22&#93; jsrender&#40;session::Session&#123;NoConnection&#125;, em::Bonito.EvalMarkdown&#41;</span>
+        <br data-jscall-id="134" />
+        <span data-jscall-id="135">    &#64; Bonito ~/.julia/packages/Bonito/PiA4w/src/rendering/markdown_integration.jl:32</span>
+        <br data-jscall-id="136" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="137"> &#91;23&#93; render_node&#40;session::Session&#123;NoConnection&#125;, node::Hyperscript.Node&#123;Hyperscript.HTMLSVG&#125;&#41;</span>
+        <br data-jscall-id="138" />
+        <span data-jscall-id="139">    &#64; Bonito ~/.julia/packages/Bonito/PiA4w/src/rendering/hyperscript_integration.jl:171</span>
+        <br data-jscall-id="140" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="141"> &#91;24&#93; jsrender&#40;session::Session&#123;NoConnection&#125;, node::Hyperscript.Node&#123;Hyperscript.HTMLSVG&#125;&#41;</span>
+        <br data-jscall-id="142" />
+        <span data-jscall-id="143">    &#64; Bonito ~/.julia/packages/Bonito/PiA4w/src/rendering/hyperscript_integration.jl:201</span>
+        <br data-jscall-id="144" />
+        <span data-jscall-id="145">--- the above 2 lines are repeated 5 more times ---</span>
+        <br data-jscall-id="146" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="147"> &#91;35&#93; rendered_dom&#40;session::Session&#123;NoConnection&#125;, app::App, target::HTTP.Messages.Request&#41;</span>
+        <br data-jscall-id="148" />
+        <span data-jscall-id="149">    &#64; Bonito ~/.julia/packages/Bonito/PiA4w/src/app.jl:43</span>
+        <br data-jscall-id="150" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="151"> &#91;36&#93; rendered_dom</span>
+        <br data-jscall-id="152" />
+        <span data-jscall-id="153">    &#64; ~/.julia/packages/Bonito/PiA4w/src/app.jl:39 &#91;inlined&#93;</span>
+        <br data-jscall-id="154" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="155"> &#91;37&#93; session_dom&#40;session::Session&#123;NoConnection&#125;, app::App; init::Bool, html_document::Bool&#41;</span>
+        <br data-jscall-id="156" />
+        <span data-jscall-id="157">    &#64; Bonito ~/.julia/packages/Bonito/PiA4w/src/session.jl:363</span>
+        <br data-jscall-id="158" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="159"> &#91;38&#93; page_html&#40;io::IOStream, session::Session&#123;NoConnection&#125;, app_node::App&#41;</span>
+        <br data-jscall-id="160" />
+        <span data-jscall-id="161">    &#64; Bonito ~/.julia/packages/Bonito/PiA4w/src/display.jl:113</span>
+        <br data-jscall-id="162" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="163"> &#91;39&#93; #export_static#233</span>
+        <br data-jscall-id="164" />
+        <span data-jscall-id="165">    &#64; ~/.julia/packages/Bonito/PiA4w/src/export.jl:210 &#91;inlined&#93;</span>
+        <br data-jscall-id="166" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="167"> &#91;40&#93; export_static</span>
+        <br data-jscall-id="168" />
+        <span data-jscall-id="169">    &#64; ~/.julia/packages/Bonito/PiA4w/src/export.jl:204 &#91;inlined&#93;</span>
+        <br data-jscall-id="170" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="171"> &#91;41&#93; #231</span>
+        <br data-jscall-id="172" />
+        <span data-jscall-id="173">    &#64; ~/.julia/packages/Bonito/PiA4w/src/export.jl:200 &#91;inlined&#93;</span>
+        <br data-jscall-id="174" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="175"> &#91;42&#93; open&#40;::Bonito.var&#34;#231#232&#34;&#123;Session&#123;NoConnection&#125;, App&#125;, ::String, ::Vararg&#123;String&#125;; kwargs::&#64;Kwargs&#123;&#125;&#41;</span>
+        <br data-jscall-id="176" />
+        <span data-jscall-id="177">    &#64; Base 
+          <a href="vscode://file/./io.jl:410" data-jscall-id="178">./io.jl:410</a>
+        </span>
+        <br data-jscall-id="179" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="180"> &#91;43&#93; open</span>
+        <br data-jscall-id="181" />
+        <span data-jscall-id="182">    &#64; 
+          <a href="vscode://file/./io.jl:407" data-jscall-id="183">./io.jl:407</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="184" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="185"> &#91;44&#93; #export_static#230</span>
+        <br data-jscall-id="186" />
+        <span data-jscall-id="187">    &#64; ~/.julia/packages/Bonito/PiA4w/src/export.jl:199 &#91;inlined&#93;</span>
+        <br data-jscall-id="188" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="189"> &#91;45&#93; export_static</span>
+        <br data-jscall-id="190" />
+        <span data-jscall-id="191">    &#64; ~/.julia/packages/Bonito/PiA4w/src/export.jl:195 &#91;inlined&#93;</span>
+        <br data-jscall-id="192" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="193"> &#91;46&#93; export_static&#40;folder::String, routes::Routes; connection::NoConnection, asset_server::AssetFolder&#41;</span>
+        <br data-jscall-id="194" />
+        <span data-jscall-id="195">    &#64; Bonito ~/.julia/packages/Bonito/PiA4w/src/export.jl:222</span>
+        <br data-jscall-id="196" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="197"> &#91;47&#93; export_static&#40;folder::String, routes::Routes&#41;</span>
+        <br data-jscall-id="198" />
+        <span data-jscall-id="199">    &#64; Bonito ~/.julia/packages/Bonito/PiA4w/src/export.jl:214</span>
+        <br data-jscall-id="200" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="201"> &#91;48&#93; top-level scope</span>
+        <br data-jscall-id="202" />
+        <span data-jscall-id="203">    &#64; ~/work/Website/Website/docs/make.jl:42</span>
+        <br data-jscall-id="204" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="205"> &#91;49&#93; include&#40;mod::Module, _path::String&#41;</span>
+        <br data-jscall-id="206" />
+        <span data-jscall-id="207">    &#64; Base 
+          <a href="vscode://file/./Base.jl:557" data-jscall-id="208">./Base.jl:557</a>
+        </span>
+        <br data-jscall-id="209" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="210"> &#91;50&#93; exec_options&#40;opts::Base.JLOptions&#41;</span>
+        <br data-jscall-id="211" />
+        <span data-jscall-id="212">    &#64; Base 
+          <a href="vscode://file/./client.jl:323" data-jscall-id="213">./client.jl:323</a>
+        </span>
+        <br data-jscall-id="214" />
+      </pre>
     </div>
   </body>
 </html>
