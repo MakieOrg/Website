@@ -1,11 +1,13 @@
 <!doctype html>
-<html class="bonito-fragment">
-  <head>
+<html data-jscall-id="1">
+  <head data-jscall-id="2">
     <script src="../../bonito/js/Bonito.bundled15432232505923397289.js" type="module"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta charset="UTF-8" />
-    <title>Makie v0.23.0</title>
-    <style></style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" data-jscall-id="3" />
+    <meta charset="utf-8" data-jscall-id="4" />
+    <style>.style_2 {
+  list-style-type: disc;
+}
+</style>
     <script>    window.__define = window.define;
     window.__require = window.require;
     window.define = undefined;
@@ -14,223 +16,500 @@
     <link href="../../bonito/css/site12702644314707762978.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com/3.3.1"></script>
     <link href="../../bonito/css/markdown17382678153536898021.css" rel="stylesheet" type="text/css" />
+    <link href="../../bonito/css/github.min8213811099958948332.css" rel="stylesheet" type="text/css" />
     <script>    window.define = window.__define;
     window.require = window.__require;
     window.__define = undefined;
     window.__require = undefined;
 </script>
   </head>
-  <body>
-    <script type="module">Bonito.lock_loading(() => Bonito.init_session('ddb46501-54a1-4009-9b28-d52ad111158b', null, 'root', false))</script>
-    <div id="ddb46501-54a1-4009-9b28-d52ad111158b" data-jscall-id="root">
-      <pre class="backtrace" style="overflow-x: auto;" data-jscall-id="29">
-        <h3 style="color: red;" data-jscall-id="30">ArgumentError: Package GLMakie not found in current path.
-- Run &#96;import Pkg; Pkg.add&#40;&#34;GLMakie&#34;&#41;&#96; to install the GLMakie package.</h3>
-        <span data-jscall-id="31">Stacktrace:</span>
-        <br data-jscall-id="32" />
-        <span style="color: darkred; font-weight: bold;" data-jscall-id="33">  &#91;1&#93; macro expansion</span>
-        <br data-jscall-id="34" />
-        <span data-jscall-id="35">    &#64; 
-          <a href="vscode://file/./loading.jl:2296" data-jscall-id="36">./loading.jl:2296</a> &#91;inlined&#93;
-        </span>
-        <br data-jscall-id="37" />
-        <span style="color: darkred; font-weight: bold;" data-jscall-id="38">  &#91;2&#93; macro expansion</span>
-        <br data-jscall-id="39" />
-        <span data-jscall-id="40">    &#64; 
-          <a href="vscode://file/./lock.jl:273" data-jscall-id="41">./lock.jl:273</a> &#91;inlined&#93;
-        </span>
-        <br data-jscall-id="42" />
-        <span style="color: darkred; font-weight: bold;" data-jscall-id="43">  &#91;3&#93; __require&#40;into::Module, mod::Symbol&#41;</span>
-        <br data-jscall-id="44" />
-        <span data-jscall-id="45">    &#64; Base 
-          <a href="vscode://file/./loading.jl:2271" data-jscall-id="46">./loading.jl:2271</a>
-        </span>
-        <br data-jscall-id="47" />
-        <span style="color: darkred; font-weight: bold;" data-jscall-id="48">  &#91;4&#93; #invoke_in_world#3</span>
-        <br data-jscall-id="49" />
-        <span data-jscall-id="50">    &#64; 
-          <a href="vscode://file/./essentials.jl:1089" data-jscall-id="51">./essentials.jl:1089</a> &#91;inlined&#93;
-        </span>
-        <br data-jscall-id="52" />
-        <span style="color: darkred; font-weight: bold;" data-jscall-id="53">  &#91;5&#93; invoke_in_world</span>
-        <br data-jscall-id="54" />
-        <span data-jscall-id="55">    &#64; 
-          <a href="vscode://file/./essentials.jl:1086" data-jscall-id="56">./essentials.jl:1086</a> &#91;inlined&#93;
-        </span>
-        <br data-jscall-id="57" />
-        <span style="color: darkred; font-weight: bold;" data-jscall-id="58">  &#91;6&#93; require&#40;into::Module, mod::Symbol&#41;</span>
-        <br data-jscall-id="59" />
-        <span data-jscall-id="60">    &#64; Base 
-          <a href="vscode://file/./loading.jl:2260" data-jscall-id="61">./loading.jl:2260</a>
-        </span>
-        <br data-jscall-id="62" />
-        <span style="color: darkred; font-weight: bold;" data-jscall-id="63">  &#91;7&#93; top-level scope</span>
-        <br data-jscall-id="64" />
-        <span data-jscall-id="65">    &#64; none:1</span>
-        <br data-jscall-id="66" />
-        <span style="color: darkred; font-weight: bold;" data-jscall-id="67">  &#91;8&#93; eval&#40;m::Module, e::Any&#41;</span>
-        <br data-jscall-id="68" />
-        <span data-jscall-id="69">    &#64; Core 
-          <a href="vscode://file/./boot.jl:430" data-jscall-id="70">./boot.jl:430</a>
-        </span>
-        <br data-jscall-id="71" />
-        <span style="color: darkred; font-weight: bold;" data-jscall-id="72">  &#91;9&#93; eval&#40;md::Bonito.ModuleRunner, expr::Expr&#41;</span>
-        <br data-jscall-id="73" />
-        <span data-jscall-id="74">    &#64; Bonito ~/.julia/packages/Bonito/PiA4w/src/rendering/markdown_integration.jl:12</span>
-        <br data-jscall-id="75" />
-        <span style="color: darkred; font-weight: bold;" data-jscall-id="76"> &#91;10&#93; replace_expressions&#40;markdown::Markdown.Code, replacements::Dict&#123;Any, Function&#125;, runner::Bonito.ModuleRunner&#41;</span>
-        <br data-jscall-id="77" />
-        <span data-jscall-id="78">    &#64; Bonito ~/.julia/packages/Bonito/PiA4w/src/rendering/markdown_integration.jl:222</span>
-        <br data-jscall-id="79" />
-        <span style="color: darkred; font-weight: bold;" data-jscall-id="80"> &#91;11&#93; _broadcast_getindex_evalf</span>
-        <br data-jscall-id="81" />
-        <span data-jscall-id="82">    &#64; 
-          <a href="vscode://file/./broadcast.jl:678" data-jscall-id="83">./broadcast.jl:678</a> &#91;inlined&#93;
-        </span>
-        <br data-jscall-id="84" />
-        <span style="color: darkred; font-weight: bold;" data-jscall-id="85"> &#91;12&#93; _broadcast_getindex</span>
-        <br data-jscall-id="86" />
-        <span data-jscall-id="87">    &#64; 
-          <a href="vscode://file/./broadcast.jl:651" data-jscall-id="88">./broadcast.jl:651</a> &#91;inlined&#93;
-        </span>
-        <br data-jscall-id="89" />
-        <span style="color: darkred; font-weight: bold;" data-jscall-id="90"> &#91;13&#93; getindex</span>
-        <br data-jscall-id="91" />
-        <span data-jscall-id="92">    &#64; 
-          <a href="vscode://file/./broadcast.jl:610" data-jscall-id="93">./broadcast.jl:610</a> &#91;inlined&#93;
-        </span>
-        <br data-jscall-id="94" />
-        <span style="color: darkred; font-weight: bold;" data-jscall-id="95"> &#91;14&#93; macro expansion</span>
-        <br data-jscall-id="96" />
-        <span data-jscall-id="97">    &#64; 
-          <a href="vscode://file/./broadcast.jl:973" data-jscall-id="98">./broadcast.jl:973</a> &#91;inlined&#93;
-        </span>
-        <br data-jscall-id="99" />
-        <span style="color: darkred; font-weight: bold;" data-jscall-id="100"> &#91;15&#93; macro expansion</span>
-        <br data-jscall-id="101" />
-        <span data-jscall-id="102">    &#64; 
-          <a href="vscode://file/./simdloop.jl:77" data-jscall-id="103">./simdloop.jl:77</a> &#91;inlined&#93;
-        </span>
-        <br data-jscall-id="104" />
-        <span style="color: darkred; font-weight: bold;" data-jscall-id="105"> &#91;16&#93; copyto&#33;</span>
-        <br data-jscall-id="106" />
-        <span data-jscall-id="107">    &#64; 
-          <a href="vscode://file/./broadcast.jl:972" data-jscall-id="108">./broadcast.jl:972</a> &#91;inlined&#93;
-        </span>
-        <br data-jscall-id="109" />
-        <span style="color: darkred; font-weight: bold;" data-jscall-id="110"> &#91;17&#93; copyto&#33;</span>
-        <br data-jscall-id="111" />
-        <span data-jscall-id="112">    &#64; 
-          <a href="vscode://file/./broadcast.jl:925" data-jscall-id="113">./broadcast.jl:925</a> &#91;inlined&#93;
-        </span>
-        <br data-jscall-id="114" />
-        <span style="color: darkred; font-weight: bold;" data-jscall-id="115"> &#91;18&#93; materialize&#33;</span>
-        <br data-jscall-id="116" />
-        <span data-jscall-id="117">    &#64; 
-          <a href="vscode://file/./broadcast.jl:883" data-jscall-id="118">./broadcast.jl:883</a> &#91;inlined&#93;
-        </span>
-        <br data-jscall-id="119" />
-        <span style="color: darkred; font-weight: bold;" data-jscall-id="120"> &#91;19&#93; materialize&#33;</span>
-        <br data-jscall-id="121" />
-        <span data-jscall-id="122">    &#64; 
-          <a href="vscode://file/./broadcast.jl:880" data-jscall-id="123">./broadcast.jl:880</a> &#91;inlined&#93;
-        </span>
-        <br data-jscall-id="124" />
-        <span style="color: darkred; font-weight: bold;" data-jscall-id="125"> &#91;20&#93; replace_expressions&#40;markdown::Markdown.MD, replacements::Dict&#123;Any, Function&#125;, runner::Bonito.ModuleRunner&#41;</span>
-        <br data-jscall-id="126" />
-        <span data-jscall-id="127">    &#64; Bonito ~/.julia/packages/Bonito/PiA4w/src/rendering/markdown_integration.jl:177</span>
-        <br data-jscall-id="128" />
-        <span style="color: darkred; font-weight: bold;" data-jscall-id="129"> &#91;21&#93; #string_to_markdown#84</span>
-        <br data-jscall-id="130" />
-        <span data-jscall-id="131">    &#64; ~/.julia/packages/Bonito/PiA4w/src/rendering/markdown_integration.jl:253 &#91;inlined&#93;</span>
-        <br data-jscall-id="132" />
-        <span style="color: darkred; font-weight: bold;" data-jscall-id="133"> &#91;22&#93; jsrender&#40;session::Session&#123;NoConnection&#125;, em::Bonito.EvalMarkdown&#41;</span>
-        <br data-jscall-id="134" />
-        <span data-jscall-id="135">    &#64; Bonito ~/.julia/packages/Bonito/PiA4w/src/rendering/markdown_integration.jl:32</span>
-        <br data-jscall-id="136" />
-        <span style="color: darkred; font-weight: bold;" data-jscall-id="137"> &#91;23&#93; render_node&#40;session::Session&#123;NoConnection&#125;, node::Hyperscript.Node&#123;Hyperscript.HTMLSVG&#125;&#41;</span>
-        <br data-jscall-id="138" />
-        <span data-jscall-id="139">    &#64; Bonito ~/.julia/packages/Bonito/PiA4w/src/rendering/hyperscript_integration.jl:171</span>
-        <br data-jscall-id="140" />
-        <span style="color: darkred; font-weight: bold;" data-jscall-id="141"> &#91;24&#93; jsrender&#40;session::Session&#123;NoConnection&#125;, node::Hyperscript.Node&#123;Hyperscript.HTMLSVG&#125;&#41;</span>
-        <br data-jscall-id="142" />
-        <span data-jscall-id="143">    &#64; Bonito ~/.julia/packages/Bonito/PiA4w/src/rendering/hyperscript_integration.jl:201</span>
-        <br data-jscall-id="144" />
-        <span data-jscall-id="145">--- the above 2 lines are repeated 5 more times ---</span>
-        <br data-jscall-id="146" />
-        <span style="color: darkred; font-weight: bold;" data-jscall-id="147"> &#91;35&#93; rendered_dom&#40;session::Session&#123;NoConnection&#125;, app::App, target::HTTP.Messages.Request&#41;</span>
-        <br data-jscall-id="148" />
-        <span data-jscall-id="149">    &#64; Bonito ~/.julia/packages/Bonito/PiA4w/src/app.jl:43</span>
-        <br data-jscall-id="150" />
-        <span style="color: darkred; font-weight: bold;" data-jscall-id="151"> &#91;36&#93; rendered_dom</span>
-        <br data-jscall-id="152" />
-        <span data-jscall-id="153">    &#64; ~/.julia/packages/Bonito/PiA4w/src/app.jl:39 &#91;inlined&#93;</span>
-        <br data-jscall-id="154" />
-        <span style="color: darkred; font-weight: bold;" data-jscall-id="155"> &#91;37&#93; session_dom&#40;session::Session&#123;NoConnection&#125;, app::App; init::Bool, html_document::Bool&#41;</span>
-        <br data-jscall-id="156" />
-        <span data-jscall-id="157">    &#64; Bonito ~/.julia/packages/Bonito/PiA4w/src/session.jl:363</span>
-        <br data-jscall-id="158" />
-        <span style="color: darkred; font-weight: bold;" data-jscall-id="159"> &#91;38&#93; page_html&#40;io::IOStream, session::Session&#123;NoConnection&#125;, app_node::App&#41;</span>
-        <br data-jscall-id="160" />
-        <span data-jscall-id="161">    &#64; Bonito ~/.julia/packages/Bonito/PiA4w/src/display.jl:113</span>
-        <br data-jscall-id="162" />
-        <span style="color: darkred; font-weight: bold;" data-jscall-id="163"> &#91;39&#93; #export_static#233</span>
-        <br data-jscall-id="164" />
-        <span data-jscall-id="165">    &#64; ~/.julia/packages/Bonito/PiA4w/src/export.jl:210 &#91;inlined&#93;</span>
-        <br data-jscall-id="166" />
-        <span style="color: darkred; font-weight: bold;" data-jscall-id="167"> &#91;40&#93; export_static</span>
-        <br data-jscall-id="168" />
-        <span data-jscall-id="169">    &#64; ~/.julia/packages/Bonito/PiA4w/src/export.jl:204 &#91;inlined&#93;</span>
-        <br data-jscall-id="170" />
-        <span style="color: darkred; font-weight: bold;" data-jscall-id="171"> &#91;41&#93; #231</span>
-        <br data-jscall-id="172" />
-        <span data-jscall-id="173">    &#64; ~/.julia/packages/Bonito/PiA4w/src/export.jl:200 &#91;inlined&#93;</span>
-        <br data-jscall-id="174" />
-        <span style="color: darkred; font-weight: bold;" data-jscall-id="175"> &#91;42&#93; open&#40;::Bonito.var&#34;#231#232&#34;&#123;Session&#123;NoConnection&#125;, App&#125;, ::String, ::Vararg&#123;String&#125;; kwargs::&#64;Kwargs&#123;&#125;&#41;</span>
-        <br data-jscall-id="176" />
-        <span data-jscall-id="177">    &#64; Base 
-          <a href="vscode://file/./io.jl:410" data-jscall-id="178">./io.jl:410</a>
-        </span>
-        <br data-jscall-id="179" />
-        <span style="color: darkred; font-weight: bold;" data-jscall-id="180"> &#91;43&#93; open</span>
-        <br data-jscall-id="181" />
-        <span data-jscall-id="182">    &#64; 
-          <a href="vscode://file/./io.jl:407" data-jscall-id="183">./io.jl:407</a> &#91;inlined&#93;
-        </span>
-        <br data-jscall-id="184" />
-        <span style="color: darkred; font-weight: bold;" data-jscall-id="185"> &#91;44&#93; #export_static#230</span>
-        <br data-jscall-id="186" />
-        <span data-jscall-id="187">    &#64; ~/.julia/packages/Bonito/PiA4w/src/export.jl:199 &#91;inlined&#93;</span>
-        <br data-jscall-id="188" />
-        <span style="color: darkred; font-weight: bold;" data-jscall-id="189"> &#91;45&#93; export_static</span>
-        <br data-jscall-id="190" />
-        <span data-jscall-id="191">    &#64; ~/.julia/packages/Bonito/PiA4w/src/export.jl:195 &#91;inlined&#93;</span>
-        <br data-jscall-id="192" />
-        <span style="color: darkred; font-weight: bold;" data-jscall-id="193"> &#91;46&#93; export_static&#40;folder::String, routes::Routes; connection::NoConnection, asset_server::AssetFolder&#41;</span>
-        <br data-jscall-id="194" />
-        <span data-jscall-id="195">    &#64; Bonito ~/.julia/packages/Bonito/PiA4w/src/export.jl:222</span>
-        <br data-jscall-id="196" />
-        <span style="color: darkred; font-weight: bold;" data-jscall-id="197"> &#91;47&#93; export_static&#40;folder::String, routes::Routes&#41;</span>
-        <br data-jscall-id="198" />
-        <span data-jscall-id="199">    &#64; Bonito ~/.julia/packages/Bonito/PiA4w/src/export.jl:214</span>
-        <br data-jscall-id="200" />
-        <span style="color: darkred; font-weight: bold;" data-jscall-id="201"> &#91;48&#93; top-level scope</span>
-        <br data-jscall-id="202" />
-        <span data-jscall-id="203">    &#64; ~/work/Website/Website/docs/make.jl:42</span>
-        <br data-jscall-id="204" />
-        <span style="color: darkred; font-weight: bold;" data-jscall-id="205"> &#91;49&#93; include&#40;mod::Module, _path::String&#41;</span>
-        <br data-jscall-id="206" />
-        <span data-jscall-id="207">    &#64; Base 
-          <a href="vscode://file/./Base.jl:557" data-jscall-id="208">./Base.jl:557</a>
-        </span>
-        <br data-jscall-id="209" />
-        <span style="color: darkred; font-weight: bold;" data-jscall-id="210"> &#91;50&#93; exec_options&#40;opts::Base.JLOptions&#41;</span>
-        <br data-jscall-id="211" />
-        <span data-jscall-id="212">    &#64; Base 
-          <a href="vscode://file/./client.jl:323" data-jscall-id="213">./client.jl:323</a>
-        </span>
-        <br data-jscall-id="214" />
-      </pre>
+  <body data-jscall-id="5">
+    <script type="module">Bonito.lock_loading(() => Bonito.init_session('3f4f06a9-ca93-4549-bf2d-2ab0ca685131', null, 'root', false))</script>
+    <div data-jscall-id="6">
+      <link href="../../bonito/png/icon_transparent1037186205570625945.png" data-jscall-id="7" rel="icon" type="image/png" />
+      <img style="width: 100%" data-jscall-id="8" src="../../bonito/png/bannermesh_gradient12222907222071057261.png" />
+      <div class="flex navbar justify-center" data-jscall-id="9">
+        <div class="flex max-w-5xl w-full md:px-4 flex-wrap" data-jscall-id="10">
+          <a href="../../" data-jscall-id="11" target="">
+            <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="12">Home</div>
+          </a>
+          <a href="../../team" data-jscall-id="13" target="">
+            <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="14">Team</div>
+          </a>
+          <a href="../../support" data-jscall-id="15" target="">
+            <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="16">Support</div>
+          </a>
+          <a href="../../contact" data-jscall-id="17" target="">
+            <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="18">Contact</div>
+          </a>
+          <a href="../../blog" data-jscall-id="19" target="">
+            <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50  navbar-highlight" data-jscall-id="20">Blog</div>
+          </a>
+          <a href="http://docs.makie.org" data-jscall-id="21" target="_blank">
+            <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="22">Docs</div>
+          </a>
+          <a href="https://github.com/MakieOrg/Makie.jl" data-jscall-id="23" target="_blank">
+            <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="24">
+              <img style="height: 1.2rem; display: inline-block; vertical-align: text-bottom;" data-jscall-id="25" src="../../bonito/png/GitHub-Mark-Light-64px12574665218786438484.png" />
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="p-4 max-w-5xl" data-jscall-id="26">
+        <div data-jscall-id="27">
+          <div data-jscall-id="28">
+            <div class="markdown-body" data-jscall-id="29">
+              <h1 id="Makie v0.23.0" data-jscall-id="30">Makie v0.23.0</h1>
+              <p data-jscall-id="31">Makie 0.23.0 is a relatively small breaking release before the big 0.24.0 ComputePipeline refactor. It&#39;s only breaking change is the 
+                <code data-jscall-id="32">arrows&#40;&#41;</code> refactor.
+              </p>
+              <h2 id="Arrows" data-jscall-id="33">Arrows</h2>
+              <p data-jscall-id="34">Arrows have been refactored to address a number of issues, most importantly issues with scaling and alignment. Before 0.23 
+                <code data-jscall-id="35">arrows</code> did not consider the arrow tip as part of the length, which meant that arrows were always longer than they should be. When aligning to their tip, they actually aligned to the endpoint of the shaft &#40;called tail pre 0.23&#41; instead.
+              </p>
+              <p data-jscall-id="36">The new 
+                <code data-jscall-id="37">arrows2d</code> and 
+                <code data-jscall-id="38">arrows3d</code> now strictly follow the rule that the final arrow length must match the length derived from 
+                <code data-jscall-id="39">directions</code>, 
+                <code data-jscall-id="40">normalize</code> and 
+                <code data-jscall-id="41">lengthscale</code>. The arrows may stretch their shaft or scale as a whole to achieve this.
+              </p>
+              <div class="markdown-body" data-jscall-id="42">
+                <pre data-jscall-id="43">
+                  <code class="language-julia" data-jscall-id="44">using CairoMakie
+CairoMakie.activate&#33;&#40;&#41;
+
+f &#61; Figure&#40;size &#61; &#40;600, 300&#41;&#41;
+hlines&#40;f&#91;1, 1&#93;, &#91;0, 0.2, 2, 5&#93;&#41;
+arrows2d&#33;&#40;1:3, zeros&#40;3&#41;, zeros&#40;3&#41;, &#91;0.2, 2, 5&#93;&#41;
+hlines&#40;f&#91;1, 2&#93;, &#91;0, 0.2, 2, 5&#93;&#41;
+arrows3d&#33;&#40;1:3, zeros&#40;3&#41;, zeros&#40;3&#41;, &#91;0.2, 2, 5&#93;, markerscale &#61; 1&#41;
+f</code>
+                </pre>
+                <img data-jscall-id="45" src="../../bonito/png/cell_output_17886733953786423181.png" />
+              </div>
+              <p data-jscall-id="46">As you can see short arrows shrink while long arrows get a longer shaft. This is controlled by 
+                <code data-jscall-id="47">minshaftlength</code> and 
+                <code data-jscall-id="48">maxshaftlength</code>. If the calculated shaftlength falls in this range, the shaft is scaled to that length. If it does not, the length is clamped to that range and the full arrow is scaled instead. If you want just shaftlength scaling you can set 
+                <code data-jscall-id="49">minshaftlength &#61; 0</code>. &#40;Scaling will still happen if the shaftlength drops to 0.&#41; If you want just scaling, you can set 
+                <code data-jscall-id="50">shaftlength</code> to a fixed value.
+              </p>
+              <div class="markdown-body" data-jscall-id="51">
+                <pre data-jscall-id="52">
+                  <code class="language-julia" data-jscall-id="53">using CairoMakie
+CairoMakie.activate&#33;&#40;&#41;
+
+f &#61; Figure&#40;size &#61; &#40;600, 300&#41;&#41;
+hlines&#40;f&#91;1, 1&#93;, &#91;0, 0.2, 2, 5&#93;&#41;
+arrows2d&#33;&#40;1:3, zeros&#40;3&#41;, zeros&#40;3&#41;, &#91;0.2, 2, 5&#93;, minshaftlength &#61; 0&#41;
+a, p &#61; hlines&#40;f&#91;1, 2&#93;, &#91;0, 0.2, 2, 5&#93;&#41;
+arrows2d&#33;&#40;1:3, zeros&#40;3&#41;, zeros&#40;3&#41;, &#91;0.2, 2, 5&#93;, shaftlength &#61; 20&#41;
+xlims&#33;&#40;a, 0.9, 3.8&#41;
+f</code>
+                </pre>
+                <img data-jscall-id="54" src="../../bonito/png/cell_output_23346846292291937331.png" />
+              </div>
+              <p data-jscall-id="55">The styling attributes 
+                <code data-jscall-id="56">arrowsize</code>, 
+                <code data-jscall-id="57">linewidth</code>, 
+                <code data-jscall-id="58">arrowtail</code> and 
+                <code data-jscall-id="59">arrowhead</code> have been broken up and renamed. There are now three components to an arrow, the &#40;usually 0 length&#41; tail, shaft and tip. Each have a length and width &#40;2D&#41; or radius &#40;3D&#41;. In 2D they are given in 
+                <code data-jscall-id="60">markerspace</code>, i.e. pixel space by default. Unlike before they are not necessarily the true size of the final arrow, as scaling can still apply. In 3D they are given in a boundingbox relative space if 
+                <code data-jscall-id="61">markerscale &#61; automatic</code> &#40;default&#41;, or in data units scaled by 
+                <code data-jscall-id="62">markerscale</code> if its is set to a number. The tail, shaft and tip can each be set to a vector of points &#40;2D&#41; or mesh to change the look of the arrows.
+              </p>
+              <p data-jscall-id="63">
+                <img alt="arrow components" data-jscall-id="64" src="../../bonito/png/arrow_components8547364509615742792.png" />
+              </p>
+              <p data-jscall-id="65">The total arrow length follows from the 
+                <code data-jscall-id="66">direction</code> argument, 
+                <code data-jscall-id="67">lengthscale</code> and 
+                <code data-jscall-id="68">normalize</code>. If 
+                <code data-jscall-id="69">normalize &#61; true</code> directions are normalized first. Then they are multiplied by 
+                <code data-jscall-id="70">lengthscale</code>. The result is target length of the arrow, which the drawn arrow marker must be equal to.
+              </p>
+              <div class="markdown-body" data-jscall-id="71">
+                <pre data-jscall-id="72">
+                  <code class="language-julia" data-jscall-id="73">using CairoMakie
+CairoMakie.activate&#33;&#40;&#41;
+
+f,a,p &#61; arrows2d&#40;1:3, fill&#40;0, 3&#41;, zeros&#40;3&#41;, &#91;0.2, 0.5, 1&#93;&#41;
+arrows2d&#33;&#40;1:3, fill&#40;2, 3&#41;, zeros&#40;3&#41;, &#91;0.2, 0.5, 1&#93;, normalize &#61; true&#41;
+arrows2d&#33;&#40;1:3, fill&#40;4, 3&#41;, zeros&#40;3&#41;, &#91;0.2, 0.5, 1&#93;, lengthscale &#61; &#91;5, 1, 0.2&#93;&#41;
+arrows2d&#33;&#40;fill&#40;4, 3&#41;, &#91;0, 2, 4&#93;, zeros&#40;3&#41;, &#91;0.2, 0.5, 1&#93;, taillength &#61; 10&#41;
+f</code>
+                </pre>
+                <img data-jscall-id="74" src="../../bonito/png/cell_output_317234634107474939883.png" />
+              </div>
+              <p data-jscall-id="75">The 
+                <code data-jscall-id="76">align</code> attribute has been reduced to only accepting 
+                <code data-jscall-id="77">:tail</code>, 
+                <code data-jscall-id="78">:center</code>, 
+                <code data-jscall-id="79">:tip</code> or a number. 
+                <code data-jscall-id="80">:tail</code> &#40;0&#41; and 
+                <code data-jscall-id="81">:tip</code> &#40;1&#41; are the two endpoints of the arrow and 
+                <code data-jscall-id="82">:center</code> &#40;0.5&#41; is the center of full arrow. Note that you can also create a gap by setting 
+                <code data-jscall-id="83">align</code> to a value outside the 0..1 range.
+              </p>
+              <div class="markdown-body" data-jscall-id="84">
+                <pre data-jscall-id="85">
+                  <code class="language-julia" data-jscall-id="86">using CairoMakie
+using Makie.GeometryBasics
+CairoMakie.activate&#33;&#40;&#41;
+
+ps &#61; Makie.coordinates&#40;Rect2f&#40;-1, -1, 2, 2&#41;&#41;
+f &#61; Figure&#40;size &#61; &#40;600, 300&#41;&#41;
+scatter&#40;f&#91;1, 1&#93;, ps, markersize &#61; 20&#41;
+arrows2d&#33;&#40;ps, ps, align &#61; :center, lengthscale &#61; 0.3&#41;
+
+scatter&#40;f&#91;1, 2&#93;, ps, markersize &#61; 20&#41;
+arrows2d&#33;&#40;ps, ps, align &#61; :tail, lengthscale &#61; 0.3, color &#61; :orange&#41;
+arrows2d&#33;&#40;ps, ps, align &#61; 1.2, lengthscale &#61; 0.3, color &#61; :blue&#41;
+
+tail &#61; Point2f&#91;&#40;0, 0&#41;, &#40;1, -0.5&#41;, &#40;1, 0.5&#41;&#93;
+arrows2d&#33;&#40;
+    ps, &#91;ps&#91;2:end&#93;; ps&#91;1:1&#93;&#93;, argmode &#61; :endpoint,
+    align &#61; :center, lengthscale &#61; 0.8, color &#61; :green,
+    tail &#61; tail, taillength &#61; 8
+&#41;
+
+f</code>
+                </pre>
+                <img data-jscall-id="87" src="../../bonito/png/cell_output_45179310039952601003.png" />
+              </div>
+              <p data-jscall-id="88">Another addition is 
+                <code data-jscall-id="89">argmode</code> which allows you to change the interpretation of the second argument. With 
+                <code data-jscall-id="90">argmode &#61; :endpoint</code> the second argument is treated as as the target position for the tip. The directions are then derived from that, with 
+                <code data-jscall-id="91">normalize</code> and 
+                <code data-jscall-id="92">lengthscale</code> applying afterwards. 
+                <code data-jscall-id="93">align</code> works a bit different in this mode. Instead of aligning a fraction of the final arrow with origin &#40;first argument&#41;, it aligns that fraction with the same fraction between the endpoints. So with 
+                <code data-jscall-id="94">align &#61; :center</code>, the center of the arrow aligns with center of the two endpoints.
+              </p>
+              <p data-jscall-id="95">All of these concepts also apply to 
+                <code data-jscall-id="96">arrows3d</code>:
+              </p>
+              <div class="markdown-body" data-jscall-id="97">
+                <pre data-jscall-id="98">
+                  <code class="language-julia" data-jscall-id="99">using GLMakie
+using GLMakie.GeometryBasics
+GLMakie.activate&#33;&#40;&#41;
+
+f &#61; Figure&#40;size &#61; &#40;500, 500&#41;&#41;
+ax &#61; Axis3&#40;f&#91;1, 1&#93;, aspect &#61; :data&#41;
+
+r &#61; Rect3f&#40;-1, -1, -1, 2, 2, 2&#41;
+ps &#61; coordinates&#40;r&#41;
+meshscatter&#33;&#40;ps, color &#61; :white&#41;
+arrows3d&#33;&#40;ps, ps, align &#61; -0.2, tipcolor &#61; :yellow, shaftcolor &#61; :lightblue, lengthscale &#61; 0.5&#41;
+
+tail &#61; Makie.Cone&#40;Point3f&#40;0,0,1&#41;, Point3f&#40;0&#41;, 0.5&#41;
+startstop &#61; Makie.convert_arguments&#40;LineSegments, r&#41;&#91;1&#93;
+arrows3d&#33;&#40;
+    startstop&#91;1:2:end&#93;, startstop&#91;2:2:end&#93;, argmode &#61; :endpoint,
+    align &#61; 0.5, lengthscale &#61; 0.8,
+    tail &#61; tail, taillength &#61; 0.4, tailcolor &#61; :red,
+    markerscale &#61; 0.5,
+    color &#61; :orange
+&#41;
+
+f</code>
+                </pre>
+                <img data-jscall-id="100" src="../../bonito/png/cell_output_5630732654587722911.png" />
+              </div>
+              <p data-jscall-id="101">Note that 
+                <code data-jscall-id="102">arrows2d</code> and 
+                <code data-jscall-id="103">arrows3d</code> can both be used in 2D and 3D space. They differ in how they represent arrows - as a 2D mesh or a 3D mesh respectively. Note as well that we introduced 
+                <code data-jscall-id="104">Cone&#40;origin, extremity, radius&#41;</code> as a GeometryPrimitive in 
+                <code data-jscall-id="105">GeometryBasics</code> with this release.
+              </p>
+              <p data-jscall-id="106">
+                <a href="https://github.com/MakieOrg/Makie.jl/pull/4925" data-jscall-id="107">#4925</a>
+              </p>
+              <h2 id="Dendrogram" data-jscall-id="108">Dendrogram</h2>
+              <p data-jscall-id="109">We have &#40;finally&#41; added the 
+                <code data-jscall-id="110">dendrogram</code> recipe. Given a collection of leaf node positions and merge indices, a tree visualization is created.
+              </p>
+              <div class="markdown-body" data-jscall-id="111">
+                <pre data-jscall-id="112">
+                  <code class="language-julia" data-jscall-id="113">using CairoMakie
+CairoMakie.activate&#33;&#40;&#41;
+
+# node positions and indices of pairs that merge
+ps &#61; Point2f.&#40;1:8, 0&#41;
+merges &#61; &#91;&#40;i, i&#43;1&#41; for i in 1:2:13&#93;
+
+f,a,p &#61; dendrogram&#40;ps, merges&#41;
+
+dendrogram&#40;
+    f&#91;2,1&#93;, ps, merges, groups &#61; &#91;1, 1, 1, 1, 2, 2, 3, 3&#93;,
+    colormap &#61; &#91;:red, :green, :blue&#93;, linewidth &#61; 3,
+    branch_shape &#61; :tree, rotation &#61; :up
+&#41;
+
+ax &#61; PolarAxis&#40;f&#91;1:2,2:3&#93;&#41;
+cs &#61; vcat&#40;fill&#40;:black, 8&#41;, fill&#40;:green, 4&#41;, fill&#40;:orange, 2&#41;, fill&#40;:red, 1&#41;&#41;
+p &#61; dendrogram&#33;&#40;ax, ps, merges, color &#61; cs, width &#61; 2pi - 2pi/9, linewidth &#61; 5&#41;
+node_ps &#61; Makie.dendrogram_node_positions&#40;p&#41;
+textlabel&#33;&#40;
+    ax, node_ps, text &#61; string.&#40;1:15&#41;, shape &#61; Circle&#40;Point2f&#40;0&#41;, 1&#41;,
+    shape_limits &#61; Rect2f&#40;-1,-1,2,2&#41;, keep_aspect &#61; true
+&#41;
+rlims&#33;&#40;ax, 0, 3.5&#41;
+
+f</code>
+                </pre>
+                <img data-jscall-id="114" src="../../bonito/png/cell_output_68498708477586951694.png" />
+              </div>
+              <p data-jscall-id="115">
+                <a href="https://github.com/MakieOrg/Makie.jl/pull/2755" data-jscall-id="116">#2755</a>
+              </p>
+              <h1 id="Backlog" data-jscall-id="117">Backlog</h1>
+              <h2 id="Makie 0.22.8" data-jscall-id="118">Makie 0.22.8</h2>
+              <h3 id="Annotation" data-jscall-id="119">Annotation</h3>
+              <p data-jscall-id="120">show new plot</p>
+              <p data-jscall-id="121">
+                <a href="https://github.com/MakieOrg/Makie.jl/pull/4891" data-jscall-id="122">#4891</a>
+              </p>
+              <h2 id="Makie 0.22.5" data-jscall-id="123">Makie 0.22.5</h2>
+              <h3 id="Legend entries for mesh, meshscatter, image, heatmap and surface plots" data-jscall-id="124">Legend entries for mesh, meshscatter, image, heatmap and surface plots</h3>
+              <p data-jscall-id="125">
+                <code data-jscall-id="126">Legend</code> now has entry visualizations for mesh, meshscatter and surface in 3D and image and heatmap in 2D.
+              </p>
+              <div class="markdown-body" data-jscall-id="127">
+                <pre data-jscall-id="128">
+                  <code class="language-julia" data-jscall-id="129">using GLMakie
+GLMakie.activate&#33;&#40;&#41;
+
+f &#61; Figure&#40;size &#61; &#40;400, 400&#41;&#41;
+a,p &#61; heatmap&#40;f&#91;1, 1:2&#93;, sin.&#40;1:10&#41;&#39; .* sin.&#40;1:10&#41;, label &#61; &#34;Heatmap&#34;&#41;
+image&#33;&#40;10.5..20.5, 0.5..10.5, sin.&#40;1:10&#41;&#39; .* sin.&#40;1:10&#41;, label &#61; &#34;Image&#34;&#41;
+axislegend&#40;a&#41;
+
+a,p &#61; meshscatter&#40;f&#91;2, 1&#93;, &#91;rand&#40;Point3f&#41; &#43; Vec3f&#40;0,0,1&#41; for i in 1:10&#93; , label &#61; &#34;MeshScatter&#34; &#61;&#62; &#40;color &#61; :orange,&#41;&#41;
+mesh&#33;&#40;Rect3f&#40;0,0,0,1,1,1&#41;, label &#61; &#34;Mesh&#34; &#61;&#62; &#40;color &#61; :lightblue,&#41;&#41;
+surface&#33;&#40;-1..2, -1..2, sin.&#40;1:10&#41;&#39; .* sin.&#40;1:10&#41;, label &#61; &#34;Surface&#34;&#41;
+Legend&#40;f&#91;2, 2&#93;, a, tellwidth &#61; false&#41;
+f</code>
+                </pre>
+                <img data-jscall-id="130" src="../../bonito/png/cell_output_79174641193439541270.png" />
+              </div>
+              <p data-jscall-id="131">
+                <a href="https://github.com/MakieOrg/Makie.jl/pull/4924" data-jscall-id="132">#4924</a>
+              </p>
+              <h3 id="Hide/show interaction for Legend" data-jscall-id="133">Hide/show interaction for Legend</h3>
+              <p data-jscall-id="134">You can now toggle the visibility of plots by left clicking their respective 
+                <code data-jscall-id="135">Legend</code> entries. Right clicking will toggle all connected plots and middle clicking will synchronize and toggle them
+              </p>
+              <p data-jscall-id="136">TODO: animation</p>
+              <p data-jscall-id="137">
+                <a href="https://github.com/MakieOrg/Makie.jl/pull/2276" data-jscall-id="138">#2276</a>
+              </p>
+              <h3 id="PolarAxis Ticks" data-jscall-id="139">PolarAxis Ticks</h3>
+              <p data-jscall-id="140">PolarAxis now supports 
+                <code data-jscall-id="141">ticks</code> &#40;lines between tick labels and the axis frame&#41;. The related attributes are 
+                <code data-jscall-id="142">r-</code>, 
+                <code data-jscall-id="143">rminor-</code>, 
+                <code data-jscall-id="144">theta-</code> and 
+                <code data-jscall-id="145">thetaminor-</code>:
+              </p>
+              <ul class=" style_2" style="" data-jscall-id="146">
+                <li data-jscall-id="147">
+                  <p data-jscall-id="148">
+                    <code data-jscall-id="149">-ticksvisible</code>: Are ticks shown &#40;default false&#41;
+                  </p>
+                </li>
+                <li data-jscall-id="150">
+                  <p data-jscall-id="151">
+                    <code data-jscall-id="152">-ticksize</code>: Controls the length of ticks
+                  </p>
+                </li>
+                <li data-jscall-id="153">
+                  <p data-jscall-id="154">
+                    <code data-jscall-id="155">-tickwidth</code>: Controls the width of ticks
+                  </p>
+                </li>
+                <li data-jscall-id="156">
+                  <p data-jscall-id="157">
+                    <code data-jscall-id="158">-tickcolor</code>: Controls the color of ticks
+                  </p>
+                </li>
+                <li data-jscall-id="159">
+                  <p data-jscall-id="160">
+                    <code data-jscall-id="161">-ticksmirrored</code>: Swaps the tick location to the opposite end of the PolarAxis if hte PolarAxis doesn&#39;t span a full circle &#40;
+                    <code data-jscall-id="162">rmin &#62; 0</code> or 
+                    <code data-jscall-id="163">thetamax - thetamin &#60; 2pi</code>&#41;
+                  </p>
+                </li>
+                <li data-jscall-id="164">
+                  <p data-jscall-id="165">
+                    <code data-jscall-id="166">-tickalign</code>: Controls the alignment of ticks relative to the frame. &#40;default 0, point outwards&#41;
+                  </p>
+                </li>
+              </ul>
+              <div class="markdown-body" data-jscall-id="167">
+                <pre data-jscall-id="168">
+                  <code class="language-julia" data-jscall-id="169">using CairoMakie
+CairoMakie.activate&#33;&#40;&#41;
+
+f &#61; Figure&#40;size &#61; &#40;800, 400&#41;&#41;
+kwargs &#61; &#40;
+    rticksvisible &#61; true, rticksize &#61; 12, rtickwidth &#61; 4, rtickcolor &#61; :red, rtickalign &#61; 0.5,
+    thetaticksvisible &#61; true, thetaticksize &#61; 12, thetatickwidth &#61; 4, thetatickcolor &#61; :blue, thetatickalign &#61; 0,
+    rminorticksvisible &#61; true, rminorticksize &#61; 8, rminortickwidth &#61; 3, rminortickcolor &#61; :orange, rminortickalign &#61; 1.0,
+    thetaminorticksvisible &#61; true, thetaminorticksize &#61; 8, thetaminortickwidth &#61; 3, thetaminortickcolor &#61; :cyan, thetaminortickalign &#61; 1.0,
+&#41;
+a &#61; PolarAxis&#40;f&#91;1,1&#93;, title &#61; &#34;normal&#34;, rticksmirrored &#61; false, thetaticksmirrored &#61; false; kwargs...&#41;
+rlims&#33;&#40;a, 0.5, 0.9&#41;
+thetalims&#33;&#40;a, 1pi/5, 2pi/5&#41;
+a &#61; PolarAxis&#40;f&#91;1,2&#93;, title &#61; &#34;mirrored&#34;, rticksmirrored &#61; true, thetaticksmirrored &#61; true; kwargs...&#41;
+rlims&#33;&#40;a, 0.5, 0.9&#41;
+thetalims&#33;&#40;a, 1pi/5, 2pi/5&#41;
+f</code>
+                </pre>
+                <img data-jscall-id="170" src="../../bonito/png/cell_output_8478687640133529577.png" />
+              </div>
+              <p data-jscall-id="171">
+                <a href="https://github.com/MakieOrg/Makie.jl/pull/4902" data-jscall-id="172">#4902</a>
+              </p>
+              <h3 id="Anisotropic marker rendering in GLMakie &#38; WGLMakie" data-jscall-id="173">Anisotropic marker rendering in GLMakie &#38; WGLMakie</h3>
+              <p data-jscall-id="174">Rendering scatter markers &#40;or text&#41; with anisotropic 
+                <code data-jscall-id="175">markersize</code> &#40;or fontsize&#41;, e.g. 
+                <code data-jscall-id="176">markersize &#61; Vec2f&#40;10, 50&#41;</code>, used to result in blurred or pixelated edges in WGLMakie and GLMakie. This has been mostly fixed:
+              </p>
+              <div class="markdown-body" data-jscall-id="177">
+                <pre data-jscall-id="178">
+                  <code class="language-julia" data-jscall-id="179">#no-eval
+scene &#61; Scene&#40;size &#61; &#40;250, 250&#41;&#41;
+ms &#61; &#91;Vec2f&#40;60, 10&#41;, Vec2f&#40;60&#41;, Vec2f&#40;10, 60&#41;&#93;
+scatter&#33;&#40;scene, fill&#40;-0.75, 3&#41;, &#91;-0.75, 0.0, 0.75&#93;, marker &#61; :rect, markersize &#61; ms&#41;
+scatter&#33;&#40;scene, fill&#40;0, 3&#41;, &#91;-0.75, 0.0, 0.75&#93;, marker &#61; :circle, markersize &#61; ms&#41;
+scatter&#33;&#40;scene, fill&#40;0.75, 3&#41;, &#91;-0.75, 0.0, 0.75&#93;, marker &#61; &#39;L&#39;, rotation &#61; pi/3, markersize &#61; ms&#41;
+scene</code>
+                </pre>
+                <img data-jscall-id="180" src="../../bonito/png/cell_output_98612012630164101650.png" />
+              </div>
+              <table data-jscall-id="181">
+                <tr data-jscall-id="182">
+                  <th data-jscall-id="183" align="right">Before</th>
+                  <th data-jscall-id="184" align="right">After</th>
+                </tr>
+                <tr data-jscall-id="185">
+                  <td data-jscall-id="186" align="right">
+                    <img alt="marker before update" data-jscall-id="187" src="../../bonito/png/anisotropic_marker_pre12056238907086950508.png" />
+                  </td>
+                  <td data-jscall-id="188" align="right">
+                    <img alt="marker after update" data-jscall-id="189" src="../../bonito/png/anisotropic_marker_post9298279578099495224.png" />
+                  </td>
+                </tr>
+              </table>
+              <p data-jscall-id="190">
+                <a href="https://github.com/MakieOrg/Makie.jl/pull/4918" data-jscall-id="191">#4918</a>
+              </p>
+              <h2 id="Makie 0.22.3" data-jscall-id="192">Makie 0.22.3</h2>
+              <h3 id="Textlabel" data-jscall-id="193">Textlabel</h3>
+              <p data-jscall-id="194">We added a new 
+                <code data-jscall-id="195">textlabel</code> recipe which plots text with a background.
+              </p>
+              <div class="markdown-body" data-jscall-id="196">
+                <pre data-jscall-id="197">
+                  <code class="language-julia" data-jscall-id="198">using CairoMakie
+CairoMakie.activate&#33;&#40;&#41;
+
+f,a,p &#61; textlabel&#40;0, 0, text &#61; &#34;Default Label&#34;&#41;
+textlabel&#33;&#40;
+    a, fill&#40;1, 3&#41;, 0:2, text &#61; &#91;&#34;Label 1&#34;, &#34;Label 2&#34;, &#34;Label 3&#34;&#93;,
+    shape &#61; Circle&#40;Point2f&#40;0&#41;, 1&#41;, shape_limits &#61; Rect2f&#40;-1,-1,2,2&#41;, keep_aspect &#61; true,
+    background_color &#61; RGBf&#40;1, 1, 0.7&#41;, text_color &#61; :darkgreen, strokecolor &#61; :orange,
+    fontsize &#61; 20, strokewidth &#61; 3, padding &#61; 10
+&#41;
+textlabel&#33;&#40;
+    a, 0, 2, text &#61; &#34;A long\nmultiline\nlabel&#34;,
+    cornerradius &#61; 0, text_align &#61; &#40;:left, :top&#41;
+&#41;
+xlims&#33;&#40;a, -0.5, 1.5&#41;
+ylims&#33;&#40;a, -0.5, 2.5&#41;
+f</code>
+                </pre>
+                <img data-jscall-id="199" src="../../bonito/png/cell_output_1010439411756030109019.png" />
+              </div>
+              <p data-jscall-id="200">
+                <a href="https://github.com/MakieOrg/Makie.jl/pull/4879" data-jscall-id="201">#4879</a>
+              </p>
+              <h3 id="" data-jscall-id="202">
+                <code data-jscall-id="203">space</code> and 
+                <code data-jscall-id="204">transformation</code> changes
+              </h3>
+              <p data-jscall-id="205">
+                <code data-jscall-id="206">space</code> and plot transformations used to be intertwined. For example transform functions used to consider 
+                <code data-jscall-id="207">space</code>, essentially running:
+              </p>
+              <pre data-jscall-id="208">
+                <code class="language-julia" data-jscall-id="209">
+function apply_transform_func&#40;func, data, space&#41;
+    if is_data_space&#40;space&#41;
+        apply_transform_func&#40;func, data&#41;
+    else
+        return data
+    end
+end</code>
+              </pre>
+              <p data-jscall-id="210">This meant you could never have a 
+                <code data-jscall-id="211">transform_func</code> apply to a plot that is not in data space. It also suggested that 
+                <code data-jscall-id="212">space</code> should control which transformations get applied, which would mean every of the current space options should split into four &#40;with and without model and transform_func&#41;.
+              </p>
+              <p data-jscall-id="213">On the other hand we were also checking space compatibility between plots and their parents during construction, only inheriting transformations if they were compatible. So a plot with 
+                <code data-jscall-id="214">space &#61; :pixel</code> &#40;and a parent that isn&#39;t in pixel space&#41; would have identity transformations unless they were explicitly passed, meaning that applying them wouldn&#39;t actually change anything. We decided to rely on this as the source of truth. As such:
+              </p>
+              <ul class=" style_2" style="" data-jscall-id="215">
+                <li data-jscall-id="216">
+                  <p data-jscall-id="217">plots now always apply their transform_func</p>
+                </li>
+                <li data-jscall-id="218">
+                  <p data-jscall-id="219">transformations can be explicitly &#40;not&#41; inherited by setting 
+                    <code data-jscall-id="220">plot&#40;..., transformation &#61; :inherit/:inherit_model/:inherit_transform_func/:nothing&#41;</code>
+                  </p>
+                </li>
+              </ul>
+              <p data-jscall-id="221">
+                <a href="https://github.com/MakieOrg/Makie.jl/pull/4792" data-jscall-id="222">#4792</a>
+              </p>
+              <h3 id="Scatter font" data-jscall-id="223">Scatter font</h3>
+              <p data-jscall-id="224">You can now set the 
+                <code data-jscall-id="225">font</code> used for rendering 
+                <code data-jscall-id="226">Char</code> markers in scatter plots.
+              </p>
+              <div class="markdown-body" data-jscall-id="227">
+                <pre data-jscall-id="228">
+                  <code class="language-julia" data-jscall-id="229">using CairoMakie
+CairoMakie.activate&#33;&#40;&#41;
+
+kwargs &#61; &#40;marker &#61; &#91;&#39;a&#39;, &#39;♪&#39;, &#39;&#64;&#39;, &#39;→&#39;&#93;, markersize &#61; 30&#41;
+f,a,p &#61; scatter&#40;1:4, fill&#40;0, 4&#41;; color &#61; :black, kwargs...&#41;
+scatter&#33;&#40;1:4, fill&#40;1, 4&#41;; font &#61; Makie.defaultfont&#40;&#41;, color &#61; :black, kwargs...&#41;
+scatter&#33;&#40;1:4, fill&#40;2, 4&#41;; font &#61; &#34;Noto Sans&#34;, color &#61; :blue, kwargs...&#41;
+scatter&#33;&#40;1:4, fill&#40;3, 4&#41;; font &#61; &#34;Fira&#34;, color &#61; :red, kwargs...&#41;
+f</code>
+                </pre>
+                <img data-jscall-id="230" src="../../bonito/png/cell_output_117774216039595311067.png" />
+              </div>
+              <p data-jscall-id="231">
+                <a href="https://github.com/MakieOrg/Makie.jl/pull/4832" data-jscall-id="232">#4832</a>
+              </p>
+            </div>
+            <div data-jscall-id="233">
+              <script data-jscall-id="234" src="../../bonito/js/highlight.pack13102628173626074447.js"></script>
+              <script data-jscall-id="235">hljs.highlightAll()</script>
+            </div>
+          </div>
+          <span></span>
+        </div>
+      </div>
+      <div data-jscall-id="236">
+        <script async="true" defer="true" data-jscall-id="237" src="https://api.makie.org/latest.js"></script>
+        <noscript data-jscall-id="238">
+          <img alt="" data-jscall-id="239" src="https://api.makie.org/noscript.gif" referrerpolicy="no-referrer-when-downgrade" />
+        </noscript>
+      </div>
     </div>
   </body>
 </html>
