@@ -76,6 +76,7 @@ Note that you can also create a gap by setting `align` to a value outside the 0.
 
 ```julia
 using CairoMakie
+using Makie.GeometryBasics
 CairoMakie.activate!()
 
 ps = Makie.coordinates(Rect2f(-1, -1, 2, 2))
@@ -108,6 +109,7 @@ All of these concepts also apply to `arrows3d`:
 
 ```julia
 using GLMakie
+using GLMakie.GeometryBasics
 GLMakie.activate!()
 
 f = Figure(size = (500, 500))
