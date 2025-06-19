@@ -336,7 +336,7 @@ Rendering scatter markers (or text) with anisotropic `markersize` (or fontsize),
 This has been mostly fixed:
 
 ```julia
-#no-eval
+# no-eval
 scene = Scene(size = (250, 250))
 ms = [Vec2f(60, 10), Vec2f(60), Vec2f(10, 60)]
 scatter!(scene, fill(-0.75, 3), [-0.75, 0.0, 0.75], marker = :rect, markersize = ms)
