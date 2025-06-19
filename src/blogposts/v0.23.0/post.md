@@ -181,7 +181,86 @@ f
 
 ### Annotation
 
-show new plot
+There's a new `annotation` recipe which can be used to annotate data points with text labels and connecting arrows or other styles. If no specific label positions or offsets are given, the default behavior tries to move labels away from data points, other labels and the figure boundary. This results in better readability for quick plots compared to a simple `text` annotation:
+
+```julia
+using CairoMakie
+CairoMakie.activate!()
+
+f = Figure()
+
+points = [(-2.15, -0.19), (-1.66, 0.78), (-1.56, 0.87), (-0.97, -1.91), (-0.96, -0.25), (-0.79, 2.6), (-0.74, 1.68), (-0.56, -0.44), (-0.36, -0.63), (-0.32, 0.67), (-0.15, -1.11), (-0.07, 1.23), (0.3, 0.73), (0.72, -1.48), (0.8, 1.12)]
+
+fruit = ["Apple", "Banana", "Cherry", "Date", "Elderberry", "Fig", "Grape", "Honeydew",
+          "Indian Fig", "Jackfruit", "Kiwi", "Lychee", "Mango", "Nectarine", "Orange"]
+
+limits = (-3, 1.5, -3, 3)
+
+ax1 = Axis(f[1, 1]; limits, title = "text")
+
+scatter!(ax1, points)
+text!(ax1, points, text = fruit)
+
+ax2 = Axis(f[1, 2]; limits, title = "annotation")
+
+scatter!(ax2, points)
+annotation!(ax2, points, text = fruit)
+
+hidedecorations!.([ax1, ax2])
+
+f
+```
+
+Annotation labels can be placed either in data space or relative to the target points in screen space, which makes it easy to achieve a consistent visual result regardless of axis scaling:
+
+```julia
+using CairoMakie
+CairoMakie.activate!()
+
+g(x) = cos(6x) * exp(x)
+xs = 0:0.01:4
+ys = g.(xs)
+
+f, ax, _ = lines(xs, ys; axis = (; xgridvisible = false, ygridvisible = false))
+
+annotation!(ax, 1, 20, 2.1, g(2.1),
+    text = "(1, 20)\nlabelspace = :data",
+    path = Ann.Paths.Arc(0.3),
+    style = Ann.Styles.LineArrow(),
+    labelspace = :data
+)
+
+annotation!(ax, -100, -100, 2.65, g(2.65),
+    text = "(-100, -100)\nlabelspace = :relative_pixel",
+    path = Ann.Paths.Arc(-0.3),
+    style = Ann.Styles.LineArrow()
+)
+
+f
+```
+
+Annotations can come in a variety of styles which will also be expanded in the future. Currently, lines and arrows of different shapes are supported:
+
+```julia
+using CairoMakie
+CairoMakie.activate!()
+
+fig = Figure()
+ax = Axis(fig[1, 1], yautolimitmargin = (0.3, 0.3), xgridvisible = false, ygridvisible = false)
+
+scatter!(ax, fill(0, 4), 0:-1:-3)
+annotation!(-200, 0, 0, 0, path = Ann.Paths.Line(), text = "Line()")
+annotation!(200, 0, 0, -1, path = Ann.Paths.Arc(height = 0.1), text = "Arc(height = 0.1)")
+annotation!(-200, 0, 0, -2, path = Ann.Paths.Arc(height = 0.3), text = "Arc(height = 0.3)")
+annotation!(200, 30, 0, -3, path = Ann.Paths.Corner(), text = "Corner()")
+
+annotation!(-200, 0, 0, -5, style = Ann.Styles.Line())
+annotation!(-200, 0, 0, -6, style = Ann.Styles.LineArrow())
+annotation!(-200, 0, 0, -7, style = Ann.Styles.LineArrow(head = Ann.Arrows.Head()))
+annotation!(-200, 0, 0, -8, style = Ann.Styles.LineArrow(tail = Ann.Arrows.Line(length = 20)))
+
+fig
+```
 
 [#4891](https://github.com/MakieOrg/Makie.jl/pull/4891)
 
