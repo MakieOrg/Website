@@ -1,5 +1,11 @@
 # Makie v0.24
 
+The switch away from Observables for Makie's internals has been one of the biggest refactors of Makie in the last 5 years.
+While a lot of the changes happened internally and not changing surface API, it is still one of the biggest breaking changes we have planned, which made us consider tagging this as Makie v1.0.
+Since there are still a few open design decision which we want to hammer out in the coming months, we decided to tag this as 0.24 for now, but we do hope that Makie 1.0 will be released this year and will not add many breaking changes on top of 0.24.
+
+## Overview
+
 This release features a rework of how plot arguments and attributes are handled. Instead of using Observables we now use a `ComputeGraph`.
 
 All the data a plot generates from its inputs to the final backend renderobject are stored in the graph as nodes. All the computations that connect data are stored as edges. When a plot input is updated, the graph marks every dependent node and edge as out-of-date. When data from an out-of-date node is requested, all related outdated nodes are resolved to compute the up-to-date value.
@@ -230,6 +236,7 @@ Note that reacting to these to update inputs of the same text may result in infi
 MakieCore was introduced as a minimal, lightweight import for other packages that want to introduce Makie recipes.
 With the introduction of package extensions this has become redundant.
 As such we have decided to remove MakieCore and reintegrate it into the Makie repository.
+See the docs on how to use [package exentsions](https://docs.makie.org/dev/explanations/recipes#Makie-Package-Extension).
 
 ## Package Organization
 
