@@ -25,6 +25,7 @@ FlexGrid(elems...; class="", kwargs...) = DOM.div(elems...; class=join(["flex fl
 Grid(elems...; class="", kwargs...) = DOM.div(elems...; class=join(["grid ", class], " "), kwargs...)
 TextBlock(text; width="max-w-prose") = DOM.div(text; class="text-base $width")
 Block(elems...) = DOM.div(elems...; class="p-4 max-w-5xl")
+FullWidthBlock(elems...) = DOM.div(elems...; class="p-4 w-full")
 Section(content...; bg="") = DOM.div(
     Block(content...),
     class="$bg flex flex-col items-center w-full"
