@@ -12,6 +12,7 @@ The new `arrows2d` and `arrows3d` now strictly follow the rule that the final ar
 The arrows may stretch their shaft or scale as a whole to achieve this.
 
 ```julia
+
 using CairoMakie
 CairoMakie.activate!()
 
@@ -32,6 +33,7 @@ If you want just shaftlength scaling you can set `minshaftlength = 0`.
 If you want just scaling, you can set `shaftlength` to a fixed value.
 
 ```julia
+
 using CairoMakie
 CairoMakie.activate!()
 
@@ -60,6 +62,7 @@ Then they are multiplied by `lengthscale`.
 The result is target length of the arrow, which the drawn arrow marker must be equal to.
 
 ```julia
+
 using CairoMakie
 CairoMakie.activate!()
 
@@ -75,6 +78,7 @@ The `align` attribute has been reduced to only accepting `:tail`, `:center`, `:t
 Note that you can also create a gap by setting `align` to a value outside the 0..1 range.
 
 ```julia
+
 using CairoMakie
 using Makie.GeometryBasics
 CairoMakie.activate!()
@@ -108,6 +112,7 @@ So with `align = :center`, the center of the arrow aligns with center of the two
 All of these concepts also apply to `arrows3d`:
 
 ```julia
+
 using GLMakie
 using GLMakie.GeometryBasics
 GLMakie.activate!()
@@ -145,6 +150,7 @@ We have (finally) added the `dendrogram` recipe.
 Given a collection of leaf node positions and merge indices, a tree visualization is created.
 
 ```julia
+
 using CairoMakie
 CairoMakie.activate!()
 
@@ -184,6 +190,7 @@ f
 There's a new `annotation` recipe which can be used to annotate data points with text labels and connecting arrows or other styles. If no specific label positions or offsets are given, the default behavior tries to move labels away from data points, other labels and the figure boundary. This results in better readability for quick plots compared to a simple `text` annotation:
 
 ```julia
+
 using CairoMakie
 CairoMakie.activate!()
 
@@ -214,6 +221,7 @@ f
 Annotation labels can be placed either in data space or relative to the target points in screen space, which makes it easy to achieve a consistent visual result regardless of axis scaling:
 
 ```julia
+
 using CairoMakie
 CairoMakie.activate!()
 
@@ -242,6 +250,7 @@ f
 Annotations can come in a variety of styles which will also be expanded in the future. Currently, lines and arrows of different shapes are supported:
 
 ```julia
+
 using CairoMakie
 CairoMakie.activate!()
 
@@ -271,6 +280,7 @@ fig
 `Legend` now has entry visualizations for mesh, meshscatter and surface in 3D and image and heatmap in 2D.
 
 ```julia
+
 using GLMakie
 GLMakie.activate!()
 
@@ -309,6 +319,7 @@ The related attributes are `r-`, `rminor-`, `theta-` and `thetaminor-`:
 - `-tickalign`: Controls the alignment of ticks relative to the frame. (default 0, point outwards)
 
 ```julia
+
 using CairoMakie
 CairoMakie.activate!()
 
@@ -337,6 +348,7 @@ This has been mostly fixed:
 
 ```julia
 # no-eval
+
 scene = Scene(size = (250, 250))
 ms = [Vec2f(60, 10), Vec2f(60), Vec2f(10, 60)]
 scatter!(scene, fill(-0.75, 3), [-0.75, 0.0, 0.75], marker = :rect, markersize = ms)
@@ -360,6 +372,7 @@ scene
 We added a new `textlabel` recipe which plots text with a background.
 
 ```julia
+
 using CairoMakie
 CairoMakie.activate!()
 
@@ -416,6 +429,7 @@ As such:
 You can now set the `font` used for rendering `Char` markers in scatter plots.
 
 ```julia
+
 using CairoMakie
 CairoMakie.activate!()
 
