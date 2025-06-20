@@ -1,12 +1,12 @@
 # Makie v0.23.0
 
-Makie 0.23.0 is a relatively small breaking release before the big 0.24.0 ComputePipeline refactor. It's only breaking change is the `arrows()` refactor.
+Makie 0.23.0 is a relatively small breaking release before the big 0.24.0 ComputePipeline refactor. Its only breaking change is the `arrows()` refactor.
 
 ## Arrows
 
 Arrows have been refactored to address a number of issues, most importantly issues with scaling and alignment.
-Before 0.23 `arrows` did not consider the arrow tip as part of the length, which meant that arrows were always longer than they should be.
-This also applies to alignment, where `align = :tip` would align arrows to the endpoint of the shaft (called tail pre 0.23) instead of the end of the tip.
+Before 0.23, `arrows` did not consider the arrow tip as part of the length, which meant that arrows were always longer than they should be.
+This also applies to alignment, where `align = :tip` would align arrows to the endpoint of the shaft (called tail pre-0.23) instead of the end of the tip.
 
 The new `arrows2d` and `arrows3d` now strictly follow the rule that the drawn arrow length must match the length derived from `directions`, `normalize` and `lengthscale`.
 To achieve this, the arrow shaft may elongate or the whole arrow may scale.
@@ -24,12 +24,12 @@ arrows3d!(1:3, zeros(3), zeros(3), [0.2, 2, 5], markerscale = 1)
 f
 ```
 
-As you can see short arrows shrink while long arrows get a longer shaft.
+As you can see, short arrows shrink while long arrows get a longer shaft.
 This is controlled by `minshaftlength` and `maxshaftlength`.
-If the calculated shaftlength falls in this range, the shaft is scaled to that length.
+If the calculated shaft length falls in this range, the shaft is scaled to that length.
 If it does not, the length is clamped to that range and the full arrow is scaled instead.
-If you want just shaftlength scaling you can set `minshaftlength = 0`.
-(Scaling will still happen if the shaftlength drops to/below 0.)
+If you want just shaft length scaling, you can set `minshaftlength = 0`.
+(Scaling will still happen if the shaft length drops to/below 0.)
 If you want just scaling, you can set `shaftlength` to a fixed value.
 
 ```julia
@@ -46,20 +46,20 @@ xlims!(a, 0.9, 3.8)
 f
 ```
 
-The styling attributes `arrowsize`, `linewidth`, `arrowtail` and `arrowhead` have been broken up and renamed.
-There are now three components to an arrow, the (usually 0 length) tail, shaft and tip.
-Each have a length and width (2D) or radius (3D).
-In 2D they are given in `markerspace`, i.e. pixel space by default.
-Unlike before they are not necessarily the true size of the final arrow, as scaling can still apply.
-In 3D they are given in a boundingbox relative space if `markerscale = automatic` (default), or in data units scaled by `markerscale` if its is set to a number.
-The tail, shaft and tip can each be set to a vector of points (2D) or mesh to change the look of the arrows.
+The styling attributes `arrowsize`, `linewidth`, `arrowtail`, and `arrowhead` have been broken up and renamed.
+There are now three components to an arrow: the (usually 0-length) tail, shaft, and tip.
+Each has a length and width (2D) or radius (3D).
+In 2D they are given in `markerspace`, i.e., pixel space by default.
+Unlike before, they are not necessarily the true size of the final arrow, as scaling can still apply.
+In 3D they are given in a bounding box relative space if `markerscale = automatic` (default), or in data units scaled by `markerscale` if it is set to a number.
+The tail, shaft, and tip can each be set to a vector of points (2D) or mesh to change the look of the arrows.
 
 ![arrow components](./images/arrow_components.png)
 
-The total arrow length follows from the `direction` argument, `lengthscale` and `normalize`.
-If `normalize = true` directions are normalized first.
+The total arrow length follows from the `direction` argument, `lengthscale`, and `normalize`.
+If `normalize = true`, directions are normalized first.
 Then they are multiplied by `lengthscale`.
-The result is target length of the arrow, which the drawn arrow marker must be equal to.
+The result is the target length of the arrow, which the drawn arrow marker must be equal to.
 
 ```julia
 
@@ -73,8 +73,8 @@ arrows2d!(fill(4, 3), [0, 2, 4], zeros(3), [0.2, 0.5, 1], taillength = 10)
 f
 ```
 
-The `align` attribute has been reduced to only accepting `:tail`, `:center`, `:tip` or a number.
-`:tail` (0) and `:tip` (1) are the two endpoints of the arrow and `:center` (0.5) is the center of full arrow.
+The `align` attribute has been reduced to only accepting `:tail`, `:center`, `:tip`, or a number.
+`:tail` (0) and `:tip` (1) are the two endpoints of the arrow, and `:center` (0.5) is the center of the full arrow.
 Note that you can also create a gap by setting `align` to a value outside the 0..1 range.
 
 ```julia
@@ -102,12 +102,12 @@ arrows2d!(
 f
 ```
 
-Another addition is `argmode` which allows you to change the interpretation of the second argument.
-With `argmode = :endpoint` the second argument is treated as as the target position for the tip.
+Another addition is `argmode`, which allows you to change the interpretation of the second argument.
+With `argmode = :endpoint`, the second argument is treated as the target position for the tip.
 The directions are then derived from that, with `normalize` and `lengthscale` applying afterwards.
-`align` works a bit different in this mode.
-Instead of aligning a fraction of the final arrow with origin (first argument), it aligns that fraction with the same fraction between the endpoints.
-So with `align = :center`, the center of the arrow aligns with center of the two endpoints.
+`align` works a bit differently in this mode.
+Instead of aligning a fraction of the final arrow with the origin (first argument), it aligns that fraction with the same fraction between the endpoints.
+So with `align = :center`, the center of the arrow aligns with the center of the two endpoints.
 
 All of these concepts also apply to `arrows3d`:
 
@@ -139,14 +139,14 @@ f
 ```
 
 Note that `arrows2d` and `arrows3d` can both be used in 2D and 3D space.
-They differ in how they represent arrows - as a 2D mesh or a 3D mesh respectively.
+They differ in how they represent arrows - as a 2D mesh or a 3D mesh, respectively.
 Note as well that we introduced `Cone(origin, extremity, radius)` as a GeometryPrimitive in `GeometryBasics` with this release.
 
 [#4925](https://github.com/MakieOrg/Makie.jl/pull/4925)
 
 ## Dendrogram
 
-We have (finally) added the `dendrogram` recipe.
+We have finally added the `dendrogram` recipe.
 Given a collection of leaf node positions and merge indices, a tree visualization is created.
 
 ```julia
@@ -183,13 +183,13 @@ f
 
 # Backlog
 
-In the following sections we want to highlight some changes that happened since the last blog post for Makie 0.22.2.
+In the following sections, we want to highlight some changes that happened since the last blog post for Makie 0.22.2.
 
 ## Makie 0.22.8
 
 ### Annotation
 
-There's a new `annotation` recipe which can be used to annotate data points with text labels and connecting arrows or other styles. If no specific label positions or offsets are given, the default behavior tries to move labels away from data points, other labels and the figure boundary. This results in better readability for quick plots compared to a simple `text` annotation:
+There's a new `annotation` recipe which can be used to annotate data points with text labels and connecting arrows or other styles. If no specific label positions or offsets are given, the default behavior tries to move labels away from data points, other labels, and the figure boundary. This results in better readability for quick plots compared to a simple `text` annotation:
 
 ```julia
 
@@ -220,7 +220,7 @@ hidedecorations!.([ax1, ax2])
 f
 ```
 
-Annotation labels can be placed either in data space or relative to the target points in screen space, which makes it easy to achieve a consistent visual result regardless of axis scaling:
+Annotation labels can be placed either in data space or relative to the target points in screen space, making it easy to achieve a consistent visual result regardless of axis scaling:
 
 ```julia
 
@@ -249,7 +249,7 @@ annotation!(ax, -100, -100, 2.65, g(2.65),
 f
 ```
 
-Annotations can come in a variety of styles which will also be expanded in the future. Currently, lines and arrows of different shapes are supported:
+Annotations can come in a variety of styles, which will also be expanded in the future. Currently, lines and arrows of different shapes are supported:
 
 ```julia
 
@@ -302,8 +302,8 @@ f
 
 ### Hide/show interaction for Legend
 
-You can now toggle the visibility of plots by left clicking their respective `Legend` entries.
-Right clicking will toggle all connected plots and middle clicking will synchronize and toggle them
+You can now toggle the visibility of plots by left-clicking their respective `Legend` entries.
+Right-clicking will toggle all connected plots, and middle-clicking will synchronize and toggle them.
 
 ![Legend Interaction](./images/legend_interaction_example.mp4)
 
@@ -312,13 +312,13 @@ Right clicking will toggle all connected plots and middle clicking will synchron
 ### PolarAxis Ticks
 
 PolarAxis now supports `ticks` (lines between tick labels and the axis frame).
-The related attributes are `r-`, `rminor-`, `theta-` and `thetaminor-`:
+The related attributes are `r-`, `rminor-`, `theta-`, and `thetaminor-`:
 - `-ticksvisible`: Are ticks shown (default false)
 - `-ticksize`: Controls the length of ticks
 - `-tickwidth`: Controls the width of ticks
 - `-tickcolor`: Controls the color of ticks
-- `-ticksmirrored`: Swaps the tick location to the opposite end of the PolarAxis if hte PolarAxis doesn't span a full circle (`rmin > 0` or `thetamax - thetamin < 2pi`)
-- `-tickalign`: Controls the alignment of ticks relative to the frame. (default 0, point outwards)
+- `-ticksmirrored`: Swaps the tick location to the opposite end of the PolarAxis if the PolarAxis doesn't span a full circle (`rmin > 0` or `thetamax - thetamin < 2pi`)
+- `-tickalign`: Controls the alignment of ticks relative to the frame (default 0, point outwards)
 
 ```julia
 
@@ -345,9 +345,9 @@ f
 
 ### Anisotropic marker rendering in GLMakie & WGLMakie
 
-Rendering scatter markers (or text) with anisotropic `markersize` (or fontsize), e.g. `markersize = Vec2f(10, 50)`, used to result in blurred or pixelated edges in WGLMakie and GLMakie.
+Rendering scatter markers (or text) with anisotropic `markersize` (or fontsize), e.g., `markersize = Vec2f(10, 50)`, used to result in blurred or pixelated edges in WGLMakie and GLMakie.
 The reason for this is that the signed distance fields representing markers (characters) are generated at a different aspect ratio.
-We now added a correction for this in shaders, which greatly reduces the blurring/pixelation:
+We have now added a correction for this in shaders, which greatly reduces the blurring/pixelation:
 
 ```julia
 # no-eval
@@ -401,7 +401,7 @@ f
 ### `space` and `transformation` changes
 
 `space` and plot transformations used to be intertwined.
-For example transform functions used to consider `space`, essentially running:
+For example, transform functions used to consider `space`, essentially running:
 
 ```julia
 # no-eval
@@ -417,7 +417,7 @@ end
 This meant you could never have a `transform_func` apply to a plot that is not in data space.
 It also suggested that `space` should control which transformations get applied, which would mean that each of the current space options should be split into four (with and without model and transform_func).
 
-On the other hand we were also checking space compatibility between plots and their parents during construction, only inheriting transformations if they were compatible.
+On the other hand, we were also checking space compatibility between plots and their parents during construction, only inheriting transformations if they were compatible.
 So a plot with `space = :pixel` (and a parent that isn't in pixel space) would have identity transformations unless they were explicitly passed, meaning that applying them wouldn't actually change anything.
 We decided to rely on this as the source of truth.
 As such:
