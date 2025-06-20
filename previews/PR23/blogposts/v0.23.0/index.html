@@ -24,7 +24,7 @@
 </script>
   </head>
   <body data-jscall-id="5">
-    <script type="module">Bonito.lock_loading(() => Bonito.init_session('a7e41cb7-ab25-4f6a-bbb2-314146a8d77b', null, 'root', false))</script>
+    <script type="module">Bonito.lock_loading(() => Bonito.init_session('8083e8dc-f905-40aa-8f8f-8df4b9bfc42d', null, 'root', false))</script>
     <div data-jscall-id="6">
       <link href="../../bonito/png/icon_transparent1037186205570625945.png" data-jscall-id="7" rel="icon" type="image/png" />
       <img style="width: 100%" data-jscall-id="8" src="../../bonito/png/bannermesh_gradient12222907222071057261.png" />
@@ -60,13 +60,13 @@
           <div data-jscall-id="28">
             <div class="markdown-body" data-jscall-id="29">
               <h1 id="Makie v0.23.0" data-jscall-id="30">Makie v0.23.0</h1>
-              <p data-jscall-id="31">Makie 0.23.0 is a relatively small breaking release before the big 0.24.0 ComputePipeline refactor. It&#39;s only breaking change is the 
+              <p data-jscall-id="31">Makie 0.23.0 is a relatively small breaking release before the big 0.24.0 ComputePipeline refactor. Its only breaking change is the 
                 <code data-jscall-id="32">arrows&#40;&#41;</code> refactor.
               </p>
               <h2 id="Arrows" data-jscall-id="33">Arrows</h2>
-              <p data-jscall-id="34">Arrows have been refactored to address a number of issues, most importantly issues with scaling and alignment. Before 0.23 
+              <p data-jscall-id="34">Arrows have been refactored to address a number of issues, most importantly issues with scaling and alignment. Before 0.23, 
                 <code data-jscall-id="35">arrows</code> did not consider the arrow tip as part of the length, which meant that arrows were always longer than they should be. This also applies to alignment, where 
-                <code data-jscall-id="36">align &#61; :tip</code> would align arrows to the endpoint of the shaft &#40;called tail pre 0.23&#41; instead of the end of the tip.
+                <code data-jscall-id="36">align &#61; :tip</code> would align arrows to the endpoint of the shaft &#40;called tail pre-0.23&#41; instead of the end of the tip.
               </p>
               <p data-jscall-id="37">The new 
                 <code data-jscall-id="38">arrows2d</code> and 
@@ -90,10 +90,10 @@ f</code>
                 </pre>
                 <img data-jscall-id="46" src="../../bonito/png/cell_output_17886733953786423181.png" />
               </div>
-              <p data-jscall-id="47">As you can see short arrows shrink while long arrows get a longer shaft. This is controlled by 
+              <p data-jscall-id="47">As you can see, short arrows shrink while long arrows get a longer shaft. This is controlled by 
                 <code data-jscall-id="48">minshaftlength</code> and 
-                <code data-jscall-id="49">maxshaftlength</code>. If the calculated shaftlength falls in this range, the shaft is scaled to that length. If it does not, the length is clamped to that range and the full arrow is scaled instead. If you want just shaftlength scaling you can set 
-                <code data-jscall-id="50">minshaftlength &#61; 0</code>. &#40;Scaling will still happen if the shaftlength drops to/below 0.&#41; If you want just scaling, you can set 
+                <code data-jscall-id="49">maxshaftlength</code>. If the calculated shaft length falls in this range, the shaft is scaled to that length. If it does not, the length is clamped to that range and the full arrow is scaled instead. If you want just shaft length scaling, you can set 
+                <code data-jscall-id="50">minshaftlength &#61; 0</code>. &#40;Scaling will still happen if the shaft length drops to/below 0.&#41; If you want just scaling, you can set 
                 <code data-jscall-id="51">shaftlength</code> to a fixed value.
               </p>
               <div class="markdown-body" data-jscall-id="52">
@@ -115,21 +115,21 @@ f</code>
               <p data-jscall-id="56">The styling attributes 
                 <code data-jscall-id="57">arrowsize</code>, 
                 <code data-jscall-id="58">linewidth</code>, 
-                <code data-jscall-id="59">arrowtail</code> and 
-                <code data-jscall-id="60">arrowhead</code> have been broken up and renamed. There are now three components to an arrow, the &#40;usually 0 length&#41; tail, shaft and tip. Each have a length and width &#40;2D&#41; or radius &#40;3D&#41;. In 2D they are given in 
-                <code data-jscall-id="61">markerspace</code>, i.e. pixel space by default. Unlike before they are not necessarily the true size of the final arrow, as scaling can still apply. In 3D they are given in a boundingbox relative space if 
+                <code data-jscall-id="59">arrowtail</code>, and 
+                <code data-jscall-id="60">arrowhead</code> have been broken up and renamed. There are now three components to an arrow: the &#40;usually 0-length&#41; tail, shaft, and tip. Each has a length and width &#40;2D&#41; or radius &#40;3D&#41;. In 2D they are given in 
+                <code data-jscall-id="61">markerspace</code>, i.e., pixel space by default. Unlike before, they are not necessarily the true size of the final arrow, as scaling can still apply. In 3D they are given in a bounding box relative space if 
                 <code data-jscall-id="62">markerscale &#61; automatic</code> &#40;default&#41;, or in data units scaled by 
-                <code data-jscall-id="63">markerscale</code> if its is set to a number. The tail, shaft and tip can each be set to a vector of points &#40;2D&#41; or mesh to change the look of the arrows.
+                <code data-jscall-id="63">markerscale</code> if it is set to a number. The tail, shaft, and tip can each be set to a vector of points &#40;2D&#41; or mesh to change the look of the arrows.
               </p>
               <p data-jscall-id="64">
                 <img alt="arrow components" data-jscall-id="65" src="../../bonito/png/arrow_components8547364509615742792.png" />
               </p>
               <p data-jscall-id="66">The total arrow length follows from the 
                 <code data-jscall-id="67">direction</code> argument, 
-                <code data-jscall-id="68">lengthscale</code> and 
+                <code data-jscall-id="68">lengthscale</code>, and 
                 <code data-jscall-id="69">normalize</code>. If 
-                <code data-jscall-id="70">normalize &#61; true</code> directions are normalized first. Then they are multiplied by 
-                <code data-jscall-id="71">lengthscale</code>. The result is target length of the arrow, which the drawn arrow marker must be equal to.
+                <code data-jscall-id="70">normalize &#61; true</code>, directions are normalized first. Then they are multiplied by 
+                <code data-jscall-id="71">lengthscale</code>. The result is the target length of the arrow, which the drawn arrow marker must be equal to.
               </p>
               <div class="markdown-body" data-jscall-id="72">
                 <pre data-jscall-id="73">
@@ -149,10 +149,10 @@ f</code>
                 <code data-jscall-id="77">align</code> attribute has been reduced to only accepting 
                 <code data-jscall-id="78">:tail</code>, 
                 <code data-jscall-id="79">:center</code>, 
-                <code data-jscall-id="80">:tip</code> or a number. 
+                <code data-jscall-id="80">:tip</code>, or a number. 
                 <code data-jscall-id="81">:tail</code> &#40;0&#41; and 
-                <code data-jscall-id="82">:tip</code> &#40;1&#41; are the two endpoints of the arrow and 
-                <code data-jscall-id="83">:center</code> &#40;0.5&#41; is the center of full arrow. Note that you can also create a gap by setting 
+                <code data-jscall-id="82">:tip</code> &#40;1&#41; are the two endpoints of the arrow, and 
+                <code data-jscall-id="83">:center</code> &#40;0.5&#41; is the center of the full arrow. Note that you can also create a gap by setting 
                 <code data-jscall-id="84">align</code> to a value outside the 0..1 range.
               </p>
               <div class="markdown-body" data-jscall-id="85">
@@ -183,12 +183,12 @@ f</code>
                 <img data-jscall-id="88" src="../../bonito/png/cell_output_45179310039952601003.png" />
               </div>
               <p data-jscall-id="89">Another addition is 
-                <code data-jscall-id="90">argmode</code> which allows you to change the interpretation of the second argument. With 
-                <code data-jscall-id="91">argmode &#61; :endpoint</code> the second argument is treated as as the target position for the tip. The directions are then derived from that, with 
+                <code data-jscall-id="90">argmode</code>, which allows you to change the interpretation of the second argument. With 
+                <code data-jscall-id="91">argmode &#61; :endpoint</code>, the second argument is treated as the target position for the tip. The directions are then derived from that, with 
                 <code data-jscall-id="92">normalize</code> and 
                 <code data-jscall-id="93">lengthscale</code> applying afterwards. 
-                <code data-jscall-id="94">align</code> works a bit different in this mode. Instead of aligning a fraction of the final arrow with origin &#40;first argument&#41;, it aligns that fraction with the same fraction between the endpoints. So with 
-                <code data-jscall-id="95">align &#61; :center</code>, the center of the arrow aligns with center of the two endpoints.
+                <code data-jscall-id="94">align</code> works a bit differently in this mode. Instead of aligning a fraction of the final arrow with the origin &#40;first argument&#41;, it aligns that fraction with the same fraction between the endpoints. So with 
+                <code data-jscall-id="95">align &#61; :center</code>, the center of the arrow aligns with the center of the two endpoints.
               </p>
               <p data-jscall-id="96">All of these concepts also apply to 
                 <code data-jscall-id="97">arrows3d</code>:
@@ -224,7 +224,7 @@ f</code>
               </div>
               <p data-jscall-id="102">Note that 
                 <code data-jscall-id="103">arrows2d</code> and 
-                <code data-jscall-id="104">arrows3d</code> can both be used in 2D and 3D space. They differ in how they represent arrows - as a 2D mesh or a 3D mesh respectively. Note as well that we introduced 
+                <code data-jscall-id="104">arrows3d</code> can both be used in 2D and 3D space. They differ in how they represent arrows - as a 2D mesh or a 3D mesh, respectively. Note as well that we introduced 
                 <code data-jscall-id="105">Cone&#40;origin, extremity, radius&#41;</code> as a GeometryPrimitive in 
                 <code data-jscall-id="106">GeometryBasics</code> with this release.
               </p>
@@ -232,7 +232,7 @@ f</code>
                 <a href="https://github.com/MakieOrg/Makie.jl/pull/4925" data-jscall-id="108">#4925</a>
               </p>
               <h2 id="Dendrogram" data-jscall-id="109">Dendrogram</h2>
-              <p data-jscall-id="110">We have &#40;finally&#41; added the 
+              <p data-jscall-id="110">We have finally added the 
                 <code data-jscall-id="111">dendrogram</code> recipe. Given a collection of leaf node positions and merge indices, a tree visualization is created.
               </p>
               <div class="markdown-body" data-jscall-id="112">
@@ -271,11 +271,11 @@ f</code>
                 <a href="https://github.com/MakieOrg/Makie.jl/pull/2755" data-jscall-id="117">#2755</a>
               </p>
               <h1 id="Backlog" data-jscall-id="118">Backlog</h1>
-              <p data-jscall-id="119">In the following sections we want to highlight some changes that happened since the last blog post for Makie 0.22.2.</p>
+              <p data-jscall-id="119">In the following sections, we want to highlight some changes that happened since the last blog post for Makie 0.22.2.</p>
               <h2 id="Makie 0.22.8" data-jscall-id="120">Makie 0.22.8</h2>
               <h3 id="Annotation" data-jscall-id="121">Annotation</h3>
               <p data-jscall-id="122">There&#39;s a new 
-                <code data-jscall-id="123">annotation</code> recipe which can be used to annotate data points with text labels and connecting arrows or other styles. If no specific label positions or offsets are given, the default behavior tries to move labels away from data points, other labels and the figure boundary. This results in better readability for quick plots compared to a simple 
+                <code data-jscall-id="123">annotation</code> recipe which can be used to annotate data points with text labels and connecting arrows or other styles. If no specific label positions or offsets are given, the default behavior tries to move labels away from data points, other labels, and the figure boundary. This results in better readability for quick plots compared to a simple 
                 <code data-jscall-id="124">text</code> annotation:
               </p>
               <div class="markdown-body" data-jscall-id="125">
@@ -309,7 +309,7 @@ f</code>
                 </pre>
                 <img data-jscall-id="128" src="../../bonito/png/cell_output_716167661816028379997.png" />
               </div>
-              <p data-jscall-id="129">Annotation labels can be placed either in data space or relative to the target points in screen space, which makes it easy to achieve a consistent visual result regardless of axis scaling:</p>
+              <p data-jscall-id="129">Annotation labels can be placed either in data space or relative to the target points in screen space, making it easy to achieve a consistent visual result regardless of axis scaling:</p>
               <div class="markdown-body" data-jscall-id="130">
                 <pre data-jscall-id="131">
                   <code class="language-julia" data-jscall-id="132">
@@ -339,7 +339,7 @@ f</code>
                 </pre>
                 <img data-jscall-id="133" src="../../bonito/png/cell_output_83986133495503370123.png" />
               </div>
-              <p data-jscall-id="134">Annotations can come in a variety of styles which will also be expanded in the future. Currently, lines and arrows of different shapes are supported:</p>
+              <p data-jscall-id="134">Annotations can come in a variety of styles, which will also be expanded in the future. Currently, lines and arrows of different shapes are supported:</p>
               <div class="markdown-body" data-jscall-id="135">
                 <pre data-jscall-id="136">
                   <code class="language-julia" data-jscall-id="137">
@@ -395,8 +395,8 @@ f</code>
                 <a href="https://github.com/MakieOrg/Makie.jl/pull/4924" data-jscall-id="150">#4924</a>
               </p>
               <h3 id="Hide/show interaction for Legend" data-jscall-id="151">Hide/show interaction for Legend</h3>
-              <p data-jscall-id="152">You can now toggle the visibility of plots by left clicking their respective 
-                <code data-jscall-id="153">Legend</code> entries. Right clicking will toggle all connected plots and middle clicking will synchronize and toggle them
+              <p data-jscall-id="152">You can now toggle the visibility of plots by left-clicking their respective 
+                <code data-jscall-id="153">Legend</code> entries. Right-clicking will toggle all connected plots, and middle-clicking will synchronize and toggle them.
               </p>
               <p data-jscall-id="154">
                 <video controls="true" data-jscall-id="155" autoplay="true">
@@ -411,7 +411,7 @@ f</code>
                 <code data-jscall-id="161">ticks</code> &#40;lines between tick labels and the axis frame&#41;. The related attributes are 
                 <code data-jscall-id="162">r-</code>, 
                 <code data-jscall-id="163">rminor-</code>, 
-                <code data-jscall-id="164">theta-</code> and 
+                <code data-jscall-id="164">theta-</code>, and 
                 <code data-jscall-id="165">thetaminor-</code>:
               </p>
               <ul class=" style_2" style="" data-jscall-id="166">
@@ -437,14 +437,14 @@ f</code>
                 </li>
                 <li data-jscall-id="179">
                   <p data-jscall-id="180">
-                    <code data-jscall-id="181">-ticksmirrored</code>: Swaps the tick location to the opposite end of the PolarAxis if hte PolarAxis doesn&#39;t span a full circle &#40;
+                    <code data-jscall-id="181">-ticksmirrored</code>: Swaps the tick location to the opposite end of the PolarAxis if the PolarAxis doesn&#39;t span a full circle &#40;
                     <code data-jscall-id="182">rmin &#62; 0</code> or 
                     <code data-jscall-id="183">thetamax - thetamin &#60; 2pi</code>&#41;
                   </p>
                 </li>
                 <li data-jscall-id="184">
                   <p data-jscall-id="185">
-                    <code data-jscall-id="186">-tickalign</code>: Controls the alignment of ticks relative to the frame. &#40;default 0, point outwards&#41;
+                    <code data-jscall-id="186">-tickalign</code>: Controls the alignment of ticks relative to the frame &#40;default 0, point outwards&#41;
                   </p>
                 </li>
               </ul>
@@ -476,8 +476,8 @@ f</code>
               </p>
               <h3 id="Anisotropic marker rendering in GLMakie &#38; WGLMakie" data-jscall-id="193">Anisotropic marker rendering in GLMakie &#38; WGLMakie</h3>
               <p data-jscall-id="194">Rendering scatter markers &#40;or text&#41; with anisotropic 
-                <code data-jscall-id="195">markersize</code> &#40;or fontsize&#41;, e.g. 
-                <code data-jscall-id="196">markersize &#61; Vec2f&#40;10, 50&#41;</code>, used to result in blurred or pixelated edges in WGLMakie and GLMakie. The reason for this is that the signed distance fields representing markers &#40;characters&#41; are generated at a different aspect ratio. We now added a correction for this in shaders, which greatly reduces the blurring/pixelation:
+                <code data-jscall-id="195">markersize</code> &#40;or fontsize&#41;, e.g., 
+                <code data-jscall-id="196">markersize &#61; Vec2f&#40;10, 50&#41;</code>, used to result in blurred or pixelated edges in WGLMakie and GLMakie. The reason for this is that the signed distance fields representing markers &#40;characters&#41; are generated at a different aspect ratio. We have now added a correction for this in shaders, which greatly reduces the blurring/pixelation:
               </p>
               <pre data-jscall-id="197">
                 <code class="language-julia" data-jscall-id="198">
@@ -542,7 +542,7 @@ f</code>
                 <code data-jscall-id="222">transformation</code> changes
               </h3>
               <p data-jscall-id="223">
-                <code data-jscall-id="224">space</code> and plot transformations used to be intertwined. For example transform functions used to consider 
+                <code data-jscall-id="224">space</code> and plot transformations used to be intertwined. For example, transform functions used to consider 
                 <code data-jscall-id="225">space</code>, essentially running:
               </p>
               <pre data-jscall-id="226">
@@ -559,7 +559,7 @@ end</code>
                 <code data-jscall-id="229">transform_func</code> apply to a plot that is not in data space. It also suggested that 
                 <code data-jscall-id="230">space</code> should control which transformations get applied, which would mean that each of the current space options should be split into four &#40;with and without model and transform_func&#41;.
               </p>
-              <p data-jscall-id="231">On the other hand we were also checking space compatibility between plots and their parents during construction, only inheriting transformations if they were compatible. So a plot with 
+              <p data-jscall-id="231">On the other hand, we were also checking space compatibility between plots and their parents during construction, only inheriting transformations if they were compatible. So a plot with 
                 <code data-jscall-id="232">space &#61; :pixel</code> &#40;and a parent that isn&#39;t in pixel space&#41; would have identity transformations unless they were explicitly passed, meaning that applying them wouldn&#39;t actually change anything. We decided to rely on this as the source of truth. As such:
               </p>
               <ul class=" style_2" style="" data-jscall-id="233">
