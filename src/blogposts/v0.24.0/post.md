@@ -234,10 +234,8 @@ As such we have decided to remove MakieCore and reintegrate it into the Makie re
 The source code for Makie use to be part of the top level directory of the Makie repository.
 This caused the Makie module to include everything in the repository, i.e. also all the backends and other infrastructure.
 Each backend module would be downloaded and stored separately, creating a lot of duplicate data.
-
 We have now moved the Makie source into its own Makie directory to fix this issue.
-We have also moved assets to an artifact.
-With this you should see Makie requiring less storage.
+We have also moved assets to an artifact, which means that they do not need get downloaded again with every update.
 
 ## Other breaking changes
 
