@@ -24,7 +24,7 @@
 </script>
   </head>
   <body data-jscall-id="5">
-    <script type="module">Bonito.lock_loading(() => Bonito.init_session('e55955e8-1775-4371-b81b-98a4928b0511', null, 'root', false))</script>
+    <script type="module">Bonito.lock_loading(() => Bonito.init_session('cadc5f98-abf0-494e-aa6c-94138196854f', null, 'root', false))</script>
     <div data-jscall-id="6">
       <link href="../../bonito/png/icon_transparent1037186205570625945.png" data-jscall-id="7" rel="icon" type="image/png" />
       <img style="width: 100%" data-jscall-id="8" src="../../bonito/png/bannermesh_gradient12222907222071057261.png" />
@@ -76,7 +76,8 @@
               </p>
               <div class="markdown-body" data-jscall-id="42">
                 <pre data-jscall-id="43">
-                  <code class="language-julia" data-jscall-id="44">using CairoMakie
+                  <code class="language-julia" data-jscall-id="44">
+using CairoMakie
 CairoMakie.activate&#33;&#40;&#41;
 
 f &#61; Figure&#40;size &#61; &#40;600, 300&#41;&#41;
@@ -96,7 +97,8 @@ f</code>
               </p>
               <div class="markdown-body" data-jscall-id="51">
                 <pre data-jscall-id="52">
-                  <code class="language-julia" data-jscall-id="53">using CairoMakie
+                  <code class="language-julia" data-jscall-id="53">
+using CairoMakie
 CairoMakie.activate&#33;&#40;&#41;
 
 f &#61; Figure&#40;size &#61; &#40;600, 300&#41;&#41;
@@ -130,7 +132,8 @@ f</code>
               </p>
               <div class="markdown-body" data-jscall-id="71">
                 <pre data-jscall-id="72">
-                  <code class="language-julia" data-jscall-id="73">using CairoMakie
+                  <code class="language-julia" data-jscall-id="73">
+using CairoMakie
 CairoMakie.activate&#33;&#40;&#41;
 
 f,a,p &#61; arrows2d&#40;1:3, fill&#40;0, 3&#41;, zeros&#40;3&#41;, &#91;0.2, 0.5, 1&#93;&#41;
@@ -153,7 +156,8 @@ f</code>
               </p>
               <div class="markdown-body" data-jscall-id="84">
                 <pre data-jscall-id="85">
-                  <code class="language-julia" data-jscall-id="86">using CairoMakie
+                  <code class="language-julia" data-jscall-id="86">
+using CairoMakie
 using Makie.GeometryBasics
 CairoMakie.activate&#33;&#40;&#41;
 
@@ -190,7 +194,8 @@ f</code>
               </p>
               <div class="markdown-body" data-jscall-id="97">
                 <pre data-jscall-id="98">
-                  <code class="language-julia" data-jscall-id="99">using GLMakie
+                  <code class="language-julia" data-jscall-id="99">
+using GLMakie
 using GLMakie.GeometryBasics
 GLMakie.activate&#33;&#40;&#41;
 
@@ -231,7 +236,8 @@ f</code>
               </p>
               <div class="markdown-body" data-jscall-id="111">
                 <pre data-jscall-id="112">
-                  <code class="language-julia" data-jscall-id="113">using CairoMakie
+                  <code class="language-julia" data-jscall-id="113">
+using CairoMakie
 CairoMakie.activate&#33;&#40;&#41;
 
 # node positions and indices of pairs that merge
@@ -272,7 +278,8 @@ f</code>
               </p>
               <div class="markdown-body" data-jscall-id="123">
                 <pre data-jscall-id="124">
-                  <code class="language-julia" data-jscall-id="125">using CairoMakie
+                  <code class="language-julia" data-jscall-id="125">
+using CairoMakie
 CairoMakie.activate&#33;&#40;&#41;
 
 f &#61; Figure&#40;&#41;
@@ -298,12 +305,13 @@ hidedecorations&#33;.&#40;&#91;ax1, ax2&#93;&#41;
 
 f</code>
                 </pre>
-                <img data-jscall-id="126" src="../../bonito/png/cell_output_79174641193439541270.png" />
+                <img data-jscall-id="126" src="../../bonito/png/cell_output_716167661816028379997.png" />
               </div>
               <p data-jscall-id="127">Annotation labels can be placed either in data space or relative to the target points in screen space, which makes it easy to achieve a consistent visual result regardless of axis scaling:</p>
               <div class="markdown-body" data-jscall-id="128">
                 <pre data-jscall-id="129">
-                  <code class="language-julia" data-jscall-id="130">using CairoMakie
+                  <code class="language-julia" data-jscall-id="130">
+using CairoMakie
 CairoMakie.activate&#33;&#40;&#41;
 
 g&#40;x&#41; &#61; cos&#40;6x&#41; * exp&#40;x&#41;
@@ -327,12 +335,13 @@ annotation&#33;&#40;ax, -100, -100, 2.65, g&#40;2.65&#41;,
 
 f</code>
                 </pre>
-                <img data-jscall-id="131" src="../../bonito/png/cell_output_8478687640133529577.png" />
+                <img data-jscall-id="131" src="../../bonito/png/cell_output_83986133495503370123.png" />
               </div>
               <p data-jscall-id="132">Annotations can come in a variety of styles which will also be expanded in the future. Currently, lines and arrows of different shapes are supported:</p>
               <div class="markdown-body" data-jscall-id="133">
                 <pre data-jscall-id="134">
-                  <code class="language-julia" data-jscall-id="135">using CairoMakie
+                  <code class="language-julia" data-jscall-id="135">
+using CairoMakie
 CairoMakie.activate&#33;&#40;&#41;
 
 fig &#61; Figure&#40;&#41;
@@ -351,7 +360,7 @@ annotation&#33;&#40;-200, 0, 0, -8, style &#61; Ann.Styles.LineArrow&#40;tail &#
 
 fig</code>
                 </pre>
-                <img data-jscall-id="136" src="../../bonito/png/cell_output_98612012630164101650.png" />
+                <img data-jscall-id="136" src="../../bonito/png/cell_output_99858284980414630726.png" />
               </div>
               <p data-jscall-id="137">
                 <a href="https://github.com/MakieOrg/Makie.jl/pull/4891" data-jscall-id="138">#4891</a>
@@ -363,7 +372,8 @@ fig</code>
               </p>
               <div class="markdown-body" data-jscall-id="143">
                 <pre data-jscall-id="144">
-                  <code class="language-julia" data-jscall-id="145">using GLMakie
+                  <code class="language-julia" data-jscall-id="145">
+using GLMakie
 GLMakie.activate&#33;&#40;&#41;
 
 f &#61; Figure&#40;size &#61; &#40;400, 400&#41;&#41;
@@ -377,7 +387,7 @@ surface&#33;&#40;-1..2, -1..2, sin.&#40;1:10&#41;&#39; .* sin.&#40;1:10&#41;, la
 Legend&#40;f&#91;2, 2&#93;, a, tellwidth &#61; false&#41;
 f</code>
                 </pre>
-                <img data-jscall-id="146" src="../../bonito/png/cell_output_1010439411756030109019.png" />
+                <img data-jscall-id="146" src="../../bonito/png/cell_output_1017945951019405229378.png" />
               </div>
               <p data-jscall-id="147">
                 <a href="https://github.com/MakieOrg/Makie.jl/pull/4924" data-jscall-id="148">#4924</a>
@@ -434,7 +444,8 @@ f</code>
               </ul>
               <div class="markdown-body" data-jscall-id="183">
                 <pre data-jscall-id="184">
-                  <code class="language-julia" data-jscall-id="185">using CairoMakie
+                  <code class="language-julia" data-jscall-id="185">
+using CairoMakie
 CairoMakie.activate&#33;&#40;&#41;
 
 f &#61; Figure&#40;size &#61; &#40;800, 400&#41;&#41;
@@ -452,7 +463,7 @@ rlims&#33;&#40;a, 0.5, 0.9&#41;
 thetalims&#33;&#40;a, 1pi/5, 2pi/5&#41;
 f</code>
                 </pre>
-                <img data-jscall-id="186" src="../../bonito/png/cell_output_117774216039595311067.png" />
+                <img data-jscall-id="186" src="../../bonito/png/cell_output_11478687640133529577.png" />
               </div>
               <p data-jscall-id="187">
                 <a href="https://github.com/MakieOrg/Makie.jl/pull/4902" data-jscall-id="188">#4902</a>
@@ -464,6 +475,7 @@ f</code>
               </p>
               <pre data-jscall-id="193">
                 <code class="language-julia" data-jscall-id="194">
+
 scene &#61; Scene&#40;size &#61; &#40;250, 250&#41;&#41;
 ms &#61; &#91;Vec2f&#40;60, 10&#41;, Vec2f&#40;60&#41;, Vec2f&#40;10, 60&#41;&#93;
 scatter&#33;&#40;scene, fill&#40;-0.75, 3&#41;, &#91;-0.75, 0.0, 0.75&#93;, marker &#61; :rect, markersize &#61; ms&#41;
@@ -495,7 +507,8 @@ scene</code>
               </p>
               <div class="markdown-body" data-jscall-id="210">
                 <pre data-jscall-id="211">
-                  <code class="language-julia" data-jscall-id="212">using CairoMakie
+                  <code class="language-julia" data-jscall-id="212">
+using CairoMakie
 CairoMakie.activate&#33;&#40;&#41;
 
 f,a,p &#61; textlabel&#40;0, 0, text &#61; &#34;Default Label&#34;&#41;
@@ -563,7 +576,8 @@ end</code>
               </p>
               <div class="markdown-body" data-jscall-id="241">
                 <pre data-jscall-id="242">
-                  <code class="language-julia" data-jscall-id="243">using CairoMakie
+                  <code class="language-julia" data-jscall-id="243">
+using CairoMakie
 CairoMakie.activate&#33;&#40;&#41;
 
 kwargs &#61; &#40;marker &#61; &#91;&#39;a&#39;, &#39;♪&#39;, &#39;&#64;&#39;, &#39;→&#39;&#93;, markersize &#61; 30&#41;
