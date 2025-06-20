@@ -1,7 +1,8 @@
 <item>
   <title>Makie v0.23.0</title>
   <link>./blogposts/v0.23.0</link>
-  <description>Arrows Refactor</description>
+  <description>We're happy to release Makie v0.23! This version features a new dendrogram recipe, a
+    breaking cleanup of the arrow recipe, and many other improvements.</description>
   <pubDate>Thu, 12 Jun 2025 10:11:18</pubDate>
   <image>
     <url>./output/cell_output_6.png</url>
