@@ -4,9 +4,14 @@ This release features a rework of how plot arguments and attributes are handled.
 
 All the data a plot generates from its inputs to the final backend renderobject are stored in the graph as nodes. All the computations that connect data are stored as edges. When a plot input is updated, the graph marks every dependent node and edge as out-of-date. When data from an out-of-date node is requested, all related outdated nodes are resolved to compute the up-to-date value.
 
-One of the goals of this refactor was to fix synchronous update issues, i.e. when two or more variables need to update together. An example would be adding a new value to the `x` and `y` values of a scatter plot. This can now be done with `Makie.update!(plot, arg1 = new_xs, arg2 = new_ys)`.
-Another improvement is, that we can now poll updates, which helps to skip intermediate calculations that happen inbetween draw calls, like it happens e.g. in `Axis`, where the layout is calculated iteratively where each iteration updates all involved plots.
-The polling also gives us more control where to apply the updates, which is a large step towards making GLMakie plot updating thread safe. Previously, `plot.attribute = new_val` would immediately switch the OpenGL context and upload the new data, which is inherently not thread safe, while now we can poll the update at a point in time where all OpenGL state is already correctly set and we're on the correct thread to talk with OpenGL.
+One of the goals of this refactor was to fix synchronous update issues, i.e. when two or more variables need to update together.
+An example would be resizing the `x` and `y` values of a scatter plot.
+This can now be done with `Makie.update!(plot, arg1 = new_xs, arg2 = new_ys)`.
+Another improvement is that we can now poll updates, which helps to skip intermediate calculations that happen between draw calls.
+This happens in `Axis` for example, where the layout is calculated iteratively and each iteration updates all involved plots.
+The polling also gives us more control over where and when to apply the updates, which is a large step towards making GLMakie plot updating thread safe.
+Previously `plot.attribute = new_val` would immediately switch the OpenGL context and upload the new data, which is inherently not thread safe.
+Now we can poll the update at a point in time where all OpenGL state is already correctly set and we're on the correct thread to talk with OpenGL.
 
 ## Performance improvements
 
@@ -54,10 +59,11 @@ end
 ![WGLMakie benchmark](./images/wglmakie-benchmark.svg)
 
 As one can see, there are large gains from the refactor, which are especially noticeable when interacting with WGLMakie plots over a slow connection.
-Something not entirely noticeable in the Benchmark is, that when using `update!`, all updates are now applied at the same time in JS, which avoids artifacts for larger/slower updates, where previously each update would come in seperate messages, creating incorrect states inbetween (e.g. updating x, y, z for a heatmap/image).
+Something not entirely noticeable in the benchmark is, that when using `update!`, all updates are now applied at the same time in JS. This avoids artifacts for larger/slower updates where previously each update would come in separate messages, creating incorrect states in-between (e.g. updating x, y, z for a heatmap/image).
 
 We're still missing a lot of optimizations to fully use the power of the compute graph, and the graph itself can still be optimized.
-As an example, we're still converting to Observables internally a lot, since we haven't had time to update all Blocks and recipes (Axis/LineAxis/Axis3/poly/...) to use the new compute graph, which does in some places currently almost double the work.
+For example, we're still converting to Observables internally a lot, since we haven't had time to update all Blocks and recipes (Axis/LineAxis/Axis3/poly/...) to use the new compute graph yet.
+Converting graph nodes to Observables forces them to update as soon as possible, disabling the ability to throw away intermediate updates.
 
 Any help to crowd source this will be much appreciated, since we need to concentrate on releasing Makie 1.0 from here on.
 
@@ -65,11 +71,12 @@ Any help to crowd source this will be much appreciated, since we need to concent
 
 ## Attribute Handling in Recipes
 
-Some styles of passing attributes through a recipe no longer work.
+Some styles of passing attributes through a recipe no longer work, as `plot.attributes` no longer use the Dict-like `Attributes` type.
+Instead they are now a `ComputeGraph` which is less mutable.
 
 #### Splatting
 
-Splatting "Attributes" no longer works, because attributes are now a `ComputeGraph` instead of the Dict-like `Attributes`.
+Splatting "Attributes" no longer works:
 
 ```julia
 # no-eval
@@ -79,7 +86,7 @@ attr = Attributes(parent)
 plot!(parent, args...; attr...)
 ```
 
-Instead they can be passed directly as the second argument:
+Instead attributes can be passed directly as the second argument:
 
 ```julia
 # no-eval
@@ -87,11 +94,12 @@ attr = Attributes(parent)
 plot!(parent, attr, args...; kwargs...)
 ```
 
-Keyword arguments take priority over the nodes in `attr` here. Any node that is not compatible with `plot!()` will be ignored.
+Keyword arguments take priority over the nodes in `attr` here.
+Any node that is not compatible with `plot!()` will be ignored.
 
 #### Copy - Modify
 
-Copying and adjusting "Attributes" does not work anymore for the same reason
+Copying and adjusting attributes also does not work anymore:
 
 ```julia
 # no-eval
@@ -102,12 +110,13 @@ plot!(parent, attr, args...; kwargs...)
 # or plot!(parent, args...; kwargs..., attr...)
 ```
 
-Instead of this you can again directly pass attributes. Instead of overwriting `attr[key] = val` you can pass that attribute as a keyword argument. Instead of deleting `pop!(attr, key)` you can [TODO]
+Instead of this you can again directly pass attributes.
+Instead of overwriting `attr[key] = val` you can pass that attribute as a keyword argument, and instead of `pop!(attr, key)` you can set a constant default or make that attribute available in your recipe.
 
 ```julia
 # no-eval
 attr = Attributes(plot)
-plot!(parent, attr, args..., changed = value, TODO)
+plot!(parent, attr, args..., changed = value, popped = const_val)
 ```
 
 #### `replace_automatic!()`
@@ -145,18 +154,26 @@ Lights are now handled by the ComputeGraph of the scene. Because of this lights 
 -   `push_light!(scene, light)` adds a light to the light vector
 -   `set_directional_light!(scene; [color, direction, camera_relative])` adjusts the directional light of the scene if it is the only available light other than the ambient light. (I.e. the scene is in FastShading mode)
 
-The `shading` attribute has also changed back to a `Bool`. The decision between `FastShading` and `MultiLightShading` is now handled by the scene instead. You can also force the scene to pick one with `set_shading_algorithm!(scene, choice)`.
+The `shading` attribute (on a plot level) has also changed back to a `Bool`.
+The decision between `FastShading` and `MultiLightShading` is now handled by the scene instead.
+You can also force the scene to pick one with `set_shading_algorithm!(scene, choice)`.
 
 ## Text
 
 Text has been refactored to rely solely on the compute graph and avoid the nested structure it had before. While this may be considered internal, some recipes (and Blocks) do rely on the old structure. Usually this is for some kind of boundingbox. To simplify working with them, we added a new set of functions:
 
--   `raw_glyph_boundingboxes(plot)` returns a markerspace boundingbox per glpyh which considers only the glyph and the fontsize.
--   `fast_glyph/string_boundingboxes(plot)` returns a markerspace boundingbox per glyph/string which considers the above, string layouting, rotation and offset.
--   `glyph/string_boundingboxes(plot)` returns a markerspace boundingbox per glyph/string which considers the above and positions.
--   `full_boundingbox(plot, target_space)` returns a single boundingbox considering the above, transformed into `target_space`.
+| Includes (cumulative) | per character | per string |
+| --- | --- | --- |
+| characters, fontsize | `raw_glyph_boundingboxes()` | |
+| string layouting, rotation, offset | `fast_glyph_boundingboxes` | `fast_string_boundingboxes()` |
+| markerspace positions | `glyph_boundingboxes()` | `string_boundingboxes()` |
 
-These functions should replace calls to `unchecked_boundingbox()`, `gl_bboxes()`, `string_boundingbox()` etc. Each of them also has a `register_$(name)!(plot)` version which registers the associated compute node, and a `$(name)_obs(plot)` version which returns an observable instead of a (vector of) boundingbox(es). Note that updating text inputs with these may result in infinite loops.
+All of the above return bounding boxes in `markerspace`.
+For boundingboxes transformed back to `space` we added `full_boundingbox()` which returns a bounding box per plot.
+All of these functions have two more variants, `register_...()` which just registers the computation, and `..._obs()` which returns an observable listening to the computation.
+They should replace calls to `unchecked_boundingbox()`, `gl_bboxes()`, `string_boundingbox()` etc.
+
+Note that reacting to these to update inputs of the same text may result in infinite loops.
 
 ## MakieCore removed
 
