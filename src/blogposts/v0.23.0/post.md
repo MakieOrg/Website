@@ -6,10 +6,10 @@ Makie 0.23.0 is a relatively small breaking release before the big 0.24.0 Comput
 
 Arrows have been refactored to address a number of issues, most importantly issues with scaling and alignment.
 Before 0.23 `arrows` did not consider the arrow tip as part of the length, which meant that arrows were always longer than they should be.
-When aligning to their tip, they actually aligned to the endpoint of the shaft (called tail pre 0.23) instead.
+This also applies to alignment, where `align = :tip` would align arrows to the endpoint of the shaft (called tail pre 0.23) instead of the end of the tip.
 
-The new `arrows2d` and `arrows3d` now strictly follow the rule that the final arrow length must match the length derived from `directions`, `normalize` and `lengthscale`.
-The arrows may stretch their shaft or scale as a whole to achieve this.
+The new `arrows2d` and `arrows3d` now strictly follow the rule that the drawn arrow length must match the length derived from `directions`, `normalize` and `lengthscale`.
+To achieve this, the arrow shaft may elongate or the whole arrow may scale.
 
 ```julia
 
@@ -29,7 +29,7 @@ This is controlled by `minshaftlength` and `maxshaftlength`.
 If the calculated shaftlength falls in this range, the shaft is scaled to that length.
 If it does not, the length is clamped to that range and the full arrow is scaled instead.
 If you want just shaftlength scaling you can set `minshaftlength = 0`.
-(Scaling will still happen if the shaftlength drops to 0.)
+(Scaling will still happen if the shaftlength drops to/below 0.)
 If you want just scaling, you can set `shaftlength` to a fixed value.
 
 ```julia
@@ -183,6 +183,8 @@ f
 
 # Backlog
 
+In the following sections we want to highlight some changes that happened since the last blog post for Makie 0.22.2.
+
 ## Makie 0.22.8
 
 ### Annotation
@@ -277,7 +279,7 @@ fig
 
 ### Legend entries for mesh, meshscatter, image, heatmap and surface plots
 
-`Legend` now has entry visualizations for mesh, meshscatter and surface in 3D and image and heatmap in 2D.
+`Legend` now has entry visualizations for mesh, meshscatter and surface in 3D and image and heatmap in 2D:
 
 ```julia
 
@@ -303,7 +305,7 @@ f
 You can now toggle the visibility of plots by left clicking their respective `Legend` entries.
 Right clicking will toggle all connected plots and middle clicking will synchronize and toggle them
 
-TODO: animation
+![Legend Interaction](./images/legend_interaction_example.mp4)
 
 [#2276](https://github.com/MakieOrg/Makie.jl/pull/2276)
 
@@ -344,11 +346,12 @@ f
 ### Anisotropic marker rendering in GLMakie & WGLMakie
 
 Rendering scatter markers (or text) with anisotropic `markersize` (or fontsize), e.g. `markersize = Vec2f(10, 50)`, used to result in blurred or pixelated edges in WGLMakie and GLMakie.
-This has been mostly fixed:
+The reason for this is that the signed distance fields representing markers (characters) are generated at a different aspect ratio.
+We now added a correction for this in shaders, which greatly reduces the blurring/pixelation:
 
 ```julia
 # no-eval
-
+using GLMakie
 scene = Scene(size = (250, 250))
 ms = [Vec2f(60, 10), Vec2f(60), Vec2f(10, 60)]
 scatter!(scene, fill(-0.75, 3), [-0.75, 0.0, 0.75], marker = :rect, markersize = ms)
@@ -412,7 +415,7 @@ end
 ```
 
 This meant you could never have a `transform_func` apply to a plot that is not in data space.
-It also suggested that `space` should control which transformations get applied, which would mean every of the current space options should split into four (with and without model and transform_func).
+It also suggested that `space` should control which transformations get applied, which would mean that each of the current space options should be split into four (with and without model and transform_func).
 
 On the other hand we were also checking space compatibility between plots and their parents during construction, only inheriting transformations if they were compatible.
 So a plot with `space = :pixel` (and a parent that isn't in pixel space) would have identity transformations unless they were explicitly passed, meaning that applying them wouldn't actually change anything.
