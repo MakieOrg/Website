@@ -142,6 +142,54 @@ obs = map(default_automatic, plot.maybe_automatic, plot.default)
 plot!(parent, ..., something = obs)
 ```
 
+#### Replacing Observables with `ComputeGraph` nodes
+
+Refactoring recipes to use the `ComputeGraph` instead of `Observables` is **not necessary**.
+But like we mentioned before, it may improve performance and it fits well with discussion on recipes here.
+
+Before you typically wrote code like this:
+
+```julia
+# optional `plot` argument, could also be lift, @lift, map!
+output1 = map(plot, plot.obs1, plot.obs2, ...) do args...
+    return some_calcuation(args...)
+end
+
+output2 = Observable(...)
+# optional `plot` argument, could also be on
+onany(plot, plot.obs1, plot.obs2, ...) do args...
+    output2[] = some_calculation(args...)
+end
+```
+
+These functions can be replaced with a new `map!(callback, graph, inputs, outputs)` function introduced for the `ComputeGraph`.
+`inputs` is either a `Symbol` or `Vector{Symbol}` referring to all nodes that go into the calculation.
+`outputs` is also either a `Symbol` or `Vector{Symbol}` which names the output or outputs of the calculation.
+The outputs should be unique, i.e. there should only be one `map!()` writing to them.
+They will be created by this function.
+The `callback` is more or less the same as with `Observables` - a function taking in the input values as arguments and returning one value per output.
+
+```julia
+# map() example
+map!(plot.attributes, [:obs1, :obs2, ...], :output1) do args...
+    return some_calculation(args...)
+end
+
+# onany example - no need for special handling anymore
+map!(plot.attributes, [:obs1, :obs2, ...], :output2) do args...
+    return some_calculation(args...)
+end
+
+# A Vector of outputs requires returning a tuple:
+map!(plot.attributes, [:obs1, :obs2], [:multi1, multi2]) do args...
+    result1, result2 = some_calculation(args...)
+    return result1, result2
+end
+```
+
+After calling `map!()` the outputs will be part of the compute graph.
+You can get them by indexing the plot, e.g. `plot.output1`, and pass them to a child plot using keyword arguments or, if they are correctly named, by passing `plot.attributes`.
+
 ## Lights
 
 Lights are now handled by the ComputeGraph of the scene. Because of this lights no longer contain Observables and need to be updated through the scene/compute graph instead. For this a new set of helper functions has been added:
