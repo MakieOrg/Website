@@ -1,4 +1,4 @@
-# General Information
+# Makie v0.24
 
 This release features a rework of how plot arguments and attributes are handled. Instead of using Observables we now use a `ComputeGraph`.
 
@@ -150,6 +150,7 @@ But like we mentioned before, it may improve performance and it fits well with d
 Before you typically wrote code like this:
 
 ```julia
+# no-eval
 # optional `plot` argument, could also be lift, @lift, map!
 output1 = map(plot, plot.obs1, plot.obs2, ...) do args...
     return some_calcuation(args...)
@@ -170,6 +171,7 @@ They will be created by this function.
 The `callback` is more or less the same as with `Observables` - a function taking in the input values as arguments and returning one value per output.
 
 ```julia
+# no-eval
 # map() example
 map!(plot.attributes, [:obs1, :obs2, ...], :output1) do args...
     return some_calculation(args...)
@@ -231,7 +233,7 @@ As such we have decided to remove MakieCore and reintegrate it into the Makie re
 
 ## Package Organization
 
-The source code for Makie use to be part of the top level directory of the Makie repository.
+The source code for Makie used to be part of the top level directory of the Makie repository.
 This caused the Makie module to include everything in the repository, i.e. also all the backends and other infrastructure.
 Each backend module would be downloaded and stored separately, creating a lot of duplicate data.
 We have now moved the Makie source into its own Makie directory to fix this issue.
@@ -253,5 +255,3 @@ We have also moved assets to an artifact, which means that they do not need get 
 - 2x2 `surface()` plots in CairoMakie and WGLMakie now plot at the correct z values
 - `arrows3d()` now include lighting attributes
 - `annotation!()` plots now work correctly with transform functions and include fontsize
-
-
