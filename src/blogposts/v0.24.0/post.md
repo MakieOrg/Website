@@ -4,6 +4,18 @@ The switch away from Observables for Makie's internals has been one of the bigge
 While many changes happened internally without changing the surface API, this is still one of the biggest breaking changes we have planned, which made us consider tagging this as Makie v1.0.
 Since there are still a few open design decisions we want to hammer out in the coming months, we decided to tag this as 0.24 for now, but we do hope that Makie 1.0 will be released this year without adding many breaking changes on top of 0.24.
 
+```julia
+# hide
+using Markdown, Bonito
+DOM.div(
+    DOM.p("Warning!"; class="title"),
+    """
+        This release includes major internal improvements to Makie.
+        While thoroughly tested, big changes like these can sometimes reveal unexpected edge cases. If you prefer a more stable experience, consider waiting a few weeks before upgrading to 0.24.
+    """; class="admonition warning"
+)
+```
+
 ## Overview
 
 This release features a rework of how plot arguments and attributes are handled. Instead of using Observables we now use a `ComputeGraph`.
