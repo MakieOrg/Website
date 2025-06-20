@@ -1,13 +1,11 @@
 <!doctype html>
-<html data-jscall-id="1">
-  <head data-jscall-id="2">
+<html class="bonito-fragment">
+  <head>
     <script src="../../bonito/js/Bonito.bundled15432232505923397289.js" type="module"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" data-jscall-id="3" />
-    <meta charset="utf-8" data-jscall-id="4" />
-    <style>.style_2 {
-  list-style-type: disc;
-}
-</style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <title>Makie v0.24.0</title>
+    <style></style>
     <script>    window.__define = window.define;
     window.__require = window.require;
     window.define = undefined;
@@ -16,339 +14,236 @@
     <link href="../../bonito/css/site12702644314707762978.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com/3.3.1"></script>
     <link href="../../bonito/css/markdown17382678153536898021.css" rel="stylesheet" type="text/css" />
-    <link href="../../bonito/css/github.min8213811099958948332.css" rel="stylesheet" type="text/css" />
     <script>    window.define = window.__define;
     window.require = window.__require;
     window.__define = undefined;
     window.__require = undefined;
 </script>
   </head>
-  <body data-jscall-id="5">
-    <script type="module">Bonito.lock_loading(() => Bonito.init_session('01c67dcd-2709-40d9-8388-727e2e2e3e13', null, 'root', false))</script>
-    <div data-jscall-id="6">
-      <link href="../../bonito/png/icon_transparent1037186205570625945.png" data-jscall-id="7" rel="icon" type="image/png" />
-      <img style="width: 100%" data-jscall-id="8" src="../../bonito/png/bannermesh_gradient12222907222071057261.png" />
-      <div class="flex navbar justify-center" data-jscall-id="9">
-        <div class="flex max-w-5xl w-full md:px-4 flex-wrap" data-jscall-id="10">
-          <a href="../../" data-jscall-id="11" target="">
-            <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="12">Home</div>
-          </a>
-          <a href="../../team" data-jscall-id="13" target="">
-            <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="14">Team</div>
-          </a>
-          <a href="../../support" data-jscall-id="15" target="">
-            <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="16">Support</div>
-          </a>
-          <a href="../../contact" data-jscall-id="17" target="">
-            <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="18">Contact</div>
-          </a>
-          <a href="../../blog" data-jscall-id="19" target="">
-            <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50  navbar-highlight" data-jscall-id="20">Blog</div>
-          </a>
-          <a href="http://docs.makie.org" data-jscall-id="21" target="_blank">
-            <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="22">Docs</div>
-          </a>
-          <a href="https://github.com/MakieOrg/Makie.jl" data-jscall-id="23" target="_blank">
-            <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="24">
-              <img style="height: 1.2rem; display: inline-block; vertical-align: text-bottom;" data-jscall-id="25" src="../../bonito/png/GitHub-Mark-Light-64px12574665218786438484.png" />
-            </div>
-          </a>
-        </div>
-      </div>
-      <div class="p-4 max-w-5xl" data-jscall-id="26">
-        <div data-jscall-id="27">
-          <div data-jscall-id="28">
-            <div class="markdown-body" data-jscall-id="29">
-              <h1 id="General Information" data-jscall-id="30">General Information</h1>
-              <p data-jscall-id="31">This release features a rework of how plot arguments and attributes are handled. Instead of using Observables we now use a 
-                <code data-jscall-id="32">ComputeGraph</code>.
-              </p>
-              <p data-jscall-id="33">All the data a plot generates from its inputs to the final backend renderobject are stored in the graph as nodes. All the computations that connect data are stored as edges. When a plot input is updated, the graph marks every dependent node and edge as out-of-date. When data from an out-of-date node is requested, all related outdated nodes are resolved to compute the up-to-date value.</p>
-              <p data-jscall-id="34">One of the goals of this refactor was to fix synchronous update issues, i.e. when two or more variables need to update together. An example would be resizing the 
-                <code data-jscall-id="35">x</code> and 
-                <code data-jscall-id="36">y</code> values of a scatter plot. This can now be done with 
-                <code data-jscall-id="37">Makie.update&#33;&#40;plot, arg1 &#61; new_xs, arg2 &#61; new_ys&#41;</code>. Another improvement is that we can now poll updates, which helps to skip intermediate calculations that happen between draw calls. This happens in 
-                <code data-jscall-id="38">Axis</code> for example, where the layout is calculated iteratively and each iteration updates all involved plots. The polling also gives us more control over where and when to apply the updates, which is a large step towards making GLMakie plot updating thread safe. Previously 
-                <code data-jscall-id="39">plot.attribute &#61; new_val</code> would immediately switch the OpenGL context and upload the new data, which is inherently not thread safe. Now we can poll the update at a point in time where all OpenGL state is already correctly set and we&#39;re on the correct thread to talk with OpenGL.
-              </p>
-              <h2 id="Performance improvements" data-jscall-id="40">Performance improvements</h2>
-              <p data-jscall-id="41">Especially for WGLMakie, the performance gains are huge, since we now control much better when to calculate updates and when to skip a computations. We used a small 
-                <a href="https://gist.github.com/SimonDanisch/bda7660ebfebab5a9a090b16433c31dc" data-jscall-id="42">benchmark script</a> to get some first numbers on the improvements this refactor provides:
-              </p>
-              <pre data-jscall-id="43">
-                <code class="language-julia" data-jscall-id="44">
-run_example&#33;&#40;&#34;resize&#33;&#34;, &#40;f, ax, pl&#41; -&#62; resize&#33;&#40;f, rand&#40;500:1000&#41;, rand&#40;500:1000&#41;&#41;&#41; do
-    f &#61; Figure&#40;size &#61; &#40;800, 800&#41;&#41;
-    for i in 1:3, j in 1:3
-        isodd&#40;i &#43; j&#41; ?
-            heatmap&#40;f&#91;i, j&#93;, rand&#40;500, 500&#41;&#41; :
-            scatter&#40;f&#91;i, j&#93;, rand&#40;Point2f, 10&#41;; color &#61; rand&#40;10&#41;&#41;
-    end
-    f, nothing, nothing
-end
-update_test &#61; &#40;f, ax, pl&#41; -&#62; update&#33;&#40;pl,
-    color &#61; rand&#40;1000&#41;, colormap &#61; rand&#40;Makie.all_gradient_names&#41;,
-    markersize &#61; rand&#40;5:0.001:60&#41;
-&#41;
-run_example&#33;&#40;&#34;update&#33;&#34;, update_test&#41; do
-    scatter&#40;rand&#40;Point2f, 1000&#41;; color &#61; rand&#40;1000&#41;, colormap &#61; :turbo, markersize &#61; 20&#41;
-end
-function trigger_update&#40;f, ax, pl&#41;
-    e &#61; events&#40;f&#41;
-    e.mouseposition&#91;&#93; &#61; &#40;300, 250&#41;
-    e.mousebutton&#91;&#93; &#61; Makie.MouseButtonEvent&#40;Mouse.right, Mouse.press&#41;
-    e.mouseposition&#91;&#93; &#61; &#40;350, 250&#41;
-    return e.mousebutton&#91;&#93; &#61; Makie.MouseButtonEvent&#40;Mouse.right, Mouse.release&#41;
-end
-run_example&#33;&#40;&#34;zoom interaction&#34;, trigger_update&#41; do
-    return scatter&#40;rand&#40;Point2f, 1000&#41;; color &#61; rand&#40;1000&#41;, colormap &#61; :turbo, markersize &#61; 20&#41;
-end
-run_example&#33;&#40;&#34;Axis3&#34;, &#40;f, ax, pl&#41; -&#62; &#40;ax.azimuth &#61; rand&#40;-π:0.001:π&#41;&#41;&#41; do
-    return meshscatter&#40;rand&#40;Point3f, 100&#41;, axis &#61; &#40;; type &#61; Axis3&#41;&#41;
-end
-run_example&#33;&#40;&#34;Axis3 hidden&#34;, &#40;f, ax, pl&#41; -&#62; &#40;ax.azimuth &#61; rand&#40;-π:0.001:π&#41;&#41;&#41; do
-    f, ax, pl &#61; meshscatter&#40;rand&#40;Point3f, 100&#41;, axis &#61; &#40;; type &#61; Axis3&#41;&#41;
-    hidedecorations&#33;&#40;ax&#41;
-    return f, ax, pl
-end</code>
-              </pre>
-              <p data-jscall-id="45">
-                <img alt="WGLMakie benchmark" data-jscall-id="46" src="../../bonito/svg/wglmakie-benchmark1412202503720237170.svg" />
-              </p>
-              <p data-jscall-id="47">As one can see, there are large gains from the refactor, which are especially noticeable when interacting with WGLMakie plots over a slow connection. Something not entirely noticeable in the benchmark is, that when using 
-                <code data-jscall-id="48">update&#33;</code>, all updates are now applied at the same time in JS. This avoids artifacts for larger/slower updates where previously each update would come in separate messages, creating incorrect states in-between &#40;e.g. updating x, y, z for a heatmap/image&#41;.
-              </p>
-              <p data-jscall-id="49">We&#39;re still missing a lot of optimizations to fully use the power of the compute graph, and the graph itself can still be optimized. For example, we&#39;re still converting to Observables internally a lot, since we haven&#39;t had time to update all Blocks and recipes &#40;Axis/LineAxis/Axis3/poly/...&#41; to use the new compute graph yet. Converting graph nodes to Observables forces them to update as soon as possible, disabling the ability to throw away intermediate updates.</p>
-              <p data-jscall-id="50">Any help to crowd source this will be much appreciated, since we need to concentrate on releasing Makie 1.0 from here on.</p>
-              <h1 id="Breaking Changes" data-jscall-id="51">Breaking Changes</h1>
-              <h2 id="Attribute Handling in Recipes" data-jscall-id="52">Attribute Handling in Recipes</h2>
-              <p data-jscall-id="53">Some styles of passing attributes through a recipe no longer work, as 
-                <code data-jscall-id="54">plot.attributes</code> no longer use the Dict-like 
-                <code data-jscall-id="55">Attributes</code> type. Instead they are now a 
-                <code data-jscall-id="56">ComputeGraph</code> which is less mutable.
-              </p>
-              <h4 id="Splatting" data-jscall-id="57">Splatting</h4>
-              <p data-jscall-id="58">Splatting &#34;Attributes&#34; no longer works:</p>
-              <pre data-jscall-id="59">
-                <code class="language-julia" data-jscall-id="60">
-plot&#33;&#40;parent, args...; kwargs..., parent.attributes...&#41;
-# or
-attr &#61; Attributes&#40;parent&#41;
-plot&#33;&#40;parent, args...; attr...&#41;</code>
-              </pre>
-              <p data-jscall-id="61">Instead attributes can be passed directly as the second argument:</p>
-              <pre data-jscall-id="62">
-                <code class="language-julia" data-jscall-id="63">
-attr &#61; Attributes&#40;parent&#41;
-plot&#33;&#40;parent, attr, args...; kwargs...&#41;</code>
-              </pre>
-              <p data-jscall-id="64">Keyword arguments take priority over the nodes in 
-                <code data-jscall-id="65">attr</code> here. Any node that is not compatible with 
-                <code data-jscall-id="66">plot&#33;&#40;&#41;</code> will be ignored.
-              </p>
-              <h4 id="Copy - Modify" data-jscall-id="67">Copy - Modify</h4>
-              <p data-jscall-id="68">Copying and adjusting attributes also does not work anymore:</p>
-              <pre data-jscall-id="69">
-                <code class="language-julia" data-jscall-id="70">
-attr &#61; copy&#40;Attributes&#40;plot&#41;&#41; # MethodError: copy&#40;::ComputeGraph&#41;
-pop&#33;&#40;attr, :removed&#41; # MethodError: pop&#33;&#40;::ComputeGraph, ...&#41;
-attr&#91;:changed&#93; &#61; value # MethodError: setindex&#33;&#40;::ComputeGraph, ...&#41;
-plot&#33;&#40;parent, attr, args...; kwargs...&#41;
-# or plot&#33;&#40;parent, args...; kwargs..., attr...&#41;</code>
-              </pre>
-              <p data-jscall-id="71">Instead of this you can again directly pass attributes. Instead of overwriting 
-                <code data-jscall-id="72">attr&#91;key&#93; &#61; val</code> you can pass that attribute as a keyword argument, and instead of 
-                <code data-jscall-id="73">pop&#33;&#40;attr, key&#41;</code> you can set a constant default or make that attribute available in your recipe.
-              </p>
-              <pre data-jscall-id="74">
-                <code class="language-julia" data-jscall-id="75">
-attr &#61; Attributes&#40;plot&#41;
-plot&#33;&#40;parent, attr, args..., changed &#61; value, popped &#61; const_val&#41;</code>
-              </pre>
-              <h4 id="" data-jscall-id="76">
-                <code data-jscall-id="77">replace_automatic&#33;&#40;&#41;</code>
-              </h4>
-              <p data-jscall-id="78">
-                <code data-jscall-id="79">replace_automatic&#33;&#40;&#41;</code> has been removed as it is incompatible with the new 
-                <code data-jscall-id="80">ComputeGraph</code>. Instead of
-              </p>
-              <pre data-jscall-id="81">
-                <code class="language-julia" data-jscall-id="82">
-obs &#61; replace_automatic&#33;&#40;&#40;&#41; -&#62; attr&#91;:default&#93;, attr, :maybe_automatic&#41;
-plot&#33;&#40;..., something &#61; obs&#41;</code>
-              </pre>
-              <p data-jscall-id="83">use</p>
-              <pre data-jscall-id="84">
-                <code class="language-julia" data-jscall-id="85">
-# ComputeGraph &#40;preferable&#41;
-map&#33;&#40;default_automatic, attr, &#91;:maybe_automatic, :default&#93;, :new_name&#41;
-plot&#33;&#40;parent, ..., something &#61; parent.new_name&#41;
-
-# Observable
-obs &#61; map&#40;default_automatic, plot.maybe_automatic, plot.default&#41;
-plot&#33;&#40;parent, ..., something &#61; obs&#41;</code>
-              </pre>
-              <h2 id="Lights" data-jscall-id="86">Lights</h2>
-              <p data-jscall-id="87">Lights are now handled by the ComputeGraph of the scene. Because of this lights no longer contain Observables and need to be updated through the scene/compute graph instead. For this a new set of helper functions has been added:</p>
-              <ul class=" style_2" style="" data-jscall-id="88">
-                <li data-jscall-id="89">
-                  <p data-jscall-id="90">
-                    <code data-jscall-id="91">get_lights&#40;scene&#41;</code> returns the current lights vector &#40;without the ambient light&#41;
-                  </p>
-                </li>
-                <li data-jscall-id="92">
-                  <p data-jscall-id="93">
-                    <code data-jscall-id="94">set_lights&#40;scene, lights&#41;</code> replaces the current lights with the given ones &#40;excluding ambient&#41;
-                  </p>
-                </li>
-                <li data-jscall-id="95">
-                  <p data-jscall-id="96">
-                    <code data-jscall-id="97">set_ambient_light&#33;&#40;scene, color&#41;</code> sets the color &#40;and intensity&#41; of the ambient light
-                  </p>
-                </li>
-                <li data-jscall-id="98">
-                  <p data-jscall-id="99">
-                    <code data-jscall-id="100">set_light&#33;&#40;scene, n, light&#41;</code> replaces the n-th light in the light vector with the given one
-                  </p>
-                </li>
-                <li data-jscall-id="101">
-                  <p data-jscall-id="102">
-                    <code data-jscall-id="103">set_light&#33;&#40;scene, n; fields...&#41;</code> updates a field of the n-the light in the light vector
-                  </p>
-                </li>
-                <li data-jscall-id="104">
-                  <p data-jscall-id="105">
-                    <code data-jscall-id="106">push_light&#33;&#40;scene, light&#41;</code> adds a light to the light vector
-                  </p>
-                </li>
-                <li data-jscall-id="107">
-                  <p data-jscall-id="108">
-                    <code data-jscall-id="109">set_directional_light&#33;&#40;scene; &#91;color, direction, camera_relative&#93;&#41;</code> adjusts the directional light of the scene if it is the only available light other than the ambient light. &#40;I.e. the scene is in FastShading mode&#41;
-                  </p>
-                </li>
-              </ul>
-              <p data-jscall-id="110">The 
-                <code data-jscall-id="111">shading</code> attribute &#40;on a plot level&#41; has also changed back to a 
-                <code data-jscall-id="112">Bool</code>. The decision between 
-                <code data-jscall-id="113">FastShading</code> and 
-                <code data-jscall-id="114">MultiLightShading</code> is now handled by the scene instead. You can also force the scene to pick one with 
-                <code data-jscall-id="115">set_shading_algorithm&#33;&#40;scene, choice&#41;</code>.
-              </p>
-              <h2 id="Text" data-jscall-id="116">Text</h2>
-              <p data-jscall-id="117">Text has been refactored to rely solely on the compute graph and avoid the nested structure it had before. While this may be considered internal, some recipes &#40;and Blocks&#41; do rely on the old structure. Usually this is for some kind of boundingbox. To simplify working with them, we added a new set of functions:</p>
-              <table data-jscall-id="118">
-                <tr data-jscall-id="119">
-                  <th data-jscall-id="120" align="right">Includes &#40;cumulative&#41;</th>
-                  <th data-jscall-id="121" align="right">per character</th>
-                  <th data-jscall-id="122" align="right">per string</th>
-                </tr>
-                <tr data-jscall-id="123">
-                  <td data-jscall-id="124" align="right">characters, fontsize</td>
-                  <td data-jscall-id="125" align="right">
-                    <code data-jscall-id="126">raw_glyph_boundingboxes&#40;&#41;</code>
-                  </td>
-                  <td data-jscall-id="127" align="right"></td>
-                </tr>
-                <tr data-jscall-id="128">
-                  <td data-jscall-id="129" align="right">string layouting, rotation, offset</td>
-                  <td data-jscall-id="130" align="right">
-                    <code data-jscall-id="131">fast_glyph_boundingboxes</code>
-                  </td>
-                  <td data-jscall-id="132" align="right">
-                    <code data-jscall-id="133">fast_string_boundingboxes&#40;&#41;</code>
-                  </td>
-                </tr>
-                <tr data-jscall-id="134">
-                  <td data-jscall-id="135" align="right">markerspace positions</td>
-                  <td data-jscall-id="136" align="right">
-                    <code data-jscall-id="137">glyph_boundingboxes&#40;&#41;</code>
-                  </td>
-                  <td data-jscall-id="138" align="right">
-                    <code data-jscall-id="139">string_boundingboxes&#40;&#41;</code>
-                  </td>
-                </tr>
-              </table>
-              <p data-jscall-id="140">All of the above return bounding boxes in 
-                <code data-jscall-id="141">markerspace</code>. For boundingboxes transformed back to 
-                <code data-jscall-id="142">space</code> we added 
-                <code data-jscall-id="143">full_boundingbox&#40;&#41;</code> which returns a bounding box per plot. All of these functions have two more variants, 
-                <code data-jscall-id="144">register_...&#40;&#41;</code> which just registers the computation, and 
-                <code data-jscall-id="145">..._obs&#40;&#41;</code> which returns an observable listening to the computation. They should replace calls to 
-                <code data-jscall-id="146">unchecked_boundingbox&#40;&#41;</code>, 
-                <code data-jscall-id="147">gl_bboxes&#40;&#41;</code>, 
-                <code data-jscall-id="148">string_boundingbox&#40;&#41;</code> etc.
-              </p>
-              <p data-jscall-id="149">Note that reacting to these to update inputs of the same text may result in infinite loops.</p>
-              <h2 id="MakieCore removed" data-jscall-id="150">MakieCore removed</h2>
-              <p data-jscall-id="151">...</p>
-              <h2 id="Package Organization" data-jscall-id="152">Package Organization</h2>
-              <ul class=" style_2" style="" data-jscall-id="153">
-                <li data-jscall-id="154">
-                  <p data-jscall-id="155">Makie/src -&#62; Makie/Makie/src</p>
-                </li>
-                <li data-jscall-id="156">
-                  <p data-jscall-id="157">asset folder to artifact</p>
-                </li>
-                <li data-jscall-id="158">
-                  <p data-jscall-id="159">should reduce package size by avoiding unnecessary/duplicate data to be bundled with the Makie module</p>
-                </li>
-              </ul>
-              <h2 id="Other breaking changes" data-jscall-id="160">Other breaking changes</h2>
-              <ul class=" style_2" style="" data-jscall-id="161">
-                <li data-jscall-id="162">
-                  <p data-jscall-id="163">
-                    <code data-jscall-id="164">annotations&#33;&#40;&#41;</code> has been removed &#40;use 
-                    <code data-jscall-id="165">text&#33;</code> instead&#41;
-                  </p>
-                </li>
-                <li data-jscall-id="166">
-                  <p data-jscall-id="167">
-                    <code data-jscall-id="168">&#64;recipe PlotType &#40;argnames...&#41;</code> now controls the names of the converted arguments and thus has to match the output of 
-                    <code data-jscall-id="169">convert_arguments&#40;::PlotType, ...&#41;</code>
-                  </p>
-                </li>
-                <li data-jscall-id="170">
-                  <p data-jscall-id="171">
-                    <code data-jscall-id="172">plot.attribute&#91;&#93; &#61; value</code> no longer works. Use 
-                    <code data-jscall-id="173">plot.attribute &#61; value</code>
-                  </p>
-                </li>
-              </ul>
-              <h1 id="Fixes" data-jscall-id="174">Fixes</h1>
-              <ul class=" style_2" style="" data-jscall-id="175">
-                <li data-jscall-id="176">
-                  <p data-jscall-id="177">
-                    <code data-jscall-id="178">surface&#40;&#41;</code> now correctly aligns colors for 2x2 matrices in WGLMakie
-                  </p>
-                </li>
-                <li data-jscall-id="179">
-                  <p data-jscall-id="180">
-                    <code data-jscall-id="181">meshscatter&#40;&#41;</code> with per-element 
-                    <code data-jscall-id="182">uv_transform</code> now works in WGLMakie
-                  </p>
-                </li>
-                <li data-jscall-id="183">
-                  <p data-jscall-id="184">
-                    <code data-jscall-id="185">local_update&#33;&#40;::Voxels&#41;</code> now requires the updated data to be passed. I.e. 
-                    <code data-jscall-id="186">Makie.local_update&#33;&#40;plot, new_value, is, js, ks&#41;</code>
-                  </p>
-                </li>
-              </ul>
-            </div>
-            <div data-jscall-id="187">
-              <script data-jscall-id="188" src="../../bonito/js/highlight.pack13102628173626074447.js"></script>
-              <script data-jscall-id="189">hljs.highlightAll()</script>
-            </div>
-          </div>
-          <span></span>
-        </div>
-      </div>
-      <div data-jscall-id="190">
-        <script async="true" defer="true" data-jscall-id="191" src="https://api.makie.org/latest.js"></script>
-        <noscript data-jscall-id="192">
-          <img alt="" data-jscall-id="193" src="https://api.makie.org/noscript.gif" referrerpolicy="no-referrer-when-downgrade" />
-        </noscript>
-      </div>
+  <body>
+    <script type="module">Bonito.lock_loading(() => Bonito.init_session('a26337dc-def5-437b-a11d-7967f50e7864', null, 'root', false))</script>
+    <div id="a26337dc-def5-437b-a11d-7967f50e7864" data-jscall-id="root">
+      <pre class="backtrace" style="overflow-x: auto;" data-jscall-id="29">
+        <h3 style="color: red;" data-jscall-id="30">ParseError:
+# Error &#64; none:2:43
+# optional &#96;plot&#96; argument, could also be lift, &#64;lift, map&#33;
+output1 &#61; map&#40;plot, plot.obs1, plot.obs2, ...&#41; do args...
+#                                         └─┘ ── invalid identifier</h3>
+        <span data-jscall-id="31">Stacktrace:</span>
+        <br data-jscall-id="32" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="33">  &#91;1&#93; #parse#3</span>
+        <br data-jscall-id="34" />
+        <span data-jscall-id="35">    &#64; 
+          <a href="vscode://file/./meta.jl:242" data-jscall-id="36">./meta.jl:242</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="37" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="38">  &#91;2&#93; parse</span>
+        <br data-jscall-id="39" />
+        <span data-jscall-id="40">    &#64; 
+          <a href="vscode://file/./meta.jl:234" data-jscall-id="41">./meta.jl:234</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="42" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="43">  &#91;3&#93; parseall&#40;str::String&#41;</span>
+        <br data-jscall-id="44" />
+        <span data-jscall-id="45">    &#64; Bonito ~/.julia/packages/Bonito/bkOhL/src/rendering/markdown_integration.jl:193</span>
+        <br data-jscall-id="46" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="47">  &#91;4&#93; replace_expressions&#40;markdown::Markdown.Code, replacements::Dict&#123;Any, Function&#125;, runner::Bonito.ModuleRunner&#41;</span>
+        <br data-jscall-id="48" />
+        <span data-jscall-id="49">    &#64; Bonito ~/.julia/packages/Bonito/bkOhL/src/rendering/markdown_integration.jl:221</span>
+        <br data-jscall-id="50" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="51">  &#91;5&#93; _broadcast_getindex_evalf</span>
+        <br data-jscall-id="52" />
+        <span data-jscall-id="53">    &#64; 
+          <a href="vscode://file/./broadcast.jl:678" data-jscall-id="54">./broadcast.jl:678</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="55" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="56">  &#91;6&#93; _broadcast_getindex</span>
+        <br data-jscall-id="57" />
+        <span data-jscall-id="58">    &#64; 
+          <a href="vscode://file/./broadcast.jl:651" data-jscall-id="59">./broadcast.jl:651</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="60" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="61">  &#91;7&#93; getindex</span>
+        <br data-jscall-id="62" />
+        <span data-jscall-id="63">    &#64; 
+          <a href="vscode://file/./broadcast.jl:610" data-jscall-id="64">./broadcast.jl:610</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="65" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="66">  &#91;8&#93; macro expansion</span>
+        <br data-jscall-id="67" />
+        <span data-jscall-id="68">    &#64; 
+          <a href="vscode://file/./broadcast.jl:973" data-jscall-id="69">./broadcast.jl:973</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="70" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="71">  &#91;9&#93; macro expansion</span>
+        <br data-jscall-id="72" />
+        <span data-jscall-id="73">    &#64; 
+          <a href="vscode://file/./simdloop.jl:77" data-jscall-id="74">./simdloop.jl:77</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="75" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="76"> &#91;10&#93; copyto&#33;</span>
+        <br data-jscall-id="77" />
+        <span data-jscall-id="78">    &#64; 
+          <a href="vscode://file/./broadcast.jl:972" data-jscall-id="79">./broadcast.jl:972</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="80" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="81"> &#91;11&#93; copyto&#33;</span>
+        <br data-jscall-id="82" />
+        <span data-jscall-id="83">    &#64; 
+          <a href="vscode://file/./broadcast.jl:925" data-jscall-id="84">./broadcast.jl:925</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="85" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="86"> &#91;12&#93; materialize&#33;</span>
+        <br data-jscall-id="87" />
+        <span data-jscall-id="88">    &#64; 
+          <a href="vscode://file/./broadcast.jl:883" data-jscall-id="89">./broadcast.jl:883</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="90" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="91"> &#91;13&#93; materialize&#33;</span>
+        <br data-jscall-id="92" />
+        <span data-jscall-id="93">    &#64; 
+          <a href="vscode://file/./broadcast.jl:880" data-jscall-id="94">./broadcast.jl:880</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="95" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="96"> &#91;14&#93; replace_expressions&#40;markdown::Markdown.MD, replacements::Dict&#123;Any, Function&#125;, runner::Bonito.ModuleRunner&#41;</span>
+        <br data-jscall-id="97" />
+        <span data-jscall-id="98">    &#64; Bonito ~/.julia/packages/Bonito/bkOhL/src/rendering/markdown_integration.jl:177</span>
+        <br data-jscall-id="99" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="100"> &#91;15&#93; #string_to_markdown#84</span>
+        <br data-jscall-id="101" />
+        <span data-jscall-id="102">    &#64; ~/.julia/packages/Bonito/bkOhL/src/rendering/markdown_integration.jl:253 &#91;inlined&#93;</span>
+        <br data-jscall-id="103" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="104"> &#91;16&#93; jsrender&#40;session::Session&#123;NoConnection&#125;, em::Bonito.EvalMarkdown&#41;</span>
+        <br data-jscall-id="105" />
+        <span data-jscall-id="106">    &#64; Bonito ~/.julia/packages/Bonito/bkOhL/src/rendering/markdown_integration.jl:32</span>
+        <br data-jscall-id="107" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="108"> &#91;17&#93; render_node&#40;session::Session&#123;NoConnection&#125;, node::Hyperscript.Node&#123;Hyperscript.HTMLSVG&#125;&#41;</span>
+        <br data-jscall-id="109" />
+        <span data-jscall-id="110">    &#64; Bonito ~/.julia/packages/Bonito/bkOhL/src/rendering/hyperscript_integration.jl:171</span>
+        <br data-jscall-id="111" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="112"> &#91;18&#93; jsrender&#40;session::Session&#123;NoConnection&#125;, node::Hyperscript.Node&#123;Hyperscript.HTMLSVG&#125;&#41;</span>
+        <br data-jscall-id="113" />
+        <span data-jscall-id="114">    &#64; Bonito ~/.julia/packages/Bonito/bkOhL/src/rendering/hyperscript_integration.jl:201</span>
+        <br data-jscall-id="115" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="116"> &#91;19&#93; render_node&#40;session::Session&#123;NoConnection&#125;, node::Hyperscript.Node&#123;Hyperscript.HTMLSVG&#125;&#41;</span>
+        <br data-jscall-id="117" />
+        <span data-jscall-id="118">    &#64; Bonito ~/.julia/packages/Bonito/bkOhL/src/rendering/hyperscript_integration.jl:171</span>
+        <br data-jscall-id="119" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="120"> &#91;20&#93; jsrender&#40;session::Session&#123;NoConnection&#125;, node::Hyperscript.Node&#123;Hyperscript.HTMLSVG&#125;&#41;</span>
+        <br data-jscall-id="121" />
+        <span data-jscall-id="122">    &#64; Bonito ~/.julia/packages/Bonito/bkOhL/src/rendering/hyperscript_integration.jl:201</span>
+        <br data-jscall-id="123" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="124"> &#91;21&#93; render_node&#40;session::Session&#123;NoConnection&#125;, node::Hyperscript.Node&#123;Hyperscript.HTMLSVG&#125;&#41;</span>
+        <br data-jscall-id="125" />
+        <span data-jscall-id="126">    &#64; Bonito ~/.julia/packages/Bonito/bkOhL/src/rendering/hyperscript_integration.jl:171</span>
+        <br data-jscall-id="127" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="128"> &#91;22&#93; jsrender&#40;session::Session&#123;NoConnection&#125;, node::Hyperscript.Node&#123;Hyperscript.HTMLSVG&#125;&#41;</span>
+        <br data-jscall-id="129" />
+        <span data-jscall-id="130">    &#64; Bonito ~/.julia/packages/Bonito/bkOhL/src/rendering/hyperscript_integration.jl:201</span>
+        <br data-jscall-id="131" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="132"> &#91;23&#93; render_node&#40;session::Session&#123;NoConnection&#125;, node::Hyperscript.Node&#123;Hyperscript.HTMLSVG&#125;&#41;</span>
+        <br data-jscall-id="133" />
+        <span data-jscall-id="134">    &#64; Bonito ~/.julia/packages/Bonito/bkOhL/src/rendering/hyperscript_integration.jl:171</span>
+        <br data-jscall-id="135" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="136"> &#91;24&#93; jsrender&#40;session::Session&#123;NoConnection&#125;, node::Hyperscript.Node&#123;Hyperscript.HTMLSVG&#125;&#41;</span>
+        <br data-jscall-id="137" />
+        <span data-jscall-id="138">    &#64; Bonito ~/.julia/packages/Bonito/bkOhL/src/rendering/hyperscript_integration.jl:201</span>
+        <br data-jscall-id="139" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="140"> &#91;25&#93; render_node&#40;session::Session&#123;NoConnection&#125;, node::Hyperscript.Node&#123;Hyperscript.HTMLSVG&#125;&#41;</span>
+        <br data-jscall-id="141" />
+        <span data-jscall-id="142">    &#64; Bonito ~/.julia/packages/Bonito/bkOhL/src/rendering/hyperscript_integration.jl:171</span>
+        <br data-jscall-id="143" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="144"> &#91;26&#93; jsrender&#40;session::Session&#123;NoConnection&#125;, node::Hyperscript.Node&#123;Hyperscript.HTMLSVG&#125;&#41;</span>
+        <br data-jscall-id="145" />
+        <span data-jscall-id="146">    &#64; Bonito ~/.julia/packages/Bonito/bkOhL/src/rendering/hyperscript_integration.jl:201</span>
+        <br data-jscall-id="147" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="148"> &#91;27&#93; render_node&#40;session::Session&#123;NoConnection&#125;, node::Hyperscript.Node&#123;Hyperscript.HTMLSVG&#125;&#41;</span>
+        <br data-jscall-id="149" />
+        <span data-jscall-id="150">    &#64; Bonito ~/.julia/packages/Bonito/bkOhL/src/rendering/hyperscript_integration.jl:171</span>
+        <br data-jscall-id="151" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="152"> &#91;28&#93; jsrender&#40;session::Session&#123;NoConnection&#125;, node::Hyperscript.Node&#123;Hyperscript.HTMLSVG&#125;&#41;</span>
+        <br data-jscall-id="153" />
+        <span data-jscall-id="154">    &#64; Bonito ~/.julia/packages/Bonito/bkOhL/src/rendering/hyperscript_integration.jl:201</span>
+        <br data-jscall-id="155" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="156"> &#91;29&#93; rendered_dom&#40;session::Session&#123;NoConnection&#125;, app::App, target::HTTP.Messages.Request&#41;</span>
+        <br data-jscall-id="157" />
+        <span data-jscall-id="158">    &#64; Bonito ~/.julia/packages/Bonito/bkOhL/src/app.jl:43</span>
+        <br data-jscall-id="159" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="160"> &#91;30&#93; rendered_dom</span>
+        <br data-jscall-id="161" />
+        <span data-jscall-id="162">    &#64; ~/.julia/packages/Bonito/bkOhL/src/app.jl:39 &#91;inlined&#93;</span>
+        <br data-jscall-id="163" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="164"> &#91;31&#93; session_dom&#40;session::Session&#123;NoConnection&#125;, app::App; init::Bool, html_document::Bool&#41;</span>
+        <br data-jscall-id="165" />
+        <span data-jscall-id="166">    &#64; Bonito ~/.julia/packages/Bonito/bkOhL/src/session.jl:363</span>
+        <br data-jscall-id="167" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="168"> &#91;32&#93; page_html&#40;io::IOStream, session::Session&#123;NoConnection&#125;, app_node::App&#41;</span>
+        <br data-jscall-id="169" />
+        <span data-jscall-id="170">    &#64; Bonito ~/.julia/packages/Bonito/bkOhL/src/display.jl:113</span>
+        <br data-jscall-id="171" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="172"> &#91;33&#93; #export_static#233</span>
+        <br data-jscall-id="173" />
+        <span data-jscall-id="174">    &#64; ~/.julia/packages/Bonito/bkOhL/src/export.jl:210 &#91;inlined&#93;</span>
+        <br data-jscall-id="175" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="176"> &#91;34&#93; export_static</span>
+        <br data-jscall-id="177" />
+        <span data-jscall-id="178">    &#64; ~/.julia/packages/Bonito/bkOhL/src/export.jl:204 &#91;inlined&#93;</span>
+        <br data-jscall-id="179" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="180"> &#91;35&#93; #231</span>
+        <br data-jscall-id="181" />
+        <span data-jscall-id="182">    &#64; ~/.julia/packages/Bonito/bkOhL/src/export.jl:200 &#91;inlined&#93;</span>
+        <br data-jscall-id="183" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="184"> &#91;36&#93; open&#40;::Bonito.var&#34;#231#232&#34;&#123;Session&#123;NoConnection&#125;, App&#125;, ::String, ::Vararg&#123;String&#125;; kwargs::&#64;Kwargs&#123;&#125;&#41;</span>
+        <br data-jscall-id="185" />
+        <span data-jscall-id="186">    &#64; Base 
+          <a href="vscode://file/./io.jl:410" data-jscall-id="187">./io.jl:410</a>
+        </span>
+        <br data-jscall-id="188" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="189"> &#91;37&#93; open</span>
+        <br data-jscall-id="190" />
+        <span data-jscall-id="191">    &#64; 
+          <a href="vscode://file/./io.jl:407" data-jscall-id="192">./io.jl:407</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="193" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="194"> &#91;38&#93; #export_static#230</span>
+        <br data-jscall-id="195" />
+        <span data-jscall-id="196">    &#64; ~/.julia/packages/Bonito/bkOhL/src/export.jl:199 &#91;inlined&#93;</span>
+        <br data-jscall-id="197" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="198"> &#91;39&#93; export_static</span>
+        <br data-jscall-id="199" />
+        <span data-jscall-id="200">    &#64; ~/.julia/packages/Bonito/bkOhL/src/export.jl:195 &#91;inlined&#93;</span>
+        <br data-jscall-id="201" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="202"> &#91;40&#93; export_static&#40;folder::String, routes::Routes; connection::NoConnection, asset_server::AssetFolder&#41;</span>
+        <br data-jscall-id="203" />
+        <span data-jscall-id="204">    &#64; Bonito ~/.julia/packages/Bonito/bkOhL/src/export.jl:222</span>
+        <br data-jscall-id="205" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="206"> &#91;41&#93; export_static&#40;folder::String, routes::Routes&#41;</span>
+        <br data-jscall-id="207" />
+        <span data-jscall-id="208">    &#64; Bonito ~/.julia/packages/Bonito/bkOhL/src/export.jl:214</span>
+        <br data-jscall-id="209" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="210"> &#91;42&#93; top-level scope</span>
+        <br data-jscall-id="211" />
+        <span data-jscall-id="212">    &#64; ~/work/Website/Website/docs/make.jl:42</span>
+        <br data-jscall-id="213" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="214"> &#91;43&#93; include&#40;mod::Module, _path::String&#41;</span>
+        <br data-jscall-id="215" />
+        <span data-jscall-id="216">    &#64; Base 
+          <a href="vscode://file/./Base.jl:557" data-jscall-id="217">./Base.jl:557</a>
+        </span>
+        <br data-jscall-id="218" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="219"> &#91;44&#93; exec_options&#40;opts::Base.JLOptions&#41;</span>
+        <br data-jscall-id="220" />
+        <span data-jscall-id="221">    &#64; Base 
+          <a href="vscode://file/./client.jl:323" data-jscall-id="222">./client.jl:323</a>
+        </span>
+        <br data-jscall-id="223" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="224"> &#91;45&#93; _start&#40;&#41;</span>
+        <br data-jscall-id="225" />
+        <span data-jscall-id="226">    &#64; Base 
+          <a href="vscode://file/./client.jl:531" data-jscall-id="227">./client.jl:531</a>
+        </span>
+        <br data-jscall-id="228" />
+      </pre>
     </div>
   </body>
 </html>
