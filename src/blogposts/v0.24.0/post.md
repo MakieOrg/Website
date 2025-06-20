@@ -225,22 +225,35 @@ Note that reacting to these to update inputs of the same text may result in infi
 
 ## MakieCore removed
 
-...
+MakieCore was introduced as a minimal, lightweight import for other packages that want to introduce Makie recipes.
+With the introduction of package extensions this has become redundant.
+As such we have decided to remove MakieCore and reintegrate it into the Makie repository.
 
 ## Package Organization
 
--   Makie/src -> Makie/Makie/src
--   asset folder to artifact
--   should reduce package size by avoiding unnecessary/duplicate data to be bundled with the Makie module
+The source code for Makie use to be part of the top level directory of the Makie repository.
+This caused the Makie module to include everything in the repository, i.e. also all the backends and other infrastructure.
+Each backend module would be downloaded and stored separately, creating a lot of duplicate data.
+
+We have now moved the Makie source into its own Makie directory to fix this issue.
+We have also moved assets to an artifact.
+With this you should see Makie requiring less storage.
 
 ## Other breaking changes
 
--   `annotations!()` has been removed (use `text!` instead)
--   `@recipe PlotType (argnames...)` now controls the names of the converted arguments and thus has to match the output of `convert_arguments(::PlotType, ...)`
--   `plot.attribute[] = value` no longer works. Use `plot.attribute = value`
+- `annotations!()` has been removed (use `text!` instead)
+- `@recipe PlotType (argnames...)` now controls the names of the converted arguments and thus has to match the output of `convert_arguments(::PlotType, ...)`
+- `local_update!(::Voxels)` now requires the updated data to be passed. I.e. `Makie.local_update!(plot, new_value, is, js, ks)`
+- `patchcolor` is now opaque to improve the look of 3D meshes with default colors and avoid decorations from being visible through some plots by default
 
 # Fixes
 
--   `surface()` now correctly aligns colors for 2x2 matrices in WGLMakie
--   `meshscatter()` with per-element `uv_transform` now works in WGLMakie
--   `local_update!(::Voxels)` now requires the updated data to be passed. I.e. `Makie.local_update!(plot, new_value, is, js, ks)`
+- `surface()` now correctly aligns colors for 2x2 matrices in WGLMakie
+- `meshscatter()` with per-element `uv_transform` now works in WGLMakie
+- `PolarAxis` now considers text rotation when reserving space for tick labels
+- `LaTeXStrings` now project lines correctly in `markerspace != :pixel`. Their linewidth is still incorrect though
+- 2x2 `surface()` plots in CairoMakie and WGLMakie now plot at the correct z values
+- `arrows3d()` now include lighting attributes
+- `annotation!()` plots now work correctly with transform functions and include fontsize
+
+
