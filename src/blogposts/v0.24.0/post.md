@@ -3,7 +3,7 @@
 The switch away from Observables for Makie's internals has been one of the biggest refactors of Makie in the last 5 years.
 While many changes happened internally without changing the surface API, this is still one of the biggest breaking changes we have planned, which made us consider tagging this as Makie v1.0.
 Since there are still a few open design decisions we want to hammer out in the coming months, we decided to tag this as 0.24 for now, but we do hope that Makie 1.0 will be released this year without adding many breaking changes on top of 0.24.
-To not group all the great improvements from the just released [v0.23](https://makie.org/website/blogposts/v0.23.0/) with the more breaking v0.24, we decided to make 2 breaking releases in quick succession. We are sorry for the inconvenience this may cause.d
+To not group all the great improvements from the just released [v0.23](https://makie.org/website/blogposts/v0.23.0/) with the more breaking v0.24, we decided to make 2 breaking releases in quick succession. We are sorry for the inconvenience this may cause.
 
 ```julia
 # hide
