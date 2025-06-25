@@ -2,11 +2,11 @@
 
 We're excited to announce the release of Makie v0.24, a major milestone that represents one of the most significant internal improvements to the plotting ecosystem in the past five years. This update builds upon our recent [v0.23 release](https://makie.org/website/blogposts/v0.23.0/), and we recommend reading about those improvements first if you haven't already.
 
-While v0.23 introduced several breaking changes with immediate benefits, v0.24's improvements are primarily internal. We chose to release these versions separately to allow the community to benefit from v0.23's enhancements while giving ecosystem maintainers more time to adapt to v0.24's deeper architectural changes.
+The v0.23 and v0.24 releases are very close together in time and some readers may wonder why we did not bundle them together to reduce ecosystem churn. While v0.23 introduced some breaking changes which narrowly affected only the `arrows` recipe, v0.24's changes are much wider in scope, even if most of its breaking changes are related to internals. We chose to release these versions separately to allow the community to benefit from v0.23's enhancements while giving ecosystem maintainers more time to adapt to v0.24's deeper architectural changes.
 
 Makie v0.24 focuses on a comprehensive overhaul of our internal architecture, specifically replacing Observables in our backend code with a more robust system. This fundamental change touches nearly every component of the codebase, making it one of our most ambitious refactoring efforts to date.
 
-The scope of these improvements was so significant that we initially considered releasing this as Makie v1.0. However, with several important design decisions still being refined, we've chosen to release this as v0.24. We still target a Makie 1.0 release later this year, building on the solid foundation established by v0.24 without introducing additional breaking changes.
+The scope of these improvements was so significant that we initially considered releasing this as Makie v1.0. However, with several important design decisions still being refined, we've chosen to release this as v0.24 while still targeting a Makie v1.0 release for later this year.
 
 **A Note on Stability:** This release includes major internal improvements that have been thoroughly tested. However, changes of this magnitude can occasionally reveal unexpected edge cases. If you prioritize stability for production work, you may want to wait a few weeks after release before upgrading to allow the community to identify and resolve any issues that may arise.
 
