@@ -1,40 +1,20 @@
 # Makie v0.24
 
-```julia
-# hide
-using Markdown, Bonito
-DOM.div(
-    DOM.p("Info!"; class="title"),
-    """
-        We recently released [v0.23](https://makie.org/website/blogposts/v0.23.0/) which also had to be breaking. If you haven't already, read the v0.23 blogpost first. We decided to not release them together in one big breaking release, since v0.23 has quite a few nice improvements, while v0.24 will take quite a bit longer for the ecosystem to upgrade to.
-    """; class="admonition info"
-)
-```
+We're excited to announce the release of Makie v0.24, a major milestone that represents one of the most significant internal improvements to the plotting ecosystem in the past five years. This update builds upon our recent [v0.23 release](https://makie.org/website/blogposts/v0.23.0/), and we recommend reading about those improvements first if you haven't already.
 
-Makie v0.24 release is all about cleaning up the internals and getting rid of Observables in our backend code. Since this is touching almost all the code in the repository, this refactor has been one of the biggest of the last 5 years.
+While v0.23 introduced several breaking changes with immediate benefits, v0.24's improvements are primarily internal. We chose to release these versions separately to allow the community to benefit from v0.23's enhancements while giving ecosystem maintainers more time to adapt to v0.24's deeper architectural changes.
 
-While many changes happened internally without touching the surface API, this is still one of the biggest breaking changes we've planned - big enough that we considered tagging this as Makie v1.0. Since there are still a few open design decisions we want to hammer out in the coming months, we decided to release this as v0.24 for now.
+Makie v0.24 focuses on a comprehensive overhaul of our internal architecture, specifically replacing Observables in our backend code with a more robust system. This fundamental change touches nearly every component of the codebase, making it one of our most ambitious refactoring efforts to date.
 
-We do hope though, to release Makie 1.0 this year without adding many breaking changes on top of v0.24.
+The scope of these improvements was so significant that we initially considered releasing this as Makie v1.0. However, with several important design decisions still being refined, we've chosen to release this as v0.24. We still target a Makie 1.0 release later this year, building on the solid foundation established by v0.24 without introducing additional breaking changes.
 
-
-```julia
-# hide
-using Markdown, Bonito
-DOM.div(
-    DOM.p("Warning!"; class="title"),
-    """
-        This release includes major internal improvements to Makie.
-        While thoroughly tested, big changes like these can sometimes reveal unexpected edge cases. If you prefer a more stable experience, consider waiting a few weeks before upgrading to 0.24.
-    """; class="admonition warning"
-)
-```
+**A Note on Stability:** This release includes major internal improvements that have been thoroughly tested. However, changes of this magnitude can occasionally reveal unexpected edge cases. If you prioritize stability for production work, you may want to wait a few weeks after release before upgrading to allow the community to identify and resolve any issues that may arise.
 
 ## Overview
 
 This release features a rework of how plot arguments and attributes are handled. Instead of using Observables we now use a `ComputeGraph` from the new [ComputePipeline](https://docs.makie.org/dev/explanations/compute-pipeline) package.
 
-All the data a plot generates from its inputs to the final backend renderobject is stored in the graph as nodes. All the computations that connect data are stored as edges. When a plot input is updated, the graph marks every dependent node and edge as out-of-date. When data from an out-of-date node is requested, all related outdated nodes are resolved to compute the up-to-date value.
+All the data a plot generates from its inputs to the final backend render object is stored in the graph as nodes. All the computations that connect data are stored as edges. When a plot input is updated, the graph marks every dependent node and edge as out-of-date. When data from an out-of-date node is requested, all related outdated nodes are resolved to compute the up-to-date value.
 
 One of the goals of this refactor was to fix synchronous update issues, i.e., when two or more variables need to update together.
 An example would be resizing the `x` and `y` values of a scatter plot.
