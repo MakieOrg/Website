@@ -247,10 +247,14 @@ Note that reacting to these to update inputs of the same text may result in infi
 
 ## MakieCore removed
 
-MakieCore was introduced as a minimal, lightweight import for other packages that want to introduce Makie recipes.
-With the introduction of package extensions, this has become redundant.
-As such, we have decided to remove MakieCore and reintegrate it into the Makie repository.
-See the docs on how to use [package extensions](https://docs.makie.org/dev/explanations/recipes#Makie-Package-Extension).
+MakieCore was introduced in 2021 - before package extensions were on the horizon - as a minimal, lightweight import for other packages that want to introduce Makie recipes.
+There was always a tension with MakieCore where to draw the line between "core" and other functionality, leading users to request more and more API to be added to it over time.
+When package extensions became available, the existence of MakieCore confused many developers who were unsure which was the right way to integrate Makie into their packages.
+
+To simplify this situation going forward, we have decided to remove MakieCore and reintegrate all of its code into Makie.
+That means a package extension on Makie is the suggested solution to add plotting functionality in a lightweight way.
+MakieCore's functions and types have not been renamed, so a switch from MakieCore to Makie as a dependency should mainly involve a search-and-replace of MakieCore to Makie.
+As a starting point, the docs have a minimal example how to use Makie as a [package extension](https://docs.makie.org/dev/explanations/recipes#Makie-Package-Extension).
 
 ## Package Organization
 
