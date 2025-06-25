@@ -72,16 +72,19 @@ end
 
 ![WGLMakie benchmark](./images/wglmakie-benchmark.svg)
 
-As you can see, there are large gains from the refactor, which are especially noticeable when interacting with WGLMakie plots over a slow connection.
-Something not entirely noticeable in the benchmark is that when using `update!`, all updates are now applied at the same time in JS. This avoids artifacts for larger/slower updates where previously each update would come in separate messages, creating incorrect states in-between (e.g., updating x, y, z for a heatmap/image).
+Performance gains are especially noticeable when interacting with WGLMakie plots over slower network connections, where the reduced computational overhead translates directly to smoother user experiences.
 
-We're still missing many optimizations to fully use the power of the compute graph, and the graph itself can still be optimized.
-For example, we're still converting to Observables internally quite often, since we haven't had time to update all Blocks and recipes (Axis/LineAxis/Axis3/poly/...) to use the new compute graph yet.
-Converting graph nodes to Observables forces them to update as soon as possible, disabling the ability to discard intermediate updates.
+Beyond the raw performance numbers, there's an important qualitative improvement: when using `update!`, all changes are now applied simultaneously in the JavaScript runtime. This eliminates visual artifacts that previously occurred during larger updates, where individual changes would arrive in separate messages, creating temporarily incorrect intermediate states (such as when updating x, y, and z coordinates for a heatmap).
 
-Any help to crowdsource this will be much appreciated, since we need to concentrate on releasing Makie 1.0 from here on.
+Looking forward, we're still in the early stages of fully leveraging the ComputeGraph's capabilities. Many optimizations remain to be implemented, and the graph itself can be further optimized. Currently, we're still converting to Observables internally quite often, since we haven't yet updated all Blocks and recipes (Axis, LineAxis, Axis3, poly, etc.) to use the new compute graph natively. These conversions force immediate updates, disabling our ability to discard intermediate calculations - one of the key advantages of the new system.
+
+We welcome community contributions to help migrate these components, as our core team needs to focus on the upcoming Makie 1.0 release.
 
 # Breaking Changes
+
+The transition to ComputeGraph represents a fundamental shift in how Makie handles plot data and attributes internally. While we've worked hard to maintain backward compatibility where possible, some changes were unavoidable due to the architectural improvements. The breaking changes primarily affect advanced users who work directly with Makie's internal systems - most standard plotting workflows should continue to work unchanged.
+
+The most significant impacts are in three areas: custom recipe development, lighting systems, and text rendering. We've organized the changes by impact area to help you understand which sections are relevant to your use case.
 
 ## Attribute Handling in Recipes
 
@@ -161,7 +164,7 @@ plot!(parent, ..., something = obs)
 Refactoring recipes to use the `ComputeGraph` instead of `Observables` is **not necessary**.
 However, as we mentioned before, it may improve performance and fits well with the discussion on recipes here.
 
-Before you typically wrote code like this:
+Before, you typically wrote code like this:
 
 ```julia
 # no-eval
