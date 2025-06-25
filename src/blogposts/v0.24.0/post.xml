@@ -1,7 +1,7 @@
 <item>
   <title>Makie v0.24.0</title>
   <link>./blogposts/v0.24.0</link>
-  <description> Replacing internal Observables with ComputeGraph </description>
+  <description> Replacing internal Observables with a ComputeGraph </description>
   <pubDate>Wed, 25 Jun 2025 17:13:29</pubDate>
   <image>
     <url>./images/wglmakie-benchmark.svg</url>
