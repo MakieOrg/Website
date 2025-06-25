@@ -17,8 +17,9 @@ This release features a rework of how plot arguments and attributes are handled.
 All the data a plot generates from its inputs to the final backend render object is stored in the graph as nodes. All the computations that connect data are stored as edges. When a plot input is updated, the graph marks every dependent node and edge as out-of-date. When data from an out-of-date node is requested, all related outdated nodes are resolved to compute the up-to-date value.
 
 One of the goals of this refactor was to fix synchronous update issues, i.e., when two or more variables need to update together.
-An example would be resizing the `x` and `y` values of a scatter plot.
-This can now be done with `Makie.update!(plot, arg1 = new_xs, arg2 = new_ys)`.
+An example would be resizing `x`, `y` as well as the `color` of a scatter plot.
+This can now be done with `Makie.update!(plot, arg1 = new_xs, arg2 = new_ys, color = new_color)`.
+
 Another improvement is that we can now poll updates, which helps skip intermediate calculations that happen between draw calls.
 This happens in `Axis`, for example, where the layout is calculated iteratively and each iteration updates all involved plots.
 The polling also gives us more control over where and when to apply the updates, which is a large step towards making GLMakie plot updating thread safe.
