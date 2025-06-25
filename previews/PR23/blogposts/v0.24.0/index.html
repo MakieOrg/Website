@@ -25,7 +25,7 @@
 </script>
   </head>
   <body data-jscall-id="5">
-    <script type="module">Bonito.lock_loading(() => Bonito.init_session('e0f6f19d-8410-4ec9-ba8a-30d49f29ae08', null, 'root', false))</script>
+    <script type="module">Bonito.lock_loading(() => Bonito.init_session('977d0abc-2f4f-4887-98aa-3a8ca40e6f2f', null, 'root', false))</script>
     <div data-jscall-id="6">
       <link href="../../bonito/png/icon_transparent1037186205570625945.png" data-jscall-id="7" rel="icon" type="image/png" />
       <img style="width: 100%" data-jscall-id="8" src="../../bonito/png/bannermesh_gradient12222907222071057261.png" />
@@ -350,90 +350,91 @@ end</code>
               </p>
               <p data-jscall-id="182">Note that reacting to these to update inputs of the same text may result in infinite loops.</p>
               <h2 id="MakieCore removed" data-jscall-id="183">MakieCore removed</h2>
-              <p data-jscall-id="184">MakieCore was introduced as a minimal, lightweight import for other packages that want to introduce Makie recipes. With the introduction of package extensions, this has become redundant. As such, we have decided to remove MakieCore and reintegrate it into the Makie repository. See the docs on how to use 
-                <a href="https://docs.makie.org/dev/explanations/recipes#Makie-Package-Extension" data-jscall-id="185">package extensions</a>.
+              <p data-jscall-id="184">MakieCore was introduced in 2021 - before package extensions were on the horizon - as a minimal, lightweight import for other packages that want to introduce Makie recipes. There was always a tension with MakieCore where to draw the line between &#34;core&#34; and other functionality, leading users to request more and more API to be added to it over time. When package extensions became available, the existence of MakieCore confused many developers who were unsure which was the right way to integrate Makie into their packages.</p>
+              <p data-jscall-id="185">To simplify this situation going forward, we have decided to remove MakieCore and reintegrate all of its code into Makie. That means a package extension on Makie is the suggested solution to add plotting functionality in a lightweight way. MakieCore&#39;s functions and types have not been renamed, so a switch from MakieCore to Makie as a dependency should mainly involve a search-and-replace of MakieCore to Makie. As a starting point, the docs have a minimal example how to use Makie as a 
+                <a href="https://docs.makie.org/dev/explanations/recipes#Makie-Package-Extension" data-jscall-id="186">package extension</a>.
               </p>
-              <h2 id="Package Organization" data-jscall-id="186">Package Organization</h2>
-              <p data-jscall-id="187">The source code for Makie used to be part of the top-level directory of the Makie repository. This caused the Makie module to include everything in the repository, i.e., also all the backends and other infrastructure. Each backend module would be downloaded and stored separately, creating a lot of duplicate data. We have now moved the Makie source into its own Makie directory to fix this issue. We have also moved assets to an artifact, which means they do not need to be downloaded again with every update.</p>
-              <h2 id="Other breaking changes" data-jscall-id="188">Other breaking changes</h2>
-              <ul class=" style_2" style="" data-jscall-id="189">
-                <li data-jscall-id="190">
-                  <p data-jscall-id="191">
-                    <code data-jscall-id="192">annotations&#33;&#40;&#41;</code> has been removed &#40;use 
-                    <code data-jscall-id="193">text&#33;</code> instead&#41;
+              <h2 id="Package Organization" data-jscall-id="187">Package Organization</h2>
+              <p data-jscall-id="188">The source code for Makie used to be part of the top-level directory of the Makie repository. This caused the Makie module to include everything in the repository, i.e., also all the backends and other infrastructure. Each backend module would be downloaded and stored separately, creating a lot of duplicate data. We have now moved the Makie source into its own Makie directory to fix this issue. We have also moved assets to an artifact, which means they do not need to be downloaded again with every update.</p>
+              <h2 id="Other breaking changes" data-jscall-id="189">Other breaking changes</h2>
+              <ul class=" style_2" style="" data-jscall-id="190">
+                <li data-jscall-id="191">
+                  <p data-jscall-id="192">
+                    <code data-jscall-id="193">annotations&#33;&#40;&#41;</code> has been removed &#40;use 
+                    <code data-jscall-id="194">text&#33;</code> instead&#41;
                   </p>
                 </li>
-                <li data-jscall-id="194">
-                  <p data-jscall-id="195">
-                    <code data-jscall-id="196">&#64;recipe PlotType &#40;argnames...&#41;</code> now controls the names of the converted arguments and thus has to match the output of 
-                    <code data-jscall-id="197">convert_arguments&#40;::PlotType, ...&#41;</code>
+                <li data-jscall-id="195">
+                  <p data-jscall-id="196">
+                    <code data-jscall-id="197">&#64;recipe PlotType &#40;argnames...&#41;</code> now controls the names of the converted arguments and thus has to match the output of 
+                    <code data-jscall-id="198">convert_arguments&#40;::PlotType, ...&#41;</code>
                   </p>
                 </li>
-                <li data-jscall-id="198">
-                  <p data-jscall-id="199">
-                    <code data-jscall-id="200">local_update&#33;&#40;::Voxels&#41;</code> now requires the updated data to be passed. I.e. 
-                    <code data-jscall-id="201">Makie.local_update&#33;&#40;plot, new_value, is, js, ks&#41;</code>
+                <li data-jscall-id="199">
+                  <p data-jscall-id="200">
+                    <code data-jscall-id="201">local_update&#33;&#40;::Voxels&#41;</code> now requires the updated data to be passed. I.e. 
+                    <code data-jscall-id="202">Makie.local_update&#33;&#40;plot, new_value, is, js, ks&#41;</code>
                   </p>
                 </li>
-                <li data-jscall-id="202">
-                  <p data-jscall-id="203">
-                    <code data-jscall-id="204">patchcolor</code> is now opaque to improve the look of 3D meshes with default colors and avoid decorations from being visible through some plots by default
+                <li data-jscall-id="203">
+                  <p data-jscall-id="204">
+                    <code data-jscall-id="205">patchcolor</code> is now opaque to improve the look of 3D meshes with default colors and avoid decorations from being visible through some plots by default
                   </p>
                 </li>
               </ul>
-              <h1 id="Fixes" data-jscall-id="205">Fixes</h1>
-              <ul class=" style_2" style="" data-jscall-id="206">
-                <li data-jscall-id="207">
-                  <p data-jscall-id="208">
-                    <code data-jscall-id="209">surface&#40;&#41;</code> now correctly aligns colors for 2x2 matrices in WGLMakie
+              <h1 id="Fixes" data-jscall-id="206">Fixes</h1>
+              <ul class=" style_2" style="" data-jscall-id="207">
+                <li data-jscall-id="208">
+                  <p data-jscall-id="209">
+                    <code data-jscall-id="210">surface&#40;&#41;</code> now correctly aligns colors for 2x2 matrices in WGLMakie
                   </p>
                 </li>
-                <li data-jscall-id="210">
-                  <p data-jscall-id="211">
-                    <code data-jscall-id="212">meshscatter&#40;&#41;</code> with per-element 
-                    <code data-jscall-id="213">uv_transform</code> now works in WGLMakie
+                <li data-jscall-id="211">
+                  <p data-jscall-id="212">
+                    <code data-jscall-id="213">meshscatter&#40;&#41;</code> with per-element 
+                    <code data-jscall-id="214">uv_transform</code> now works in WGLMakie
                   </p>
                 </li>
-                <li data-jscall-id="214">
-                  <p data-jscall-id="215">
-                    <code data-jscall-id="216">PolarAxis</code> now considers text rotation when reserving space for tick labels
+                <li data-jscall-id="215">
+                  <p data-jscall-id="216">
+                    <code data-jscall-id="217">PolarAxis</code> now considers text rotation when reserving space for tick labels
                   </p>
                 </li>
-                <li data-jscall-id="217">
-                  <p data-jscall-id="218">
-                    <code data-jscall-id="219">LaTeXStrings</code> now project lines correctly in 
-                    <code data-jscall-id="220">markerspace &#33;&#61; :pixel</code>. Their line width is still incorrect though
+                <li data-jscall-id="218">
+                  <p data-jscall-id="219">
+                    <code data-jscall-id="220">LaTeXStrings</code> now project lines correctly in 
+                    <code data-jscall-id="221">markerspace &#33;&#61; :pixel</code>. Their line width is still incorrect though
                   </p>
                 </li>
-                <li data-jscall-id="221">
-                  <p data-jscall-id="222">2x2 
-                    <code data-jscall-id="223">surface&#40;&#41;</code> plots in CairoMakie and WGLMakie now plot at the correct z values
+                <li data-jscall-id="222">
+                  <p data-jscall-id="223">2x2 
+                    <code data-jscall-id="224">surface&#40;&#41;</code> plots in CairoMakie and WGLMakie now plot at the correct z values
                   </p>
                 </li>
-                <li data-jscall-id="224">
-                  <p data-jscall-id="225">
-                    <code data-jscall-id="226">arrows3d&#40;&#41;</code> now include lighting attributes
+                <li data-jscall-id="225">
+                  <p data-jscall-id="226">
+                    <code data-jscall-id="227">arrows3d&#40;&#41;</code> now include lighting attributes
                   </p>
                 </li>
-                <li data-jscall-id="227">
-                  <p data-jscall-id="228">
-                    <code data-jscall-id="229">annotation&#33;&#40;&#41;</code> plots now work correctly with transform functions and include fontsize
+                <li data-jscall-id="228">
+                  <p data-jscall-id="229">
+                    <code data-jscall-id="230">annotation&#33;&#40;&#41;</code> plots now work correctly with transform functions and include fontsize
                   </p>
                 </li>
               </ul>
             </div>
-            <div data-jscall-id="230">
-              <script data-jscall-id="231" src="../../bonito/js/highlight.pack13102628173626074447.js"></script>
-              <script data-jscall-id="232">hljs.highlightAll()</script>
+            <div data-jscall-id="231">
+              <script data-jscall-id="232" src="../../bonito/js/highlight.pack13102628173626074447.js"></script>
+              <script data-jscall-id="233">hljs.highlightAll()</script>
             </div>
           </div>
           <span></span>
         </div>
       </div>
-      <div data-jscall-id="233">
-        <script async="true" defer="true" data-jscall-id="234" src="https://api.makie.org/latest.js"></script>
-        <noscript data-jscall-id="235">
-          <img alt="" data-jscall-id="236" src="https://api.makie.org/noscript.gif" referrerpolicy="no-referrer-when-downgrade" />
+      <div data-jscall-id="234">
+        <script async="true" defer="true" data-jscall-id="235" src="https://api.makie.org/latest.js"></script>
+        <noscript data-jscall-id="236">
+          <img alt="" data-jscall-id="237" src="https://api.makie.org/noscript.gif" referrerpolicy="no-referrer-when-downgrade" />
         </noscript>
       </div>
     </div>
