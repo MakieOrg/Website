@@ -6,7 +6,7 @@ The v0.23 and v0.24 releases are very close together in time and some readers ma
 
 Makie v0.24 focuses on a comprehensive overhaul of our internal architecture, specifically replacing Observables in our backend code with a more robust system. This fundamental change touches nearly every component of the codebase, making it one of our most ambitious refactoring efforts to date.
 
-The scope of these improvements was so significant that we initially considered releasing this as Makie v1.0. However, with several important design decisions still being refined, we've chosen to release this as v0.24 while still targeting a Makie v1.0 release for later this year.
+We initially considered releasing this as Makie v1.0, since this is the biggest breaking change we have on the horizon. However, with several important design decisions still being refined, we've chosen to release this as v0.24 while still targeting a Makie v1.0 release for later this year.
 
 **A Note on Stability:** This release includes major internal improvements that have been thoroughly tested. However, changes of this magnitude can occasionally reveal unexpected edge cases. If you prioritize stability for production work, you may want to wait a few weeks after release before upgrading to allow the community to identify and resolve any issues that may arise.
 
@@ -72,13 +72,13 @@ end
 
 ![WGLMakie benchmark](./images/wglmakie-benchmark.svg)
 
-Performance gains are especially noticeable when interacting with WGLMakie plots over slower network connections, where the reduced computational overhead translates directly to smoother user experiences.
+Performance gains are especially noticeable when interacting with WGLMakie plots over slower network connections, where the reduced message size translates directly to smoother user experiences.
 
 Beyond the raw performance numbers, there's an important qualitative improvement: when using `update!`, all changes are now applied simultaneously in the JavaScript runtime. This eliminates visual artifacts that previously occurred during larger updates, where individual changes would arrive in separate messages, creating temporarily incorrect intermediate states (such as when updating x, y, and z coordinates for a heatmap).
 
 Looking forward, we're still in the early stages of fully leveraging the ComputeGraph's capabilities. Many optimizations remain to be implemented, and the graph itself can be further optimized. Currently, we're still converting to Observables internally quite often, since we haven't yet updated all Blocks and recipes (Axis, LineAxis, Axis3, poly, etc.) to use the new compute graph natively. These conversions force immediate updates, disabling our ability to discard intermediate calculations - one of the key advantages of the new system.
 
-We welcome community contributions to help migrate these components, as our core team needs to focus on the upcoming Makie 1.0 release.
+We welcome [community contributions to help migrate these components](https://github.com/MakieOrg/Makie.jl/issues/5114), as our core team needs to focus on the upcoming Makie 1.0 release.
 
 # Breaking Changes
 
@@ -259,7 +259,7 @@ The source code for Makie used to be part of the top-level directory of the Maki
 This caused the Makie module to include everything in the repository, i.e., also all the backends and other infrastructure.
 Each backend module would be downloaded and stored separately, creating a lot of duplicate data.
 We have now moved the Makie source into its own Makie directory to fix this issue.
-We have also moved assets to an artifact, which means they do not need to be downloaded again with every update.
+We have also moved assets to an artifact, which means they do not need to be downloaded again with every update. If one relied on manually loading Makie assets, one has to use `Makie.assetpath("folder", "filename")` or the new `Makie.loadasset("filename")` which directly loads the file via FileIO.
 
 ## Other breaking changes
 
