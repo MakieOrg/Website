@@ -140,3 +140,10 @@ div.blog_entry .date {
     margin: 0;
     color: #bf360c;
 }
+
+/* Alternative color schemes for other admonition types */
+.admonition.info {
+    background-color: #e3f2fd;
+    border-left-color: #2196f3;
+    color: #0d47a1;
+  }
