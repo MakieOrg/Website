@@ -1,9 +1,21 @@
 # Makie v0.24
 
-The switch away from Observables for Makie's internals has been one of the biggest refactors of Makie in the last 5 years.
-While many changes happened internally without changing the surface API, this is still one of the biggest breaking changes we have planned, which made us consider tagging this as Makie v1.0.
-Since there are still a few open design decisions we want to hammer out in the coming months, we decided to tag this as 0.24 for now, but we do hope that Makie 1.0 will be released this year without adding many breaking changes on top of 0.24.
-To not group all the great improvements from the just released [v0.23](https://makie.org/website/blogposts/v0.23.0/) with the more breaking v0.24, we decided to make 2 breaking releases in quick succession. We are sorry for the inconvenience this may cause.d
+```julia
+# hide
+using Markdown, Bonito
+DOM.div(
+    DOM.p("Info!"; class="title"),
+    """
+        We recently released [v0.23](https://makie.org/website/blogposts/v0.23.0/) which also had to be breaking. If you haven't already, read the v0.23 blogpost first. We decided to not release them together in one big breaking release, since v0.23 has quite a few nice improvements, while v0.24 will take quite a bit longer for the ecosystem to upgrade to.
+    """; class="admonition info"
+)
+```
+
+Makie v0.24 release is all about cleaning up the internals and getting rid of Observables in our backend code. Since this is touching almost all the code in the repository, this refactor has been one of the biggest of the last 5 years.
+
+While many changes happened internally without touching the surface API, this is still one of the biggest breaking changes we've planned - big enough that we considered tagging this as Makie v1.0. Since there are still a few open design decisions we want to hammer out in the coming months, we decided to release this as v0.24 for now.
+
+We do hope though, to release Makie 1.0 this year without adding many breaking changes on top of v0.24.
 
 ```julia
 # hide
@@ -19,7 +31,7 @@ DOM.div(
 
 ## Overview
 
-This release features a rework of how plot arguments and attributes are handled. Instead of using Observables we now use a `ComputeGraph`.
+This release features a rework of how plot arguments and attributes are handled. Instead of using Observables we now use a `ComputeGraph` from the new [ComputePipeline](https://docs.makie.org/dev/explanations/compute-pipeline) package.
 
 All the data a plot generates from its inputs to the final backend renderobject is stored in the graph as nodes. All the computations that connect data are stored as edges. When a plot input is updated, the graph marks every dependent node and edge as out-of-date. When data from an out-of-date node is requested, all related outdated nodes are resolved to compute the up-to-date value.
 
