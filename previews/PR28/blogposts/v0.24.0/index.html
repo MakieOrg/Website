@@ -1,0 +1,455 @@
+<!doctype html>
+<html data-jscall-id="1">
+  <head data-jscall-id="2">
+    <script src="../../bonito/js/Bonito.bundled6255588805802470083.js" type="module"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" data-jscall-id="3" />
+    <meta charset="utf-8" data-jscall-id="4" />
+    <style>.style_2 {
+  list-style-type: disc;
+}
+</style>
+    <script>    window.__define = window.define;
+    window.__require = window.require;
+    window.define = undefined;
+    window.require = undefined;
+</script>
+    <link href="../../bonito/css/site18444467483949899788.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com/3.3.1"></script>
+    <link href="../../bonito/css/markdown17382678153536898021.css" rel="stylesheet" type="text/css" />
+    <link href="../../bonito/css/markdown-mobile6603119733908206911.css" rel="stylesheet" type="text/css" />
+    <link href="../../bonito/css/github.min8213811099958948332.css" rel="stylesheet" type="text/css" />
+    <script>    window.define = window.__define;
+    window.require = window.__require;
+    window.__define = undefined;
+    window.__require = undefined;
+</script>
+  </head>
+  <body data-jscall-id="5">
+    <script type="module">Bonito.lock_loading(() => Bonito.init_session('4e8c1e48-9185-4f4c-b3db-c77124119975', null, 'root', false))</script>
+    <div data-jscall-id="6">
+      <link href="../../bonito/png/icon_transparent1037186205570625945.png" data-jscall-id="7" rel="icon" type="image/png" />
+      <img style="width: 100%" data-jscall-id="8" src="../../bonito/png/bannermesh_gradient12222907222071057261.png" />
+      <div class="flex navbar justify-center" data-jscall-id="9">
+        <div class="flex max-w-5xl w-full md:px-4 flex-wrap" data-jscall-id="10">
+          <a href="../../" data-jscall-id="11" target="">
+            <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="12">Home</div>
+          </a>
+          <a href="../../team" data-jscall-id="13" target="">
+            <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="14">Team</div>
+          </a>
+          <a href="../../support" data-jscall-id="15" target="">
+            <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="16">Support</div>
+          </a>
+          <a href="../../contact" data-jscall-id="17" target="">
+            <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="18">Contact</div>
+          </a>
+          <a href="../../blog" data-jscall-id="19" target="">
+            <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50  navbar-highlight" data-jscall-id="20">Blog</div>
+          </a>
+          <a href="http://docs.makie.org" data-jscall-id="21" target="_blank">
+            <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="22">Docs</div>
+          </a>
+          <a href="https://github.com/MakieOrg/Makie.jl" data-jscall-id="23" target="_blank">
+            <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="24">
+              <img style="height: 1.2rem; display: inline-block; vertical-align: text-bottom;" data-jscall-id="25" src="../../bonito/png/GitHub-Mark-Light-64px12574665218786438484.png" />
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="p-4 w-full" data-jscall-id="26">
+        <div data-jscall-id="27">
+          <div data-jscall-id="28">
+            <div class="markdown-body" data-jscall-id="29">
+              <h1 id="Makie v0.24" data-jscall-id="30">Makie v0.24</h1>
+              <p data-jscall-id="31">We&#39;re excited to announce the release of Makie v0.24, a major milestone that represents one of the most significant internal improvements to the plotting ecosystem in the past five years. This update builds upon our recent 
+                <a href="https://makie.org/website/blogposts/v0.23.0/" data-jscall-id="32">v0.23 release</a>, and we recommend reading about those improvements first if you haven&#39;t already.
+              </p>
+              <p data-jscall-id="33">The v0.23 and v0.24 releases are very close together in time and some readers may wonder why we did not bundle them together to reduce ecosystem churn. While v0.23 introduced some breaking changes which narrowly affected only the 
+                <code data-jscall-id="34">arrows</code> recipe, v0.24&#39;s changes are much wider in scope, even if most of its breaking changes are related to internals. We chose to release these versions separately to allow the community to benefit from v0.23&#39;s enhancements while giving ecosystem maintainers more time to adapt to v0.24&#39;s deeper architectural changes.
+              </p>
+              <p data-jscall-id="35">Makie v0.24 focuses on a comprehensive overhaul of our internal architecture, specifically replacing Observables in our backend code with a more robust system. This fundamental change touches nearly every component of the codebase, making it one of our most ambitious refactoring efforts to date.</p>
+              <p data-jscall-id="36">We initially considered releasing this as Makie v1.0, since this is the biggest breaking change we have on the horizon. However, with several important design decisions still being refined, we&#39;ve chosen to release this as v0.24 while still targeting a Makie v1.0 release for later this year.</p>
+              <p data-jscall-id="37">
+                <strong data-jscall-id="38">A Note on Stability:</strong> This release includes major internal improvements that have been thoroughly tested. However, changes of this magnitude can occasionally reveal unexpected edge cases. If you prioritize stability for production work, you may want to wait a few weeks after release before upgrading to allow the community to identify and resolve any issues that may arise.
+              </p>
+              <h2 id="Overview" data-jscall-id="39">Overview</h2>
+              <p data-jscall-id="40">This release features a rework of how plot arguments and attributes are handled. Instead of using Observables we now use a 
+                <code data-jscall-id="41">ComputeGraph</code> from the new 
+                <a href="https://docs.makie.org/dev/explanations/compute-pipeline" data-jscall-id="42">ComputePipeline</a> package.
+              </p>
+              <p data-jscall-id="43">All the data a plot generates from its inputs to the final backend render object is stored in the graph as nodes. All the computations that connect data are stored as edges. When a plot input is updated, the graph marks every dependent node and edge as out-of-date. When data from an out-of-date node is requested, all related outdated nodes are resolved to compute the up-to-date value.</p>
+              <p data-jscall-id="44">One of the goals of this refactor was to fix synchronous update issues, i.e., when two or more variables need to update together. An example would be resizing 
+                <code data-jscall-id="45">x</code>, 
+                <code data-jscall-id="46">y</code> as well as the 
+                <code data-jscall-id="47">color</code> of a scatter plot. This can now be done with 
+                <code data-jscall-id="48">Makie.update&#33;&#40;plot, arg1 &#61; new_xs, arg2 &#61; new_ys, color &#61; new_color&#41;</code>.
+              </p>
+              <p data-jscall-id="49">Another improvement is that we can now poll updates, which helps skip intermediate calculations that happen between draw calls. This happens in 
+                <code data-jscall-id="50">Axis</code>, for example, where the layout is calculated iteratively and each iteration updates all involved plots. The polling also gives us more control over where and when to apply the updates, which is a large step towards making GLMakie plot updating thread safe. Previously 
+                <code data-jscall-id="51">plot.attribute &#61; new_val</code> would immediately switch the OpenGL context and upload the new data, which is inherently not thread safe. Now we can poll the update at a point in time where all OpenGL state is already correctly set and we&#39;re on the correct thread to talk with OpenGL. Finally, we&#39;ve undertaken a major cleanup of the backend code, improving code sharing across backends and long-term maintainability.
+              </p>
+              <h2 id="Performance improvements" data-jscall-id="52">Performance improvements</h2>
+              <p data-jscall-id="53">Especially for WGLMakie, the performance gains are huge, since we now have much better control over when to calculate updates and when to skip computations. We used a small 
+                <a href="https://gist.github.com/SimonDanisch/bda7660ebfebab5a9a090b16433c31dc" data-jscall-id="54">benchmark script</a> to get some first numbers on the improvements this refactor provides:
+              </p>
+              <pre data-jscall-id="55">
+                <code class="language-julia" data-jscall-id="56">
+run_example&#33;&#40;&#34;resize&#33;&#34;, &#40;f, ax, pl&#41; -&#62; resize&#33;&#40;f, rand&#40;500:1000&#41;, rand&#40;500:1000&#41;&#41;&#41; do
+    f &#61; Figure&#40;size &#61; &#40;800, 800&#41;&#41;
+    for i in 1:3, j in 1:3
+        isodd&#40;i &#43; j&#41; ?
+            heatmap&#40;f&#91;i, j&#93;, rand&#40;500, 500&#41;&#41; :
+            scatter&#40;f&#91;i, j&#93;, rand&#40;Point2f, 10&#41;; color &#61; rand&#40;10&#41;&#41;
+    end
+    f, nothing, nothing
+end
+update_test &#61; &#40;f, ax, pl&#41; -&#62; update&#33;&#40;pl,
+    color &#61; rand&#40;1000&#41;, colormap &#61; rand&#40;Makie.all_gradient_names&#41;,
+    markersize &#61; rand&#40;5:0.001:60&#41;
+&#41;
+run_example&#33;&#40;&#34;update&#33;&#34;, update_test&#41; do
+    scatter&#40;rand&#40;Point2f, 1000&#41;; color &#61; rand&#40;1000&#41;, colormap &#61; :turbo, markersize &#61; 20&#41;
+end
+function trigger_update&#40;f, ax, pl&#41;
+    e &#61; events&#40;f&#41;
+    e.mouseposition&#91;&#93; &#61; &#40;300, 250&#41;
+    e.mousebutton&#91;&#93; &#61; Makie.MouseButtonEvent&#40;Mouse.right, Mouse.press&#41;
+    e.mouseposition&#91;&#93; &#61; &#40;350, 250&#41;
+    return e.mousebutton&#91;&#93; &#61; Makie.MouseButtonEvent&#40;Mouse.right, Mouse.release&#41;
+end
+run_example&#33;&#40;&#34;zoom interaction&#34;, trigger_update&#41; do
+    return scatter&#40;rand&#40;Point2f, 1000&#41;; color &#61; rand&#40;1000&#41;, colormap &#61; :turbo, markersize &#61; 20&#41;
+end
+run_example&#33;&#40;&#34;Axis3&#34;, &#40;f, ax, pl&#41; -&#62; &#40;ax.azimuth &#61; rand&#40;-π:0.001:π&#41;&#41;&#41; do
+    return meshscatter&#40;rand&#40;Point3f, 100&#41;, axis &#61; &#40;; type &#61; Axis3&#41;&#41;
+end
+run_example&#33;&#40;&#34;Axis3 hidden&#34;, &#40;f, ax, pl&#41; -&#62; &#40;ax.azimuth &#61; rand&#40;-π:0.001:π&#41;&#41;&#41; do
+    f, ax, pl &#61; meshscatter&#40;rand&#40;Point3f, 100&#41;, axis &#61; &#40;; type &#61; Axis3&#41;&#41;
+    hidedecorations&#33;&#40;ax&#41;
+    return f, ax, pl
+end</code>
+              </pre>
+              <p data-jscall-id="57">
+                <img alt="WGLMakie benchmark" data-jscall-id="58" src="../../bonito/svg/wglmakie-benchmark10001366977198623661.svg" />
+              </p>
+              <p data-jscall-id="59">Performance gains are especially noticeable when interacting with WGLMakie plots over slower network connections, where the reduced message size translates directly to smoother user experiences.</p>
+              <p data-jscall-id="60">Beyond the raw performance numbers, there&#39;s an important qualitative improvement: when using 
+                <code data-jscall-id="61">update&#33;</code>, all changes are now applied simultaneously in the JavaScript runtime. This eliminates visual artifacts that previously occurred during larger updates, where individual changes would arrive in separate messages, creating temporarily incorrect intermediate states &#40;such as when updating x, y, and z coordinates for a heatmap&#41;.
+              </p>
+              <p data-jscall-id="62">Looking forward, we&#39;re still in the early stages of fully leveraging the ComputeGraph&#39;s capabilities. Many optimizations remain to be implemented, and the graph itself can be further optimized. Currently, we&#39;re still converting to Observables internally quite often, since we haven&#39;t yet updated all Blocks and recipes &#40;Axis, LineAxis, Axis3, poly, etc.&#41; to use the new compute graph natively. These conversions force immediate updates, disabling our ability to discard intermediate calculations - one of the key advantages of the new system.</p>
+              <p data-jscall-id="63">We welcome 
+                <a href="https://github.com/MakieOrg/Makie.jl/issues/5114" data-jscall-id="64">community contributions to help migrate these components</a>, as our core team needs to focus on the upcoming Makie 1.0 release.
+              </p>
+              <h1 id="Breaking Changes" data-jscall-id="65">Breaking Changes</h1>
+              <p data-jscall-id="66">The transition to ComputeGraph represents a fundamental shift in how Makie handles plot data and attributes internally. While we&#39;ve worked hard to maintain backward compatibility where possible, some changes were unavoidable due to the architectural improvements. The breaking changes primarily affect advanced users who work directly with Makie&#39;s internal systems - most standard plotting workflows should continue to work unchanged.</p>
+              <p data-jscall-id="67">The most significant impacts are in three areas: custom recipe development, lighting systems, and text rendering. We&#39;ve organized the changes by impact area to help you understand which sections are relevant to your use case.</p>
+              <h2 id="Attribute Handling in Recipes" data-jscall-id="68">Attribute Handling in Recipes</h2>
+              <p data-jscall-id="69">Some styles of passing attributes through a recipe no longer work, as 
+                <code data-jscall-id="70">plot.attributes</code> no longer uses the Dict-like 
+                <code data-jscall-id="71">Attributes</code> type. Instead, it is now a 
+                <code data-jscall-id="72">ComputeGraph</code> which is less mutable.
+              </p>
+              <h4 id="Splatting" data-jscall-id="73">Splatting</h4>
+              <p data-jscall-id="74">Splatting &#34;Attributes&#34; no longer works:</p>
+              <pre data-jscall-id="75">
+                <code class="language-julia" data-jscall-id="76">
+plot&#33;&#40;parent, args...; kwargs..., parent.attributes...&#41;
+# or
+attr &#61; Attributes&#40;parent&#41;
+plot&#33;&#40;parent, args...; attr...&#41;</code>
+              </pre>
+              <p data-jscall-id="77">Instead attributes can be passed directly as the second argument:</p>
+              <pre data-jscall-id="78">
+                <code class="language-julia" data-jscall-id="79">
+attr &#61; Attributes&#40;parent&#41;
+plot&#33;&#40;parent, attr, args...; kwargs...&#41;</code>
+              </pre>
+              <p data-jscall-id="80">Keyword arguments take priority over the nodes in 
+                <code data-jscall-id="81">attr</code> here. Any node that is not compatible with 
+                <code data-jscall-id="82">plot&#33;&#40;&#41;</code> will be ignored.
+              </p>
+              <h4 id="Copy - Modify" data-jscall-id="83">Copy - Modify</h4>
+              <p data-jscall-id="84">Copying and adjusting attributes also does not work anymore:</p>
+              <pre data-jscall-id="85">
+                <code class="language-julia" data-jscall-id="86">
+attr &#61; copy&#40;Attributes&#40;plot&#41;&#41; # MethodError: copy&#40;::ComputeGraph&#41;
+pop&#33;&#40;attr, :removed&#41; # MethodError: pop&#33;&#40;::ComputeGraph, ...&#41;
+attr&#91;:changed&#93; &#61; value # MethodError: setindex&#33;&#40;::ComputeGraph, ...&#41;
+plot&#33;&#40;parent, attr, args...; kwargs...&#41;
+# or plot&#33;&#40;parent, args...; kwargs..., attr...&#41;</code>
+              </pre>
+              <p data-jscall-id="87">Instead of this you can again directly pass attributes. Instead of overwriting 
+                <code data-jscall-id="88">attr&#91;key&#93; &#61; val</code> you can pass that attribute as a keyword argument, and instead of 
+                <code data-jscall-id="89">pop&#33;&#40;attr, key&#41;</code> you can set a constant default or make that attribute available in your recipe.
+              </p>
+              <pre data-jscall-id="90">
+                <code class="language-julia" data-jscall-id="91">
+attr &#61; Attributes&#40;plot&#41;
+plot&#33;&#40;parent, attr, args..., changed &#61; value, popped &#61; const_val&#41;</code>
+              </pre>
+              <h4 id="" data-jscall-id="92">
+                <code data-jscall-id="93">replace_automatic&#33;&#40;&#41;</code>
+              </h4>
+              <p data-jscall-id="94">
+                <code data-jscall-id="95">replace_automatic&#33;&#40;&#41;</code> has been removed as it is incompatible with the new 
+                <code data-jscall-id="96">ComputeGraph</code>. Instead of
+              </p>
+              <pre data-jscall-id="97">
+                <code class="language-julia" data-jscall-id="98">
+obs &#61; replace_automatic&#33;&#40;&#40;&#41; -&#62; attr&#91;:default&#93;, attr, :maybe_automatic&#41;
+plot&#33;&#40;..., something &#61; obs&#41;</code>
+              </pre>
+              <p data-jscall-id="99">use</p>
+              <pre data-jscall-id="100">
+                <code class="language-julia" data-jscall-id="101">
+# ComputeGraph &#40;preferable&#41;
+map&#33;&#40;default_automatic, attr, &#91;:maybe_automatic, :default&#93;, :new_name&#41;
+plot&#33;&#40;parent, ..., something &#61; parent.new_name&#41;
+
+# Observable
+obs &#61; map&#40;default_automatic, plot.maybe_automatic, plot.default&#41;
+plot&#33;&#40;parent, ..., something &#61; obs&#41;</code>
+              </pre>
+              <h4 id="" data-jscall-id="102">Replacing Observables with 
+                <code data-jscall-id="103">ComputeGraph</code> nodes
+              </h4>
+              <p data-jscall-id="104">Refactoring recipes to use the 
+                <code data-jscall-id="105">ComputeGraph</code> instead of 
+                <code data-jscall-id="106">Observables</code> is 
+                <strong data-jscall-id="107">not necessary</strong>. However, as we mentioned before, it may improve performance and fits well with the discussion on recipes here.
+              </p>
+              <p data-jscall-id="108">Before, you typically wrote code like this:</p>
+              <pre data-jscall-id="109">
+                <code class="language-julia" data-jscall-id="110">
+# optional &#96;plot&#96; argument, could also be lift, &#64;lift, map&#33;
+output1 &#61; map&#40;plot, plot.obs1, plot.obs2, ...&#41; do args...
+    return some_calcuation&#40;args...&#41;
+end
+
+output2 &#61; Observable&#40;...&#41;
+# optional &#96;plot&#96; argument, could also be on
+onany&#40;plot, plot.obs1, plot.obs2, ...&#41; do args...
+    output2&#91;&#93; &#61; some_calculation&#40;args...&#41;
+end</code>
+              </pre>
+              <p data-jscall-id="111">These functions can be replaced with a new 
+                <code data-jscall-id="112">map&#33;&#40;callback, graph, inputs, outputs&#41;</code> function introduced for the 
+                <code data-jscall-id="113">ComputeGraph</code>. 
+                <code data-jscall-id="114">inputs</code> is either a 
+                <code data-jscall-id="115">Symbol</code> or 
+                <code data-jscall-id="116">Vector&#123;Symbol&#125;</code> referring to all nodes that go into the calculation. 
+                <code data-jscall-id="117">outputs</code> is also either a 
+                <code data-jscall-id="118">Symbol</code> or 
+                <code data-jscall-id="119">Vector&#123;Symbol&#125;</code> which names the output or outputs of the calculation. The outputs should be unique, i.e., there should only be one 
+                <code data-jscall-id="120">map&#33;&#40;&#41;</code> writing to them. They will be created by this function. The 
+                <code data-jscall-id="121">callback</code> is more or less the same as with 
+                <code data-jscall-id="122">Observables</code> - a function that takes the input values as arguments and returns one value per output.
+              </p>
+              <pre data-jscall-id="123">
+                <code class="language-julia" data-jscall-id="124">
+# map&#40;&#41; example
+map&#33;&#40;plot.attributes, &#91;:obs1, :obs2, ...&#93;, :output1&#41; do args...
+    return some_calculation&#40;args...&#41;
+end
+
+# onany example - no need for special handling anymore
+map&#33;&#40;plot.attributes, &#91;:obs1, :obs2, ...&#93;, :output2&#41; do args...
+    return some_calculation&#40;args...&#41;
+end
+
+# A Vector of outputs requires returning a tuple:
+map&#33;&#40;plot.attributes, &#91;:obs1, :obs2&#93;, &#91;:multi1, multi2&#93;&#41; do args...
+    result1, result2 &#61; some_calculation&#40;args...&#41;
+    return result1, result2
+end</code>
+              </pre>
+              <p data-jscall-id="125">After calling 
+                <code data-jscall-id="126">map&#33;&#40;&#41;</code> the outputs will be part of the compute graph. You can get them by indexing the plot, e.g. 
+                <code data-jscall-id="127">plot.output1</code>, and pass them to a child plot using keyword arguments or, if they are correctly named, by passing 
+                <code data-jscall-id="128">plot.attributes</code>.
+              </p>
+              <h2 id="Lights" data-jscall-id="129">Lights</h2>
+              <p data-jscall-id="130">Lights are now handled by the ComputeGraph of the scene. Because of this, lights no longer contain Observables and need to be updated through the scene/compute graph instead. For this, a new set of helper functions has been added:</p>
+              <ul class=" style_2" style="" data-jscall-id="131">
+                <li data-jscall-id="132">
+                  <p data-jscall-id="133">
+                    <code data-jscall-id="134">get_lights&#40;scene&#41;</code> returns the current lights vector &#40;without the ambient light&#41;
+                  </p>
+                </li>
+                <li data-jscall-id="135">
+                  <p data-jscall-id="136">
+                    <code data-jscall-id="137">set_lights&#40;scene, lights&#41;</code> replaces the current lights with the given ones &#40;excluding ambient&#41;
+                  </p>
+                </li>
+                <li data-jscall-id="138">
+                  <p data-jscall-id="139">
+                    <code data-jscall-id="140">set_ambient_light&#33;&#40;scene, color&#41;</code> sets the color &#40;and intensity&#41; of the ambient light
+                  </p>
+                </li>
+                <li data-jscall-id="141">
+                  <p data-jscall-id="142">
+                    <code data-jscall-id="143">set_light&#33;&#40;scene, n, light&#41;</code> replaces the n-th light in the light vector with the given one
+                  </p>
+                </li>
+                <li data-jscall-id="144">
+                  <p data-jscall-id="145">
+                    <code data-jscall-id="146">set_light&#33;&#40;scene, n; fields...&#41;</code> updates a field of the n-th light in the light vector
+                  </p>
+                </li>
+                <li data-jscall-id="147">
+                  <p data-jscall-id="148">
+                    <code data-jscall-id="149">push_light&#33;&#40;scene, light&#41;</code> adds a light to the light vector
+                  </p>
+                </li>
+                <li data-jscall-id="150">
+                  <p data-jscall-id="151">
+                    <code data-jscall-id="152">set_directional_light&#33;&#40;scene; &#91;color, direction, camera_relative&#93;&#41;</code> adjusts the directional light of the scene if it is the only available light other than the ambient light. &#40;I.e., the scene is in FastShading mode&#41;
+                  </p>
+                </li>
+              </ul>
+              <p data-jscall-id="153">The 
+                <code data-jscall-id="154">shading</code> attribute &#40;on a plot level&#41; has also changed back to a 
+                <code data-jscall-id="155">Bool</code>. The decision between 
+                <code data-jscall-id="156">FastShading</code> and 
+                <code data-jscall-id="157">MultiLightShading</code> is now handled by the scene instead. You can also force the scene to pick one with 
+                <code data-jscall-id="158">set_shading_algorithm&#33;&#40;scene, choice&#41;</code>.
+              </p>
+              <h2 id="Text" data-jscall-id="159">Text</h2>
+              <p data-jscall-id="160">Text has been refactored to rely solely on the compute graph and avoid the nested structure it had before. While this may be considered internal, some recipes &#40;and Blocks&#41; do rely on the old structure. Usually this is for some kind of bounding box. To simplify working with them, we added a new set of functions:</p>
+              <table data-jscall-id="161">
+                <tr data-jscall-id="162">
+                  <th data-jscall-id="163" align="right">Includes &#40;cumulative&#41;</th>
+                  <th data-jscall-id="164" align="right">per character</th>
+                  <th data-jscall-id="165" align="right">per string</th>
+                </tr>
+                <tr data-jscall-id="166">
+                  <td data-jscall-id="167" align="right">characters, fontsize</td>
+                  <td data-jscall-id="168" align="right">
+                    <code data-jscall-id="169">raw_glyph_boundingboxes&#40;&#41;</code>
+                  </td>
+                  <td data-jscall-id="170" align="right"></td>
+                </tr>
+                <tr data-jscall-id="171">
+                  <td data-jscall-id="172" align="right">string layouting, rotation, offset</td>
+                  <td data-jscall-id="173" align="right">
+                    <code data-jscall-id="174">fast_glyph_boundingboxes</code>
+                  </td>
+                  <td data-jscall-id="175" align="right">
+                    <code data-jscall-id="176">fast_string_boundingboxes&#40;&#41;</code>
+                  </td>
+                </tr>
+                <tr data-jscall-id="177">
+                  <td data-jscall-id="178" align="right">markerspace positions</td>
+                  <td data-jscall-id="179" align="right">
+                    <code data-jscall-id="180">glyph_boundingboxes&#40;&#41;</code>
+                  </td>
+                  <td data-jscall-id="181" align="right">
+                    <code data-jscall-id="182">string_boundingboxes&#40;&#41;</code>
+                  </td>
+                </tr>
+              </table>
+              <p data-jscall-id="183">All of the above return bounding boxes in 
+                <code data-jscall-id="184">markerspace</code>. For bounding boxes transformed back to 
+                <code data-jscall-id="185">space</code>, we added 
+                <code data-jscall-id="186">full_boundingbox&#40;&#41;</code> which returns a bounding box per plot. All of these functions have two more variants: 
+                <code data-jscall-id="187">register_...&#40;&#41;</code> which just registers the computation, and 
+                <code data-jscall-id="188">..._obs&#40;&#41;</code> which returns an observable listening to the computation. They should replace calls to 
+                <code data-jscall-id="189">unchecked_boundingbox&#40;&#41;</code>, 
+                <code data-jscall-id="190">gl_bboxes&#40;&#41;</code>, 
+                <code data-jscall-id="191">string_boundingbox&#40;&#41;</code>, etc.
+              </p>
+              <p data-jscall-id="192">Note that reacting to these to update inputs of the same text may result in infinite loops.</p>
+              <h2 id="MakieCore removed" data-jscall-id="193">MakieCore removed</h2>
+              <p data-jscall-id="194">MakieCore was introduced in 2021 - before package extensions were on the horizon - as a minimal, lightweight import for other packages that want to introduce Makie recipes. There was always a tension with MakieCore where to draw the line between &#34;core&#34; and other functionality, leading users to request more and more API to be added to it over time. When package extensions became available, the existence of MakieCore confused many developers who were unsure which was the right way to integrate Makie into their packages.</p>
+              <p data-jscall-id="195">To simplify this situation going forward, we have decided to remove MakieCore and reintegrate all of its code into Makie. That means a package extension on Makie is the suggested solution to add plotting functionality in a lightweight way. MakieCore&#39;s functions and types have not been renamed, so a switch from MakieCore to Makie as a dependency should mainly involve a search-and-replace of MakieCore to Makie. As a starting point, the docs have a minimal example how to use Makie as a 
+                <a href="https://docs.makie.org/dev/explanations/recipes#Makie-Package-Extension" data-jscall-id="196">package extension</a>.
+              </p>
+              <h2 id="Package Organization" data-jscall-id="197">Package Organization</h2>
+              <p data-jscall-id="198">The source code for Makie used to be part of the top-level directory of the Makie repository. This caused the Makie module to include everything in the repository, i.e., also all the backends and other infrastructure. Each backend module would be downloaded and stored separately, creating a lot of duplicate data. We have now moved the Makie source into its own Makie directory to fix this issue. We have also moved assets to an artifact, which means they do not need to be downloaded again with every update. If one relied on manually loading Makie assets, one has to use 
+                <code data-jscall-id="199">Makie.assetpath&#40;&#34;folder&#34;, &#34;filename&#34;&#41;</code> or the new 
+                <code data-jscall-id="200">Makie.loadasset&#40;&#34;filename&#34;&#41;</code> which directly loads the file via FileIO.
+              </p>
+              <h2 id="Other breaking changes" data-jscall-id="201">Other breaking changes</h2>
+              <ul class=" style_2" style="" data-jscall-id="202">
+                <li data-jscall-id="203">
+                  <p data-jscall-id="204">
+                    <code data-jscall-id="205">annotations&#33;&#40;&#41;</code> has been removed &#40;use 
+                    <code data-jscall-id="206">text&#33;</code> instead&#41;
+                  </p>
+                </li>
+                <li data-jscall-id="207">
+                  <p data-jscall-id="208">
+                    <code data-jscall-id="209">&#64;recipe PlotType &#40;argnames...&#41;</code> now controls the names of the converted arguments and thus has to match the output of 
+                    <code data-jscall-id="210">convert_arguments&#40;::PlotType, ...&#41;</code>
+                  </p>
+                </li>
+                <li data-jscall-id="211">
+                  <p data-jscall-id="212">
+                    <code data-jscall-id="213">local_update&#33;&#40;::Voxels&#41;</code> now requires the updated data to be passed. I.e. 
+                    <code data-jscall-id="214">Makie.local_update&#33;&#40;plot, new_value, is, js, ks&#41;</code>
+                  </p>
+                </li>
+                <li data-jscall-id="215">
+                  <p data-jscall-id="216">
+                    <code data-jscall-id="217">patchcolor</code> is now opaque to improve the look of 3D meshes with default colors and avoid decorations from being visible through some plots by default
+                  </p>
+                </li>
+              </ul>
+              <h1 id="Fixes" data-jscall-id="218">Fixes</h1>
+              <ul class=" style_2" style="" data-jscall-id="219">
+                <li data-jscall-id="220">
+                  <p data-jscall-id="221">
+                    <code data-jscall-id="222">surface&#40;&#41;</code> now correctly aligns colors for 2x2 matrices in WGLMakie
+                  </p>
+                </li>
+                <li data-jscall-id="223">
+                  <p data-jscall-id="224">
+                    <code data-jscall-id="225">meshscatter&#40;&#41;</code> with per-element 
+                    <code data-jscall-id="226">uv_transform</code> now works in WGLMakie
+                  </p>
+                </li>
+                <li data-jscall-id="227">
+                  <p data-jscall-id="228">
+                    <code data-jscall-id="229">PolarAxis</code> now considers text rotation when reserving space for tick labels
+                  </p>
+                </li>
+                <li data-jscall-id="230">
+                  <p data-jscall-id="231">
+                    <code data-jscall-id="232">LaTeXStrings</code> now project lines correctly in 
+                    <code data-jscall-id="233">markerspace &#33;&#61; :pixel</code>. Their line width is still incorrect though
+                  </p>
+                </li>
+                <li data-jscall-id="234">
+                  <p data-jscall-id="235">2x2 
+                    <code data-jscall-id="236">surface&#40;&#41;</code> plots in CairoMakie and WGLMakie now plot at the correct z values
+                  </p>
+                </li>
+                <li data-jscall-id="237">
+                  <p data-jscall-id="238">
+                    <code data-jscall-id="239">arrows3d&#40;&#41;</code> now include lighting attributes
+                  </p>
+                </li>
+                <li data-jscall-id="240">
+                  <p data-jscall-id="241">
+                    <code data-jscall-id="242">annotation&#33;&#40;&#41;</code> plots now work correctly with transform functions and include fontsize
+                  </p>
+                </li>
+              </ul>
+            </div>
+            <div data-jscall-id="243">
+              <script data-jscall-id="244" src="../../bonito/js/highlight.pack13102628173626074447.js"></script>
+              <script data-jscall-id="245">hljs.highlightAll()</script>
+            </div>
+          </div>
+          <span></span>
+        </div>
+      </div>
+      <div data-jscall-id="246">
+        <script async="true" defer="true" data-jscall-id="247" src="https://api.makie.org/latest.js"></script>
+        <noscript data-jscall-id="248">
+          <img alt="" data-jscall-id="249" src="https://api.makie.org/noscript.gif" referrerpolicy="no-referrer-when-downgrade" />
+        </noscript>
+      </div>
+    </div>
+  </body>
+</html>
