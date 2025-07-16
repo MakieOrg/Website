@@ -32,7 +32,7 @@ This package is designed for building, simulating and controlling robots using p
 
 Sunny is a package for simulating atomic scale magnetism in real materials. It facilitates specification of a broad class of spin models and includes a diverse suite of numerical solvers. These include powerful methods for simulating spin dynamics both in and out of equilibrium. Uniquely, it generalizes the traditional dynamics of spin dipoles to a dynamics of SU(N) coherent states, which better captures local quantum mechanical effects. Sunny also offers a well-developed framework for calculating the dynamical spin structure factor, enabling direct comparison with scattering experiments. Ease of use is a priority, with Makie-powered GUI tools for interactive symmetry analysis and model visualization. [arXiv:2501.13095](https://arxiv.org/abs/2501.13095)
 
-![](https://sunnysuite.github.io/Sunny.jl/stable/examples/01_LSWT_CoRh2O4-61dcd450.png)
+![](./images/5bdccbc8e66f63861543d6476374b6c67502e468.png)
 
 ## [Comodo](https://github.com/COMODO-research/Comodo.jl)
 
