@@ -14,12 +14,11 @@ So I started what was initially called JSServe, which remained an unloved side p
 
 It has matured significantly since then, and it's now at a point where it went from something I didn't really like to something I'm actually proud of.
 
-For example, implementing [BonitoBook](https://bonitobook.org) has been a real joy, and I'm honestly amazed by how well the composability and widget creation have worked out, since I've never actually put it to the test before. I'm not sure this would have been possible with any other framework, especially with the ability for users to completely customize it via the plugin system. Stay tuned for some updates on that later this week!
-BonitoBook is probably one of the most complex Bonito apps and helped fix quite a few bugs.
+For example, implementing [BonitoBook](https://bonitobook.org), a jupyter like notebook ecosystem, has been a real joy, and I'm honestly amazed by how well the composability and widget creation have worked out, since I've never actually put it to the test before. I'm not sure this would have been possible with any other framework, especially with the ability for users to completely customize it via the plugin system. Stay tuned for some updates on that later this week!
 
-[This is a small demo of using BonitoBook's claude integration]
+This is a small demo of using BonitoBook's claude chat widget to create an interactive dashboard with a Makie plot:
 
-[![bonitobook](./images/bonito-ai.png)](https://bonitobook.org/website/bonito/mp4/ai-demo9078760227891508270.mp4)
+![bonitobook](./images/ai-demo.mp4)
 
 At this point, Bonito brings several interesting features to the table, perhaps even outside the Julia world:
 
