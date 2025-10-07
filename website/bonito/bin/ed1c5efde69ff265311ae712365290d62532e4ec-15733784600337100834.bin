@@ -1,4 +1,4 @@
-’Ç-j“Ù$32a266c1-a04a-43cf-9bee-061f31f1dd68€¤root”ÈPk’Ç-j“Ù$32a266c1-a04a-43cf-9bee-061f31f1dd68€¤root‚§payloadÈf“€ÚÄ(function() {
+’Ç-j“Ù$81381255-676b-4e72-b6f2-b333bfee9b42€¤root”ÈPk’Ç-j“Ù$81381255-676b-4e72-b6f2-b333bfee9b42€¤root‚§payloadÈf“€ÚÄ(function() {
     const container = document.querySelector('[data-jscall-id="98"]');
     let sort_directions = {};
     const table = container.querySelector('.comparison-table');
@@ -134,8 +134,8 @@
         });
     }
 })();
-Ù</home/runner/.julia/packages/Bonito/Wixad/src/widgets.jl:540¨msg_type¡2Èk’Ç9j“Ù$32a266c1-a04a-43cf-9bee-061f31f1dd68¢18Çe’¢18¡0¤rootƒ£obsÇh¢18§payloadÇ§f“€ÙWreturn (val)=> {
+Ù</home/runner/.julia/packages/Bonito/Wixad/src/widgets.jl:540¨msg_type¡2Èk’Ç9j“Ù$81381255-676b-4e72-b6f2-b333bfee9b42¢18Çe’¢18¡0¤rootƒ£obsÇh¢18§payloadÇ§f“€ÙWreturn (val)=> {
     document.querySelector('[data-jscall-id="119"]').innerText = val
-}ÙJ/home/runner/.julia/packages/Bonito/Wixad/src/rendering/observables.jl:104¨msg_type¡1Çðk’ÇAj“Ù$32a266c1-a04a-43cf-9bee-061f31f1dd68¢16Çe’¢16©Click me!¤rootƒ£obsÇh¢16§payloadÇŠf“€ÙIreturn x=> document.querySelector('[data-jscall-id="120"]').innerText = xÙ;/home/runner/.julia/packages/Bonito/Wixad/src/widgets.jl:71¨msg_type¡1ÈBk’Ç8j“Ù$32a266c1-a04a-43cf-9bee-061f31f1dd68¢17Çe’¢17Â¤root‚§payloadÇïf“´11121582007065345086Çh¢17Ù“(() => {
-    document.querySelector('[data-jscall-id="120"]')['onclick'] = event=> __lookup_interpolated('11121582007065345086').notify(true);
+}ÙJ/home/runner/.julia/packages/Bonito/Wixad/src/rendering/observables.jl:104¨msg_type¡1Çðk’ÇAj“Ù$81381255-676b-4e72-b6f2-b333bfee9b42¢16Çe’¢16©Click me!¤rootƒ£obsÇh¢16§payloadÇŠf“€ÙIreturn x=> document.querySelector('[data-jscall-id="120"]').innerText = xÙ;/home/runner/.julia/packages/Bonito/Wixad/src/widgets.jl:71¨msg_type¡1È@k’Ç8j“Ù$81381255-676b-4e72-b6f2-b333bfee9b42¢17Çe’¢17Â¤root‚§payloadÇíf“³5130140078220807940Çh¢17Ù’(() => {
+    document.querySelector('[data-jscall-id="120"]')['onclick'] = event=> __lookup_interpolated('5130140078220807940').notify(true);
 })()Ù;/home/runner/.julia/packages/Bonito/Wixad/src/widgets.jl:67¨msg_type¡2

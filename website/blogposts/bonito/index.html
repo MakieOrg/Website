@@ -85,8 +85,7 @@
 </script>
     <link href="../../bonito/css/site18444467483949899788.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com/3.3.1"></script>
-    <link href="../../bonito/css/markdown17382678153536898021.css" rel="stylesheet" type="text/css" />
-    <link href="../../bonito/css/markdown-mobile6603119733908206911.css" rel="stylesheet" type="text/css" />
+    <link href="../../bonito/css/markdown-mobile13898764559087962533.css" rel="stylesheet" type="text/css" />
     <link href="../../bonito/css/github.min8213811099958948332.css" rel="stylesheet" type="text/css" />
     <script>    window.define = window.__define;
     window.require = window.__require;
@@ -95,7 +94,7 @@
 </script>
   </head>
   <body data-jscall-id="5">
-    <script type="module">Bonito.init_session("32a266c1-a04a-43cf-9bee-061f31f1dd68", Bonito.fetch_binary('../../bonito/bin/0941e27b2b134540bf8d74c1a31732c003098991-12628181170946406854.bin'), "root", false);
+    <script type="module">Bonito.init_session("81381255-676b-4e72-b6f2-b333bfee9b42", Bonito.fetch_binary('../../bonito/bin/ed1c5efde69ff265311ae712365290d62532e4ec-15733784600337100834.bin'), "root", false);
 </script>
     <div data-jscall-id="6">
       <link href="../../bonito/png/icon_transparent1037186205570625945.png" data-jscall-id="7" rel="icon" type="image/png" />
@@ -237,12 +236,15 @@ route&#33;&#40;server, &#34;/admin&#34; &#61;&#62; protected&#41;</code>
 # you can inline it into the blogpost
 function example&#40;&#41;
     # Interactive table from any Tables.jl-compatible data
-    df &#61; &#40;name&#61;&#91;&#34;Alice&#34;, &#34;Bob&#34;, &#34;Charlie&#34;&#93;, age&#61;&#91;25, 30, 35&#93;, city&#61;&#91;&#34;NYC&#34;, &#34;LA&#34;, &#34;Chicago&#34;&#93;&#41;
+    df &#61; &#40;
+        name&#61;&#91;&#34;Alice&#34;, &#34;Bob&#34;, &#34;Charlie&#34;&#93;,
+        age&#61;&#91;25, 30, 35&#93;,
+        city&#61;&#91;&#34;NYC&#34;, &#34;LA&#34;, &#34;Chicago&#34;&#93;
+    &#41;
     # Reactive counter
     count &#61; Observable&#40;0&#41;
     button &#61; Button&#40;&#34;Click me&#33;&#34;&#41;
     on&#40;click -&#62; &#40;count&#91;&#93; &#43;&#61; 1&#41;, button&#41;
-
     return DOM.div&#40;
         DOM.h2&#40;&#34;Sortable Table&#34;&#41;,
         Bonito.Table&#40;df&#41;,  # Automatic formatting, sortable columns
