@@ -19,7 +19,7 @@ function add_blogposts!(routes)
         routes[route] = App(title=entry.title) do
             post = BonitoSites.MarkdownPage(dir)
             bsky = isempty(entry.bsky_link) ? nothing : BonitoSites.BlueSkyComment(entry.bsky_link)
-            body = DOM.div(Bonito.MarkdownCSS, css_asset("markdown-mobile.css"), post, bsky)
+            body = DOM.div(css_asset("markdown-mobile.css"), post, bsky)
             page(FullWidthBlock(body), "Blog")
         end
     end
