@@ -75,6 +75,7 @@ example()
 ```
 
 Note that the table sorting (by clicking on column headers) stays interactive since it's implemented in JavaScript, while the button calls Julia, so it needs a running Julia process:
+
 ```julia
 # no-eval
 # Deploy it, wrap it into an App:
