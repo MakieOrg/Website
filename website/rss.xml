@@ -5,6 +5,15 @@
     <link>https://blog.makie.org</link>
     <description>A Blog about anything new in the Makie world</description>
     <item>
+      <title>Bonito.jl</title>
+      <link>./blogposts/bonito</link>
+      <description>Finally announcing Bonito.jl, the flashy Julia web framework</description>
+      <pubDate>Wed, 1 Oct 2025 16:28:12</pubDate>
+      <image>
+        <url>/home/runner/work/Website/Website/src/blogposts/bonito/./website/images/network-inspector.png</url>
+      </image>
+    </item>
+    <item>
       <title>Makie v0.24.0</title>
       <link>./blogposts/v0.24.0</link>
       <description>Replacing internal Observables with a ComputeGraph</description>
