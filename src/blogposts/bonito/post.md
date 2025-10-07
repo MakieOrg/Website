@@ -51,9 +51,9 @@ At this point, Bonito brings several interesting features to the table, perhaps 
 
 ```julia
 using Bonito
-# By returning the app in this markdown block,
+# Returning any DOM or jsrender'able in a markdown block,
 # you can inline it into the blogpost
-app = App() do session
+function example()
     # Interactive table from any Tables.jl-compatible data
     df = (name=["Alice", "Bob", "Charlie"], age=[25, 30, 35], city=["NYC", "LA", "Chicago"])
     # Reactive counter
@@ -68,11 +68,14 @@ app = App() do session
         button
     )
 end
+example()
 ```
 
 Note that the table sorting (by clicking on column headers) stays interactive since it's implemented in JavaScript, while the button calls Julia, so it needs a running Julia process:
 ```julia
 # no-eval
+# Deploy it, wrap it into an App:
+app = App(example) # any function returning a jsrender'able
 # Works in VSCode, Jupyter, Pluto, or opens a browser in the REPL
 display(app)
 # Serve on a live server with full interactivity
