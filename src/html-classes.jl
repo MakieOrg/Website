@@ -155,12 +155,12 @@ function page(body, highlighted)
         ),
         DOM.body(
             DOM.div(
-
                 DOM.link(href=img_asset("icon_transparent.png"), rel="icon", type="image/png"),
                 header,
                 Navigation(highlighted),
                 body,
-                tracking())
+                tracking()
+            )
         )
     )
 end

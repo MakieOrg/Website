@@ -55,12 +55,15 @@ using Bonito
 # you can inline it into the blogpost
 function example()
     # Interactive table from any Tables.jl-compatible data
-    df = (name=["Alice", "Bob", "Charlie"], age=[25, 30, 35], city=["NYC", "LA", "Chicago"])
+    df = (
+        name=["Alice", "Bob", "Charlie"],
+        age=[25, 30, 35],
+        city=["NYC", "LA", "Chicago"]
+    )
     # Reactive counter
     count = Observable(0)
     button = Button("Click me!")
     on(click -> (count[] += 1), button)
-
     return DOM.div(
         DOM.h2("Sortable Table"),
         Bonito.Table(df),  # Automatic formatting, sortable columns
