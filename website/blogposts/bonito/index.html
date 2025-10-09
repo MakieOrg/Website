@@ -94,7 +94,7 @@
 </script>
   </head>
   <body data-jscall-id="5">
-    <script type="module">Bonito.init_session("81381255-676b-4e72-b6f2-b333bfee9b42", Bonito.fetch_binary('../../bonito/bin/ed1c5efde69ff265311ae712365290d62532e4ec-15733784600337100834.bin'), "root", false);
+    <script type="module">Bonito.init_session("e771337d-0472-48a3-8b1a-4bd981ebf581", Bonito.fetch_binary('../../bonito/bin/6ddd5ba3d7e2fec60cd4be872866cf8f81c3788b-17873976752381040116.bin'), "root", false);
 </script>
     <div data-jscall-id="6">
       <link href="../../bonito/png/icon_transparent1037186205570625945.png" data-jscall-id="7" rel="icon" type="image/png" />
@@ -128,110 +128,112 @@
       </div>
       <div class="p-4 w-full" data-jscall-id="26">
         <div data-jscall-id="27">
-          <div data-jscall-id="28">
-            <div class="markdown-body" data-jscall-id="29">
-              <h1 id="Bonito - A flashy Julia web framework" data-jscall-id="30">Bonito - A flashy Julia web framework</h1>
-              <p data-jscall-id="31">
-                <a href="https://github.com/SimonDanisch/Bonito.jl" data-jscall-id="32">Bonito</a> has been on a journey from being a pretty neglected prototype to something offering similar functionality to established libraries like Shiny/Dash/Streamlit.
+          <div class="post-date" style="color: #666; margin-bottom: 1rem; text-align: center;" data-jscall-id="28">Wed, 1 Oct 2025</div>
+          <div data-jscall-id="29">
+            <div class="markdown-body" data-jscall-id="30">
+              <h1 id="Bonito - A flashy Julia web framework" data-jscall-id="31">Bonito - A flashy Julia web framework</h1>
+              <p data-jscall-id="32">
+                <a href="https://github.com/SimonDanisch/Bonito.jl" data-jscall-id="33">Bonito</a> has been on a journey from being a pretty neglected prototype to something offering similar functionality to established libraries like Shiny/Dash/Streamlit.
               </p>
-              <p data-jscall-id="33">It is kind of funny, but I don&#39;t think I&#39;ve ever officially announced 
-                <a href="https://github.com/SimonDanisch/Bonito.jl" data-jscall-id="34">Bonito.jl</a> since its creation in 2019, because I&#39;ve never really been happy with it&#33;
+              <p data-jscall-id="34">It is kind of funny, but I don&#39;t think I&#39;ve ever officially announced 
+                <a href="https://github.com/SimonDanisch/Bonito.jl" data-jscall-id="35">Bonito.jl</a> since its creation in 2019, because I&#39;ve never really been happy with it&#33;
               </p>
-              <p data-jscall-id="35">It was born out of desperation for a framework to properly implement 
-                <a href="https://makie.org/" data-jscall-id="36">Makie&#39;s</a> web backend, WGLMakie:
+              <p data-jscall-id="36">It was born out of desperation for a framework to properly implement 
+                <a href="https://makie.org/" data-jscall-id="37">Makie&#39;s</a> web backend, WGLMakie:
               </p>
-              <ul class=" style_4" style="" data-jscall-id="37">
-                <li data-jscall-id="38">
-                  <p data-jscall-id="39">I invested significant time into 
-                    <a href="https://github.com/JuliaGizmos/WebIO.jl" data-jscall-id="40">WebIO.jl</a>, but encountered several problems, the worst being that it was difficult to extend and implement new components in other packages
+              <ul class=" style_4" style="" data-jscall-id="38">
+                <li data-jscall-id="39">
+                  <p data-jscall-id="40">I invested significant time into 
+                    <a href="https://github.com/JuliaGizmos/WebIO.jl" data-jscall-id="41">WebIO.jl</a>, but encountered several problems, the worst being that it was difficult to extend and implement new components in other packages
                   </p>
                 </li>
-                <li data-jscall-id="41">
-                  <p data-jscall-id="42">In 2019, there was no real framework in Julia for generating HTML/JS with easy Julia-to-JS communication</p>
+                <li data-jscall-id="42">
+                  <p data-jscall-id="43">In 2019, there was no real framework in Julia for generating HTML/JS with easy Julia-to-JS communication</p>
                 </li>
-                <li data-jscall-id="43">
-                  <p data-jscall-id="44">I needed it to work on standalone websites, inside Jupyter, the VSCode plot pane, and as a standalone HTML export, which made it impossible to find an existing solution</p>
+                <li data-jscall-id="44">
+                  <p data-jscall-id="45">I needed it to work on standalone websites, inside Jupyter, the VSCode plot pane, and as a standalone HTML export, which made it impossible to find an existing solution</p>
                 </li>
               </ul>
-              <p data-jscall-id="45">So I started what was initially called JSServe, which remained an unloved side project of mine for a long time, used solely for WGLMakie.</p>
-              <p data-jscall-id="46">It has matured significantly since then, and it&#39;s now at a point where it went from something I didn&#39;t really like to something I&#39;m actually proud of.</p>
-              <p data-jscall-id="47">It&#39;s now a framework with lots of features, including an extensible 
-                <a href="https://simondanisch.github.io/Bonito.jl/stable/handlers.html" data-jscall-id="48">handler system</a> &#40;similar to middleware&#41; that lets you wrap apps with authentication, rate limiting, or custom logic. For example, 
-                <code data-jscall-id="49">ProtectedRoute</code> adds HTTP Basic Authentication with password hashing and rate limiting to protect any app or static files:
+              <p data-jscall-id="46">So I started what was initially called JSServe, which remained an unloved side project of mine for a long time, used solely for WGLMakie.</p>
+              <p data-jscall-id="47">It has matured significantly since then, and it&#39;s now at a point where it went from something I didn&#39;t really like to something I&#39;m actually proud of.</p>
+              <p data-jscall-id="48">It&#39;s now a framework with lots of features, including an extensible 
+                <a href="https://simondanisch.github.io/Bonito.jl/stable/handlers.html" data-jscall-id="49">handler system</a> &#40;similar to middleware&#41; that lets you wrap apps with authentication, rate limiting, or custom logic. For example, 
+                <code data-jscall-id="50">ProtectedRoute</code> adds HTTP Basic Authentication with password hashing and rate limiting to protect any app or static files &#40;this recent work has been made possible by an investment by the 
+                <a href="https://www.sovereign.tech" data-jscall-id="51">Sovereign Tech Agency</a>&#41;:
               </p>
-              <pre data-jscall-id="50">
-                <code class="language-julia" data-jscall-id="51">
+              <pre data-jscall-id="52">
+                <code class="language-julia" data-jscall-id="53">
 using Bonito
 server &#61; Server&#40;&#34;127.0.0.1&#34;, 8081&#41;
 admin_app &#61; App&#40;&#40;&#41;-&#62; DOM.h1&#40;&#34;Admin Panel&#34;&#41;&#41;
 protected &#61; ProtectedRoute&#40;admin_app, SingleUser&#40;&#34;admin&#34;, &#34;secret&#34;&#41;&#41;
 route&#33;&#40;server, &#34;/admin&#34; &#61;&#62; protected&#41;</code>
               </pre>
-              <p data-jscall-id="52">It comes with a simple 
-                <code data-jscall-id="53">SingleUser</code> store for basic needs, but you can extend the 
-                <code data-jscall-id="54">AbstractPasswordStore</code> interface to integrate with databases, LDAP, or any authentication backend by implementing a single 
-                <code data-jscall-id="55">get_user</code> method. Meanwhile, 
-                <code data-jscall-id="56">FolderServer</code> serves static files with proper MIME types. Handlers compose naturally, making it straightforward to create complex server setups and password-protect your apps.
+              <p data-jscall-id="54">It comes with a simple 
+                <code data-jscall-id="55">SingleUser</code> store for basic needs, but you can extend the 
+                <code data-jscall-id="56">AbstractPasswordStore</code> interface to integrate with databases, LDAP, or any authentication backend by implementing a single 
+                <code data-jscall-id="57">get_user</code> method. Meanwhile, 
+                <code data-jscall-id="58">FolderServer</code> serves static files with proper MIME types. Handlers compose naturally, making it straightforward to create complex server setups and password-protect your apps.
               </p>
-              <p data-jscall-id="57">This composability theme runs throughout Bonito. Implementing 
-                <a href="https://bonitobook.org" data-jscall-id="58">BonitoBook</a>, a Jupyter-like notebook ecosystem, has been a real joy. The composability and widget creation worked surprisingly well at this scale — something I wouldn&#39;t have been confident attempting a few years ago. With the upcoming plugin system, users will be able to completely customize how their notebooks work, which opens up some exciting possibilities. Expect an announcement on that soon&#33;
+              <p data-jscall-id="59">This composability theme runs throughout Bonito. Implementing 
+                <a href="https://bonitobook.org" data-jscall-id="60">BonitoBook</a>, a Jupyter-like notebook ecosystem, has been a real joy. The composability and widget creation worked surprisingly well at this scale — something I wouldn&#39;t have been confident attempting a few years ago. With the upcoming plugin system, users will be able to completely customize how their notebooks work, which opens up some exciting possibilities. Expect an announcement on that soon&#33;
               </p>
-              <p data-jscall-id="59">For now, here&#39;s a demo of BonitoBook&#39;s Claude chat widget creating an interactive dashboard with a Makie plot in seconds:</p>
-              <p data-jscall-id="60">
-                <video controls="true" data-jscall-id="61" autoplay="true">
-                  <source data-jscall-id="62" src="../../bonito/mp4/ai-demo9078760227891508270.mp4" type="video/mp4" />
+              <p data-jscall-id="61">For now, here&#39;s a demo of BonitoBook&#39;s Claude chat widget creating an interactive dashboard with a Makie plot in seconds:</p>
+              <p data-jscall-id="62">
+                <video controls="true" data-jscall-id="63" autoplay="true">
+                  <source data-jscall-id="64" src="../../bonito/mp4/ai-demo9078760227891508270.mp4" type="video/mp4" />
                 </video>
               </p>
-              <p data-jscall-id="63">At this point, Bonito brings several interesting features to the table, perhaps even outside the Julia world:</p>
-              <ul class=" style_4" style="" data-jscall-id="64">
-                <li data-jscall-id="65">
-                  <p data-jscall-id="66">
-                    <strong data-jscall-id="67">Reactive &#38; Interactive</strong>: Built on Observables.jl for automatic UI updates when data changes, sending only the minimal amount of data via a fast binary serialization protocol
+              <p data-jscall-id="65">At this point, Bonito brings several interesting features to the table, perhaps even outside the Julia world:</p>
+              <ul class=" style_4" style="" data-jscall-id="66">
+                <li data-jscall-id="67">
+                  <p data-jscall-id="68">
+                    <strong data-jscall-id="69">Reactive &#38; Interactive</strong>: Built on Observables.jl for automatic UI updates when data changes, sending only the minimal amount of data via a fast binary serialization protocol
                   </p>
                 </li>
-                <li data-jscall-id="68">
-                  <p data-jscall-id="69">
-                    <strong data-jscall-id="70">Rich Component Library</strong>: Buttons, sliders, tables, code editors, and easy custom widget creation
+                <li data-jscall-id="70">
+                  <p data-jscall-id="71">
+                    <strong data-jscall-id="72">Rich Component Library</strong>: Buttons, sliders, tables, code editors, and easy custom widget creation
                   </p>
                 </li>
-                <li data-jscall-id="71">
-                  <p data-jscall-id="72">
-                    <strong data-jscall-id="73">Seamless Plotting</strong>: Deep integration with WGLMakie, plus support for Plotly, Gadfly, and anything else supporting the Julia display system
+                <li data-jscall-id="73">
+                  <p data-jscall-id="74">
+                    <strong data-jscall-id="75">Seamless Plotting</strong>: Deep integration with WGLMakie, plus support for Plotly, Gadfly, and anything else supporting the Julia display system
                   </p>
                 </li>
-                <li data-jscall-id="74">
-                  <p data-jscall-id="75">
-                    <strong data-jscall-id="76">Deploy Anywhere</strong>: Works in VSCode, Jupyter, Pluto, web servers, or export to static HTML
+                <li data-jscall-id="76">
+                  <p data-jscall-id="77">
+                    <strong data-jscall-id="78">Deploy Anywhere</strong>: Works in VSCode, Jupyter, Pluto, web servers, or export to static HTML
                   </p>
                 </li>
-                <li data-jscall-id="77">
-                  <p data-jscall-id="78">
-                    <strong data-jscall-id="79">JavaScript When You Need It</strong>: Easy ES6 module integration and JavaScript execution
+                <li data-jscall-id="79">
+                  <p data-jscall-id="80">
+                    <strong data-jscall-id="81">JavaScript When You Need It</strong>: Easy ES6 module integration and JavaScript execution
                   </p>
                 </li>
-                <li data-jscall-id="80">
-                  <p data-jscall-id="81">
-                    <strong data-jscall-id="82">Pure Julia Development</strong>: Write your entire application in Julia, with optional JavaScript for client-side rendering
+                <li data-jscall-id="82">
+                  <p data-jscall-id="83">
+                    <strong data-jscall-id="84">Pure Julia Development</strong>: Write your entire application in Julia, with optional JavaScript for client-side rendering
                   </p>
                 </li>
-                <li data-jscall-id="83">
-                  <p data-jscall-id="84">
-                    <strong data-jscall-id="85">Extensible Handlers</strong>: Wrap and compose handlers for authentication, logging, static files, and custom middleware
+                <li data-jscall-id="85">
+                  <p data-jscall-id="86">
+                    <strong data-jscall-id="87">Extensible Handlers</strong>: Wrap and compose handlers for authentication, logging, static files, and custom middleware
                   </p>
                 </li>
-                <li data-jscall-id="86">
-                  <p data-jscall-id="87">
-                    <strong data-jscall-id="88">Use Any Existing JS/CSS/HTML</strong>: Bonito provides no opinionated styling by default. Combined with straightforward external dependency integration, this gives you complete access to the entire JS/CSS/HTML ecosystem from within Julia.
+                <li data-jscall-id="88">
+                  <p data-jscall-id="89">
+                    <strong data-jscall-id="90">Use Any Existing JS/CSS/HTML</strong>: Bonito provides no opinionated styling by default. Combined with straightforward external dependency integration, this gives you complete access to the entire JS/CSS/HTML ecosystem from within Julia.
                   </p>
                 </li>
               </ul>
-              <h2 id="Quick Example" data-jscall-id="89">Quick Example</h2>
-              <p data-jscall-id="90">
-                <a href="https://simondanisch.github.io/Bonito.jl/stable/widgets.html#Bonito.Table-widgets" data-jscall-id="91">Bonito.Table</a> got a revamp in the newest release, with better styling options and column/row sorting:
+              <h2 id="Quick Example" data-jscall-id="91">Quick Example</h2>
+              <p data-jscall-id="92">
+                <a href="https://simondanisch.github.io/Bonito.jl/stable/widgets.html#Bonito.Table-widgets" data-jscall-id="93">Bonito.Table</a> got a revamp in the newest release, with better styling options and column/row sorting:
               </p>
-              <div class="markdown-body" data-jscall-id="92">
-                <pre data-jscall-id="93">
-                  <code class="language-julia" data-jscall-id="94">using Bonito
+              <div class="markdown-body" data-jscall-id="94">
+                <pre data-jscall-id="95">
+                  <code class="language-julia" data-jscall-id="96">using Bonito
 # Returning any DOM or jsrender&#39;able in a markdown block,
 # you can inline it into the blogpost
 function example&#40;&#41;
@@ -254,53 +256,53 @@ function example&#40;&#41;
 end
 example&#40;&#41;</code>
                 </pre>
-                <div data-jscall-id="95">
-                  <h2 data-jscall-id="96">Sortable Table</h2>
-                  <div data-jscall-id="97">
-                    <div class="table-container" data-jscall-id="98">
-                      <table class="comparison-table " data-jscall-id="99">
-                        <thead data-jscall-id="100">
-                          <tr data-jscall-id="101">
-                            <th class="table-header" data-jscall-id="102" data-column="0">name</th>
-                            <th class="table-header" data-jscall-id="103" data-column="1">age</th>
-                            <th class="table-header" data-jscall-id="104" data-column="2">city</th>
+                <div data-jscall-id="97">
+                  <h2 data-jscall-id="98">Sortable Table</h2>
+                  <div data-jscall-id="99">
+                    <div class="table-container" data-jscall-id="100">
+                      <table class="comparison-table " data-jscall-id="101">
+                        <thead data-jscall-id="102">
+                          <tr data-jscall-id="103">
+                            <th class="table-header" data-jscall-id="104" data-column="0">name</th>
+                            <th class="table-header" data-jscall-id="105" data-column="1">age</th>
+                            <th class="table-header" data-jscall-id="106" data-column="2">city</th>
                           </tr>
                         </thead>
-                        <tbody data-jscall-id="105">
-                          <tr class="table-row" data-jscall-id="106" data-row="0">
-                            <td data-value="Alice" class="table-cell cell-default" style="" data-jscall-id="107">Alice</td>
-                            <td data-value="25" class="table-cell cell-default" style="" data-jscall-id="108">
+                        <tbody data-jscall-id="107">
+                          <tr class="table-row" data-jscall-id="108" data-row="0">
+                            <td data-value="Alice" class="table-cell cell-default" style="" data-jscall-id="109">Alice</td>
+                            <td data-value="25" class="table-cell cell-default" style="" data-jscall-id="110">
                               <span class="text-plain" style="white-space: pre-wrap">25</span>
                             </td>
-                            <td data-value="NYC" class="table-cell cell-default" style="" data-jscall-id="109">NYC</td>
+                            <td data-value="NYC" class="table-cell cell-default" style="" data-jscall-id="111">NYC</td>
                           </tr>
-                          <tr class="table-row" data-jscall-id="110" data-row="1">
-                            <td data-value="Bob" class="table-cell cell-default" style="" data-jscall-id="111">Bob</td>
-                            <td data-value="30" class="table-cell cell-default" style="" data-jscall-id="112">
+                          <tr class="table-row" data-jscall-id="112" data-row="1">
+                            <td data-value="Bob" class="table-cell cell-default" style="" data-jscall-id="113">Bob</td>
+                            <td data-value="30" class="table-cell cell-default" style="" data-jscall-id="114">
                               <span class="text-plain" style="white-space: pre-wrap">30</span>
                             </td>
-                            <td data-value="LA" class="table-cell cell-default" style="" data-jscall-id="113">LA</td>
+                            <td data-value="LA" class="table-cell cell-default" style="" data-jscall-id="115">LA</td>
                           </tr>
-                          <tr class="table-row" data-jscall-id="114" data-row="2">
-                            <td data-value="Charlie" class="table-cell cell-default" style="" data-jscall-id="115">Charlie</td>
-                            <td data-value="35" class="table-cell cell-default" style="" data-jscall-id="116">
+                          <tr class="table-row" data-jscall-id="116" data-row="2">
+                            <td data-value="Charlie" class="table-cell cell-default" style="" data-jscall-id="117">Charlie</td>
+                            <td data-value="35" class="table-cell cell-default" style="" data-jscall-id="118">
                               <span class="text-plain" style="white-space: pre-wrap">35</span>
                             </td>
-                            <td data-value="Chicago" class="table-cell cell-default" style="" data-jscall-id="117">Chicago</td>
+                            <td data-value="Chicago" class="table-cell cell-default" style="" data-jscall-id="119">Chicago</td>
                           </tr>
                         </tbody>
                       </table>
                     </div>
                   </div>
-                  <h2 data-jscall-id="118">Counter: 
-                    <span data-jscall-id="119">0</span>
+                  <h2 data-jscall-id="120">Counter: 
+                    <span data-jscall-id="121">0</span>
                   </h2>
-                  <button onclick="" class=" style_2 style_3 style_5" style="" data-jscall-id="120">Click me&#33;</button>
+                  <button onclick="" class=" style_2 style_3 style_5" style="" data-jscall-id="122">Click me&#33;</button>
                 </div>
               </div>
-              <p data-jscall-id="121">Note that the table sorting &#40;by clicking on column headers&#41; stays interactive since it&#39;s implemented in JavaScript, while the button calls Julia, so it needs a running Julia process:</p>
-              <pre data-jscall-id="122">
-                <code class="language-julia" data-jscall-id="123">
+              <p data-jscall-id="123">Note that the table sorting &#40;by clicking on column headers&#41; stays interactive since it&#39;s implemented in JavaScript, while the button calls Julia, so it needs a running Julia process:</p>
+              <pre data-jscall-id="124">
+                <code class="language-julia" data-jscall-id="125">
 # Deploy it, wrap it into an App:
 app &#61; App&#40;example&#41; # any function returning a jsrender&#39;able
 # Works in VSCode, Jupyter, Pluto, or opens a browser in the REPL
@@ -312,67 +314,67 @@ export_static&#40;&#34;app.html&#34;, app&#41;
 # Export full static site into a folder
 export_static&#40;&#34;site&#34;, Routes&#40;&#34;/&#34; &#61;&#62; app&#41;&#41;</code>
               </pre>
-              <h2 id="Examples Built with Bonito" data-jscall-id="124">Examples Built with Bonito</h2>
-              <h3 id="" data-jscall-id="125">
-                <a href="https://makie.org/" data-jscall-id="126">makie.org</a>
+              <h2 id="Examples Built with Bonito" data-jscall-id="126">Examples Built with Bonito</h2>
+              <h3 id="" data-jscall-id="127">
+                <a href="https://makie.org/" data-jscall-id="128">makie.org</a>
               </h3>
-              <p data-jscall-id="127">The Makie website and this blog are actually created with Bonito&#33;</p>
-              <h3 id="" data-jscall-id="128">
-                <a href="https://bonitobook.org/" data-jscall-id="129">BonitoBook</a>
+              <p data-jscall-id="129">The Makie website and this blog are actually created with Bonito&#33;</p>
+              <h3 id="" data-jscall-id="130">
+                <a href="https://bonitobook.org/" data-jscall-id="131">BonitoBook</a>
               </h3>
-              <p data-jscall-id="130">A customizable, Jupyter-like notebook environment</p>
-              <p data-jscall-id="131">
-                <video controls="true" data-jscall-id="132" autoplay="true">
-                  <source data-jscall-id="133" src="../../bonito/mp4/book-demo15179170215842797384.mp4" type="video/mp4" />
+              <p data-jscall-id="132">A customizable, Jupyter-like notebook environment</p>
+              <p data-jscall-id="133">
+                <video controls="true" data-jscall-id="134" autoplay="true">
+                  <source data-jscall-id="135" src="../../bonito/mp4/book-demo15179170215842797384.mp4" type="video/mp4" />
                 </video>
               </p>
-              <h3 id="" data-jscall-id="134">
-                <a href="https://github.com/JuliaDynamics/NetworkDynamics.jl/tree/main/NetworkDynamicsInspector" data-jscall-id="135">NetworkDynamicsInspector</a>
+              <h3 id="" data-jscall-id="136">
+                <a href="https://github.com/JuliaDynamics/NetworkDynamics.jl/tree/main/NetworkDynamicsInspector" data-jscall-id="137">NetworkDynamicsInspector</a>
               </h3>
-              <p data-jscall-id="136">NetworkDynamicsInspector.jl is an extension package to NetworkDynamics.jl which provides a WebApp based on Bonito.jl and WGLMakie.jl for interactive visualization of solutions to systems based on network dynamics.</p>
-              <p data-jscall-id="137">
-                <video controls="true" data-jscall-id="138" autoplay="true">
-                  <source data-jscall-id="139" src="../../bonito/mp4/network-inspector6125358942876398070.mp4" type="video/mp4" />
+              <p data-jscall-id="138">NetworkDynamicsInspector.jl is an extension package to NetworkDynamics.jl which provides a WebApp based on Bonito.jl and WGLMakie.jl for interactive visualization of solutions to systems based on network dynamics.</p>
+              <p data-jscall-id="139">
+                <video controls="true" data-jscall-id="140" autoplay="true">
+                  <source data-jscall-id="141" src="../../bonito/mp4/network-inspector6125358942876398070.mp4" type="video/mp4" />
                 </video>
               </p>
-              <h3 id="" data-jscall-id="140">
-                <a href="https://github.com/SimonDanisch/Bonito.jl/tree/master/examples" data-jscall-id="141">Example folder</a>
+              <h3 id="" data-jscall-id="142">
+                <a href="https://github.com/SimonDanisch/Bonito.jl/tree/master/examples" data-jscall-id="143">Example folder</a>
               </h3>
-              <p data-jscall-id="142">Have a look at some of the usage examples for Bonito, like the 
-                <a href="https://github.com/SimonDanisch/Bonito.jl/blob/master/examples/markdown.jl" data-jscall-id="143">interactive markdown rendering support</a>:
+              <p data-jscall-id="144">Have a look at some of the usage examples for Bonito, like the 
+                <a href="https://github.com/SimonDanisch/Bonito.jl/blob/master/examples/markdown.jl" data-jscall-id="145">interactive markdown rendering support</a>:
               </p>
-              <p data-jscall-id="144">
-                <video controls="true" data-jscall-id="145" autoplay="true">
-                  <source data-jscall-id="146" src="../../bonito/mp4/markdown-example9484702948290391747.mp4" type="video/mp4" />
+              <p data-jscall-id="146">
+                <video controls="true" data-jscall-id="147" autoplay="true">
+                  <source data-jscall-id="148" src="../../bonito/mp4/markdown-example9484702948290391747.mp4" type="video/mp4" />
                 </video>
               </p>
-              <h3 id="" data-jscall-id="147">
-                <a href="https://docs.makie.org/dev/explanations/backends/wglmakie#WGLMakie" data-jscall-id="148">WGLMakie</a>
+              <h3 id="" data-jscall-id="149">
+                <a href="https://docs.makie.org/dev/explanations/backends/wglmakie#WGLMakie" data-jscall-id="150">WGLMakie</a>
               </h3>
-              <p data-jscall-id="149">And of course WGLMakie, the Interactive WebGL-accelerated plotting backend for Makie.</p>
-              <p data-jscall-id="150">
-                <video controls="true" data-jscall-id="151" autoplay="true">
-                  <source data-jscall-id="152" src="../../bonito/mp4/animation1482381938018997557.mp4" type="video/mp4" />
+              <p data-jscall-id="151">And of course WGLMakie, the Interactive WebGL-accelerated plotting backend for Makie.</p>
+              <p data-jscall-id="152">
+                <video controls="true" data-jscall-id="153" autoplay="true">
+                  <source data-jscall-id="154" src="../../bonito/mp4/animation1482381938018997557.mp4" type="video/mp4" />
                 </video>
               </p>
-              <p data-jscall-id="153">
-                <a href="https://github.com/CliMA/ClimaAtmos.jl" data-jscall-id="154">Example from Alexandre Renchon in ClimaAtmos.jl</a>
+              <p data-jscall-id="155">
+                <a href="https://github.com/CliMA/ClimaAtmos.jl" data-jscall-id="156">Example from Alexandre Renchon in ClimaAtmos.jl</a>
               </p>
-              <p data-jscall-id="155">These are just selected highlights and there&#39;s much more I&#39;m excited to share in future posts.</p>
-              <p data-jscall-id="156">Looking ahead, I hope Bonito.jl gains more attention and builds a thriving ecosystem of components and apps, just like Makie&#33; :&#41;</p>
+              <p data-jscall-id="157">These are just selected highlights and there&#39;s much more I&#39;m excited to share in future posts.</p>
+              <p data-jscall-id="158">Looking ahead, I hope Bonito.jl gains more attention and builds a thriving ecosystem of components and apps, just like Makie&#33; :&#41;</p>
             </div>
-            <div data-jscall-id="157">
-              <script data-jscall-id="158" src="../../bonito/js/highlight.pack13102628173626074447.js"></script>
-              <script data-jscall-id="159">hljs.highlightAll()</script>
+            <div data-jscall-id="159">
+              <script data-jscall-id="160" src="../../bonito/js/highlight.pack13102628173626074447.js"></script>
+              <script data-jscall-id="161">hljs.highlightAll()</script>
             </div>
           </div>
           <span></span>
         </div>
       </div>
-      <div data-jscall-id="160">
-        <script async="true" defer="true" data-jscall-id="161" src="https://api.makie.org/latest.js"></script>
-        <noscript data-jscall-id="162">
-          <img alt="" data-jscall-id="163" src="https://api.makie.org/noscript.gif" referrerpolicy="no-referrer-when-downgrade" />
+      <div data-jscall-id="162">
+        <script async="true" defer="true" data-jscall-id="163" src="https://api.makie.org/latest.js"></script>
+        <noscript data-jscall-id="164">
+          <img alt="" data-jscall-id="165" src="https://api.makie.org/noscript.gif" referrerpolicy="no-referrer-when-downgrade" />
         </noscript>
       </div>
     </div>

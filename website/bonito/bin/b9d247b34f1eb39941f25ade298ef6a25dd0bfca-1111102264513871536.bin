@@ -1,6 +1,6 @@
-’Ç-j“Ù$dcbc7bc8-4021-4583-96e3-a27cbaae70bd€¤root“Èãk’Ç?j“Ù$dcbc7bc8-4021-4583-96e3-a27cbaae70bd¢23Çe’¢23§r_0 > 0¤root‚§payloadÈˆf“´10084512627610091174Çh¢23Ú'const elem = document.querySelector('[data-jscall-id="52"]');
+’Ç-j“Ù$a9f88b8a-3a6e-4fca-a428-10c7a4feebcc€¤root“Èák’Ç?j“Ù$a9f88b8a-3a6e-4fca-a428-10c7a4feebcc¢23Çe’¢23§r_0 > 0¤root‚§payloadÈ†f“³5093318007830696242Çh¢23Ú&const elem = document.querySelector('[data-jscall-id="53"]');
 // uh, observable has better escaping for strings instead of interpolating it directly
-const source = __lookup_interpolated('10084512627610091174').value;
+const source = __lookup_interpolated('5093318007830696242').value;
 const displayMode = false;
 import(new URL('../../bonito/js/katex.bundled4541376072251690627.js', window.location.href).href).then(Katex=> {
         Katex.default.render(source, elem, {displayMode: displayMode});
@@ -8,9 +8,9 @@ import(new URL('../../bonito/js/katex.bundled4541376072251690627.js', window.loc
     console.warn("KaTeX loading error:", e);
     elem.textContent = source; // Fallback to plain text
 });
-Ù?/home/runner/.julia/packages/Bonito/Wixad/src/components.jl:612¨msg_type¡2Èâk’Ç>j“Ù$dcbc7bc8-4021-4583-96e3-a27cbaae70bd¢24Çe’¢24¦\theta¤root‚§payloadÈˆf“´16015132248727565872Çh¢24Ú'const elem = document.querySelector('[data-jscall-id="54"]');
+Ù?/home/runner/.julia/packages/Bonito/Wixad/src/components.jl:612¨msg_type¡2Èâk’Ç>j“Ù$a9f88b8a-3a6e-4fca-a428-10c7a4feebcc¢24Çe’¢24¦\theta¤root‚§payloadÈˆf“´12547148507670218958Çh¢24Ú'const elem = document.querySelector('[data-jscall-id="55"]');
 // uh, observable has better escaping for strings instead of interpolating it directly
-const source = __lookup_interpolated('16015132248727565872').value;
+const source = __lookup_interpolated('12547148507670218958').value;
 const displayMode = false;
 import(new URL('../../bonito/js/katex.bundled4541376072251690627.js', window.location.href).href).then(Katex=> {
         Katex.default.render(source, elem, {displayMode: displayMode});
@@ -18,9 +18,9 @@ import(new URL('../../bonito/js/katex.bundled4541376072251690627.js', window.loc
     console.warn("KaTeX loading error:", e);
     elem.textContent = source; // Fallback to plain text
 });
-Ù?/home/runner/.julia/packages/Bonito/Wixad/src/components.jl:612¨msg_type¡2ÈÚk’Ç:j“Ù$dcbc7bc8-4021-4583-96e3-a27cbaae70bd¢25×e’¢25£\pi¤root‚§payloadÈ„f“²915849483380711663Çh¢25Ú%const elem = document.querySelector('[data-jscall-id="56"]');
+Ù?/home/runner/.julia/packages/Bonito/Wixad/src/components.jl:612¨msg_type¡2ÈÞk’Ç:j“Ù$a9f88b8a-3a6e-4fca-a428-10c7a4feebcc¢25×e’¢25£\pi¤root‚§payloadÈˆf“´12357561986733183502Çh¢25Ú'const elem = document.querySelector('[data-jscall-id="57"]');
 // uh, observable has better escaping for strings instead of interpolating it directly
-const source = __lookup_interpolated('915849483380711663').value;
+const source = __lookup_interpolated('12357561986733183502').value;
 const displayMode = false;
 import(new URL('../../bonito/js/katex.bundled4541376072251690627.js', window.location.href).href).then(Katex=> {
         Katex.default.render(source, elem, {displayMode: displayMode});
