@@ -1,0 +1,247 @@
+<!doctype html>
+<html class="bonito-fragment">
+  <head>
+    <script src="../../bonito/js/Bonito.bundled13389133706764782584.js" type="module"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <title>Bonito.jl</title>
+    <style></style>
+    <script>    window.__define = window.define;
+    window.__require = window.require;
+    window.define = undefined;
+    window.require = undefined;
+</script>
+    <link href="../../bonito/css/site18444467483949899788.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com/3.3.1"></script>
+    <link href="../../bonito/css/markdown-mobile13898764559087962533.css" rel="stylesheet" type="text/css" />
+    <script>    window.define = window.__define;
+    window.require = window.__require;
+    window.__define = undefined;
+    window.__require = undefined;
+</script>
+  </head>
+  <body>
+    <script type="module">Bonito.init_session("a1578d97-4824-47c6-a84a-0ae8fcbab479", null, "root", false);
+</script>
+    <div id="a1578d97-4824-47c6-a84a-0ae8fcbab479" data-jscall-id="root">
+      <pre class="backtrace" style="overflow-x: auto;" data-jscall-id="30">
+        <h3 style="color: red;" data-jscall-id="31">UndefVarError: &#96;eval&#96; not defined in &#96;Main.anonymous&#96;
+Suggestion: check for spelling errors or missing imports.</h3>
+        <span data-jscall-id="32">Stacktrace:</span>
+        <br data-jscall-id="33" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="34">  &#91;1&#93; getproperty</span>
+        <br data-jscall-id="35" />
+        <span data-jscall-id="36">    &#64; 
+          <a href="vscode://file/./Base_compiler.jl:47" data-jscall-id="37">./Base_compiler.jl:47</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="38" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="39">  &#91;2&#93; eval&#40;md::Bonito.ModuleRunner, expr::Expr&#41;</span>
+        <br data-jscall-id="40" />
+        <span data-jscall-id="41">    &#64; Bonito ~/.julia/packages/Bonito/Wixad/src/rendering/markdown_integration.jl:12</span>
+        <br data-jscall-id="42" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="43">  &#91;3&#93; replace_expressions&#40;markdown::Markdown.Code, replacements::Dict&#123;Any, Function&#125;, runner::Bonito.ModuleRunner&#41;</span>
+        <br data-jscall-id="44" />
+        <span data-jscall-id="45">    &#64; Bonito ~/.julia/packages/Bonito/Wixad/src/rendering/markdown_integration.jl:222</span>
+        <br data-jscall-id="46" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="47">  &#91;4&#93; _broadcast_getindex_evalf</span>
+        <br data-jscall-id="48" />
+        <span data-jscall-id="49">    &#64; 
+          <a href="vscode://file/./broadcast.jl:699" data-jscall-id="50">./broadcast.jl:699</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="51" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="52">  &#91;5&#93; _broadcast_getindex</span>
+        <br data-jscall-id="53" />
+        <span data-jscall-id="54">    &#64; 
+          <a href="vscode://file/./broadcast.jl:672" data-jscall-id="55">./broadcast.jl:672</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="56" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="57">  &#91;6&#93; _getindex</span>
+        <br data-jscall-id="58" />
+        <span data-jscall-id="59">    &#64; 
+          <a href="vscode://file/./broadcast.jl:620" data-jscall-id="60">./broadcast.jl:620</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="61" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="62">  &#91;7&#93; getindex</span>
+        <br data-jscall-id="63" />
+        <span data-jscall-id="64">    &#64; 
+          <a href="vscode://file/./broadcast.jl:616" data-jscall-id="65">./broadcast.jl:616</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="66" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="67">  &#91;8&#93; macro expansion</span>
+        <br data-jscall-id="68" />
+        <span data-jscall-id="69">    &#64; 
+          <a href="vscode://file/./broadcast.jl:995" data-jscall-id="70">./broadcast.jl:995</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="71" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="72">  &#91;9&#93; macro expansion</span>
+        <br data-jscall-id="73" />
+        <span data-jscall-id="74">    &#64; 
+          <a href="vscode://file/./simdloop.jl:77" data-jscall-id="75">./simdloop.jl:77</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="76" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="77"> &#91;10&#93; copyto&#33;</span>
+        <br data-jscall-id="78" />
+        <span data-jscall-id="79">    &#64; 
+          <a href="vscode://file/./broadcast.jl:994" data-jscall-id="80">./broadcast.jl:994</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="81" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="82"> &#91;11&#93; copyto&#33;</span>
+        <br data-jscall-id="83" />
+        <span data-jscall-id="84">    &#64; 
+          <a href="vscode://file/./broadcast.jl:947" data-jscall-id="85">./broadcast.jl:947</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="86" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="87"> &#91;12&#93; materialize&#33;</span>
+        <br data-jscall-id="88" />
+        <span data-jscall-id="89">    &#64; 
+          <a href="vscode://file/./broadcast.jl:905" data-jscall-id="90">./broadcast.jl:905</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="91" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="92"> &#91;13&#93; materialize&#33;</span>
+        <br data-jscall-id="93" />
+        <span data-jscall-id="94">    &#64; 
+          <a href="vscode://file/./broadcast.jl:902" data-jscall-id="95">./broadcast.jl:902</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="96" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="97"> &#91;14&#93; replace_expressions&#40;markdown::Markdown.MD, replacements::Dict&#123;Any, Function&#125;, runner::Bonito.ModuleRunner&#41;</span>
+        <br data-jscall-id="98" />
+        <span data-jscall-id="99">    &#64; Bonito ~/.julia/packages/Bonito/Wixad/src/rendering/markdown_integration.jl:177</span>
+        <br data-jscall-id="100" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="101"> &#91;15&#93; #string_to_markdown#98</span>
+        <br data-jscall-id="102" />
+        <span data-jscall-id="103">    &#64; ~/.julia/packages/Bonito/Wixad/src/rendering/markdown_integration.jl:253 &#91;inlined&#93;</span>
+        <br data-jscall-id="104" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="105"> &#91;16&#93; jsrender&#40;session::Session&#123;NoConnection&#125;, em::Bonito.EvalMarkdown&#41;</span>
+        <br data-jscall-id="106" />
+        <span data-jscall-id="107">    &#64; Bonito ~/.julia/packages/Bonito/Wixad/src/rendering/markdown_integration.jl:32</span>
+        <br data-jscall-id="108" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="109"> &#91;17&#93; render_node&#40;session::Session&#123;NoConnection&#125;, node::Hyperscript.Node&#123;Hyperscript.HTMLSVG&#125;&#41;</span>
+        <br data-jscall-id="110" />
+        <span data-jscall-id="111">    &#64; Bonito ~/.julia/packages/Bonito/Wixad/src/rendering/hyperscript_integration.jl:173</span>
+        <br data-jscall-id="112" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="113"> &#91;18&#93; jsrender&#40;session::Session&#123;NoConnection&#125;, node::Hyperscript.Node&#123;Hyperscript.HTMLSVG&#125;&#41;</span>
+        <br data-jscall-id="114" />
+        <span data-jscall-id="115">    &#64; Bonito ~/.julia/packages/Bonito/Wixad/src/rendering/hyperscript_integration.jl:203</span>
+        <br data-jscall-id="116" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="117"> &#91;19&#93; render_node&#40;session::Session&#123;NoConnection&#125;, node::Hyperscript.Node&#123;Hyperscript.HTMLSVG&#125;&#41;</span>
+        <br data-jscall-id="118" />
+        <span data-jscall-id="119">    &#64; Bonito ~/.julia/packages/Bonito/Wixad/src/rendering/hyperscript_integration.jl:173</span>
+        <br data-jscall-id="120" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="121"> &#91;20&#93; jsrender&#40;session::Session&#123;NoConnection&#125;, node::Hyperscript.Node&#123;Hyperscript.HTMLSVG&#125;&#41;</span>
+        <br data-jscall-id="122" />
+        <span data-jscall-id="123">    &#64; Bonito ~/.julia/packages/Bonito/Wixad/src/rendering/hyperscript_integration.jl:203</span>
+        <br data-jscall-id="124" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="125"> &#91;21&#93; render_node&#40;session::Session&#123;NoConnection&#125;, node::Hyperscript.Node&#123;Hyperscript.HTMLSVG&#125;&#41;</span>
+        <br data-jscall-id="126" />
+        <span data-jscall-id="127">    &#64; Bonito ~/.julia/packages/Bonito/Wixad/src/rendering/hyperscript_integration.jl:173</span>
+        <br data-jscall-id="128" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="129"> &#91;22&#93; jsrender&#40;session::Session&#123;NoConnection&#125;, node::Hyperscript.Node&#123;Hyperscript.HTMLSVG&#125;&#41;</span>
+        <br data-jscall-id="130" />
+        <span data-jscall-id="131">    &#64; Bonito ~/.julia/packages/Bonito/Wixad/src/rendering/hyperscript_integration.jl:203</span>
+        <br data-jscall-id="132" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="133"> &#91;23&#93; render_node&#40;session::Session&#123;NoConnection&#125;, node::Hyperscript.Node&#123;Hyperscript.HTMLSVG&#125;&#41;</span>
+        <br data-jscall-id="134" />
+        <span data-jscall-id="135">    &#64; Bonito ~/.julia/packages/Bonito/Wixad/src/rendering/hyperscript_integration.jl:173</span>
+        <br data-jscall-id="136" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="137"> &#91;24&#93; jsrender&#40;session::Session&#123;NoConnection&#125;, node::Hyperscript.Node&#123;Hyperscript.HTMLSVG&#125;&#41;</span>
+        <br data-jscall-id="138" />
+        <span data-jscall-id="139">    &#64; Bonito ~/.julia/packages/Bonito/Wixad/src/rendering/hyperscript_integration.jl:203</span>
+        <br data-jscall-id="140" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="141"> &#91;25&#93; render_node&#40;session::Session&#123;NoConnection&#125;, node::Hyperscript.Node&#123;Hyperscript.HTMLSVG&#125;&#41;</span>
+        <br data-jscall-id="142" />
+        <span data-jscall-id="143">    &#64; Bonito ~/.julia/packages/Bonito/Wixad/src/rendering/hyperscript_integration.jl:173</span>
+        <br data-jscall-id="144" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="145"> &#91;26&#93; jsrender&#40;session::Session&#123;NoConnection&#125;, node::Hyperscript.Node&#123;Hyperscript.HTMLSVG&#125;&#41;</span>
+        <br data-jscall-id="146" />
+        <span data-jscall-id="147">    &#64; Bonito ~/.julia/packages/Bonito/Wixad/src/rendering/hyperscript_integration.jl:203</span>
+        <br data-jscall-id="148" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="149"> &#91;27&#93; render_node&#40;session::Session&#123;NoConnection&#125;, node::Hyperscript.Node&#123;Hyperscript.HTMLSVG&#125;&#41;</span>
+        <br data-jscall-id="150" />
+        <span data-jscall-id="151">    &#64; Bonito ~/.julia/packages/Bonito/Wixad/src/rendering/hyperscript_integration.jl:173</span>
+        <br data-jscall-id="152" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="153"> &#91;28&#93; jsrender&#40;session::Session&#123;NoConnection&#125;, node::Hyperscript.Node&#123;Hyperscript.HTMLSVG&#125;&#41;</span>
+        <br data-jscall-id="154" />
+        <span data-jscall-id="155">    &#64; Bonito ~/.julia/packages/Bonito/Wixad/src/rendering/hyperscript_integration.jl:203</span>
+        <br data-jscall-id="156" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="157"> &#91;29&#93; rendered_dom&#40;session::Session&#123;NoConnection&#125;, app::App, target::HTTP.Messages.Request&#41;</span>
+        <br data-jscall-id="158" />
+        <span data-jscall-id="159">    &#64; Bonito ~/.julia/packages/Bonito/Wixad/src/app.jl:43</span>
+        <br data-jscall-id="160" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="161"> &#91;30&#93; rendered_dom</span>
+        <br data-jscall-id="162" />
+        <span data-jscall-id="163">    &#64; ~/.julia/packages/Bonito/Wixad/src/app.jl:39 &#91;inlined&#93;</span>
+        <br data-jscall-id="164" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="165"> &#91;31&#93; session_dom&#40;session::Session&#123;NoConnection&#125;, app::App; init::Bool, html_document::Bool&#41;</span>
+        <br data-jscall-id="166" />
+        <span data-jscall-id="167">    &#64; Bonito ~/.julia/packages/Bonito/Wixad/src/session.jl:362</span>
+        <br data-jscall-id="168" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="169"> &#91;32&#93; page_html&#40;io::IOStream, session::Session&#123;NoConnection&#125;, app_node::App&#41;</span>
+        <br data-jscall-id="170" />
+        <span data-jscall-id="171">    &#64; Bonito ~/.julia/packages/Bonito/Wixad/src/display.jl:113</span>
+        <br data-jscall-id="172" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="173"> &#91;33&#93; export_static&#40;html_io::IOStream, app::App; asset_server::Nothing, connection::Nothing, session::Session&#123;NoConnection&#125;&#41;</span>
+        <br data-jscall-id="174" />
+        <span data-jscall-id="175">    &#64; Bonito ~/.julia/packages/Bonito/Wixad/src/export.jl:317</span>
+        <br data-jscall-id="176" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="177"> &#91;34&#93; export_static</span>
+        <br data-jscall-id="178" />
+        <span data-jscall-id="179">    &#64; ~/.julia/packages/Bonito/Wixad/src/export.jl:309 &#91;inlined&#93;</span>
+        <br data-jscall-id="180" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="181"> &#91;35&#93; #230</span>
+        <br data-jscall-id="182" />
+        <span data-jscall-id="183">    &#64; ~/.julia/packages/Bonito/Wixad/src/export.jl:298 &#91;inlined&#93;</span>
+        <br data-jscall-id="184" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="185"> &#91;36&#93; open&#40;::Bonito.var&#34;#230#231&#34;&#123;App, Session&#123;NoConnection&#125;&#125;, ::String, ::Vararg&#123;String&#125;; kwargs::&#64;Kwargs&#123;&#125;&#41;</span>
+        <br data-jscall-id="186" />
+        <span data-jscall-id="187">    &#64; Base 
+          <a href="vscode://file/./io.jl:410" data-jscall-id="188">./io.jl:410</a>
+        </span>
+        <br data-jscall-id="189" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="190"> &#91;37&#93; open</span>
+        <br data-jscall-id="191" />
+        <span data-jscall-id="192">    &#64; 
+          <a href="vscode://file/./io.jl:407" data-jscall-id="193">./io.jl:407</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="194" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="195"> &#91;38&#93; export_static&#40;html_file::String, app::App; asset_server::Nothing, connection::Nothing, session::Session&#123;NoConnection&#125;&#41;</span>
+        <br data-jscall-id="196" />
+        <span data-jscall-id="197">    &#64; Bonito ~/.julia/packages/Bonito/Wixad/src/export.jl:297</span>
+        <br data-jscall-id="198" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="199"> &#91;39&#93; export_static</span>
+        <br data-jscall-id="200" />
+        <span data-jscall-id="201">    &#64; ~/.julia/packages/Bonito/Wixad/src/export.jl:289 &#91;inlined&#93;</span>
+        <br data-jscall-id="202" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="203"> &#91;40&#93; export_static&#40;folder::String, routes::Routes; connection::Nothing, asset_server::Nothing&#41;</span>
+        <br data-jscall-id="204" />
+        <span data-jscall-id="205">    &#64; Bonito ~/.julia/packages/Bonito/Wixad/src/export.jl:349</span>
+        <br data-jscall-id="206" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="207"> &#91;41&#93; export_static&#40;folder::String, routes::Routes&#41;</span>
+        <br data-jscall-id="208" />
+        <span data-jscall-id="209">    &#64; Bonito ~/.julia/packages/Bonito/Wixad/src/export.jl:328</span>
+        <br data-jscall-id="210" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="211"> &#91;42&#93; top-level scope</span>
+        <br data-jscall-id="212" />
+        <span data-jscall-id="213">    &#64; ~/work/Website/Website/docs/make.jl:41</span>
+        <br data-jscall-id="214" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="215"> &#91;43&#93; include&#40;mod::Module, _path::String&#41;</span>
+        <br data-jscall-id="216" />
+        <span data-jscall-id="217">    &#64; Base 
+          <a href="vscode://file/./Base.jl:306" data-jscall-id="218">./Base.jl:306</a>
+        </span>
+        <br data-jscall-id="219" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="220"> &#91;44&#93; exec_options&#40;opts::Base.JLOptions&#41;</span>
+        <br data-jscall-id="221" />
+        <span data-jscall-id="222">    &#64; Base 
+          <a href="vscode://file/./client.jl:317" data-jscall-id="223">./client.jl:317</a>
+        </span>
+        <br data-jscall-id="224" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="225"> &#91;45&#93; _start&#40;&#41;</span>
+        <br data-jscall-id="226" />
+        <span data-jscall-id="227">    &#64; Base 
+          <a href="vscode://file/./client.jl:550" data-jscall-id="228">./client.jl:550</a>
+        </span>
+        <br data-jscall-id="229" />
+      </pre>
+    </div>
+  </body>
+</html>

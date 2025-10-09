@@ -1,0 +1,417 @@
+<!doctype html>
+<html class="bonito-fragment">
+  <head>
+    <script src="../../bonito/js/Bonito.bundled13389133706764782584.js" type="module"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <title>May 2024 News</title>
+    <style></style>
+    <script>    window.__define = window.define;
+    window.__require = window.require;
+    window.define = undefined;
+    window.require = undefined;
+</script>
+    <link href="../../bonito/css/site18444467483949899788.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com/3.3.1"></script>
+    <link href="../../bonito/css/markdown-mobile13898764559087962533.css" rel="stylesheet" type="text/css" />
+    <script>    window.define = window.__define;
+    window.require = window.__require;
+    window.__define = undefined;
+    window.__require = undefined;
+</script>
+  </head>
+  <body>
+    <script type="module">Bonito.init_session("c18c578e-5b8c-4675-baed-60e9f8eea795", null, "root", false);
+</script>
+    <div id="c18c578e-5b8c-4675-baed-60e9f8eea795" data-jscall-id="root">
+      <pre class="backtrace" style="overflow-x: auto;" data-jscall-id="30">
+        <h3 style="color: red;" data-jscall-id="31">TaskFailedException
+
+    nested task error: Remote exception from Malt.Worker on port 9461 with PID 3461:
+    
+    The following 1 direct dependency failed to precompile:
+    
+    Bonito 
+    
+    Failed to precompile Bonito &#91;824d6782-a2ef-11e9-3a09-e5662e0c26f8&#93; to &#34;/home/runner/.julia/compiled/v1.12/Bonito/jl_x2B4Bm&#34;.
+    ERROR: LoadError: ArgumentError: Package MbedTLS_jll &#91;c8ffd9c3-330d-5841-b78e-0817d7145fa1&#93; is required but does not seem to be installed:
+     - Run &#96;Pkg.instantiate&#40;&#41;&#96; to install all recorded dependencies.
+    
+    Stacktrace:
+      &#91;1&#93; __require_prelocked&#40;pkg::Base.PkgId, env::String&#41;
+        &#64; Base ./loading.jl:2587
+      &#91;2&#93; _require_prelocked&#40;uuidkey::Base.PkgId, env::String&#41;
+        &#64; Base ./loading.jl:2465
+      &#91;3&#93; macro expansion
+        &#64; ./loading.jl:2393 &#91;inlined&#93;
+      &#91;4&#93; macro expansion
+        &#64; ./lock.jl:376 &#91;inlined&#93;
+      &#91;5&#93; __require&#40;into::Module, mod::Symbol&#41;
+        &#64; Base ./loading.jl:2358
+      &#91;6&#93; require&#40;into::Module, mod::Symbol&#41;
+        &#64; Base ./loading.jl:2334
+      &#91;7&#93; top-level scope
+        &#64; ~/.julia/packages/MbedTLS/Vaaz8/src/MbedTLS.jl:3
+      &#91;8&#93; include&#40;mod::Module, _path::String&#41;
+        &#64; Base ./Base.jl:306
+      &#91;9&#93; include_package_for_output&#40;pkg::Base.PkgId, input::String, depot_path::Vector&#123;String&#125;, dl_load_path::Vector&#123;String&#125;, load_path::Vector&#123;String&#125;, concrete_deps::Vector&#123;Pair&#123;Base.PkgId, UInt128&#125;&#125;, source::String&#41;
+        &#64; Base ./loading.jl:2997
+     &#91;10&#93; top-level scope
+        &#64; stdin:5
+     &#91;11&#93; eval&#40;m::Module, e::Any&#41;
+        &#64; Core ./boot.jl:489
+     &#91;12&#93; include_string&#40;mapexpr::typeof&#40;identity&#41;, mod::Module, code::String, filename::String&#41;
+        &#64; Base ./loading.jl:2843
+     &#91;13&#93; include_string
+        &#64; ./loading.jl:2853 &#91;inlined&#93;
+     &#91;14&#93; exec_options&#40;opts::Base.JLOptions&#41;
+        &#64; Base ./client.jl:315
+     &#91;15&#93; _start&#40;&#41;
+        &#64; Base ./client.jl:550
+    in expression starting at /home/runner/.julia/packages/MbedTLS/Vaaz8/src/MbedTLS.jl:1
+    in expression starting at stdin:5
+    ERROR: LoadError: Failed to precompile MbedTLS &#91;739be429-bea8-5141-9913-cc70e7f3736d&#93; to &#34;/home/runner/.julia/compiled/v1.12/MbedTLS/jl_MeViJq&#34;.
+    Stacktrace:
+      &#91;1&#93; error&#40;s::String&#41;
+        &#64; Base ./error.jl:44
+      &#91;2&#93; compilecache&#40;pkg::Base.PkgId, path::String, internal_stderr::IO, internal_stdout::IO, keep_loaded_modules::Bool; flags::Cmd, cacheflags::Base.CacheFlags, reasons::Dict&#123;String, Int64&#125;, loadable_exts::Nothing&#41;
+        &#64; Base ./loading.jl:3284
+      &#91;3&#93; &#40;::Base.var&#34;#__require_prelocked##0#__require_prelocked##1&#34;&#123;Base.PkgId, String, Dict&#123;String, Int64&#125;&#125;&#41;&#40;&#41;
+        &#64; Base ./loading.jl:2652
+      &#91;4&#93; mkpidlock&#40;f::Base.var&#34;#__require_prelocked##0#__require_prelocked##1&#34;&#123;Base.PkgId, String, Dict&#123;String, Int64&#125;&#125;, at::String, pid::Int32; kwopts::&#64;Kwargs&#123;stale_age::Int64, wait::Bool&#125;&#41;
+        &#64; FileWatching.Pidfile /opt/hostedtoolcache/julia/1.12.0/x64/share/julia/stdlib/v1.12/FileWatching/src/pidfile.jl:93
+      &#91;5&#93; #mkpidlock#7
+        &#64; /opt/hostedtoolcache/julia/1.12.0/x64/share/julia/stdlib/v1.12/FileWatching/src/pidfile.jl:88 &#91;inlined&#93;
+      &#91;6&#93; trymkpidlock&#40;::Function, ::Vararg&#123;Any&#125;; kwargs::&#64;Kwargs&#123;stale_age::Int64&#125;&#41;
+        &#64; FileWatching.Pidfile /opt/hostedtoolcache/julia/1.12.0/x64/share/julia/stdlib/v1.12/FileWatching/src/pidfile.jl:114
+      &#91;7&#93; #invokelatest_gr#232
+        &#64; ./reflection.jl:1282 &#91;inlined&#93;
+      &#91;8&#93; invokelatest_gr
+        &#64; ./reflection.jl:1274 &#91;inlined&#93;
+      &#91;9&#93; maybe_cachefile_lock&#40;f::Base.var&#34;#__require_prelocked##0#__require_prelocked##1&#34;&#123;Base.PkgId, String, Dict&#123;String, Int64&#125;&#125;, pkg::Base.PkgId, srcpath::String; stale_age::Int64&#41;
+        &#64; Base ./loading.jl:3855
+     &#91;10&#93; maybe_cachefile_lock
+        &#64; ./loading.jl:3852 &#91;inlined&#93;
+     &#91;11&#93; __require_prelocked&#40;pkg::Base.PkgId, env::String&#41;
+        &#64; Base ./loading.jl:2638
+     &#91;12&#93; _require_prelocked&#40;uuidkey::Base.PkgId, env::String&#41;
+        &#64; Base ./loading.jl:2465
+     &#91;13&#93; macro expansion
+        &#64; ./loading.jl:2393 &#91;inlined&#93;
+     &#91;14&#93; macro expansion
+        &#64; ./lock.jl:376 &#91;inlined&#93;
+     &#91;15&#93; __require&#40;into::Module, mod::Symbol&#41;
+        &#64; Base ./loading.jl:2358
+     &#91;16&#93; require&#40;into::Module, mod::Symbol&#41;
+        &#64; Base ./loading.jl:2334
+     &#91;17&#93; top-level scope
+        &#64; ~/.julia/packages/HTTP/4AUPl/src/HTTP.jl:10
+     &#91;18&#93; include&#40;mod::Module, _path::String&#41;
+        &#64; Base ./Base.jl:306
+     &#91;19&#93; include_package_for_output&#40;pkg::Base.PkgId, input::String, depot_path::Vector&#123;String&#125;, dl_load_path::Vector&#123;String&#125;, load_path::Vector&#123;String&#125;, concrete_deps::Vector&#123;Pair&#123;Base.PkgId, UInt128&#125;&#125;, source::String&#41;
+        &#64; Base ./loading.jl:2997
+     &#91;20&#93; top-level scope
+        &#64; stdin:5
+     &#91;21&#93; eval&#40;m::Module, e::Any&#41;
+        &#64; Core ./boot.jl:489
+     &#91;22&#93; include_string&#40;mapexpr::typeof&#40;identity&#41;, mod::Module, code::String, filename::String&#41;
+        &#64; Base ./loading.jl:2843
+     &#91;23&#93; include_string
+        &#64; ./loading.jl:2853 &#91;inlined&#93;
+     &#91;24&#93; exec_options&#40;opts::Base.JLOptions&#41;
+        &#64; Base ./client.jl:315
+     &#91;25&#93; _start&#40;&#41;
+        &#64; Base ./client.jl:550
+    in expression starting at /home/runner/.julia/packages/HTTP/4AUPl/src/HTTP.jl:1
+    in expression starting at stdin:5
+    ERROR: LoadError: Failed to precompile HTTP &#91;cd3eb016-35fb-5094-929b-558a96fad6f3&#93; to &#34;/home/runner/.julia/compiled/v1.12/HTTP/jl_bgZ58t&#34;.
+    Stacktrace:
+      &#91;1&#93; error&#40;s::String&#41;
+        &#64; Base ./error.jl:44
+      &#91;2&#93; compilecache&#40;pkg::Base.PkgId, path::String, internal_stderr::IO, internal_stdout::IO, keep_loaded_modules::Bool; flags::Cmd, cacheflags::Base.CacheFlags, reasons::Dict&#123;String, Int64&#125;, loadable_exts::Nothing&#41;
+        &#64; Base ./loading.jl:3284
+      &#91;3&#93; &#40;::Base.var&#34;#__require_prelocked##0#__require_prelocked##1&#34;&#123;Base.PkgId, String, Dict&#123;String, Int64&#125;&#125;&#41;&#40;&#41;
+        &#64; Base ./loading.jl:2652
+      &#91;4&#93; mkpidlock&#40;f::Base.var&#34;#__require_prelocked##0#__require_prelocked##1&#34;&#123;Base.PkgId, String, Dict&#123;String, Int64&#125;&#125;, at::String, pid::Int32; kwopts::&#64;Kwargs&#123;stale_age::Int64, wait::Bool&#125;&#41;
+        &#64; FileWatching.Pidfile /opt/hostedtoolcache/julia/1.12.0/x64/share/julia/stdlib/v1.12/FileWatching/src/pidfile.jl:93
+      &#91;5&#93; #mkpidlock#7
+        &#64; /opt/hostedtoolcache/julia/1.12.0/x64/share/julia/stdlib/v1.12/FileWatching/src/pidfile.jl:88 &#91;inlined&#93;
+      &#91;6&#93; trymkpidlock&#40;::Function, ::Vararg&#123;Any&#125;; kwargs::&#64;Kwargs&#123;stale_age::Int64&#125;&#41;
+        &#64; FileWatching.Pidfile /opt/hostedtoolcache/julia/1.12.0/x64/share/julia/stdlib/v1.12/FileWatching/src/pidfile.jl:114
+      &#91;7&#93; #invokelatest_gr#232
+        &#64; ./reflection.jl:1282 &#91;inlined&#93;
+      &#91;8&#93; invokelatest_gr
+        &#64; ./reflection.jl:1274 &#91;inlined&#93;
+      &#91;9&#93; maybe_cachefile_lock&#40;f::Base.var&#34;#__require_prelocked##0#__require_prelocked##1&#34;&#123;Base.PkgId, String, Dict&#123;String, Int64&#125;&#125;, pkg::Base.PkgId, srcpath::String; stale_age::Int64&#41;
+        &#64; Base ./loading.jl:3855
+     &#91;10&#93; maybe_cachefile_lock
+        &#64; ./loading.jl:3852 &#91;inlined&#93;
+     &#91;11&#93; __require_prelocked&#40;pkg::Base.PkgId, env::String&#41;
+        &#64; Base ./loading.jl:2638
+     &#91;12&#93; _require_prelocked&#40;uuidkey::Base.PkgId, env::String&#41;
+        &#64; Base ./loading.jl:2465
+     &#91;13&#93; macro expansion
+        &#64; ./loading.jl:2393 &#91;inlined&#93;
+     &#91;14&#93; macro expansion
+        &#64; ./lock.jl:376 &#91;inlined&#93;
+     &#91;15&#93; __require&#40;into::Module, mod::Symbol&#41;
+        &#64; Base ./loading.jl:2358
+     &#91;16&#93; require&#40;into::Module, mod::Symbol&#41;
+        &#64; Base ./loading.jl:2334
+     &#91;17&#93; top-level scope
+        &#64; ~/.julia/packages/Bonito/bZcWW/src/Bonito.jl:12
+     &#91;18&#93; include&#40;mod::Module, _path::String&#41;
+        &#64; Base ./Base.jl:306
+     &#91;19&#93; include_package_for_output&#40;pkg::Base.PkgId, input::String, depot_path::Vector&#123;String&#125;, dl_load_path::Vector&#123;String&#125;, load_path::Vector&#123;String&#125;, concrete_deps::Vector&#123;Pair&#123;Base.PkgId, UInt128&#125;&#125;, source::Nothing&#41;
+        &#64; Base ./loading.jl:2997
+     &#91;20&#93; top-level scope
+        &#64; stdin:5
+     &#91;21&#93; eval&#40;m::Module, e::Any&#41;
+        &#64; Core ./boot.jl:489
+     &#91;22&#93; include_string&#40;mapexpr::typeof&#40;identity&#41;, mod::Module, code::String, filename::String&#41;
+        &#64; Base ./loading.jl:2843
+     &#91;23&#93; include_string
+        &#64; ./loading.jl:2853 &#91;inlined&#93;
+     &#91;24&#93; exec_options&#40;opts::Base.JLOptions&#41;
+        &#64; Base ./client.jl:315
+     &#91;25&#93; _start&#40;&#41;
+        &#64; Base ./client.jl:550
+    in expression starting at /home/runner/.julia/packages/Bonito/bZcWW/src/Bonito.jl:1
+    in expression starting at stdin:
+    Stacktrace:
+     &#91;1&#93; unwrap_worker_result&#40;worker::Malt.Worker, result::Malt.WorkerResult&#41;
+       &#64; Malt ~/.julia/packages/Malt/4RqVn/src/Malt.jl:50
+     &#91;2&#93; _wait_for_response&#40;worker::Malt.Worker, msg_id::UInt64&#41;
+       &#64; Malt ~/.julia/packages/Malt/4RqVn/src/Malt.jl:379
+     &#91;3&#93; &#40;::Malt.var&#34;#_send_receive_async##0#_send_receive_async##1&#34;&#123;Malt.Worker, typeof&#40;identity&#41;, UInt64&#125;&#41;&#40;&#41;
+       &#64; Malt ~/.julia/packages/Malt/4RqVn/src/Malt.jl:399</h3>
+        <span data-jscall-id="32">Stacktrace:</span>
+        <br data-jscall-id="33" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="34">  &#91;1&#93; #wait#582</span>
+        <br data-jscall-id="35" />
+        <span data-jscall-id="36">    &#64; 
+          <a href="vscode://file/./task.jl:363" data-jscall-id="37">./task.jl:363</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="38" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="39">  &#91;2&#93; wait</span>
+        <br data-jscall-id="40" />
+        <span data-jscall-id="41">    &#64; 
+          <a href="vscode://file/./task.jl:360" data-jscall-id="42">./task.jl:360</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="43" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="44">  &#91;3&#93; fetch</span>
+        <br data-jscall-id="45" />
+        <span data-jscall-id="46">    &#64; 
+          <a href="vscode://file/./task.jl:525" data-jscall-id="47">./task.jl:525</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="48" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="49">  &#91;4&#93; eval&#40;mr::BonitoSites.MaltRunner, expr::Expr&#41;</span>
+        <br data-jscall-id="50" />
+        <span data-jscall-id="51">    &#64; BonitoSites ~/.julia/packages/BonitoSites/04tWj/src/malt-runner.jl:218</span>
+        <br data-jscall-id="52" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="53">  &#91;5&#93; replace_expressions&#40;markdown::Markdown.Code, replacements::Dict&#123;Any, Function&#125;, runner::BonitoSites.MaltRunner&#41;</span>
+        <br data-jscall-id="54" />
+        <span data-jscall-id="55">    &#64; Bonito ~/.julia/packages/Bonito/Wixad/src/rendering/markdown_integration.jl:222</span>
+        <br data-jscall-id="56" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="57">  &#91;6&#93; _broadcast_getindex_evalf</span>
+        <br data-jscall-id="58" />
+        <span data-jscall-id="59">    &#64; 
+          <a href="vscode://file/./broadcast.jl:699" data-jscall-id="60">./broadcast.jl:699</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="61" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="62">  &#91;7&#93; _broadcast_getindex</span>
+        <br data-jscall-id="63" />
+        <span data-jscall-id="64">    &#64; 
+          <a href="vscode://file/./broadcast.jl:672" data-jscall-id="65">./broadcast.jl:672</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="66" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="67">  &#91;8&#93; _getindex</span>
+        <br data-jscall-id="68" />
+        <span data-jscall-id="69">    &#64; 
+          <a href="vscode://file/./broadcast.jl:620" data-jscall-id="70">./broadcast.jl:620</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="71" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="72">  &#91;9&#93; getindex</span>
+        <br data-jscall-id="73" />
+        <span data-jscall-id="74">    &#64; 
+          <a href="vscode://file/./broadcast.jl:616" data-jscall-id="75">./broadcast.jl:616</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="76" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="77"> &#91;10&#93; macro expansion</span>
+        <br data-jscall-id="78" />
+        <span data-jscall-id="79">    &#64; 
+          <a href="vscode://file/./broadcast.jl:995" data-jscall-id="80">./broadcast.jl:995</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="81" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="82"> &#91;11&#93; macro expansion</span>
+        <br data-jscall-id="83" />
+        <span data-jscall-id="84">    &#64; 
+          <a href="vscode://file/./simdloop.jl:77" data-jscall-id="85">./simdloop.jl:77</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="86" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="87"> &#91;12&#93; copyto&#33;</span>
+        <br data-jscall-id="88" />
+        <span data-jscall-id="89">    &#64; 
+          <a href="vscode://file/./broadcast.jl:994" data-jscall-id="90">./broadcast.jl:994</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="91" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="92"> &#91;13&#93; copyto&#33;</span>
+        <br data-jscall-id="93" />
+        <span data-jscall-id="94">    &#64; 
+          <a href="vscode://file/./broadcast.jl:947" data-jscall-id="95">./broadcast.jl:947</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="96" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="97"> &#91;14&#93; materialize&#33;</span>
+        <br data-jscall-id="98" />
+        <span data-jscall-id="99">    &#64; 
+          <a href="vscode://file/./broadcast.jl:905" data-jscall-id="100">./broadcast.jl:905</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="101" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="102"> &#91;15&#93; materialize&#33;</span>
+        <br data-jscall-id="103" />
+        <span data-jscall-id="104">    &#64; 
+          <a href="vscode://file/./broadcast.jl:902" data-jscall-id="105">./broadcast.jl:902</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="106" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="107"> &#91;16&#93; replace_expressions&#40;markdown::Markdown.MD, replacements::Dict&#123;Any, Function&#125;, runner::BonitoSites.MaltRunner&#41;</span>
+        <br data-jscall-id="108" />
+        <span data-jscall-id="109">    &#64; Bonito ~/.julia/packages/Bonito/Wixad/src/rendering/markdown_integration.jl:177</span>
+        <br data-jscall-id="110" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="111"> &#91;17&#93; #string_to_markdown#98</span>
+        <br data-jscall-id="112" />
+        <span data-jscall-id="113">    &#64; ~/.julia/packages/Bonito/Wixad/src/rendering/markdown_integration.jl:253 &#91;inlined&#93;</span>
+        <br data-jscall-id="114" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="115"> &#91;18&#93; jsrender&#40;session::Session&#123;NoConnection&#125;, em::Bonito.EvalMarkdown&#41;</span>
+        <br data-jscall-id="116" />
+        <span data-jscall-id="117">    &#64; Bonito ~/.julia/packages/Bonito/Wixad/src/rendering/markdown_integration.jl:32</span>
+        <br data-jscall-id="118" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="119"> &#91;19&#93; render_node&#40;session::Session&#123;NoConnection&#125;, node::Hyperscript.Node&#123;Hyperscript.HTMLSVG&#125;&#41;</span>
+        <br data-jscall-id="120" />
+        <span data-jscall-id="121">    &#64; Bonito ~/.julia/packages/Bonito/Wixad/src/rendering/hyperscript_integration.jl:173</span>
+        <br data-jscall-id="122" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="123"> &#91;20&#93; jsrender&#40;session::Session&#123;NoConnection&#125;, node::Hyperscript.Node&#123;Hyperscript.HTMLSVG&#125;&#41;</span>
+        <br data-jscall-id="124" />
+        <span data-jscall-id="125">    &#64; Bonito ~/.julia/packages/Bonito/Wixad/src/rendering/hyperscript_integration.jl:203</span>
+        <br data-jscall-id="126" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="127"> &#91;21&#93; render_node&#40;session::Session&#123;NoConnection&#125;, node::Hyperscript.Node&#123;Hyperscript.HTMLSVG&#125;&#41;</span>
+        <br data-jscall-id="128" />
+        <span data-jscall-id="129">    &#64; Bonito ~/.julia/packages/Bonito/Wixad/src/rendering/hyperscript_integration.jl:173</span>
+        <br data-jscall-id="130" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="131"> &#91;22&#93; jsrender&#40;session::Session&#123;NoConnection&#125;, node::Hyperscript.Node&#123;Hyperscript.HTMLSVG&#125;&#41;</span>
+        <br data-jscall-id="132" />
+        <span data-jscall-id="133">    &#64; Bonito ~/.julia/packages/Bonito/Wixad/src/rendering/hyperscript_integration.jl:203</span>
+        <br data-jscall-id="134" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="135"> &#91;23&#93; render_node&#40;session::Session&#123;NoConnection&#125;, node::Hyperscript.Node&#123;Hyperscript.HTMLSVG&#125;&#41;</span>
+        <br data-jscall-id="136" />
+        <span data-jscall-id="137">    &#64; Bonito ~/.julia/packages/Bonito/Wixad/src/rendering/hyperscript_integration.jl:173</span>
+        <br data-jscall-id="138" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="139"> &#91;24&#93; jsrender&#40;session::Session&#123;NoConnection&#125;, node::Hyperscript.Node&#123;Hyperscript.HTMLSVG&#125;&#41;</span>
+        <br data-jscall-id="140" />
+        <span data-jscall-id="141">    &#64; Bonito ~/.julia/packages/Bonito/Wixad/src/rendering/hyperscript_integration.jl:203</span>
+        <br data-jscall-id="142" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="143"> &#91;25&#93; render_node&#40;session::Session&#123;NoConnection&#125;, node::Hyperscript.Node&#123;Hyperscript.HTMLSVG&#125;&#41;</span>
+        <br data-jscall-id="144" />
+        <span data-jscall-id="145">    &#64; Bonito ~/.julia/packages/Bonito/Wixad/src/rendering/hyperscript_integration.jl:173</span>
+        <br data-jscall-id="146" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="147"> &#91;26&#93; jsrender&#40;session::Session&#123;NoConnection&#125;, node::Hyperscript.Node&#123;Hyperscript.HTMLSVG&#125;&#41;</span>
+        <br data-jscall-id="148" />
+        <span data-jscall-id="149">    &#64; Bonito ~/.julia/packages/Bonito/Wixad/src/rendering/hyperscript_integration.jl:203</span>
+        <br data-jscall-id="150" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="151"> &#91;27&#93; render_node&#40;session::Session&#123;NoConnection&#125;, node::Hyperscript.Node&#123;Hyperscript.HTMLSVG&#125;&#41;</span>
+        <br data-jscall-id="152" />
+        <span data-jscall-id="153">    &#64; Bonito ~/.julia/packages/Bonito/Wixad/src/rendering/hyperscript_integration.jl:173</span>
+        <br data-jscall-id="154" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="155"> &#91;28&#93; jsrender&#40;session::Session&#123;NoConnection&#125;, node::Hyperscript.Node&#123;Hyperscript.HTMLSVG&#125;&#41;</span>
+        <br data-jscall-id="156" />
+        <span data-jscall-id="157">    &#64; Bonito ~/.julia/packages/Bonito/Wixad/src/rendering/hyperscript_integration.jl:203</span>
+        <br data-jscall-id="158" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="159"> &#91;29&#93; render_node&#40;session::Session&#123;NoConnection&#125;, node::Hyperscript.Node&#123;Hyperscript.HTMLSVG&#125;&#41;</span>
+        <br data-jscall-id="160" />
+        <span data-jscall-id="161">    &#64; Bonito ~/.julia/packages/Bonito/Wixad/src/rendering/hyperscript_integration.jl:173</span>
+        <br data-jscall-id="162" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="163"> &#91;30&#93; jsrender&#40;session::Session&#123;NoConnection&#125;, node::Hyperscript.Node&#123;Hyperscript.HTMLSVG&#125;&#41;</span>
+        <br data-jscall-id="164" />
+        <span data-jscall-id="165">    &#64; Bonito ~/.julia/packages/Bonito/Wixad/src/rendering/hyperscript_integration.jl:203</span>
+        <br data-jscall-id="166" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="167"> &#91;31&#93; rendered_dom&#40;session::Session&#123;NoConnection&#125;, app::App, target::HTTP.Messages.Request&#41;</span>
+        <br data-jscall-id="168" />
+        <span data-jscall-id="169">    &#64; Bonito ~/.julia/packages/Bonito/Wixad/src/app.jl:43</span>
+        <br data-jscall-id="170" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="171"> &#91;32&#93; rendered_dom</span>
+        <br data-jscall-id="172" />
+        <span data-jscall-id="173">    &#64; ~/.julia/packages/Bonito/Wixad/src/app.jl:39 &#91;inlined&#93;</span>
+        <br data-jscall-id="174" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="175"> &#91;33&#93; session_dom&#40;session::Session&#123;NoConnection&#125;, app::App; init::Bool, html_document::Bool&#41;</span>
+        <br data-jscall-id="176" />
+        <span data-jscall-id="177">    &#64; Bonito ~/.julia/packages/Bonito/Wixad/src/session.jl:362</span>
+        <br data-jscall-id="178" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="179"> &#91;34&#93; page_html&#40;io::IOStream, session::Session&#123;NoConnection&#125;, app_node::App&#41;</span>
+        <br data-jscall-id="180" />
+        <span data-jscall-id="181">    &#64; Bonito ~/.julia/packages/Bonito/Wixad/src/display.jl:113</span>
+        <br data-jscall-id="182" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="183"> &#91;35&#93; export_static&#40;html_io::IOStream, app::App; asset_server::Nothing, connection::Nothing, session::Session&#123;NoConnection&#125;&#41;</span>
+        <br data-jscall-id="184" />
+        <span data-jscall-id="185">    &#64; Bonito ~/.julia/packages/Bonito/Wixad/src/export.jl:317</span>
+        <br data-jscall-id="186" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="187"> &#91;36&#93; export_static</span>
+        <br data-jscall-id="188" />
+        <span data-jscall-id="189">    &#64; ~/.julia/packages/Bonito/Wixad/src/export.jl:309 &#91;inlined&#93;</span>
+        <br data-jscall-id="190" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="191"> &#91;37&#93; #230</span>
+        <br data-jscall-id="192" />
+        <span data-jscall-id="193">    &#64; ~/.julia/packages/Bonito/Wixad/src/export.jl:298 &#91;inlined&#93;</span>
+        <br data-jscall-id="194" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="195"> &#91;38&#93; open&#40;::Bonito.var&#34;#230#231&#34;&#123;App, Session&#123;NoConnection&#125;&#125;, ::String, ::Vararg&#123;String&#125;; kwargs::&#64;Kwargs&#123;&#125;&#41;</span>
+        <br data-jscall-id="196" />
+        <span data-jscall-id="197">    &#64; Base 
+          <a href="vscode://file/./io.jl:410" data-jscall-id="198">./io.jl:410</a>
+        </span>
+        <br data-jscall-id="199" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="200"> &#91;39&#93; open</span>
+        <br data-jscall-id="201" />
+        <span data-jscall-id="202">    &#64; 
+          <a href="vscode://file/./io.jl:407" data-jscall-id="203">./io.jl:407</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="204" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="205"> &#91;40&#93; export_static&#40;html_file::String, app::App; asset_server::Nothing, connection::Nothing, session::Session&#123;NoConnection&#125;&#41;</span>
+        <br data-jscall-id="206" />
+        <span data-jscall-id="207">    &#64; Bonito ~/.julia/packages/Bonito/Wixad/src/export.jl:297</span>
+        <br data-jscall-id="208" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="209"> &#91;41&#93; export_static</span>
+        <br data-jscall-id="210" />
+        <span data-jscall-id="211">    &#64; ~/.julia/packages/Bonito/Wixad/src/export.jl:289 &#91;inlined&#93;</span>
+        <br data-jscall-id="212" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="213"> &#91;42&#93; export_static&#40;folder::String, routes::Routes; connection::Nothing, asset_server::Nothing&#41;</span>
+        <br data-jscall-id="214" />
+        <span data-jscall-id="215">    &#64; Bonito ~/.julia/packages/Bonito/Wixad/src/export.jl:349</span>
+        <br data-jscall-id="216" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="217"> &#91;43&#93; export_static&#40;folder::String, routes::Routes&#41;</span>
+        <br data-jscall-id="218" />
+        <span data-jscall-id="219">    &#64; Bonito ~/.julia/packages/Bonito/Wixad/src/export.jl:328</span>
+        <br data-jscall-id="220" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="221"> &#91;44&#93; top-level scope</span>
+        <br data-jscall-id="222" />
+        <span data-jscall-id="223">    &#64; ~/work/Website/Website/docs/make.jl:41</span>
+        <br data-jscall-id="224" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="225"> &#91;45&#93; include&#40;mod::Module, _path::String&#41;</span>
+        <br data-jscall-id="226" />
+        <span data-jscall-id="227">    &#64; Base 
+          <a href="vscode://file/./Base.jl:306" data-jscall-id="228">./Base.jl:306</a>
+        </span>
+        <br data-jscall-id="229" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="230"> &#91;46&#93; exec_options&#40;opts::Base.JLOptions&#41;</span>
+        <br data-jscall-id="231" />
+        <span data-jscall-id="232">    &#64; Base 
+          <a href="vscode://file/./client.jl:317" data-jscall-id="233">./client.jl:317</a>
+        </span>
+        <br data-jscall-id="234" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="235"> &#91;47&#93; _start&#40;&#41;</span>
+        <br data-jscall-id="236" />
+        <span data-jscall-id="237">    &#64; Base 
+          <a href="vscode://file/./client.jl:550" data-jscall-id="238">./client.jl:550</a>
+        </span>
+        <br data-jscall-id="239" />
+      </pre>
+    </div>
+  </body>
+</html>
