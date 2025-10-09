@@ -14,7 +14,7 @@ So I started what was initially called JSServe, which remained an unloved side p
 
 It has matured significantly since then, and it's now at a point where it went from something I didn't really like to something I'm actually proud of.
 
-It's now a framework with lots of features, including an extensible [handler system](https://simondanisch.github.io/Bonito.jl/stable/handlers.html) (similar to middleware) that lets you wrap apps with authentication, rate limiting, or custom logic. For example, `ProtectedRoute` adds HTTP Basic Authentication with password hashing and rate limiting to protect any app or static files:
+It's now a framework with lots of features, including an extensible [handler system](https://simondanisch.github.io/Bonito.jl/stable/handlers.html) (similar to middleware) that lets you wrap apps with authentication, rate limiting, or custom logic. For example, `ProtectedRoute` adds HTTP Basic Authentication with password hashing and rate limiting to protect any app or static files (most of the recent work on this was funded by the [Sovereign Tech Agency](https://www.sovereign.tech)):
 
 ```julia
 # no-eval

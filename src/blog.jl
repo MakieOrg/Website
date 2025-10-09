@@ -1,5 +1,7 @@
 using BonitoSites
 
+using BonitoSites.Dates
+
 blogposts(files...) = joinpath(@__DIR__, "blogposts", files...)
 
 function all_posts()
@@ -19,7 +21,9 @@ function add_blogposts!(routes)
         routes[route] = App(title=entry.title) do
             post = BonitoSites.MarkdownPage(dir)
             bsky = isempty(entry.bsky_link) ? nothing : BonitoSites.BlueSkyComment(entry.bsky_link)
-            body = DOM.div(css_asset("markdown-mobile.css"), post, bsky)
+            human_date = Dates.format(entry.date, "e, d u Y")
+            date_div = DOM.div(human_date; class="post-date", style="color: #666; margin-bottom: 1rem; text-align: center;")
+            body = DOM.div(css_asset("markdown-mobile.css"), date_div, post, bsky)
             page(FullWidthBlock(body), "Blog")
         end
     end
