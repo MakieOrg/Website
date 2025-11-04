@@ -180,7 +180,28 @@ This system may change some more in the future if more flexibility is needed.
 
 ## Render Pipeline (GLMakie)
 
+[#4689](https://github.com/MakieOrg/Makie.jl/pull/4689)
 
+The render pipeline is a largely internal change for GLMakie.
+It abstracts the steps taken to render a figure/scene, controlling the order plots are rendered in and what post processing is done.
+As a user you can set the render pipeline by passing it via the `render_pipeline` keyword in `display()` or `GLMakie.Screen()`.
+Though unless you want to experiment with it yourself, you have no reason to do so yet.
+The `GLMakie.Screen` settings that used to control the hard-coded render pipeline, i.e. `ssao`, `fxaa` and `oit`, can still be passed the same way they used to.
+
+So what's the point of this?
+When we added screen-space ambient occlusion (SSAO) about 5 years ago, some users could no longer use GLMakie due to the increased vram demand it came with.
+This was hastily fixed by essentially adding `if should_use_ssao; run_ssao()` to the render pipeline as well as the post processor initialization.
+The same kind of branches also existed for order independent transparency (OIT) and FXAA.
+With that the pipeline had a fixed order, which may be suboptimal for some configurations.
+It also had 2^N (N steps) configurations with no indication of which made sense and which didn't.
+Furthermore each step should reuse buffers (vram) when possible, which meant that initialization would be looking for hard-coded buffer names created by another step.
+In short, the system was very inflexible.
+
+The new system fixes these issues.
+Instead of enabling/disabling parts of the pipeline, the whole pipeline can now be replaced, and buffer reuse is done automatically.
+With that we can now write different pipelines for different purposes, rather than having a generalist pipeline that's usable for everything by everyone.
+We can now add more post-processors without worrying about reusing buffers from other post-processors or worrying about how they would fit into the generalist pipeline.
+We can also create pipelines where established steps like rendering work differently, such as a pipeline that relies on higher quality MSAA instead of FXAA.
 
 ## Non-Breaking Changes
 
