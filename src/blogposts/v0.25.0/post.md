@@ -207,6 +207,38 @@ We can also create pipelines where established steps like rendering work differe
 
 ### Axis Hints
 
+[#5375](https://github.com/MakieOrg/Makie.jl/pull/5375)
+
+We added a new interface function which provides default attributes to an axis, based on a plot.
+It is used when the plot automatically generates an axis, i.e. with non-mutating calls like `scatter(...)`.
+
+```julia
+using CairoMakie
+
+function Makie.preferred_axis_attributes(plot::Stem, ::Type{<:Axis})
+    title = map(ps -> "Scatter Plot ($(length(ps)) points)", plot[1])
+    return (
+        title = title,
+        xlabel = "x values", ylabel = "y values",
+        xgridstyle = :dot, ygridstyle = :dot,
+        xgridcolor = (:blue, 0.4), ygridcolor = (:red, 0.4)
+    )
+end
+
+# Attributes explicitly set with `axis = ...` take precedence
+f, a, p = stem(range(0, 2pi, 100), sin, axis = (ylabel = "sin", ))
+```
+
+As exemplified, default attributes can be dynamic, reacting to arguments or attributes of the plot.
+Note however that the plot is not fully initialized when `preferred_axis_attributes()` is called.
+Specifically the plot is not yet connected to a scene and has not called `plot!(plot)` yet.
+
+The default axis type is chosen by `args_preferred_axis` (or `preferred_axis_type`).
+This isn't new, but the method tree has been extended to include:
+- `args_preferred_axis(::Plot)`
+- `args_preferred_axis(::Plot, args...)`
+- `args_preferred_axis(args...)`
+
 ### Recipe Projection
 
 ### Date Tick Improvements
