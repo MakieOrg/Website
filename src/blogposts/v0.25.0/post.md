@@ -2,7 +2,58 @@
 
 ## Dim Converts
 
+Dim converts are Makie's system for handling dates, units, categorical data and other data that needs to synchronize across plots.
+Up until 0.25, this would only work with `x, y` and `x, y, z` data, meaning data where each plot argument represents one dimension and either 2 or 3 were present.
+The system has now been expanded to also allow point-like data, different argument orders (e.g. `y, x`), arguments that are not dimensional (e.g. the matrix passed to image) as well as repeated multiple arguments using the same dimension.
+As a result almost every plot now works with dim converts.
 
+```julia
+using CairoMakie
+using Makie.Unitful
+
+cow = rotr90(Makie.loadasset("cow.png"))
+f,a,p = image(0u"s" .. 10u"s", 0u"m" .. 10u"m", cow)
+scatter!(
+    a, [(3.4u"s", 6u"m"), (6.5u"s", 5.9u"m")],
+    color = :black, markersize = 20, strokewidth = 10, strokecolor = :white, marker = Circle
+)
+barplot!(
+    a, (1:9) .* u"m", 3 .* cos.(-0.5:0.3:1.9).^2 .* u"s", direction = :x,
+    color = 1:9, strokewidth = 2
+)
+hlines!(
+    a, (1:9) .* u"m", xmin = 1 .- 0.3 .* cos.(-0.5:0.3:1.9).^2,
+    color = 1:9, linewidth = 10
+)
+f
+```
+
+We also added some more dim converts related attributes to `Axis` and `Axis3`.
+You can use `x_unit_in_ticklabel` (etc.) to toggle units (or Dates, Categorical values) appearing in ticklabels, `x_unit_in_label` (etc.) to toggle them in axis labels, `xlabel_suffix` (etc.) to set a formatter for units in axis labels and use `use_short_x_units` to toggle between abbreviations ("s") and full names ("Second") in labels.
+
+To make dim converts compatible with all the different argument structures recipes may have we added two new interface functions: `Makie.argument_dims()` and `Makie.argument_dim_kwargs()`.
+The first allows you to map arguments to the dimensions they should convert with.
+The second allows you to mark attributes to be passed to `argument_dims()` as keyword arguments, so they can be included in that decision.
+
+```julia
+# If MyPlot is called with two arguments, they are dimension 1 and 2
+Makie.argument_dims(::MyPlot, x, y) = (1, 2)
+
+# A vector of points has an inner set of dimensions
+Makie.argument_dims(::MyPlot, ps::Vector{<:Point{N}}) where {N} = (1:N,)
+
+# If the first argument is a function it should not be dim converted
+Makie.argument_dims(::MyPlot, f::Function, x) = (0, 1)
+
+# The last argument acts in the x or y dimension depending on "direction"
+Makie.argument_dim_kwargs(::MyPlot) = (:direction,)
+function Makie.argument_dims(::MyPlot, x, y, w; direction)
+    return (1, 2, ifelse(direction == :x, 1, 2))
+end
+```
+
+Note that the default `argument_dims` can already handle point-like data and x, y(, z) data.
+If included via `argument_dim_kwargs` it will also handle `direction` and `orientation`.
 
 ## DataInspector [#5241](https://github.com/MakieOrg/Makie.jl/pull/5241)
 
