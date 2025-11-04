@@ -241,4 +241,30 @@ This isn't new, but the method tree has been extended to include:
 
 ### Recipe Projection
 
+Some recipes need to transform their data into another space, for example to add a pixel space offsets.
+Doing this correctly is quite complicated due to all the different attributes and transformations that may influence the total transformation.
+To simplify this process for recipes we added `register_projected_position!()`.
+It builds up all the relevant computations and reacts to all the relevant inputs.
+
+```julia
+f, a, p = scatter(Rect2f(0, 0, 1, 1))
+register_projected_positions!(
+    p, Point2f, # optional target type for the output
+    input_name = :positions,
+    output_name = :pixel_positions,
+    input_space = :space, # :space refers to the space attribute dynamically
+    output_space = :pixel,
+)
+text!(
+    a, p.pixel_positions, text = string.(1:4), space = :pixel,
+    align = (:center, :center),
+    offset = [(10, 10), (-10, 10), (-10, -10), (10, -10)]
+)
+f
+```
+
+A similar function also exists for transforming 2D data space directions into pixel space rotations, e.g. for rotating markers or text.
+This can be tricky because the rotations change when the aspect ratio is not 1 or if the transform function distorts space.
+The relevant function for that is `register_projected_rotations_2d!()`.
+
 ### Date Tick Improvements
