@@ -1,0 +1,299 @@
+<!doctype html>
+<html data-jscall-id="1">
+  <head data-jscall-id="2">
+    <script src="../../bonito/js/Bonito.bundled7457269554592506375.js" type="module"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" data-jscall-id="3" />
+    <meta charset="utf-8" data-jscall-id="4" />
+    <style>.style_2 {
+  list-style-type: disc;
+}
+</style>
+    <script>    window.__define = window.define;
+    window.__require = window.require;
+    window.define = undefined;
+    window.require = undefined;
+</script>
+    <link href="../../bonito/css/site18444467483949899788.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com/3.3.1"></script>
+    <link href="../../bonito/css/markdown-mobile13898764559087962533.css" rel="stylesheet" type="text/css" />
+    <link href="../../bonito/css/github.min8213811099958948332.css" rel="stylesheet" type="text/css" />
+    <script>    window.define = window.__define;
+    window.require = window.__require;
+    window.__define = undefined;
+    window.__require = undefined;
+</script>
+  </head>
+  <body data-jscall-id="5">
+    <script type="module">Bonito.init_session("431a6528-5275-4a86-8f24-8c4ec1f69037", null, "root", false);
+</script>
+    <div data-jscall-id="6">
+      <link href="../../bonito/png/icon_transparent1037186205570625945.png" data-jscall-id="7" rel="icon" type="image/png" />
+      <img style="width: 100%" data-jscall-id="8" src="../../bonito/png/bannermesh_gradient12222907222071057261.png" />
+      <div class="flex navbar justify-center" data-jscall-id="9">
+        <div class="flex max-w-5xl w-full md:px-4 flex-wrap" data-jscall-id="10">
+          <a href="../../" data-jscall-id="11" target="">
+            <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="12">Home</div>
+          </a>
+          <a href="../../team" data-jscall-id="13" target="">
+            <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="14">Team</div>
+          </a>
+          <a href="../../support" data-jscall-id="15" target="">
+            <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="16">Support</div>
+          </a>
+          <a href="../../contact" data-jscall-id="17" target="">
+            <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="18">Contact</div>
+          </a>
+          <a href="../../blog" data-jscall-id="19" target="">
+            <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50  navbar-highlight" data-jscall-id="20">Blog</div>
+          </a>
+          <a href="http://docs.makie.org" data-jscall-id="21" target="_blank">
+            <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="22">Docs</div>
+          </a>
+          <a href="https://github.com/MakieOrg/Makie.jl" data-jscall-id="23" target="_blank">
+            <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="24">
+              <img style="height: 1.2rem; display: inline-block; vertical-align: text-bottom;" data-jscall-id="25" src="../../bonito/png/GitHub-Mark-Light-64px12574665218786438484.png" />
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="p-4 w-full" data-jscall-id="26">
+        <div data-jscall-id="27">
+          <div class="post-date" style="color: #666; margin-bottom: 1rem; text-align: center;" data-jscall-id="28">Sun, 9 Nov 2025</div>
+          <div data-jscall-id="29">
+            <div class="markdown-body" data-jscall-id="30">
+              <h1 id="Announcing Raycore.jl: High-Performance Ray Tracing for CPU and GPU" data-jscall-id="31">Announcing Raycore.jl: High-Performance Ray Tracing for CPU and GPU</h1>
+              <p data-jscall-id="32">I&#39;m excited to announce 
+                <a href="https://github.com/JuliaGeometry/Raycore.jl" data-jscall-id="33">Raycore.jl</a>, a high-performance ray-triangle intersection engine with BVH acceleration, designed for both CPU and GPU execution in Julia. Whether you&#39;re building a physically-based renderer, simulating light transport, or exploring acoustic propagation, Raycore provides the performance and flexibility you need.
+              </p>
+              <p data-jscall-id="34">Raycore will power a new raytracing backend for Makie, bringing photorealistic rendering and advanced visualization capabilities to the Makie ecosystem. This opens up exciting possibilities for scientific visualization, architectural rendering, and more - all with the familiar Makie API.</p>
+              <h2 id="Why Write a New Ray Intersection Engine?" data-jscall-id="35">Why Write a New Ray Intersection Engine?</h2>
+              <p data-jscall-id="36">You might wonder: why build yet another ray tracer? The answer lies in Julia&#39;s unique strengths and the opportunities they create and the kind of flexibility we get to have complete control over the rendering in Makie.</p>
+              <h3 id="Advantages of Julia" data-jscall-id="37">Advantages of Julia</h3>
+              <ul class=" style_2" style="" data-jscall-id="38">
+                <li data-jscall-id="39">
+                  <p data-jscall-id="40">
+                    <strong data-jscall-id="41">High-level language with performance close to C/C&#43;&#43;</strong> - Write readable code that runs fast
+                  </p>
+                </li>
+                <li data-jscall-id="42">
+                  <p data-jscall-id="43">
+                    <strong data-jscall-id="44">Great GPU support</strong> - Single codebase runs on CUDA, AMD, Metal, oneAPI, and OpenCL via KernelAbstractions.jl
+                  </p>
+                </li>
+                <li data-jscall-id="45">
+                  <p data-jscall-id="46">
+                    <strong data-jscall-id="47">Multiple dispatch for different geometries, algorithms, and materials</strong> - Extend the system cleanly without modifying core code
+                  </p>
+                </li>
+                <li data-jscall-id="48">
+                  <p data-jscall-id="49">
+                    <strong data-jscall-id="50">Pluggable architecture for new features</strong> - Add custom materials, sampling strategies, or acceleration structures
+                  </p>
+                </li>
+                <li data-jscall-id="51">
+                  <p data-jscall-id="52">
+                    <strong data-jscall-id="53">One of the best languages to write out math</strong> - The code looks like the equations you&#39;d write on paper
+                  </p>
+                </li>
+              </ul>
+              <h3 id="Honest Assessment: The Tradeoffs" data-jscall-id="54">Honest Assessment: The Tradeoffs</h3>
+              <p data-jscall-id="55">Julia isn&#39;t perfect, and there are certainly challenges:</p>
+              <ul class=" style_2" style="" data-jscall-id="56">
+                <li data-jscall-id="57">
+                  <p data-jscall-id="58">
+                    <strong data-jscall-id="59">Long compile times for first use</strong> - The first run of a function triggers JIT compilation
+                  </p>
+                </li>
+                <li data-jscall-id="60">
+                  <p data-jscall-id="61">
+                    <strong data-jscall-id="62">GPU code still has some rough edges</strong> - Complex kernels require careful attention to avoid allocations and GPU-unfriendly constructs
+                  </p>
+                </li>
+              </ul>
+              <p data-jscall-id="63">In practice, compile times aren&#39;t as bad as they might sound. You keep a Julia session running and only pay the compilation cost once. There&#39;s also ongoing work on precompilation that could reduce these times to near-zero in the future and compile most kernels ahead of time. For GPU code, better tooling for detecting and fixing issues is on the horizon, along with improved error messages when problematic LLVM code is generated.</p>
+              <h3 id="The Big Picture" data-jscall-id="64">The Big Picture</h3>
+              <p data-jscall-id="65">The flexibility to write a high-performance ray tracer in a high-level language opens up exciting possibilities:</p>
+              <ul class=" style_2" style="" data-jscall-id="66">
+                <li data-jscall-id="67">
+                  <p data-jscall-id="68">
+                    <strong data-jscall-id="69">Use automatic differentiation</strong> to optimize scene parameters or light placement
+                  </p>
+                </li>
+                <li data-jscall-id="70">
+                  <p data-jscall-id="71">
+                    <strong data-jscall-id="72">Plug in new optimizations seamlessly</strong> without fighting a type system or rewriting core algorithms
+                  </p>
+                </li>
+                <li data-jscall-id="73">
+                  <p data-jscall-id="74">
+                    <strong data-jscall-id="75">Democratize working on high-performance ray tracing</strong> - contributions don&#39;t require C&#43;&#43; expertise and the code base is fairly small
+                  </p>
+                </li>
+                <li data-jscall-id="76">
+                  <p data-jscall-id="77">
+                    <strong data-jscall-id="78">Rapid experimentation</strong> - test new ideas without lengthy compile cycles
+                  </p>
+                </li>
+              </ul>
+              <h2 id="What is Raycore.jl?" data-jscall-id="79">What is Raycore.jl?</h2>
+              <p data-jscall-id="80">Raycore is a focused library that does one thing well: fast ray-triangle intersections with BVH acceleration. It provides the building blocks for ray tracing applications without imposing a particular rendering architecture.</p>
+              <p data-jscall-id="81">
+                <strong data-jscall-id="82">Core Features:</strong>
+              </p>
+              <ul class=" style_2" style="" data-jscall-id="83">
+                <li data-jscall-id="84">
+                  <p data-jscall-id="85">Fast BVH construction and traversal</p>
+                </li>
+                <li data-jscall-id="86">
+                  <p data-jscall-id="87">CPU and GPU support via KernelAbstractions.jl</p>
+                </li>
+                <li data-jscall-id="88">
+                  <p data-jscall-id="89">Analysis tools: centroid calculation, illumination analysis, view factors for radiosity</p>
+                </li>
+                <li data-jscall-id="90">
+                  <p data-jscall-id="91">Makie integration for visualization</p>
+                </li>
+              </ul>
+              <p data-jscall-id="92">
+                <strong data-jscall-id="93">Performance:</strong> On GPU, we&#39;ve achieved significant speedups through kernel optimizations including loop unrolling, tiling, and wavefront rendering approaches that minimize thread divergence.
+              </p>
+              <h2 id="Interactive Tutorials" data-jscall-id="94">Interactive Tutorials</h2>
+              <p data-jscall-id="95">The documentation includes several hands-on tutorials that build from basics to advanced GPU optimization:</p>
+              <h3 id="1. BVH Hit Tests &#38; Basics" data-jscall-id="96">1. BVH Hit Tests &#38; Basics</h3>
+              <p data-jscall-id="97">Learn the fundamentals of ray-triangle intersection, BVH construction, and visualization.</p>
+              <p data-jscall-id="98">
+                <img alt="BVH Basics" data-jscall-id="99" src="../../bonito/png/basics17973172770616896775.png" />
+              </p>
+              <p data-jscall-id="100">
+                <a href="https://juliageometry.github.io/Raycore.jl/dev/" data-jscall-id="101">Try the tutorial →</a>
+              </p>
+              <h3 id="2. Ray Tracing Tutorial" data-jscall-id="102">2. Ray Tracing Tutorial</h3>
+              <p data-jscall-id="103">Build a complete ray tracer from scratch with shadows, materials, reflections, and tone mapping.</p>
+              <p data-jscall-id="104">
+                <img alt="Ray Tracing" data-jscall-id="105" src="../../bonito/png/raytracing2247886781251700338.png" />
+              </p>
+              <p data-jscall-id="106">
+                <a href="https://juliageometry.github.io/Raycore.jl/dev/" data-jscall-id="107">Try the tutorial →</a>
+              </p>
+              <h3 id="3. Ray Tracing on the GPU" data-jscall-id="108">3. Ray Tracing on the GPU</h3>
+              <p data-jscall-id="109">Port the ray tracer to GPU and learn optimization techniques: loop unrolling, tiling, and wavefront rendering. Includes comprehensive benchmarks comparing different approaches.</p>
+              <p data-jscall-id="110">
+                <img alt="GPU Benchmarks" data-jscall-id="111" src="../../bonito/png/gpu-benchmarks3166936516134264577.png" />
+              </p>
+              <p data-jscall-id="112">
+                <a href="https://juliageometry.github.io/Raycore.jl/dev/" data-jscall-id="113">Try the tutorial →</a>
+              </p>
+              <h3 id="4. View Factors &#38; Analysis" data-jscall-id="114">4. View Factors &#38; Analysis</h3>
+              <p data-jscall-id="115">Calculate view factors, illumination, and centroids for radiosity and thermal analysis applications.</p>
+              <p data-jscall-id="116">
+                <img alt="View Factors" data-jscall-id="117" src="../../bonito/png/viewfactors14029512001707507999.png" />
+              </p>
+              <p data-jscall-id="118">
+                <a href="https://juliageometry.github.io/Raycore.jl/dev/" data-jscall-id="119">Try the tutorial →</a>
+              </p>
+              <h2 id="What Can It Be Used For?" data-jscall-id="120">What Can It Be Used For?</h2>
+              <p data-jscall-id="121">Ray tracing isn&#39;t just for rendering pretty pictures. Raycore enables a wide range of physics and engineering applications:</p>
+              <ul class=" style_2" style="" data-jscall-id="122">
+                <li data-jscall-id="123">
+                  <p data-jscall-id="124">
+                    <strong data-jscall-id="125">Physically-based rendering</strong> - Photorealistic image synthesis with accurate light transport
+                  </p>
+                </li>
+                <li data-jscall-id="126">
+                  <p data-jscall-id="127">
+                    <strong data-jscall-id="128">Light transport simulations</strong> - Analyze lighting design, daylighting, and energy efficiency
+                  </p>
+                </li>
+                <li data-jscall-id="129">
+                  <p data-jscall-id="130">
+                    <strong data-jscall-id="131">Acoustic simulations</strong> - Model sound propagation in architectural spaces
+                  </p>
+                </li>
+                <li data-jscall-id="132">
+                  <p data-jscall-id="133">
+                    <strong data-jscall-id="134">Neutron transport simulations</strong> - Nuclear reactor analysis and radiation shielding
+                  </p>
+                </li>
+                <li data-jscall-id="135">
+                  <p data-jscall-id="136">
+                    <strong data-jscall-id="137">Thermal radiosity</strong> - Heat transfer analysis in complex geometries
+                  </p>
+                </li>
+                <li data-jscall-id="138">
+                  <p data-jscall-id="139">
+                    <strong data-jscall-id="140">Scientific visualization with Makie</strong> - The upcoming raytracing backend will enable photorealistic rendering of scientific data
+                  </p>
+                </li>
+                <li data-jscall-id="141">
+                  <p data-jscall-id="142">
+                    <strong data-jscall-id="143">Any application that needs ray tracing</strong> - The core is general-purpose
+                  </p>
+                </li>
+              </ul>
+              <p data-jscall-id="144">A high-performance implementation of CPU and GPU ray tracing in Julia can be a huge enabler for research and development in these fields, especially considering how easy it is to jump into the code and make changes dynamically. Need to add a new material model? Write a few methods. Want to try a different BVH construction algorithm? Implement the interface. The barrier to experimentation is low.</p>
+              <h2 id="Getting Started" data-jscall-id="145">Getting Started</h2>
+              <p data-jscall-id="146">Install Raycore.jl from the Julia package manager:</p>
+              <pre data-jscall-id="147">
+                <code class="language-julia" data-jscall-id="148">using Pkg
+Pkg.add&#40;&#34;Raycore&#34;&#41;</code>
+              </pre>
+              <p data-jscall-id="149">Then check out the 
+                <a href="https://juliageometry.github.io/Raycore.jl/dev/" data-jscall-id="150">interactive tutorials</a> to start building your first ray tracer&#33;
+              </p>
+              <h2 id="Future Work" data-jscall-id="151">Future Work</h2>
+              <p data-jscall-id="152">While Raycore is ready for many applications, there are exciting directions for future development:</p>
+              <ul class=" style_2" style="" data-jscall-id="153">
+                <li data-jscall-id="154">
+                  <p data-jscall-id="155">
+                    <strong data-jscall-id="156">Makie raytracing backend</strong> - Bringing photorealistic rendering to the Makie ecosystem
+                  </p>
+                </li>
+                <li data-jscall-id="157">
+                  <p data-jscall-id="158">
+                    <strong data-jscall-id="159">Advanced acceleration structures</strong> - Explore alternatives to BVH like kd-trees or octrees for specific use cases
+                  </p>
+                </li>
+                <li data-jscall-id="160">
+                  <p data-jscall-id="161">
+                    <strong data-jscall-id="162">GPU memory optimizations</strong> - Reduce memory footprint for larger scenes
+                  </p>
+                </li>
+                <li data-jscall-id="163">
+                  <p data-jscall-id="164">
+                    <strong data-jscall-id="165">Improved precompilation</strong> - Further reduce first-run latency
+                  </p>
+                </li>
+                <li data-jscall-id="166">
+                  <p data-jscall-id="167">
+                    <strong data-jscall-id="168">Further optimize performance</strong> - It would be great to have as many people as possible work on optimizing this to the core :&#41;
+                  </p>
+                </li>
+              </ul>
+              <p data-jscall-id="169">Contributions are welcome&#33; The codebase is designed to be approachable, and the Julia community is friendly and helpful.</p>
+              <h2 id="Acknowledgments" data-jscall-id="170">Acknowledgments</h2>
+              <p data-jscall-id="171">Raycore.jl was split out from 
+                <a href="https://github.com/JuliaGraphics/Trace.jl" data-jscall-id="172">Trace.jl</a>, originally created by 
+                <a href="https://github.com/pxl-th" data-jscall-id="173">Anton Smirnov</a>. Trace.jl will soon be renamed to 
+                <strong data-jscall-id="174">Hikari</strong> and released as the main ray tracing implementation built on top of Raycore, providing a complete path tracing framework.
+              </p>
+              <p data-jscall-id="175">This project builds on the excellent work of the Julia GPU ecosystem, particularly KernelAbstractions.jl for portable GPU programming, and the Julia visualization stack including Makie.jl for the interactive tutorials.</p>
+              <p data-jscall-id="176">Special thanks to everyone who provided feedback during development and helped shape Raycore into what it is today.</p>
+              <p data-jscall-id="177">I&#39;m excited to see what you build with Raycore.jl. Happy ray tracing&#33;</p>
+            </div>
+            <div data-jscall-id="178">
+              <script data-jscall-id="179" src="../../bonito/js/highlight.pack13102628173626074447.js"></script>
+              <script data-jscall-id="180">hljs.highlightAll()</script>
+            </div>
+          </div>
+          <span></span>
+        </div>
+      </div>
+      <div data-jscall-id="181">
+        <script async="true" defer="true" data-jscall-id="182" src="https://api.makie.org/latest.js"></script>
+        <noscript data-jscall-id="183">
+          <img alt="" data-jscall-id="184" src="https://api.makie.org/noscript.gif" referrerpolicy="no-referrer-when-downgrade" />
+        </noscript>
+      </div>
+    </div>
+  </body>
+</html>

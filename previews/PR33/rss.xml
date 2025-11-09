@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+  <channel>
+    <title>Makie Blog</title>
+    <link>https://blog.makie.org</link>
+    <description>A Blog about anything new in the Makie world</description>
+    <item>
+      <title>Announcing Raycore.jl: High-Performance Ray Tracing for CPU and GPU</title>
+      <link>./blogposts/raycore</link>
+      <description>A high-performance ray-triangle intersection engine with BVH acceleration for Julia</description>
+      <pubDate>Sun, 9 Nov 2025 17:1:31</pubDate>
+      <image>
+        <url>/home/runner/work/Website/Website/src/blogposts/raycore/./website/images/raytracing.png</url>
+      </image>
+    </item>
+    <item>
+      <title>Bonito.jl</title>
+      <link>./blogposts/bonito</link>
+      <description>Finally announcing Bonito.jl, the flashy Julia web framework</description>
+      <pubDate>Wed, 1 Oct 2025 16:28:12</pubDate>
+      <image>
+        <url>/home/runner/work/Website/Website/src/blogposts/bonito/./website/images/network-inspector.png</url>
+      </image>
+    </item>
+    <item>
+      <title>Makie v0.24.0</title>
+      <link>./blogposts/v0.24.0</link>
+      <description>Replacing internal Observables with a ComputeGraph</description>
+      <pubDate>Wed, 25 Jun 2025 17:13:29</pubDate>
+      <image>
+        <url>/home/runner/work/Website/Website/src/blogposts/v0.24.0/./website/images/wglmakie-benchmark.svg</url>
+      </image>
+    </item>
+    <item>
+      <title>Makie v0.23.0</title>
+      <link>./blogposts/v0.23.0</link>
+      <description>We're happy to release Makie v0.23! This version features a new dendrogram recipe, a
+    breaking cleanup of the arrow recipe, and many other improvements.</description>
+      <pubDate>Thu, 12 Jun 2025 10:11:18</pubDate>
+      <image>
+        <url>/home/runner/work/Website/Website/src/blogposts/v0.23.0/./website/output/cell_output_6.png</url>
+      </image>
+    </item>
+    <item>
+      <title>Makie v0.22.2</title>
+      <link>./blogposts/v0.22.2</link>
+      <description>Improvements for voxel plots, enhanced slider options for optimized rendering, updated documentation and many more</description>
+      <pubDate>Wed, 26 Feb 2025 16:27:53</pubDate>
+      <image>
+        <url>/home/runner/work/Website/Website/src/blogposts/v0.22.2/images/img1.png</url>
+      </image>
+    </item>
+    <item>
+      <title>Makie Showcases</title>
+      <link>./blogposts/showcases</link>
+      <description>Showing off some nice projects created with Makie.jl</description>
+      <pubDate>Wed, 22 Jan 2025 15:20:39</pubDate>
+      <image>
+        <url>/home/runner/work/Website/Website/src/blogposts/makie-showcases/./website/images/robot.png</url>
+      </image>
+    </item>
+    <item>
+      <title>v0.22</title>
+      <link>./blogposts/v0.22</link>
+      <description>Makie.jl 0.22's is out: Better Geometry handling, curvilinear contour plots, and
+    `fullbox` feature for Axis3.</description>
+      <pubDate>Tue, 17 Dec 2024 17:4:43</pubDate>
+      <image>
+        <url>/home/runner/work/Website/Website/src/blogposts/v0.22/./website/images/sponza.png</url>
+      </image>
+    </item>
+    <item>
+      <title>v0.21</title>
+      <link>./blogposts/v0.21</link>
+      <description>Updates in Makie version v0.21</description>
+      <pubDate>Fri, 24 May 2024 11:52:10</pubDate>
+      <image>
+        <url>/home/runner/work/Website/Website/src/blogposts/v0.21/./website/images/rJYi3UN1C.png</url>
+      </image>
+    </item>
+    <item>
+      <title>v0.20</title>
+      <link>./blogposts/v0.20</link>
+      <description>Updates in Makie version v0.20</description>
+      <pubDate>Mon, 20 Nov 2023 15:48:54</pubDate>
+      <image>
+        <url>/home/runner/work/Website/Website/src/blogposts/v0.20/./website/images/lighting.png</url>
+      </image>
+    </item>
+    <item>
+      <title>v0.19.9-12</title>
+      <link>./blogposts/v0.19.9-12</link>
+      <description>Updates in Makie version v0.19.9-12</description>
+      <pubDate>Mon, 30 Oct 2023 17:42:2</pubDate>
+      <image>
+        <url>/home/runner/work/Website/Website/src/blogposts/v0.19.9-12/./website/output/cell_output_7.png</url>
+      </image>
+    </item>
+    <item>
+      <title>v0.19.7</title>
+      <link>./blogposts/v0.19.7</link>
+      <description>Updates in Makie version v0.19.7</description>
+      <pubDate>Wed, 26 Jul 2023 12:13:20</pubDate>
+      <image>
+        <url>/home/runner/work/Website/Website/src/blogposts/v0.19.7/./website/images/f2c1fac.CoqexF4t.png</url>
+      </image>
+    </item>
+    <item>
+      <title>May 2024 News</title>
+      <link>./blogposts/May-2023-News</link>
+      <description>News from MakieCon and updates about Makie</description>
+      <pubDate>Mon, 15 May 2023 14:37:22</pubDate>
+      <image>
+        <url>/home/runner/work/Website/Website/src/blogposts/May-2023-News/./website/images/stars.png</url>
+      </image>
+    </item>
+    <item>
+      <title>v0.18</title>
+      <link>./blogposts/v0.18</link>
+      <description>Updates in Makie version v0.18</description>
+      <pubDate>Wed, 12 Oct 2022 15:4:50</pubDate>
+      <image>
+        <url>/home/runner/work/Website/Website/src/blogposts/v0.18/./website/output/cell_output_2.png</url>
+      </image>
+    </item>
+    <item>
+      <title>v0.16</title>
+      <link>./blogposts/v0.16</link>
+      <description>Updates in Makie version v0.16</description>
+      <pubDate>Wed, 16 Mar 2022 19:55:25</pubDate>
+      <image>
+        <url>/home/runner/work/Website/Website/src/blogposts/v0.16/./website/images/materials.png</url>
+      </image>
+    </item>
+    <item>
+      <title>MakieCon 2022</title>
+      <link>./blogposts/makiecon</link>
+      <description>Updates From MakieCon</description>
+      <pubDate>Thu, 19 Dec 2 19:16:47</pubDate>
+    </item>
+  </channel>
+</rss>

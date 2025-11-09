@@ -1,0 +1,31 @@
+’Ç-j“Ù$b9207e2d-c90e-4aa3-8551-27af4fefab54€¤root“Èãk’Ç?j“Ù$b9207e2d-c90e-4aa3-8551-27af4fefab54¢25Çe’¢25§r_0 > 0¤root‚§payloadÈˆf“´13261962707243105949Çh¢25Ú'const elem = document.querySelector('[data-jscall-id="53"]');
+// uh, observable has better escaping for strings instead of interpolating it directly
+const source = __lookup_interpolated('13261962707243105949').value;
+const displayMode = false;
+import(new URL('../../bonito/js/katex.bundled4541376072251690627.js', window.location.href).href).then(Katex=> {
+        Katex.default.render(source, elem, {displayMode: displayMode});
+}).catch(e => {
+    console.warn("KaTeX loading error:", e);
+    elem.textContent = source; // Fallback to plain text
+});
+Ù?/home/runner/.julia/packages/Bonito/IGFf4/src/components.jl:613¨msg_type¡2Èàk’Ç>j“Ù$b9207e2d-c90e-4aa3-8551-27af4fefab54¢26Çe’¢26¦\theta¤root‚§payloadÈ†f“³8428241039754162264Çh¢26Ú&const elem = document.querySelector('[data-jscall-id="55"]');
+// uh, observable has better escaping for strings instead of interpolating it directly
+const source = __lookup_interpolated('8428241039754162264').value;
+const displayMode = false;
+import(new URL('../../bonito/js/katex.bundled4541376072251690627.js', window.location.href).href).then(Katex=> {
+        Katex.default.render(source, elem, {displayMode: displayMode});
+}).catch(e => {
+    console.warn("KaTeX loading error:", e);
+    elem.textContent = source; // Fallback to plain text
+});
+Ù?/home/runner/.julia/packages/Bonito/IGFf4/src/components.jl:613¨msg_type¡2ÈÜk’Ç:j“Ù$b9207e2d-c90e-4aa3-8551-27af4fefab54¢27×e’¢27£\pi¤root‚§payloadÈ†f“³2874783282095896156Çh¢27Ú&const elem = document.querySelector('[data-jscall-id="57"]');
+// uh, observable has better escaping for strings instead of interpolating it directly
+const source = __lookup_interpolated('2874783282095896156').value;
+const displayMode = false;
+import(new URL('../../bonito/js/katex.bundled4541376072251690627.js', window.location.href).href).then(Katex=> {
+        Katex.default.render(source, elem, {displayMode: displayMode});
+}).catch(e => {
+    console.warn("KaTeX loading error:", e);
+    elem.textContent = source; // Fallback to plain text
+});
+Ù?/home/runner/.julia/packages/Bonito/IGFf4/src/components.jl:613¨msg_type¡2
