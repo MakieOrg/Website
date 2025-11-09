@@ -1,382 +1,775 @@
 <!doctype html>
-<html data-jscall-id="1">
-  <head data-jscall-id="2">
+<html class="bonito-fragment">
+  <head>
     <script src="../../bonito/js/Bonito.bundled7457269554592506375.js" type="module"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" data-jscall-id="3" />
-    <meta charset="utf-8" data-jscall-id="4" />
-    <style>.style_2 {
-  list-style-type: disc;
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <title>Bonito.jl</title>
+    <style></style>
+    <style>:root {
+  --background-color: #2196F3;
+  --text-secondary: #424242;
+  --background-color-highlight: rgba(255, 255, 255, 0.2);
+  --primary-dark: #1565C0;
+  --gray-light: #F5F5F5;
+  --text-color: #212121;
 }
-.style_3 {
-  min-width: 8rem;
-  font-weight: 600;
-  padding-right: 0.75rem;
-  border-color: #9CA3AF;
-  padding-bottom: 0.25rem;
-  box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px;
-  border-radius: 0.25rem;
+@font-face {
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+  font-family: octicons-link;
+}
+*, ::before, ::after {
+  border-width: 0;
+  border-style: solid;
+  box-sizing: border-box;
+}
+body {
   font-size: 1rem;
-  background-color: white;
-  border-width: 1px;
+  background-color: rgb(255, 255, 255);
+  color: #212121;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  width: 100%;
+  margin: 0;
+  line-height: 1.5;
+}
+img, video {
+  height: auto;
+  max-width: 100%;
+}
+img, svg, video, canvas, audio, iframe, embed, object {
+  display: block;
+  vertical-align: middle;
+}
+.markdown-body {
+  padding: 20px;
+  color: var(--text-color);
+  font-family: -apple-system, BlinkMacSystemFont, 'Roboto', 'Segoe UI', 'Helvetica Neue', 'Lucida Grande', Arial, sans-serif;
+  margin: 20px;
+  line-height: 1.5;
+}
+li p {
+  display: inline;
+}
+div.blog_entry h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.75rem;
+}
+div.blog_entry h4 {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+}
+div.blog_entry .date {
+  font-size: 1rem;
+  font-weight: 400;
+  color: gray;
+  line-height: 1.6rem;
+}
+.admonition {
+  padding: 16px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  border-left: 4px solid;
+  border-radius: 8px;
+  line-height: 1.5;
+  margin: 16px 0;
+}
+.admonition.warning {
+  background-color: #fff8e1;
+  border-left-color: #ff9800;
+  color: #e65100;
+}
+.admonition .title {
+  align-items: center;
+  display: flex;
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #e65100;
+  margin: 0 0 8px 0;
+}
+.admonition .title::before {
+  content: '⚠️';
+  font-size: 1.2em;
+  margin-right: 8px;
+}
+.admonition p:not(.title) {
+  color: #bf360c;
+  margin: 0;
+}
+.admonition.info {
+  background-color: #e3f2fd;
+  border-left-color: #2196f3;
+  color: #0d47a1;
+}
+.makie-blue {
+  background-color: #8398a7;
+}
+.text {
+  font-size: 20px;
+  white-space: nowrap;
+  color: rgb(48, 48, 48);
+  position: absolute;
+  overflow: hidden;
+}
+.flex {
+  display: flex;
+}
+.grid {
+  display: grid;
+}
+.block {
+  display: block;
+}
+.inline-block {
+  display: inline-block;
+}
+.flex-row {
+  flex-direction: row;
+}
+.flex-col {
+  flex-direction: column;
+}
+.flex-row-reverse {
+  flex-direction: row-reverse;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.justify-center {
+  justify-content: center;
+}
+.items-center {
+  align-items: center;
+}
+.items-start {
+  align-items: flex-start;
+}
+.gap-1 {
+  gap: 0.25rem;
+}
+.gap-2 {
+  gap: 0.5rem;
+}
+.gap-3 {
+  gap: 0.75rem;
+}
+.gap-4 {
+  gap: 1rem;
+}
+.gap-5 {
+  gap: 1.25rem;
+}
+.gap-6 {
+  gap: 1.5rem;
+}
+.gap-8 {
+  gap: 2rem;
+}
+.gap-10 {
+  gap: 2.5rem;
+}
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.p-1 {
+  padding: 0.25rem;
+}
+.p-2 {
+  padding: 0.5rem;
+}
+.p-4 {
+  padding: 1rem;
+}
+.p-6 {
+  padding: 1.5rem;
+}
+.p-8 {
+  padding: 2rem;
+}
+.p-10 {
+  padding: 2.5rem;
+}
+.px-2 {
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+}
+.px-3 {
+  padding-right: 0.75rem;
   padding-left: 0.75rem;
+}
+.px-4 {
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+.px-5 {
+  padding-right: 1.25rem;
+  padding-left: 1.25rem;
+}
+.py-1 {
+  padding-bottom: 0.25rem;
   padding-top: 0.25rem;
-  cursor: pointer;
+}
+.py-4 {
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+.m-0 {
+  margin: 0;
+}
+.m-1 {
   margin: 0.25rem;
 }
-.style_4:hover {
-  background-color: #F9FAFB;
-  box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px;
+.m-2 {
+  margin: 0.5rem;
 }
-.style_5:focus {
-  outline-offset: 1px;
-  box-shadow: rgba(66, 153, 225, 0.5) 0px 0px 0px 1px;
-  outline: 1px solid transparent;
+.m-4 {
+  margin: 1rem;
 }
-</style>
-    <style>.comparison-table {
-  border-collapse: collapse;
-  font-family: Arial, sans-serif;
+.-m-2 {
+  margin: -0.5rem;
+}
+.-m-4 {
+  margin: -1rem;
+}
+.-m-8 {
+  margin: -2rem;
+}
+.mx-auto {
+  margin-right: auto;
+  margin-left: auto;
+}
+.my-1 {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+.my-3 {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.my-6 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.my-10 {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+.my-14 {
+  margin-top: 3.5rem;
+  margin-bottom: 3.5rem;
+}
+.mt-1 {
+  margin-top: 0.25rem;
+}
+.mt-4 {
+  margin-top: 1rem;
+}
+.mt-14 {
+  margin-top: 3.5rem;
+}
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
+.w-full {
   width: 100%;
 }
-.table-header {
-  border: 1px solid #ddd;
-  background-color: #f5f5f5;
-  font-weight: bold;
-  padding: 8px;
-  user-select: none;
+.w-8 {
+  width: 2rem;
+}
+.w-1\/2 {
+  width: 50%;
+}
+.w-1\/3 {
+  width: 33.333333%;
+}
+.w-1\/5 {
+  width: 20%;
+}
+.w-2\/5 {
+  width: 40%;
+}
+.w-3\/5 {
+  width: 60%;
+}
+.w-96 {
+  width: 24rem;
+}
+.object-cover {
+  object-fit: cover;
+}
+.object-contain {
+  object-fit: contain;
+}
+.max-w-prose {
+  max-width: 65ch;
+}
+.max-w-5xl {
+  max-width: 64rem;
+}
+.max-w-full {
+  max-width: 100%;
+}
+.basis-2\/5 {
+  flex-basis: 40%;
+}
+.basis-3\/5 {
+  flex-basis: 60%;
+}
+.grow {
+  flex-grow: 1;
+}
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+.flex-1 {
+  flex: 1 1 0%;
+}
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+.font-semibold {
+  font-weight: 600;
+}
+.font-bold {
+  font-weight: 700;
+}
+.font-black {
+  font-weight: 900;
+}
+.text-left {
   text-align: left;
+}
+.text-center {
+  text-align: center;
+}
+.text-justify {
+  text-align: justify;
+}
+.text-white {
+  color: #FFFFFF;
+}
+.text-black {
+  color: #212121;
+}
+.text-blue-600 {
+  color: #2196F3;
+}
+.text-purple-600 {
+  color: #7E57C2;
+}
+.text-gray-600 {
+  color: #757575;
+}
+.visited\:text-purple-600:visited {
+  color: #7E57C2;
+}
+.italic {
+  font-style: italic;
+}
+.bg-white {
+  background-color: #FFFFFF;
+}
+.bg-gray-100 {
+  background-color: #F5F5F5;
+}
+.bg-gray-200 {
+  background-color: #EEEEEE;
+}
+.rounded-md {
+  border-radius: 0.5rem;
+}
+.shadow {
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
+}
+.cursor-pointer {
   cursor: pointer;
 }
-.table-header:hover {
-  background-color: #e9e9e9;
+.hover\:opacity-50:hover {
+  opacity: 0.5;
+  transition: opacity 0.2s ease-in-out;
 }
-.table-cell {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: left;
+.hover\:bg-gray-300:hover {
+  background-color: #E0E0E0;
+  transition: background-color 0.2s ease-in-out;
 }
-.table-row:hover .table-cell {
-  background-color: #f9f9f9;
+a {
+  text-decoration: none;
 }
-.cell-good {
-  background-color: #d4edda;
-  color: #155724;
+.navbar {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(135deg, #2196F3 0%, #1565C0 100%);
 }
-.cell-bad {
-  background-color: #f8d7da;
-  color: #721c24;
+.navbar a {
+  display: inline-block;
+  text-decoration: none;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
 }
-.cell-neutral {
-  background-color: #fff3cd;
-  color: #856404;
+.navbar-highlight {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 0.375rem;
+  transition: all 0.2s ease-in-out;
 }
-.cell-default {
-  background-color: white;
-  color: black;
+.card {
+  padding: 0.5rem 0.75rem;
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
 }
-.table-container {
-  overflow-x: auto;
+.card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+@media (min-width: 640px) {
+  .sm\:flex-row-reverse {
+    flex-direction: row-reverse;
+  }
+  .sm\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .sm\:flex-row {
+    flex-direction: row;
+  }
+  .sm\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .sm\:w-1\/3 {
+    width: 33.333333%;
+  }
+}
+@media (min-width: 768px) {
+  .md\:gap-10 {
+    gap: 2.5rem;
+  }
+  .md\:px-4 {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+  .md\:basis-2\/5 {
+    flex-basis: 40%;
+  }
+  .md\:basis-3\/5 {
+    flex-basis: 60%;
+  }
+  .md\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .md\:-m-4 {
+    margin: -1rem;
+  }
+  .md\:p-4 {
+    padding: 1rem;
+  }
+}
+@media (min-width: 1024px) {
+  .lg\:text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+  .lg\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+  .lg\:w-1\/5 {
+    width: 20%;
+  }
+  .lg\:p-8 {
+    padding: 2rem;
+  }
+  .lg\:-m-8 {
+    margin: -2rem;
+  }
+}
+.container {
+  position: relative;
+}
+.overlay {
+  left: 0;
+  visibility: hidden;
+  align-items: center;
+  bottom: 0;
+  display: flex;
+  height: 100%;
+  padding: 1rem;
+  position: absolute;
+  justify-content: center;
+  background-color: #ffffff00;
+  right: 0;
+  width: 100%;
+  transition: color 0.3s ease-in, background-color 0.3s ease-in 0.3s;
+  overflow: hidden;
+  color: transparent;
+}
+.container:hover .overlay {
+  visibility: visible;
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #212121;
+  transition: color 0.5s ease-in 0.3s, background-color 0.3s ease-in;
+}
+.image {
+  max-width: none;
+  max-height: none;
+}
+.container:hover .image {
+  filter: blur(4px);
 }
 </style>
-    <script>    window.__define = window.define;
-    window.__require = window.require;
-    window.define = undefined;
-    window.require = undefined;
-</script>
-    <link href="../../bonito/css/site18444467483949899788.css" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.tailwindcss.com/3.3.1"></script>
     <link href="../../bonito/css/markdown-mobile13898764559087962533.css" rel="stylesheet" type="text/css" />
-    <link href="../../bonito/css/github.min8213811099958948332.css" rel="stylesheet" type="text/css" />
-    <script>    window.define = window.__define;
-    window.require = window.__require;
-    window.__define = undefined;
-    window.__require = undefined;
-</script>
   </head>
-  <body data-jscall-id="5">
-    <script type="module">Bonito.init_session("a66631d2-a0de-474e-85e6-70628b27de31", Bonito.fetch_binary('../../bonito/bin/593e29f74663b84acabd2817d360f1500a42b79b-11310404961741344105.bin'), "root", false);
+  <body>
+    <script type="module">Bonito.init_session("276ffee9-f036-463c-9904-e23a651955a4", null, "root", false);
 </script>
-    <div data-jscall-id="6">
-      <link href="../../bonito/png/icon_transparent1037186205570625945.png" data-jscall-id="7" rel="icon" type="image/png" />
-      <img style="width: 100%" data-jscall-id="8" src="../../bonito/png/bannermesh_gradient12222907222071057261.png" />
-      <div class="flex navbar justify-center" data-jscall-id="9">
-        <div class="flex max-w-5xl w-full md:px-4 flex-wrap" data-jscall-id="10">
-          <a href="../../" data-jscall-id="11" target="">
-            <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="12">Home</div>
-          </a>
-          <a href="../../team" data-jscall-id="13" target="">
-            <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="14">Team</div>
-          </a>
-          <a href="../../support" data-jscall-id="15" target="">
-            <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="16">Support</div>
-          </a>
-          <a href="../../contact" data-jscall-id="17" target="">
-            <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="18">Contact</div>
-          </a>
-          <a href="../../blog" data-jscall-id="19" target="">
-            <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50  navbar-highlight" data-jscall-id="20">Blog</div>
-          </a>
-          <a href="http://docs.makie.org" data-jscall-id="21" target="_blank">
-            <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="22">Docs</div>
-          </a>
-          <a href="https://github.com/MakieOrg/Makie.jl" data-jscall-id="23" target="_blank">
-            <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="24">
-              <img style="height: 1.2rem; display: inline-block; vertical-align: text-bottom;" data-jscall-id="25" src="../../bonito/png/GitHub-Mark-Light-64px12574665218786438484.png" />
-            </div>
-          </a>
-        </div>
-      </div>
-      <div class="p-4 w-full" data-jscall-id="26">
-        <div data-jscall-id="27">
-          <div class="post-date" style="color: #666; margin-bottom: 1rem; text-align: center;" data-jscall-id="28">Wed, 1 Oct 2025</div>
-          <div data-jscall-id="29">
-            <div class="markdown-body" data-jscall-id="30">
-              <h1 id="Bonito - A flashy Julia web framework" data-jscall-id="31">Bonito - A flashy Julia web framework</h1>
-              <p data-jscall-id="32">
-                <a href="https://github.com/SimonDanisch/Bonito.jl" data-jscall-id="33">Bonito</a> has been on a journey from being a pretty neglected prototype to something offering similar functionality to established libraries like Shiny/Dash/Streamlit.
-              </p>
-              <p data-jscall-id="34">It is kind of funny, but I don&#39;t think I&#39;ve ever officially announced 
-                <a href="https://github.com/SimonDanisch/Bonito.jl" data-jscall-id="35">Bonito.jl</a> since its creation in 2019, because I&#39;ve never really been happy with it&#33;
-              </p>
-              <p data-jscall-id="36">It was born out of desperation for a framework to properly implement 
-                <a href="https://makie.org/" data-jscall-id="37">Makie&#39;s</a> web backend, WGLMakie:
-              </p>
-              <ul class=" style_2" style="" data-jscall-id="38">
-                <li data-jscall-id="39">
-                  <p data-jscall-id="40">I invested significant time into 
-                    <a href="https://github.com/JuliaGizmos/WebIO.jl" data-jscall-id="41">WebIO.jl</a>, but encountered several problems, the worst being that it was difficult to extend and implement new components in other packages
-                  </p>
-                </li>
-                <li data-jscall-id="42">
-                  <p data-jscall-id="43">In 2019, there was no real framework in Julia for generating HTML/JS with easy Julia-to-JS communication</p>
-                </li>
-                <li data-jscall-id="44">
-                  <p data-jscall-id="45">I needed it to work on standalone websites, inside Jupyter, the VSCode plot pane, and as a standalone HTML export, which made it impossible to find an existing solution</p>
-                </li>
-              </ul>
-              <p data-jscall-id="46">So I started what was initially called JSServe, which remained an unloved side project of mine for a long time, used solely for WGLMakie.</p>
-              <p data-jscall-id="47">It has matured significantly since then, and it&#39;s now at a point where it went from something I didn&#39;t really like to something I&#39;m actually proud of.</p>
-              <p data-jscall-id="48">It&#39;s now a framework with lots of features, including an extensible 
-                <a href="https://simondanisch.github.io/Bonito.jl/stable/handlers.html" data-jscall-id="49">handler system</a> &#40;similar to middleware&#41; that lets you wrap apps with authentication, rate limiting, or custom logic. For example, 
-                <code data-jscall-id="50">ProtectedRoute</code> adds HTTP Basic Authentication with password hashing and rate limiting to protect any app or static files &#40;this recent work has been made possible by an investment by the 
-                <a href="https://www.sovereign.tech" data-jscall-id="51">Sovereign Tech Agency</a>&#41;:
-              </p>
-              <pre data-jscall-id="52">
-                <code class="language-julia" data-jscall-id="53">
-using Bonito
-server &#61; Server&#40;&#34;127.0.0.1&#34;, 8081&#41;
-admin_app &#61; App&#40;&#40;&#41;-&#62; DOM.h1&#40;&#34;Admin Panel&#34;&#41;&#41;
-protected &#61; ProtectedRoute&#40;admin_app, SingleUser&#40;&#34;admin&#34;, &#34;secret&#34;&#41;&#41;
-route&#33;&#40;server, &#34;/admin&#34; &#61;&#62; protected&#41;</code>
-              </pre>
-              <p data-jscall-id="54">It comes with a simple 
-                <code data-jscall-id="55">SingleUser</code> store for basic needs, but you can extend the 
-                <code data-jscall-id="56">AbstractPasswordStore</code> interface to integrate with databases, LDAP, or any authentication backend by implementing a single 
-                <code data-jscall-id="57">get_user</code> method. Meanwhile, 
-                <code data-jscall-id="58">FolderServer</code> serves static files with proper MIME types. Handlers compose naturally, making it straightforward to create complex server setups and password-protect your apps.
-              </p>
-              <p data-jscall-id="59">This composability theme runs throughout Bonito. Implementing 
-                <a href="https://bonitobook.org" data-jscall-id="60">BonitoBook</a>, a Jupyter-like notebook ecosystem, has been a real joy. The composability and widget creation worked surprisingly well at this scale — something I wouldn&#39;t have been confident attempting a few years ago. With the upcoming plugin system, users will be able to completely customize how their notebooks work, which opens up some exciting possibilities. Expect an announcement on that soon&#33;
-              </p>
-              <p data-jscall-id="61">For now, here&#39;s a demo of BonitoBook&#39;s Claude chat widget creating an interactive dashboard with a Makie plot in seconds:</p>
-              <p data-jscall-id="62">
-                <video controls="true" data-jscall-id="63" autoplay="true">
-                  <source data-jscall-id="64" src="../../bonito/mp4/ai-demo9078760227891508270.mp4" type="video/mp4" />
-                </video>
-              </p>
-              <p data-jscall-id="65">At this point, Bonito brings several interesting features to the table, perhaps even outside the Julia world:</p>
-              <ul class=" style_2" style="" data-jscall-id="66">
-                <li data-jscall-id="67">
-                  <p data-jscall-id="68">
-                    <strong data-jscall-id="69">Reactive &#38; Interactive</strong>: Built on Observables.jl for automatic UI updates when data changes, sending only the minimal amount of data via a fast binary serialization protocol
-                  </p>
-                </li>
-                <li data-jscall-id="70">
-                  <p data-jscall-id="71">
-                    <strong data-jscall-id="72">Rich Component Library</strong>: Buttons, sliders, tables, code editors, and easy custom widget creation
-                  </p>
-                </li>
-                <li data-jscall-id="73">
-                  <p data-jscall-id="74">
-                    <strong data-jscall-id="75">Seamless Plotting</strong>: Deep integration with WGLMakie, plus support for Plotly, Gadfly, and anything else supporting the Julia display system
-                  </p>
-                </li>
-                <li data-jscall-id="76">
-                  <p data-jscall-id="77">
-                    <strong data-jscall-id="78">Deploy Anywhere</strong>: Works in VSCode, Jupyter, Pluto, web servers, or export to static HTML
-                  </p>
-                </li>
-                <li data-jscall-id="79">
-                  <p data-jscall-id="80">
-                    <strong data-jscall-id="81">JavaScript When You Need It</strong>: Easy ES6 module integration and JavaScript execution
-                  </p>
-                </li>
-                <li data-jscall-id="82">
-                  <p data-jscall-id="83">
-                    <strong data-jscall-id="84">Pure Julia Development</strong>: Write your entire application in Julia, with optional JavaScript for client-side rendering
-                  </p>
-                </li>
-                <li data-jscall-id="85">
-                  <p data-jscall-id="86">
-                    <strong data-jscall-id="87">Extensible Handlers</strong>: Wrap and compose handlers for authentication, logging, static files, and custom middleware
-                  </p>
-                </li>
-                <li data-jscall-id="88">
-                  <p data-jscall-id="89">
-                    <strong data-jscall-id="90">Use Any Existing JS/CSS/HTML</strong>: Bonito provides no opinionated styling by default. Combined with straightforward external dependency integration, this gives you complete access to the entire JS/CSS/HTML ecosystem from within Julia.
-                  </p>
-                </li>
-              </ul>
-              <h2 id="Quick Example" data-jscall-id="91">Quick Example</h2>
-              <p data-jscall-id="92">
-                <a href="https://simondanisch.github.io/Bonito.jl/stable/widgets.html#Bonito.Table-widgets" data-jscall-id="93">Bonito.Table</a> got a revamp in the newest release, with better styling options and column/row sorting:
-              </p>
-              <div class="markdown-body" data-jscall-id="94">
-                <pre data-jscall-id="95">
-                  <code class="language-julia" data-jscall-id="96">using Bonito
-# Returning any DOM or jsrender&#39;able in a markdown block,
-# you can inline it into the blogpost
-function example&#40;&#41;
-    # Interactive table from any Tables.jl-compatible data
-    df &#61; &#40;
-        name&#61;&#91;&#34;Alice&#34;, &#34;Bob&#34;, &#34;Charlie&#34;&#93;,
-        age&#61;&#91;25, 30, 35&#93;,
-        city&#61;&#91;&#34;NYC&#34;, &#34;LA&#34;, &#34;Chicago&#34;&#93;
-    &#41;
-    # Reactive counter
-    count &#61; Observable&#40;0&#41;
-    button &#61; Button&#40;&#34;Click me&#33;&#34;&#41;
-    on&#40;click -&#62; &#40;count&#91;&#93; &#43;&#61; 1&#41;, button&#41;
-    return DOM.div&#40;
-        DOM.h2&#40;&#34;Sortable Table&#34;&#41;,
-        Bonito.Table&#40;df&#41;,  # Automatic formatting, sortable columns
-        DOM.h2&#40;&#34;Counter: &#34;, count&#41;, # Inline Observables directly into DOM
-        button
-    &#41;
-end
-example&#40;&#41;</code>
-                </pre>
-                <div data-jscall-id="97">
-                  <h2 data-jscall-id="98">Sortable Table</h2>
-                  <div data-jscall-id="99">
-                    <div class="table-container" data-jscall-id="100">
-                      <table class="comparison-table " data-jscall-id="101">
-                        <thead data-jscall-id="102">
-                          <tr data-jscall-id="103">
-                            <th class="table-header" data-jscall-id="104" data-column="0">name</th>
-                            <th class="table-header" data-jscall-id="105" data-column="1">age</th>
-                            <th class="table-header" data-jscall-id="106" data-column="2">city</th>
-                          </tr>
-                        </thead>
-                        <tbody data-jscall-id="107">
-                          <tr class="table-row" data-jscall-id="108" data-row="0">
-                            <td data-value="Alice" class="table-cell cell-default" style="" data-jscall-id="109">Alice</td>
-                            <td data-value="25" class="table-cell cell-default" style="" data-jscall-id="110">
-                              <span class="text-plain" style="white-space: pre-wrap">25</span>
-                            </td>
-                            <td data-value="NYC" class="table-cell cell-default" style="" data-jscall-id="111">NYC</td>
-                          </tr>
-                          <tr class="table-row" data-jscall-id="112" data-row="1">
-                            <td data-value="Bob" class="table-cell cell-default" style="" data-jscall-id="113">Bob</td>
-                            <td data-value="30" class="table-cell cell-default" style="" data-jscall-id="114">
-                              <span class="text-plain" style="white-space: pre-wrap">30</span>
-                            </td>
-                            <td data-value="LA" class="table-cell cell-default" style="" data-jscall-id="115">LA</td>
-                          </tr>
-                          <tr class="table-row" data-jscall-id="116" data-row="2">
-                            <td data-value="Charlie" class="table-cell cell-default" style="" data-jscall-id="117">Charlie</td>
-                            <td data-value="35" class="table-cell cell-default" style="" data-jscall-id="118">
-                              <span class="text-plain" style="white-space: pre-wrap">35</span>
-                            </td>
-                            <td data-value="Chicago" class="table-cell cell-default" style="" data-jscall-id="119">Chicago</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                  <h2 data-jscall-id="120">Counter: 
-                    <span data-jscall-id="121">0</span>
-                  </h2>
-                  <button onclick="" class=" style_3 style_4 style_5" style="" data-jscall-id="122">Click me&#33;</button>
-                </div>
-              </div>
-              <p data-jscall-id="123">Note that the table sorting &#40;by clicking on column headers&#41; stays interactive since it&#39;s implemented in JavaScript, while the button calls Julia, so it needs a running Julia process:</p>
-              <pre data-jscall-id="124">
-                <code class="language-julia" data-jscall-id="125">
-# Deploy it, wrap it into an App:
-app &#61; App&#40;example&#41; # any function returning a jsrender&#39;able
-# Works in VSCode, Jupyter, Pluto, or opens a browser in the REPL
-display&#40;app&#41;
-# Serve on a live server with full interactivity
-server &#61; Server&#40;app, &#34;127.0.0.1&#34;, 8888&#41; # adds app as route&#33;&#40;server, &#34;/&#34; &#61;&#62; app&#41;
-# Export to static HTML &#40;counter won&#39;t work without Julia&#41;
-export_static&#40;&#34;app.html&#34;, app&#41;
-# Export full static site into a folder
-export_static&#40;&#34;site&#34;, Routes&#40;&#34;/&#34; &#61;&#62; app&#41;&#41;</code>
-              </pre>
-              <h2 id="Examples Built with Bonito" data-jscall-id="126">Examples Built with Bonito</h2>
-              <h3 id="" data-jscall-id="127">
-                <a href="https://makie.org/" data-jscall-id="128">makie.org</a>
-              </h3>
-              <p data-jscall-id="129">The Makie website and this blog are actually created with Bonito&#33;</p>
-              <h3 id="" data-jscall-id="130">
-                <a href="https://bonitobook.org/" data-jscall-id="131">BonitoBook</a>
-              </h3>
-              <p data-jscall-id="132">A customizable, Jupyter-like notebook environment</p>
-              <p data-jscall-id="133">
-                <video controls="true" data-jscall-id="134" autoplay="true">
-                  <source data-jscall-id="135" src="../../bonito/mp4/book-demo15179170215842797384.mp4" type="video/mp4" />
-                </video>
-              </p>
-              <h3 id="" data-jscall-id="136">
-                <a href="https://github.com/JuliaDynamics/NetworkDynamics.jl/tree/main/NetworkDynamicsInspector" data-jscall-id="137">NetworkDynamicsInspector</a>
-              </h3>
-              <p data-jscall-id="138">NetworkDynamicsInspector.jl is an extension package to NetworkDynamics.jl which provides a WebApp based on Bonito.jl and WGLMakie.jl for interactive visualization of solutions to systems based on network dynamics.</p>
-              <p data-jscall-id="139">
-                <video controls="true" data-jscall-id="140" autoplay="true">
-                  <source data-jscall-id="141" src="../../bonito/mp4/network-inspector6125358942876398070.mp4" type="video/mp4" />
-                </video>
-              </p>
-              <h3 id="" data-jscall-id="142">
-                <a href="https://github.com/SimonDanisch/Bonito.jl/tree/master/examples" data-jscall-id="143">Example folder</a>
-              </h3>
-              <p data-jscall-id="144">Have a look at some of the usage examples for Bonito, like the 
-                <a href="https://github.com/SimonDanisch/Bonito.jl/blob/master/examples/markdown.jl" data-jscall-id="145">interactive markdown rendering support</a>:
-              </p>
-              <p data-jscall-id="146">
-                <video controls="true" data-jscall-id="147" autoplay="true">
-                  <source data-jscall-id="148" src="../../bonito/mp4/markdown-example9484702948290391747.mp4" type="video/mp4" />
-                </video>
-              </p>
-              <h3 id="" data-jscall-id="149">
-                <a href="https://docs.makie.org/dev/explanations/backends/wglmakie#WGLMakie" data-jscall-id="150">WGLMakie</a>
-              </h3>
-              <p data-jscall-id="151">And of course WGLMakie, the Interactive WebGL-accelerated plotting backend for Makie.</p>
-              <p data-jscall-id="152">
-                <video controls="true" data-jscall-id="153" autoplay="true">
-                  <source data-jscall-id="154" src="../../bonito/mp4/animation1482381938018997557.mp4" type="video/mp4" />
-                </video>
-              </p>
-              <p data-jscall-id="155">
-                <a href="https://github.com/CliMA/ClimaAtmos.jl" data-jscall-id="156">Example from Alexandre Renchon in ClimaAtmos.jl</a>
-              </p>
-              <p data-jscall-id="157">These are just selected highlights and there&#39;s much more I&#39;m excited to share in future posts.</p>
-              <p data-jscall-id="158">Looking ahead, I hope Bonito.jl gains more attention and builds a thriving ecosystem of components and apps, just like Makie&#33; :&#41;</p>
-            </div>
-            <div data-jscall-id="159">
-              <script data-jscall-id="160" src="../../bonito/js/highlight.pack13102628173626074447.js"></script>
-              <script data-jscall-id="161">hljs.highlightAll()</script>
-            </div>
-          </div>
-          <span></span>
-        </div>
-      </div>
-      <div data-jscall-id="162">
-        <script async="true" defer="true" data-jscall-id="163" src="https://api.makie.org/latest.js"></script>
-        <noscript data-jscall-id="164">
-          <img alt="" data-jscall-id="165" src="https://api.makie.org/noscript.gif" referrerpolicy="no-referrer-when-downgrade" />
-        </noscript>
-      </div>
+    <div id="276ffee9-f036-463c-9904-e23a651955a4" data-jscall-id="root">
+      <pre class="backtrace" style="overflow-x: auto;" data-jscall-id="30">
+        <h3 style="color: red;" data-jscall-id="31">ArgumentError: Package Bonito not found in current path, maybe you meant &#96;import/using ..Bonito&#96;.
+- Otherwise, run &#96;import Pkg; Pkg.add&#40;&#34;Bonito&#34;&#41;&#96; to install the Bonito package.</h3>
+        <span data-jscall-id="32">Stacktrace:</span>
+        <br data-jscall-id="33" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="34">  &#91;1&#93; macro expansion</span>
+        <br data-jscall-id="35" />
+        <span data-jscall-id="36">    &#64; 
+          <a href="vscode://file/./loading.jl:2296" data-jscall-id="37">./loading.jl:2296</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="38" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="39">  &#91;2&#93; macro expansion</span>
+        <br data-jscall-id="40" />
+        <span data-jscall-id="41">    &#64; 
+          <a href="vscode://file/./lock.jl:273" data-jscall-id="42">./lock.jl:273</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="43" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="44">  &#91;3&#93; __require&#40;into::Module, mod::Symbol&#41;</span>
+        <br data-jscall-id="45" />
+        <span data-jscall-id="46">    &#64; Base 
+          <a href="vscode://file/./loading.jl:2271" data-jscall-id="47">./loading.jl:2271</a>
+        </span>
+        <br data-jscall-id="48" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="49">  &#91;4&#93; #invoke_in_world#3</span>
+        <br data-jscall-id="50" />
+        <span data-jscall-id="51">    &#64; 
+          <a href="vscode://file/./essentials.jl:1089" data-jscall-id="52">./essentials.jl:1089</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="53" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="54">  &#91;5&#93; invoke_in_world</span>
+        <br data-jscall-id="55" />
+        <span data-jscall-id="56">    &#64; 
+          <a href="vscode://file/./essentials.jl:1086" data-jscall-id="57">./essentials.jl:1086</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="58" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="59">  &#91;6&#93; require&#40;into::Module, mod::Symbol&#41;</span>
+        <br data-jscall-id="60" />
+        <span data-jscall-id="61">    &#64; Base 
+          <a href="vscode://file/./loading.jl:2260" data-jscall-id="62">./loading.jl:2260</a>
+        </span>
+        <br data-jscall-id="63" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="64">  &#91;7&#93; top-level scope</span>
+        <br data-jscall-id="65" />
+        <span data-jscall-id="66">    &#64; none:1</span>
+        <br data-jscall-id="67" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="68">  &#91;8&#93; eval&#40;m::Module, e::Any&#41;</span>
+        <br data-jscall-id="69" />
+        <span data-jscall-id="70">    &#64; Core 
+          <a href="vscode://file/./boot.jl:430" data-jscall-id="71">./boot.jl:430</a>
+        </span>
+        <br data-jscall-id="72" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="73">  &#91;9&#93; eval&#40;md::Bonito.ModuleRunner, expr::Expr&#41;</span>
+        <br data-jscall-id="74" />
+        <span data-jscall-id="75">    &#64; Bonito ~/.julia/packages/Bonito/IGFf4/src/rendering/markdown_integration.jl:12</span>
+        <br data-jscall-id="76" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="77"> &#91;10&#93; replace_expressions&#40;markdown::Markdown.Code, replacements::Dict&#123;Any, Function&#125;, runner::Bonito.ModuleRunner&#41;</span>
+        <br data-jscall-id="78" />
+        <span data-jscall-id="79">    &#64; Bonito ~/.julia/packages/Bonito/IGFf4/src/rendering/markdown_integration.jl:222</span>
+        <br data-jscall-id="80" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="81"> &#91;11&#93; _broadcast_getindex_evalf</span>
+        <br data-jscall-id="82" />
+        <span data-jscall-id="83">    &#64; 
+          <a href="vscode://file/./broadcast.jl:678" data-jscall-id="84">./broadcast.jl:678</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="85" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="86"> &#91;12&#93; _broadcast_getindex</span>
+        <br data-jscall-id="87" />
+        <span data-jscall-id="88">    &#64; 
+          <a href="vscode://file/./broadcast.jl:651" data-jscall-id="89">./broadcast.jl:651</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="90" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="91"> &#91;13&#93; getindex</span>
+        <br data-jscall-id="92" />
+        <span data-jscall-id="93">    &#64; 
+          <a href="vscode://file/./broadcast.jl:610" data-jscall-id="94">./broadcast.jl:610</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="95" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="96"> &#91;14&#93; macro expansion</span>
+        <br data-jscall-id="97" />
+        <span data-jscall-id="98">    &#64; 
+          <a href="vscode://file/./broadcast.jl:973" data-jscall-id="99">./broadcast.jl:973</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="100" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="101"> &#91;15&#93; macro expansion</span>
+        <br data-jscall-id="102" />
+        <span data-jscall-id="103">    &#64; 
+          <a href="vscode://file/./simdloop.jl:77" data-jscall-id="104">./simdloop.jl:77</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="105" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="106"> &#91;16&#93; copyto&#33;</span>
+        <br data-jscall-id="107" />
+        <span data-jscall-id="108">    &#64; 
+          <a href="vscode://file/./broadcast.jl:972" data-jscall-id="109">./broadcast.jl:972</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="110" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="111"> &#91;17&#93; copyto&#33;</span>
+        <br data-jscall-id="112" />
+        <span data-jscall-id="113">    &#64; 
+          <a href="vscode://file/./broadcast.jl:925" data-jscall-id="114">./broadcast.jl:925</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="115" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="116"> &#91;18&#93; materialize&#33;</span>
+        <br data-jscall-id="117" />
+        <span data-jscall-id="118">    &#64; 
+          <a href="vscode://file/./broadcast.jl:883" data-jscall-id="119">./broadcast.jl:883</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="120" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="121"> &#91;19&#93; materialize&#33;</span>
+        <br data-jscall-id="122" />
+        <span data-jscall-id="123">    &#64; 
+          <a href="vscode://file/./broadcast.jl:880" data-jscall-id="124">./broadcast.jl:880</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="125" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="126"> &#91;20&#93; replace_expressions&#40;markdown::Markdown.MD, replacements::Dict&#123;Any, Function&#125;, runner::Bonito.ModuleRunner&#41;</span>
+        <br data-jscall-id="127" />
+        <span data-jscall-id="128">    &#64; Bonito ~/.julia/packages/Bonito/IGFf4/src/rendering/markdown_integration.jl:177</span>
+        <br data-jscall-id="129" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="130"> &#91;21&#93; #string_to_markdown#99</span>
+        <br data-jscall-id="131" />
+        <span data-jscall-id="132">    &#64; ~/.julia/packages/Bonito/IGFf4/src/rendering/markdown_integration.jl:253 &#91;inlined&#93;</span>
+        <br data-jscall-id="133" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="134"> &#91;22&#93; jsrender&#40;session::Session&#123;NoConnection&#125;, em::Bonito.EvalMarkdown&#41;</span>
+        <br data-jscall-id="135" />
+        <span data-jscall-id="136">    &#64; Bonito ~/.julia/packages/Bonito/IGFf4/src/rendering/markdown_integration.jl:32</span>
+        <br data-jscall-id="137" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="138"> &#91;23&#93; render_node&#40;session::Session&#123;NoConnection&#125;, node::Hyperscript.Node&#123;Hyperscript.HTMLSVG&#125;&#41;</span>
+        <br data-jscall-id="139" />
+        <span data-jscall-id="140">    &#64; Bonito ~/.julia/packages/Bonito/IGFf4/src/rendering/hyperscript_integration.jl:173</span>
+        <br data-jscall-id="141" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="142"> &#91;24&#93; jsrender&#40;session::Session&#123;NoConnection&#125;, node::Hyperscript.Node&#123;Hyperscript.HTMLSVG&#125;&#41;</span>
+        <br data-jscall-id="143" />
+        <span data-jscall-id="144">    &#64; Bonito ~/.julia/packages/Bonito/IGFf4/src/rendering/hyperscript_integration.jl:203</span>
+        <br data-jscall-id="145" />
+        <span data-jscall-id="146">--- the above 2 lines are repeated 5 more times ---</span>
+        <br data-jscall-id="147" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="148"> &#91;35&#93; #invokelatest#2</span>
+        <br data-jscall-id="149" />
+        <span data-jscall-id="150">    &#64; 
+          <a href="vscode://file/./essentials.jl:1055" data-jscall-id="151">./essentials.jl:1055</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="152" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="153"> &#91;36&#93; invokelatest</span>
+        <br data-jscall-id="154" />
+        <span data-jscall-id="155">    &#64; 
+          <a href="vscode://file/./essentials.jl:1052" data-jscall-id="156">./essentials.jl:1052</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="157" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="158"> &#91;37&#93; rendered_dom&#40;session::Session&#123;NoConnection&#125;, app::App, target::HTTP.Messages.Request; apply_jsrender::Bool&#41;</span>
+        <br data-jscall-id="159" />
+        <span data-jscall-id="160">    &#64; Bonito ~/.julia/packages/Bonito/IGFf4/src/app.jl:44</span>
+        <br data-jscall-id="161" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="162"> &#91;38&#93; rendered_dom &#40;repeats 2 times&#41;</span>
+        <br data-jscall-id="163" />
+        <span data-jscall-id="164">    &#64; ~/.julia/packages/Bonito/IGFf4/src/app.jl:38 &#91;inlined&#93;</span>
+        <br data-jscall-id="165" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="166"> &#91;39&#93; session_dom&#40;session::Session&#123;NoConnection&#125;, app::App; init::Bool, html_document::Bool&#41;</span>
+        <br data-jscall-id="167" />
+        <span data-jscall-id="168">    &#64; Bonito ~/.julia/packages/Bonito/IGFf4/src/session.jl:362</span>
+        <br data-jscall-id="169" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="170"> &#91;40&#93; page_html&#40;io::IOStream, session::Session&#123;NoConnection&#125;, app_node::App&#41;</span>
+        <br data-jscall-id="171" />
+        <span data-jscall-id="172">    &#64; Bonito ~/.julia/packages/Bonito/IGFf4/src/display.jl:113</span>
+        <br data-jscall-id="173" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="174"> &#91;41&#93; export_static&#40;html_io::IOStream, app::App; asset_server::Nothing, connection::Nothing, session::Session&#123;NoConnection&#125;&#41;</span>
+        <br data-jscall-id="175" />
+        <span data-jscall-id="176">    &#64; Bonito ~/.julia/packages/Bonito/IGFf4/src/export.jl:317</span>
+        <br data-jscall-id="177" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="178"> &#91;42&#93; export_static</span>
+        <br data-jscall-id="179" />
+        <span data-jscall-id="180">    &#64; ~/.julia/packages/Bonito/IGFf4/src/export.jl:309 &#91;inlined&#93;</span>
+        <br data-jscall-id="181" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="182"> &#91;43&#93; #266</span>
+        <br data-jscall-id="183" />
+        <span data-jscall-id="184">    &#64; ~/.julia/packages/Bonito/IGFf4/src/export.jl:298 &#91;inlined&#93;</span>
+        <br data-jscall-id="185" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="186"> &#91;44&#93; open&#40;::Bonito.var&#34;#266#267&#34;&#123;App, Session&#123;NoConnection&#125;&#125;, ::String, ::Vararg&#123;String&#125;; kwargs::&#64;Kwargs&#123;&#125;&#41;</span>
+        <br data-jscall-id="187" />
+        <span data-jscall-id="188">    &#64; Base 
+          <a href="vscode://file/./io.jl:410" data-jscall-id="189">./io.jl:410</a>
+        </span>
+        <br data-jscall-id="190" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="191"> &#91;45&#93; open</span>
+        <br data-jscall-id="192" />
+        <span data-jscall-id="193">    &#64; 
+          <a href="vscode://file/./io.jl:407" data-jscall-id="194">./io.jl:407</a> &#91;inlined&#93;
+        </span>
+        <br data-jscall-id="195" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="196"> &#91;46&#93; export_static&#40;html_file::String, app::App; asset_server::Nothing, connection::Nothing, session::Session&#123;NoConnection&#125;&#41;</span>
+        <br data-jscall-id="197" />
+        <span data-jscall-id="198">    &#64; Bonito ~/.julia/packages/Bonito/IGFf4/src/export.jl:297</span>
+        <br data-jscall-id="199" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="200"> &#91;47&#93; export_static</span>
+        <br data-jscall-id="201" />
+        <span data-jscall-id="202">    &#64; ~/.julia/packages/Bonito/IGFf4/src/export.jl:289 &#91;inlined&#93;</span>
+        <br data-jscall-id="203" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="204"> &#91;48&#93; export_static&#40;folder::String, routes::Routes; connection::Nothing, asset_server::Nothing&#41;</span>
+        <br data-jscall-id="205" />
+        <span data-jscall-id="206">    &#64; Bonito ~/.julia/packages/Bonito/IGFf4/src/export.jl:349</span>
+        <br data-jscall-id="207" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="208"> &#91;49&#93; export_static&#40;folder::String, routes::Routes&#41;</span>
+        <br data-jscall-id="209" />
+        <span data-jscall-id="210">    &#64; Bonito ~/.julia/packages/Bonito/IGFf4/src/export.jl:328</span>
+        <br data-jscall-id="211" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="212"> &#91;50&#93; top-level scope</span>
+        <br data-jscall-id="213" />
+        <span data-jscall-id="214">    &#64; ~/work/Website/Website/docs/make.jl:30</span>
+        <br data-jscall-id="215" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="216"> &#91;51&#93; include&#40;mod::Module, _path::String&#41;</span>
+        <br data-jscall-id="217" />
+        <span data-jscall-id="218">    &#64; Base 
+          <a href="vscode://file/./Base.jl:562" data-jscall-id="219">./Base.jl:562</a>
+        </span>
+        <br data-jscall-id="220" />
+        <span style="color: darkred; font-weight: bold;" data-jscall-id="221"> &#91;52&#93; exec_options&#40;opts::Base.JLOptions&#41;</span>
+        <br data-jscall-id="222" />
+        <span data-jscall-id="223">    &#64; Base 
+          <a href="vscode://file/./client.jl:323" data-jscall-id="224">./client.jl:323</a>
+        </span>
+        <br data-jscall-id="225" />
+      </pre>
     </div>
   </body>
 </html>
