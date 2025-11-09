@@ -58,7 +58,7 @@ Learn the fundamentals of ray-triangle intersection, BVH construction, and visua
 
 ![BVH Basics](./images/basics.png)
 
-[Try the tutorial →](https://juliageometry.github.io/Raycore.jl/dev/)
+[Try the tutorial →](https://juliageometry.github.io/Raycore.jl/dev/bvh_hit_tests.html)
 
 ### 2. Ray Tracing Tutorial
 
@@ -66,7 +66,7 @@ Build a complete ray tracer from scratch with shadows, materials, reflections, a
 
 ![Ray Tracing](./images/raytracing.png)
 
-[Try the tutorial →](https://juliageometry.github.io/Raycore.jl/dev/)
+[Try the tutorial →](https://juliageometry.github.io/Raycore.jl/dev/raytracing_tutorial.html)
 
 ### 3. Ray Tracing on the GPU
 
@@ -74,7 +74,7 @@ Port the ray tracer to GPU and learn optimization techniques: loop unrolling, ti
 
 ![GPU Benchmarks](./images/gpu-benchmarks.png)
 
-[Try the tutorial →](https://juliageometry.github.io/Raycore.jl/dev/)
+[Try the tutorial →](https://juliageometry.github.io/Raycore.jl/dev/gpu_raytracing.html)
 
 ### 4. View Factors & Analysis
 
@@ -82,7 +82,7 @@ Calculate view factors, illumination, and centroids for radiosity and thermal an
 
 ![View Factors](./images/viewfactors.png)
 
-[Try the tutorial →](https://juliageometry.github.io/Raycore.jl/dev/)
+[Try the tutorial →](https://juliageometry.github.io/Raycore.jl/dev/viewfactors.html)
 
 ## What Can It Be Used For?
 
