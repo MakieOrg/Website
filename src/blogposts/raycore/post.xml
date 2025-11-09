@@ -1,0 +1,9 @@
+<item>
+  <title>Announcing Raycore.jl: High-Performance Ray Tracing for CPU and GPU</title>
+  <link>./blogposts/raycore</link>
+  <description> A high-performance ray-triangle intersection engine with BVH acceleration for Julia </description>
+  <pubDate>Sun, 9 Nov 2025 17:01:31</pubDate>
+  <image>
+    <url>./images/raytracing.png</url>
+  </image>
+</item>
