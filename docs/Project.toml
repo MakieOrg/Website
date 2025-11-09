@@ -1,5 +1,4 @@
 [deps]
-Raycore = "afc56b53-c9a9-482a-a956-d1d800e05559"
 Website = "75363ec7-b184-4002-9572-26a7eb910f3c"
 
 [sources]
