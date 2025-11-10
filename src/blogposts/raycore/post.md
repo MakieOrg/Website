@@ -1,8 +1,8 @@
 # Announcing Raycore.jl: High-Performance Ray Tracing for CPU and GPU
 
-I'm excited to announce [Raycore.jl](https://github.com/JuliaGeometry/Raycore.jl), a high-performance ray-triangle intersection engine with [Bounding Volume Hierarchy (BVH)](https://en.wikipedia.org/wiki/Bounding_volume_hierarchy) acceleration, designed for both CPU and GPU execution in Julia. Whether you're building a physically-based renderer, simulating light transport, or exploring acoustic propagation, Raycore provides the performance and flexibility you need.
-
-Raycore will power a new raytracing backend for Makie, bringing photorealistic rendering and advanced visualization capabilities to the Makie ecosystem. This opens up exciting possibilities for scientific visualization, architectural rendering, and more - all with the familiar Makie API.
+I'm excited to announce [Raycore.jl](https://github.com/JuliaGeometry/Raycore.jl), a high-performance ray-triangle intersection engine with [Bounding Volume Hierarchy (BVH)](https://en.wikipedia.org/wiki/Bounding_volume_hierarchy) acceleration, designed for both CPU and GPU execution in Julia.
+Raycore will power a new raytracing backend for Makie, bringing photorealistic rendering to the Makie ecosystem with the familiar Makie API.
+We factored out the ray intersection engine, since it can be used in many other fields like simulating light transport, heat transfer, or acoustig propagation and many other.
 
 ## Why Write a New Ray Intersection Engine?
 
@@ -40,13 +40,18 @@ The flexibility to write a high-performance ray tracer in a high-level language 
 
 Raycore is a focused library that does one thing well: fast ray-triangle intersections with BVH acceleration. It provides the building blocks for ray tracing applications without imposing a particular rendering architecture.
 
-**Core Features:**
+### Core Features
+
 - Fast BVH construction and traversal
 - CPU and GPU support via KernelAbstractions.jl
 - Analysis tools: centroid calculation, illumination analysis, view factors for radiosity
 - Makie integration for visualization
 
-**Performance:** On GPU, we've achieved significant speedups through kernel optimizations including loop unrolling, tiling, and wavefront rendering approaches that minimize thread divergence.
+### Performance
+
+The kernels and intersection code is highly optimized and running them on the GPU gains us even more performance for running millions of ray intersections.
+The below benchmark is from the GPU tutorial, which generates roughly 400x700px * 4 samples x 8 shadow rays per 3 lights + 1 reflection ray which can spawn up to 8 shadow rays, so between 1mio (one ray per sample without any further hits) to 40mio rays, which we can do in an optimized GPU kernel in around 43ms:
+![GPU Benchmarks](./images/gpu-benchmarks.png)
 
 ## Interactive Tutorials
 
@@ -72,8 +77,6 @@ Build a complete ray tracer from scratch with shadows, materials, reflections, a
 
 Port the ray tracer to GPU and learn optimization techniques: loop unrolling, tiling, and wavefront rendering. Includes comprehensive benchmarks comparing different approaches.
 
-![GPU Benchmarks](./images/gpu-benchmarks.png)
-
 [Try the tutorial →](https://juliageometry.github.io/Raycore.jl/dev/gpu_raytracing.html)
 
 ### 4. View Factors & Analysis
@@ -84,19 +87,6 @@ Calculate view factors, illumination, and centroids for radiosity and thermal an
 
 [Try the tutorial →](https://juliageometry.github.io/Raycore.jl/dev/viewfactors.html)
 
-## What Can It Be Used For?
-
-Ray tracing isn't just for rendering pretty pictures. Raycore enables a wide range of physics and engineering applications:
-
-* **Physically-based rendering** - Photorealistic image synthesis with accurate light transport
-* **Light transport simulations** - Analyze lighting design, daylighting, and energy efficiency
-* **Acoustic simulations** - Model sound propagation in architectural spaces
-* **Neutron transport simulations** - Nuclear reactor analysis and radiation shielding
-* **Thermal radiosity** - Heat transfer analysis in complex geometries
-* **Scientific visualization** - Photorealistic rendering of scientific data and simulation results
-* **Any application that needs ray tracing** - The core is general-purpose
-
-A high-performance implementation of CPU and GPU ray tracing in Julia can be a huge enabler for research and development in these fields, especially considering how easy it is to jump into the code and make changes dynamically. Need to add a new material model? Write a few methods. Want to try a different BVH construction algorithm? Implement the interface. The barrier to experimentation is low and I hope this will be used in many fields, increasing the user and developer community for the core implementation.
 
 ## Getting Started
 
@@ -111,7 +101,7 @@ Then check out the [interactive tutorials](https://juliageometry.github.io/Rayco
 
 ## Future Work
 
-While Raycore is ready for many applications, there are exciting directions for future development:
+We have some plans for further improving the Package in the future:
 
 * **Makie raytracing backend** - Bringing photorealistic rendering to the Makie ecosystem
 * **Advanced acceleration structures** - Explore alternatives to BVH like kd-trees or octrees for specific use cases
@@ -125,8 +115,8 @@ Contributions are welcome! The codebase is designed to be approachable, and the 
 
 Raycore.jl was split out from [Trace.jl](https://github.com/JuliaGraphics/Trace.jl), originally created by [Anton Smirnov](https://github.com/pxl-th). Trace.jl will soon be renamed to **Hikari** and released as the main ray tracing implementation built on top of Raycore, providing a complete path tracing framework.
 
-This project builds on the excellent work of the Julia GPU ecosystem, particularly KernelAbstractions.jl for portable GPU programming, and the Julia visualization stack including Makie.jl for the interactive tutorials.
+This project builds on the excellent work of the Julia GPU ecosystem, particularly [KernelAbstractions.jl](https://github.com/JuliaGPU/KernelAbstractions.jl) for portable GPU programming and of course all the GPU backend packages.
 
 Special thanks to everyone who helped shape Raycore.
 
-I'm excited to see what you build with Raycore.jl.
+I'm excited to see what can be build with Raycore.jl and how far we can push the performance as a community!
