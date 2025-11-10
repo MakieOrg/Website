@@ -5,6 +5,15 @@
     <link>https://blog.makie.org</link>
     <description>A Blog about anything new in the Makie world</description>
     <item>
+      <title>Announcing Raycore.jl: High-Performance Ray Tracing for CPU and GPU</title>
+      <link>./blogposts/raycore</link>
+      <description>A high-performance ray-triangle intersection engine with BVH acceleration for Julia</description>
+      <pubDate>Sun, 9 Nov 2025 17:1:31</pubDate>
+      <image>
+        <url>/home/runner/work/Website/Website/src/blogposts/raycore/./website/images/raytracing.png</url>
+      </image>
+    </item>
+    <item>
       <title>Bonito.jl</title>
       <link>./blogposts/bonito</link>
       <description>Finally announcing Bonito.jl, the flashy Julia web framework</description>

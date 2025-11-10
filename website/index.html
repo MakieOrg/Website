@@ -1,901 +1,585 @@
 <!doctype html>
-<html data-jscall-id="1">
-  <head data-jscall-id="2">
-    <script src="./bonito/js/Bonito.bundled13389133706764782584.js" type="module"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" data-jscall-id="3" />
-    <meta charset="utf-8" data-jscall-id="4" />
-    <style></style>
-    <script>    window.__define = window.define;
-    window.__require = window.require;
-    window.define = undefined;
-    window.require = undefined;
-</script>
-    <link href="./bonito/css/site18444467483949899788.css" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.tailwindcss.com/3.3.1"></script>
-    <script>    window.define = window.__define;
-    window.require = window.__require;
-    window.__define = undefined;
-    window.__require = undefined;
-</script>
-  </head>
-  <body data-jscall-id="5">
-    <script type="module">Bonito.init_session("a16e303c-38c5-49fa-b576-db15227a4664", null, "root", false);
-</script>
-    <div data-jscall-id="6">
-      <link href="./bonito/png/icon_transparent1037186205570625945.png" data-jscall-id="7" rel="icon" type="image/png" />
-      <img style="width: 100%" data-jscall-id="8" src="./bonito/png/bannermesh_gradient12222907222071057261.png" />
-      <div class="flex navbar justify-center" data-jscall-id="9">
-        <div class="flex max-w-5xl w-full md:px-4 flex-wrap" data-jscall-id="10">
-          <a href="./" data-jscall-id="11" target="">
-            <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50  navbar-highlight" data-jscall-id="12">Home</div>
-          </a>
-          <a href="./team" data-jscall-id="13" target="">
-            <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="14">Team</div>
-          </a>
-          <a href="./support" data-jscall-id="15" target="">
-            <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="16">Support</div>
-          </a>
-          <a href="./contact" data-jscall-id="17" target="">
-            <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="18">Contact</div>
-          </a>
-          <a href="./blog" data-jscall-id="19" target="">
-            <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="20">Blog</div>
-          </a>
-          <a href="http://docs.makie.org" data-jscall-id="21" target="_blank">
-            <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="22">Docs</div>
-          </a>
-          <a href="https://github.com/MakieOrg/Makie.jl" data-jscall-id="23" target="_blank">
-            <div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="24">
-              <img style="height: 1.2rem; display: inline-block; vertical-align: text-bottom;" data-jscall-id="25" src="./bonito/png/GitHub-Mark-Light-64px12574665218786438484.png" />
-            </div>
-          </a>
-        </div>
-      </div>
-      <div data-jscall-id="26">
-        <div class=" flex flex-col items-center w-full" data-jscall-id="27">
-          <div class="p-4 max-w-5xl" data-jscall-id="28">
-            <div class="w-full my-4" data-jscall-id="29"></div>
-            <div class="w-full text-justify " data-jscall-id="30">
-              <div data-jscall-id="31">
-                <span class="font-semibold" data-jscall-id="32">Makie</span> is a modern plotting library for 
-                <a class="visited:text-purple-600 text-blue-600" href="https://julialang.org" data-jscall-id="33" style="" target="_blank">Julia</a>.
+<html data-jscall-id="1"><head data-jscall-id="2"><script src="./bonito/js/Bonito.bundled7457269554592506375.js" type="module"></script><meta name="viewport" content="width=device-width, initial-scale=1.0" data-jscall-id="3" /><meta charset="utf-8" data-jscall-id="4" /><style></style><style>:root {
+  --background-color: #2196F3;
+  --text-secondary: #424242;
+  --background-color-highlight: rgba(255, 255, 255, 0.2);
+  --primary-dark: #1565C0;
+  --gray-light: #F5F5F5;
+  --text-color: #212121;
+}
+@font-face {
+  src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+  font-family: octicons-link;
+}
+*, ::before, ::after {
+  border-width: 0;
+  border-style: solid;
+  box-sizing: border-box;
+}
+body {
+  font-size: 1rem;
+  background-color: rgb(255, 255, 255);
+  color: #212121;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  width: 100%;
+  margin: 0;
+  line-height: 1.5;
+}
+img, video {
+  height: auto;
+  max-width: 100%;
+}
+img, svg, video, canvas, audio, iframe, embed, object {
+  display: block;
+  vertical-align: middle;
+}
+.markdown-body {
+  padding: 20px;
+  color: var(--text-color);
+  font-family: -apple-system, BlinkMacSystemFont, 'Roboto', 'Segoe UI', 'Helvetica Neue', 'Lucida Grande', Arial, sans-serif;
+  margin: 20px;
+  line-height: 1.5;
+}
+li p {
+  display: inline;
+}
+pre {
+  padding: 0;
+  margin: 0;
+}
+div.blog_entry h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.75rem;
+}
+div.blog_entry h4 {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+}
+div.blog_entry .date {
+  font-size: 1rem;
+  font-weight: 400;
+  color: gray;
+  line-height: 1.6rem;
+}
+.admonition {
+  padding: 16px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  border-left: 4px solid;
+  border-radius: 8px;
+  line-height: 1.5;
+  margin: 16px 0;
+}
+.admonition.warning {
+  background-color: #fff8e1;
+  border-left-color: #ff9800;
+  color: #e65100;
+}
+.admonition .title {
+  align-items: center;
+  display: flex;
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #e65100;
+  margin: 0 0 8px 0;
+}
+.admonition .title::before {
+  content: '⚠️';
+  font-size: 1.2em;
+  margin-right: 8px;
+}
+.admonition p:not(.title) {
+  color: #bf360c;
+  margin: 0;
+}
+.admonition.info {
+  background-color: #e3f2fd;
+  border-left-color: #2196f3;
+  color: #0d47a1;
+}
+.makie-blue {
+  background-color: #8398a7;
+}
+.text {
+  font-size: 20px;
+  white-space: nowrap;
+  color: rgb(48, 48, 48);
+  position: absolute;
+  overflow: hidden;
+}
+.flex {
+  display: flex;
+}
+.grid {
+  display: grid;
+}
+.block {
+  display: block;
+}
+.inline-block {
+  display: inline-block;
+}
+.flex-row {
+  flex-direction: row;
+}
+.flex-col {
+  flex-direction: column;
+}
+.flex-row-reverse {
+  flex-direction: row-reverse;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.justify-center {
+  justify-content: center;
+}
+.items-center {
+  align-items: center;
+}
+.items-start {
+  align-items: flex-start;
+}
+.gap-1 {
+  gap: 0.25rem;
+}
+.gap-2 {
+  gap: 0.5rem;
+}
+.gap-3 {
+  gap: 0.75rem;
+}
+.gap-4 {
+  gap: 1rem;
+}
+.gap-5 {
+  gap: 1.25rem;
+}
+.gap-6 {
+  gap: 1.5rem;
+}
+.gap-8 {
+  gap: 2rem;
+}
+.gap-10 {
+  gap: 2.5rem;
+}
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.p-1 {
+  padding: 0.25rem;
+}
+.p-2 {
+  padding: 0.5rem;
+}
+.p-4 {
+  padding: 1rem;
+}
+.p-6 {
+  padding: 1.5rem;
+}
+.p-8 {
+  padding: 2rem;
+}
+.p-10 {
+  padding: 2.5rem;
+}
+.px-2 {
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+}
+.px-3 {
+  padding-right: 0.75rem;
+  padding-left: 0.75rem;
+}
+.px-4 {
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+.px-5 {
+  padding-right: 1.25rem;
+  padding-left: 1.25rem;
+}
+.py-1 {
+  padding-bottom: 0.25rem;
+  padding-top: 0.25rem;
+}
+.py-4 {
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+.m-0 {
+  margin: 0;
+}
+.m-1 {
+  margin: 0.25rem;
+}
+.m-2 {
+  margin: 0.5rem;
+}
+.m-4 {
+  margin: 1rem;
+}
+.-m-2 {
+  margin: -0.5rem;
+}
+.-m-4 {
+  margin: -1rem;
+}
+.-m-8 {
+  margin: -2rem;
+}
+.mx-auto {
+  margin-right: auto;
+  margin-left: auto;
+}
+.my-1 {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+.my-3 {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.my-6 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.my-10 {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+.my-14 {
+  margin-top: 3.5rem;
+  margin-bottom: 3.5rem;
+}
+.mt-1 {
+  margin-top: 0.25rem;
+}
+.mt-4 {
+  margin-top: 1rem;
+}
+.mt-14 {
+  margin-top: 3.5rem;
+}
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
+.w-full {
+  width: 100%;
+}
+.w-8 {
+  width: 2rem;
+}
+.w-1\/2 {
+  width: 50%;
+}
+.w-1\/3 {
+  width: 33.333333%;
+}
+.w-1\/5 {
+  width: 20%;
+}
+.w-2\/5 {
+  width: 40%;
+}
+.w-3\/5 {
+  width: 60%;
+}
+.w-96 {
+  width: 24rem;
+}
+.object-cover {
+  object-fit: cover;
+}
+.object-contain {
+  object-fit: contain;
+}
+.max-w-prose {
+  max-width: 65ch;
+}
+.max-w-5xl {
+  max-width: 64rem;
+}
+.max-w-full {
+  max-width: 100%;
+}
+.basis-2\/5 {
+  flex-basis: 40%;
+}
+.basis-3\/5 {
+  flex-basis: 60%;
+}
+.grow {
+  flex-grow: 1;
+}
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+.flex-1 {
+  flex: 1 1 0%;
+}
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+.font-semibold {
+  font-weight: 600;
+}
+.font-bold {
+  font-weight: 700;
+}
+.font-black {
+  font-weight: 900;
+}
+.text-left {
+  text-align: left;
+}
+.text-center {
+  text-align: center;
+}
+.text-justify {
+  text-align: justify;
+}
+.text-white {
+  color: #FFFFFF;
+}
+.text-black {
+  color: #212121;
+}
+.text-blue-600 {
+  color: #2196F3;
+}
+.text-purple-600 {
+  color: #7E57C2;
+}
+.text-gray-600 {
+  color: #757575;
+}
+.visited\:text-purple-600:visited {
+  color: #7E57C2;
+}
+.italic {
+  font-style: italic;
+}
+.bg-white {
+  background-color: #FFFFFF;
+}
+.bg-gray-100 {
+  background-color: #F5F5F5;
+}
+.bg-gray-200 {
+  background-color: #EEEEEE;
+}
+.rounded-md {
+  border-radius: 0.5rem;
+}
+.shadow {
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+.hover\:opacity-50:hover {
+  opacity: 0.5;
+  transition: opacity 0.2s ease-in-out;
+}
+.hover\:bg-gray-300:hover {
+  background-color: #E0E0E0;
+  transition: background-color 0.2s ease-in-out;
+}
+a {
+  text-decoration: none;
+}
+.navbar {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(135deg, #2196F3 0%, #1565C0 100%);
+}
+.navbar a {
+  display: inline-block;
+  text-decoration: none;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}
+.navbar-highlight {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 0.375rem;
+  transition: all 0.2s ease-in-out;
+}
+.card {
+  padding: 0.5rem 0.75rem;
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+.card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+@media (min-width: 640px) {
+  .sm\:flex-row-reverse {
+    flex-direction: row-reverse;
+  }
+  .sm\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .sm\:flex-row {
+    flex-direction: row;
+  }
+  .sm\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .sm\:w-1\/3 {
+    width: 33.333333%;
+  }
+}
+@media (min-width: 768px) {
+  .md\:gap-10 {
+    gap: 2.5rem;
+  }
+  .md\:px-4 {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+  .md\:basis-2\/5 {
+    flex-basis: 40%;
+  }
+  .md\:basis-3\/5 {
+    flex-basis: 60%;
+  }
+  .md\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .md\:-m-4 {
+    margin: -1rem;
+  }
+  .md\:p-4 {
+    padding: 1rem;
+  }
+}
+@media (min-width: 1024px) {
+  .lg\:text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+  .lg\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+  .lg\:w-1\/5 {
+    width: 20%;
+  }
+  .lg\:p-8 {
+    padding: 2rem;
+  }
+  .lg\:-m-8 {
+    margin: -2rem;
+  }
+}
+.container {
+  position: relative;
+}
+.overlay {
+  left: 0;
+  visibility: hidden;
+  align-items: center;
+  bottom: 0;
+  display: flex;
+  height: 100%;
+  padding: 1rem;
+  position: absolute;
+  justify-content: center;
+  background-color: #ffffff00;
+  right: 0;
+  width: 100%;
+  transition: color 0.3s ease-in, background-color 0.3s ease-in 0.3s;
+  overflow: hidden;
+  color: transparent;
+}
+.container:hover .overlay {
+  visibility: visible;
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #212121;
+  transition: color 0.5s ease-in 0.3s, background-color 0.3s ease-in;
+}
+.image {
+  max-width: none;
+  max-height: none;
+}
+.container:hover .image {
+  filter: blur(4px);
+}
+</style></head><body data-jscall-id="5"><script type="module">Bonito.init_session("245fb626-6542-4b99-b464-910d017b022f", null, "root", false);
+</script><div data-jscall-id="6"><link href="./bonito/png/icon_transparent1037186205570625945.png" data-jscall-id="7" rel="icon" type="image/png" /><img style="width: 100%" data-jscall-id="8" src="./bonito/png/bannermesh_gradient12222907222071057261.png" /><div class="flex navbar justify-center" data-jscall-id="9"><div class="flex max-w-5xl w-full md:px-4 flex-wrap" data-jscall-id="10"><a href="./" data-jscall-id="11" target=""><div class="text-white cursor-pointer py-1 px-2 hover:opacity-50  navbar-highlight" data-jscall-id="12">Home</div></a><a href="./team" data-jscall-id="13" target=""><div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="14">Team</div></a><a href="./support" data-jscall-id="15" target=""><div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="16">Support</div></a><a href="./contact" data-jscall-id="17" target=""><div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="18">Contact</div></a><a href="./blog" data-jscall-id="19" target=""><div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="20">Blog</div></a><a href="http://docs.makie.org" data-jscall-id="21" target="_blank"><div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="22">Docs</div></a><a href="https://github.com/MakieOrg/Makie.jl" data-jscall-id="23" target="_blank"><div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="24"><img style="height: 1.2rem; display: inline-block; vertical-align: text-bottom;" data-jscall-id="25" src="./bonito/png/GitHub-Mark-Light-64px12574665218786438484.png" /></div></a></div></div><div data-jscall-id="26"><div class=" flex flex-col items-center w-full" data-jscall-id="27"><div class="p-4 max-w-5xl" data-jscall-id="28"><div class="w-full my-4" data-jscall-id="29"></div><div class="w-full text-justify " data-jscall-id="30"><div data-jscall-id="31"><span class="font-semibold" data-jscall-id="32">Makie</span> is a modern plotting library for <a class="visited:text-purple-600 text-blue-600" href="https://julialang.org" data-jscall-id="33" style="" target="_blank">Julia</a>.
 It is easy to use, fast and powerful. Packed with features,
 it is a general-purpose tool that makes as few compromises for specialized use cases as possible.
-
-              </div>
-            </div>
-            <div class="w-full my-6" data-jscall-id="34"></div>
-            <div class="grid  gap-6 md:gap-10 sm:grid-cols-2" data-jscall-id="35">
-              <div class="flex flex-col gap-2" data-jscall-id="36">
-                <h3 class="text-sm font-semibold text-left" data-jscall-id="37">Explore large datasets</h3>
-                <video class="" style="" data-jscall-id="38" muted="true" autoplay="true" loop="true">
-                  <source data-jscall-id="39" src="./bonito/mp4/datashader15544893188967837189.mp4" type="video/mp4" />
-                </video>
-              </div>
-              <a class="" href="https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2022MS003527" data-jscall-id="40" style="" target="_blank">
-                <div class="flex flex-col gap-2" data-jscall-id="41">
-                  <h3 class="text-sm font-semibold text-left" data-jscall-id="42">Export for publications</h3>
-                  <img class="" style="" data-jscall-id="43" src="./bonito/jpg/publication18401558253322395878.jpg" />
-                </div>
-              </a>
-              <a class="" href="https://www.bgc-jena.mpg.de/en/bgi/gallery" data-jscall-id="44" style="" target="_blank">
-                <div class="flex flex-col gap-2" data-jscall-id="45">
-                  <h3 class="text-sm font-semibold text-left" data-jscall-id="46">Render photorealistic images</h3>
-                  <img class="" style="" data-jscall-id="47" src="./bonito/png/rprmakie2347361083776325874.png" />
-                </div>
-              </a>
-              <a class="" href="https://simondanisch.github.io/Bonito.jl" data-jscall-id="48" style="" target="_blank">
-                <div class="flex flex-col gap-2" data-jscall-id="49">
-                  <h3 class="text-sm font-semibold text-left" data-jscall-id="50">Create web dashboards</h3>
-                  <video class="" style="" data-jscall-id="51" muted="true" autoplay="true" loop="true">
-                    <source data-jscall-id="52" src="./bonito/mp4/clima10357417638570125433.mp4" type="video/mp4" />
-                  </video>
-                </div>
-              </a>
-            </div>
-            <div class="w-full my-4" data-jscall-id="53"></div>
-          </div>
-        </div>
-        <div class="bg-gray-100 flex flex-col items-center w-full" data-jscall-id="54">
-          <div class="p-4 max-w-5xl" data-jscall-id="55">
-            <h1 class="text-xl font-black text-left my-4" data-jscall-id="56">Features</h1>
-            <div class="flex gap-6 items-center flex-col sm:flex-row-reverse" data-jscall-id="57">
-              <div class="text-base w-full text-justify md:basis-3/5" data-jscall-id="58">
-                <div class="flex flex-col gap-1" data-jscall-id="59">
-                  <h2 class="text-lg font-bold text-left" data-jscall-id="60">Surgical updates &#38; high performance</h2>Makie uses Observables.jl to only update what&#39;s necessary at a given point in time.
+</div></div><div class="w-full my-6" data-jscall-id="34"></div><div class="grid  gap-6 md:gap-10 sm:grid-cols-2" data-jscall-id="35"><div class="flex flex-col gap-2" data-jscall-id="36"><h3 class="text-sm font-semibold text-left" data-jscall-id="37">Explore large datasets</h3><video class="" style="" data-jscall-id="38" muted="true" autoplay="true" loop="true"><source data-jscall-id="39" src="./bonito/mp4/datashader15544893188967837189.mp4" type="video/mp4" /></video></div><a class="" href="https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2022MS003527" data-jscall-id="40" style="" target="_blank"><div class="flex flex-col gap-2" data-jscall-id="41"><h3 class="text-sm font-semibold text-left" data-jscall-id="42">Export for publications</h3><img class="" style="" data-jscall-id="43" src="./bonito/jpg/publication18401558253322395878.jpg" /></div></a><a class="" href="https://www.bgc-jena.mpg.de/en/bgi/gallery" data-jscall-id="44" style="" target="_blank"><div class="flex flex-col gap-2" data-jscall-id="45"><h3 class="text-sm font-semibold text-left" data-jscall-id="46">Render photorealistic images</h3><img class="" style="" data-jscall-id="47" src="./bonito/png/rprmakie2347361083776325874.png" /></div></a><a class="" href="https://simondanisch.github.io/Bonito.jl" data-jscall-id="48" style="" target="_blank"><div class="flex flex-col gap-2" data-jscall-id="49"><h3 class="text-sm font-semibold text-left" data-jscall-id="50">Create web dashboards</h3><video class="" style="" data-jscall-id="51" muted="true" autoplay="true" loop="true"><source data-jscall-id="52" src="./bonito/mp4/clima10357417638570125433.mp4" type="video/mp4" /></video></div></a></div><div class="w-full my-4" data-jscall-id="53"></div></div></div><div class="bg-gray-100 flex flex-col items-center w-full" data-jscall-id="54"><div class="p-4 max-w-5xl" data-jscall-id="55"><h1 class="text-xl font-black text-left my-4" data-jscall-id="56">Features</h1><div class="flex gap-6 items-center flex-col sm:flex-row-reverse" data-jscall-id="57"><div class="text-base w-full text-justify md:basis-3/5" data-jscall-id="58"><div class="flex flex-col gap-1" data-jscall-id="59"><h2 class="text-lg font-bold text-left" data-jscall-id="60">Surgical updates &#38; high performance</h2>Makie uses Observables.jl to only update what&#39;s necessary at a given point in time.
 This example animates hundreds of thousands of points just through a colormap update, modifying only a few bytes per frame directly on the GPU.
 There&#39;s no faster way to animate large data. Combining the power of GPUs and Julia&#39;s high performance, Makie is fit for any task&#33;
-
-                  <div class="text-justify text-gray-600 w-full bg-gray-200 px-5 py-4 rounded-md hover:bg-gray-300" data-jscall-id="61">
-                    <span class="text-sm lg:text-base" data-jscall-id="62">
-                      <a href="https://julialang.slack.com/archives/C9XBLUCVB/p1682465705219249" data-jscall-id="63" target="_blank">
-                        <span class="text-left italic" data-jscall-id="64">„I&#39;m pretty stoked about this capability as it offers a new way of interactively visualizing animated geospatial data that I haven&#39;t seen done in any other language.“</span>
-                      </a>
-                      <a class="visited:text-purple-600 text-blue-600" href="https://www.linkedin.com/posts/alex-s-gardner_greenland-julia-itsabrlive-activity-7056483156798947328-99pH" data-jscall-id="65" style="" target="_blank">&#40;Alex S. Gardner&#41;</a>
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <div class="w-full md:basis-2/5" data-jscall-id="66">
-                <a class="visited:text-purple-600 text-blue-600" href="https://makieorg.github.io/Tyler.jl/v0.1.4/iceloss_ex" data-jscall-id="67" style="" target="_blank">
-                  <video class="rounded-md p-2 px-3 shadow bg-white" style="" data-jscall-id="68" muted="true" autoplay="true" loop="true">
-                    <source data-jscall-id="69" src="./bonito/mp4/glacier14818492613900551445.mp4" type="video/mp4" />
-                  </video>
-                </a>
-              </div>
-            </div>
-            <div class="w-full my-10" data-jscall-id="70"></div>
-            <div class="flex gap-6 items-center flex-col sm:flex-row" data-jscall-id="71">
-              <div class="text-base w-full text-justify md:basis-3/5" data-jscall-id="72">
-                <div class="flex flex-col gap-1" data-jscall-id="73">
-                  <h2 class="text-lg font-bold text-left" data-jscall-id="74">Powerful Layouting</h2>Makie has one of the most powerful layouting systems compared to other plotting
+<div class="text-justify text-gray-600 w-full bg-gray-200 px-5 py-4 rounded-md hover:bg-gray-300" data-jscall-id="61"><span class="text-sm lg:text-base" data-jscall-id="62"><a href="https://julialang.slack.com/archives/C9XBLUCVB/p1682465705219249" data-jscall-id="63" target="_blank"><span class="text-left italic" data-jscall-id="64">„I&#39;m pretty stoked about this capability as it offers a new way of interactively visualizing animated geospatial data that I haven&#39;t seen done in any other language.“</span></a><a class="visited:text-purple-600 text-blue-600" href="https://www.linkedin.com/posts/alex-s-gardner_greenland-julia-itsabrlive-activity-7056483156798947328-99pH" data-jscall-id="65" style="" target="_blank">&#40;Alex S. Gardner&#41;</a></span></div></div></div><div class="w-full md:basis-2/5" data-jscall-id="66"><a class="visited:text-purple-600 text-blue-600" href="https://makieorg.github.io/Tyler.jl/v0.1.4/iceloss_ex" data-jscall-id="67" style="" target="_blank"><video class="rounded-md p-2 px-3 shadow bg-white" style="" data-jscall-id="68" muted="true" autoplay="true" loop="true"><source data-jscall-id="69" src="./bonito/mp4/glacier14818492613900551445.mp4" type="video/mp4" /></video></a></div></div><div class="w-full my-10" data-jscall-id="70"></div><div class="flex gap-6 items-center flex-col sm:flex-row" data-jscall-id="71"><div class="text-base w-full text-justify md:basis-3/5" data-jscall-id="72"><div class="flex flex-col gap-1" data-jscall-id="73"><h2 class="text-lg font-bold text-left" data-jscall-id="74">Powerful Layouting</h2>Makie has one of the most powerful layouting systems compared to other plotting
 libraries, allowing you to tweak any possible attribute and place your plots
 and subplots freely.
-
-                  <div class="text-justify text-gray-600 w-full bg-gray-200 px-5 py-4 rounded-md hover:bg-gray-300" data-jscall-id="75">
-                    <span class="text-sm lg:text-base" data-jscall-id="76">
-                      <a href="https://twitter.com/BenediktEhinger/status/1665326068973158400" data-jscall-id="77" target="_blank">
-                        <span class="text-left italic" data-jscall-id="78">„The only way I succeeded to do this without manually replacing fonts in illustrator, is to use
-&#64;MakiePlots with it&#39;s fabulous layout-system.“</span>
-                      </a>
-                      <a class="visited:text-purple-600 text-blue-600" href="https://github.com/behinger" data-jscall-id="79" style="" target="_blank">&#40;Benedikt Ehinger&#41;</a>
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <div class="w-full md:basis-2/5" data-jscall-id="80">
-                <a class="visited:text-purple-600 text-blue-600" href="https://docs.makie.org/stable/tutorials/layout-tutorial/" data-jscall-id="81" style="" target="_blank">
-                  <img class="rounded-md p-2 px-3 shadow bg-white" style="" data-jscall-id="82" src="./bonito/png/layouting3895644071740883791.png" />
-                </a>
-              </div>
-            </div>
-            <div class="w-full my-10" data-jscall-id="83"></div>
-            <div class="flex gap-6 items-center flex-col sm:flex-row-reverse" data-jscall-id="84">
-              <div class="text-base w-full text-justify md:basis-3/5" data-jscall-id="85">
-                <div class="flex flex-col gap-1" data-jscall-id="86">
-                  <h2 class="text-lg font-bold text-left" data-jscall-id="87">2D, 3D, Volumes, Meshes, Sliders, Buttons and more</h2>Makie has support for all kind of primitives for interactive data exploration. This makes it simple to quickly build up dashboards for any kind of data.
-
-                  <div class="text-justify text-gray-600 w-full bg-gray-200 px-5 py-4 rounded-md hover:bg-gray-300" data-jscall-id="88">
-                    <span class="text-sm lg:text-base" data-jscall-id="89">
-                      <a href="https://discourse.julialang.org/t/comparison-of-plotting-packages/99860/44" data-jscall-id="90" target="_blank">
-                        <span class="text-left italic" data-jscall-id="91">„Makie was what convinced me to completely switch from Python to Julia.
+<div class="text-justify text-gray-600 w-full bg-gray-200 px-5 py-4 rounded-md hover:bg-gray-300" data-jscall-id="75"><span class="text-sm lg:text-base" data-jscall-id="76"><a href="https://twitter.com/BenediktEhinger/status/1665326068973158400" data-jscall-id="77" target="_blank"><span class="text-left italic" data-jscall-id="78">„The only way I succeeded to do this without manually replacing fonts in illustrator, is to use
+&#64;MakiePlots with it&#39;s fabulous layout-system.“</span></a><a class="visited:text-purple-600 text-blue-600" href="https://github.com/behinger" data-jscall-id="79" style="" target="_blank">&#40;Benedikt Ehinger&#41;</a></span></div></div></div><div class="w-full md:basis-2/5" data-jscall-id="80"><a class="visited:text-purple-600 text-blue-600" href="https://docs.makie.org/stable/tutorials/layout-tutorial/" data-jscall-id="81" style="" target="_blank"><img class="rounded-md p-2 px-3 shadow bg-white" style="" data-jscall-id="82" src="./bonito/png/layouting3895644071740883791.png" /></a></div></div><div class="w-full my-10" data-jscall-id="83"></div><div class="flex gap-6 items-center flex-col sm:flex-row-reverse" data-jscall-id="84"><div class="text-base w-full text-justify md:basis-3/5" data-jscall-id="85"><div class="flex flex-col gap-1" data-jscall-id="86"><h2 class="text-lg font-bold text-left" data-jscall-id="87">2D, 3D, Volumes, Meshes, Sliders, Buttons and more</h2>Makie has support for all kind of primitives for interactive data exploration. This makes it simple to quickly build up dashboards for any kind of data.
+<div class="text-justify text-gray-600 w-full bg-gray-200 px-5 py-4 rounded-md hover:bg-gray-300" data-jscall-id="88"><span class="text-sm lg:text-base" data-jscall-id="89"><a href="https://discourse.julialang.org/t/comparison-of-plotting-packages/99860/44" data-jscall-id="90" target="_blank"><span class="text-left italic" data-jscall-id="91">„Makie was what convinced me to completely switch from Python to Julia.
 It is simple and looks great out of the box.
-I was pretty quickly able to make a simple GUI that integrates with my laboratory instruments to automatically spit out plots.“</span>
-                      </a>
-                      <a class="visited:text-purple-600 text-blue-600" href="https://github.com/garrekstemo" data-jscall-id="92" style="" target="_blank">&#40;Garrek Stemo&#41;</a>
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <div class="w-full md:basis-2/5" data-jscall-id="93">
-                <a class="visited:text-purple-600 text-blue-600" href="" data-jscall-id="94" style="" target="_blank">
-                  <video class="rounded-md p-2 px-3 shadow bg-white" style="" data-jscall-id="95" muted="true" autoplay="true" loop="true">
-                    <source data-jscall-id="96" src="./bonito/mp4/clima-volume2133502445966336830.mp4" type="video/mp4" />
-                  </video>
-                </a>
-              </div>
-            </div>
-            <div class="w-full my-10" data-jscall-id="97"></div>
-            <div class="flex gap-6 items-center flex-col sm:flex-row" data-jscall-id="98">
-              <div class="text-base w-full text-justify md:basis-3/5" data-jscall-id="99">
-                <div class="flex flex-col gap-1" data-jscall-id="100">
-                  <h2 class="text-lg font-bold text-left" data-jscall-id="101">Powerful event system and rendering engine</h2>Makie is certainly not a game engine, but its rich rendering and interaction features allow the creation of simple, interactive games such as Minecraft.
+I was pretty quickly able to make a simple GUI that integrates with my laboratory instruments to automatically spit out plots.“</span></a><a class="visited:text-purple-600 text-blue-600" href="https://github.com/garrekstemo" data-jscall-id="92" style="" target="_blank">&#40;Garrek Stemo&#41;</a></span></div></div></div><div class="w-full md:basis-2/5" data-jscall-id="93"><a class="visited:text-purple-600 text-blue-600" href="" data-jscall-id="94" style="" target="_blank"><video class="rounded-md p-2 px-3 shadow bg-white" style="" data-jscall-id="95" muted="true" autoplay="true" loop="true"><source data-jscall-id="96" src="./bonito/mp4/clima-volume2133502445966336830.mp4" type="video/mp4" /></video></a></div></div><div class="w-full my-10" data-jscall-id="97"></div><div class="flex gap-6 items-center flex-col sm:flex-row" data-jscall-id="98"><div class="text-base w-full text-justify md:basis-3/5" data-jscall-id="99"><div class="flex flex-col gap-1" data-jscall-id="100"><h2 class="text-lg font-bold text-left" data-jscall-id="101">Powerful event system and rendering engine</h2>Makie is certainly not a game engine, but its rich rendering and interaction features allow the creation of simple, interactive games such as Minecraft.
 While Makie might not be the go-to for more complex games, using it to build a Minecraft-like game highlights its versatility for complex, interactive visualizations.
 Many use cases, such as AI gyms or complex, interactive 3D simulations, greatly benefit from this.
-
-                </div>
-              </div>
-              <div class="w-full md:basis-2/5" data-jscall-id="102">
-                <a class="visited:text-purple-600 text-blue-600" href="https://github.com/ashwani-rathee/Miner.jl" data-jscall-id="103" style="" target="_blank">
-                  <img class="rounded-md p-2 px-3 shadow bg-white" style="" data-jscall-id="104" src="./bonito/png/miner13830489241723672652.png" />
-                </a>
-              </div>
-            </div>
-            <div class="w-full my-10" data-jscall-id="105"></div>
-          </div>
-        </div>
-        <div class=" flex flex-col items-center w-full" data-jscall-id="106">
-          <div class="p-4 max-w-5xl" data-jscall-id="107">
-            <h1 class="text-xl font-black text-left my-4" data-jscall-id="108">Backends</h1>
-            <div class="w-full text-justify my-4" data-jscall-id="109">Makie&#39;s backends are the reason why we can have high quality vector graphics for publication while also delivering fast GPU accelerated renderings.
+</div></div><div class="w-full md:basis-2/5" data-jscall-id="102"><a class="visited:text-purple-600 text-blue-600" href="https://github.com/ashwani-rathee/Miner.jl" data-jscall-id="103" style="" target="_blank"><img class="rounded-md p-2 px-3 shadow bg-white" style="" data-jscall-id="104" src="./bonito/png/miner13830489241723672652.png" /></a></div></div><div class="w-full my-10" data-jscall-id="105"></div></div></div><div class=" flex flex-col items-center w-full" data-jscall-id="106"><div class="p-4 max-w-5xl" data-jscall-id="107"><h1 class="text-xl font-black text-left my-4" data-jscall-id="108">Backends</h1><div class="w-full text-justify my-4" data-jscall-id="109">Makie&#39;s backends are the reason why we can have high quality vector graphics for publication while also delivering fast GPU accelerated renderings.
 Use exactly the same code and change how your interactive graphic is displayed simply by switching the backend.
-</div>
-            <div class="flex gap-6 items-center flex-col sm:flex-row-reverse" data-jscall-id="110">
-              <div class="text-base w-full text-justify md:basis-3/5" data-jscall-id="111">
-                <div class="flex flex-col gap-1" data-jscall-id="112">
-                  <h2 class="text-lg font-bold text-left" data-jscall-id="113">GLMakie</h2>
-                  <span data-jscall-id="114">The backend for fast, interactive desktop applications.
+</div><div class="flex gap-6 items-center flex-col sm:flex-row-reverse" data-jscall-id="110"><div class="text-base w-full text-justify md:basis-3/5" data-jscall-id="111"><div class="flex flex-col gap-1" data-jscall-id="112"><h2 class="text-lg font-bold text-left" data-jscall-id="113">GLMakie</h2><span data-jscall-id="114">The backend for fast, interactive desktop applications.
 It was Makie&#39;s first backend and uses the GPU via OpenGL for fast 3D animations.
 It supports basic UI elements for simple Dashboards.
 Either a hardware or virtual GPU &#40;e.g. Mesa, VirtualGL&#41; is necessary to use GLMakie.
 &#40;Image from:
-
-                    <a class="visited:text-purple-600 text-blue-600" href="https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2022MS003527" data-jscall-id="115" style="" target="_blank">A. N. Souza</a>&#41;
-                  </span>
-                </div>
-              </div>
-              <div class="w-full md:basis-2/5" data-jscall-id="116">
-                <a class="visited:text-purple-600 text-blue-600" href="https://docs.makie.org/stable/documentation/backends/glmakie/" data-jscall-id="117" style="" target="_blank">
-                  <img class="rounded-md p-2 px-3 shadow bg-white" style="" data-jscall-id="118" src="./bonito/png/glmakie9981004003139379269.png" />
-                </a>
-              </div>
-            </div>
-            <div class="w-full my-10" data-jscall-id="119"></div>
-            <div class="flex gap-6 items-center flex-col sm:flex-row" data-jscall-id="120">
-              <div class="text-base w-full text-justify md:basis-3/5" data-jscall-id="121">
-                <div class="flex flex-col gap-1" data-jscall-id="122">
-                  <h2 class="text-lg font-bold text-left" data-jscall-id="123">CairoMakie</h2>
-                  <span data-jscall-id="124">CairoMakie runs anywhere on the CPU and is Makie&#39;s backend for SVG and PDF vector graphics output.
+<a class="visited:text-purple-600 text-blue-600" href="https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2022MS003527" data-jscall-id="115" style="" target="_blank">A. N. Souza</a>&#41;</span></div></div><div class="w-full md:basis-2/5" data-jscall-id="116"><a class="visited:text-purple-600 text-blue-600" href="https://docs.makie.org/stable/documentation/backends/glmakie/" data-jscall-id="117" style="" target="_blank"><img class="rounded-md p-2 px-3 shadow bg-white" style="" data-jscall-id="118" src="./bonito/png/glmakie9981004003139379269.png" /></a></div></div><div class="w-full my-10" data-jscall-id="119"></div><div class="flex gap-6 items-center flex-col sm:flex-row" data-jscall-id="120"><div class="text-base w-full text-justify md:basis-3/5" data-jscall-id="121"><div class="flex flex-col gap-1" data-jscall-id="122"><h2 class="text-lg font-bold text-left" data-jscall-id="123">CairoMakie</h2><span data-jscall-id="124">CairoMakie runs anywhere on the CPU and is Makie&#39;s backend for SVG and PDF vector graphics output.
 With CairoMakie, you can achieve the highest quality output for publications and reports.
 Because it uses vector graphics primitives, CairoMakie does not support 3D rendering the same way as GLMakie
 and has no interactive mode.
 &#40;Image from:
-
-                    <a class="visited:text-purple-600 text-blue-600" href="https://beautiful.makie.org" data-jscall-id="125" style="" target="_blank">beautiful.makie.org</a>&#41;
-                  </span>
-                </div>
-              </div>
-              <div class="w-full md:basis-2/5" data-jscall-id="126">
-                <a class="visited:text-purple-600 text-blue-600" href="https://docs.makie.org/stable/documentation/backends/cairomakie/" data-jscall-id="127" style="" target="_blank">
-                  <img class="rounded-md p-2 px-3 shadow bg-white" style="" data-jscall-id="128" src="./bonito/svg/cairomakie4743274961490335342.svg" />
-                </a>
-              </div>
-            </div>
-            <div class="w-full my-10" data-jscall-id="129"></div>
-            <div class="flex gap-6 items-center flex-col sm:flex-row-reverse" data-jscall-id="130">
-              <div class="text-base w-full text-justify md:basis-3/5" data-jscall-id="131">
-                <div class="flex flex-col gap-1" data-jscall-id="132">
-                  <h2 class="text-lg font-bold text-left" data-jscall-id="133">WGLMakie</h2>
-                  <span data-jscall-id="134">WGLMakie puts your visualizations in the browser using Threejs and WebGL.
+<a class="visited:text-purple-600 text-blue-600" href="https://beautiful.makie.org" data-jscall-id="125" style="" target="_blank">beautiful.makie.org</a>&#41;</span></div></div><div class="w-full md:basis-2/5" data-jscall-id="126"><a class="visited:text-purple-600 text-blue-600" href="https://docs.makie.org/stable/documentation/backends/cairomakie/" data-jscall-id="127" style="" target="_blank"><img class="rounded-md p-2 px-3 shadow bg-white" style="" data-jscall-id="128" src="./bonito/svg/cairomakie4743274961490335342.svg" /></a></div></div><div class="w-full my-10" data-jscall-id="129"></div><div class="flex gap-6 items-center flex-col sm:flex-row-reverse" data-jscall-id="130"><div class="text-base w-full text-justify md:basis-3/5" data-jscall-id="131"><div class="flex flex-col gap-1" data-jscall-id="132"><h2 class="text-lg font-bold text-left" data-jscall-id="133">WGLMakie</h2><span data-jscall-id="134">WGLMakie puts your visualizations in the browser using Threejs and WebGL.
 It runs almost anywhere on the GPU and is great for working on remote machines,
 with Pluto or Jupyter notebooks, or in browser-like IDEs such as VSCode.
 Like with all javascript-based visualization tools, there is an overhead when transferring large amounts of data to the browser.
 &#40;Image from:
-
-                    <a class="visited:text-purple-600 text-blue-600" href="https://www.visus.uni-stuttgart.de" data-jscall-id="135" style="" target="_blank">VISUS</a>&#41;
-                  </span>
-                </div>
-              </div>
-              <div class="w-full md:basis-2/5" data-jscall-id="136">
-                <a class="visited:text-purple-600 text-blue-600" href="https://docs.makie.org/stable/documentation/backends/wglmakie/" data-jscall-id="137" style="" target="_blank">
-                  <video class="rounded-md p-2 px-3 shadow bg-white" style="" data-jscall-id="138" muted="true" autoplay="true" loop="true">
-                    <source data-jscall-id="139" src="./bonito/mp4/wglmakie11916996899549263628.mp4" type="video/mp4" />
-                  </video>
-                </a>
-              </div>
-            </div>
-            <div class="w-full my-10" data-jscall-id="140"></div>
-            <div class="flex gap-6 items-center flex-col sm:flex-row" data-jscall-id="141">
-              <div class="text-base w-full text-justify md:basis-3/5" data-jscall-id="142">
-                <div class="flex flex-col gap-1" data-jscall-id="143">
-                  <h2 class="text-lg font-bold text-left" data-jscall-id="144">RPRMakie</h2>
-                  <div data-jscall-id="145">    RPRMakie is the newest experimental backend for raytraced images using 
-                    <a class="visited:text-purple-600 text-blue-600" href="https://github.com/GPUOpen-LibrariesAndSDKs/RadeonProRenderSDK" data-jscall-id="146" style="" target="_blank">RadeonProRender</a> from AMD.
+<a class="visited:text-purple-600 text-blue-600" href="https://www.visus.uni-stuttgart.de" data-jscall-id="135" style="" target="_blank">VISUS</a>&#41;</span></div></div><div class="w-full md:basis-2/5" data-jscall-id="136"><a class="visited:text-purple-600 text-blue-600" href="https://docs.makie.org/stable/documentation/backends/wglmakie/" data-jscall-id="137" style="" target="_blank"><video class="rounded-md p-2 px-3 shadow bg-white" style="" data-jscall-id="138" muted="true" autoplay="true" loop="true"><source data-jscall-id="139" src="./bonito/mp4/wglmakie11916996899549263628.mp4" type="video/mp4" /></video></a></div></div><div class="w-full my-10" data-jscall-id="140"></div><div class="flex gap-6 items-center flex-col sm:flex-row" data-jscall-id="141"><div class="text-base w-full text-justify md:basis-3/5" data-jscall-id="142"><div class="flex flex-col gap-1" data-jscall-id="143"><h2 class="text-lg font-bold text-left" data-jscall-id="144">RPRMakie</h2><div data-jscall-id="145">    RPRMakie is the newest experimental backend for raytraced images using <a class="visited:text-purple-600 text-blue-600" href="https://github.com/GPUOpen-LibrariesAndSDKs/RadeonProRenderSDK" data-jscall-id="146" style="" target="_blank">RadeonProRender</a> from AMD.
     RadeonProRender is not only a production ready high quality raytracing engine, but even though the name suggests otherwise, its truely cross platform and runs on AMD/NVIDIA GPUs and any CPU.
     With appropriately fast hardware, you can render beautiful visualizations that show off your data
     using physically accurate materials and lights.
-    &#40;Image from: 
-                    <a class="visited:text-purple-600 text-blue-600" href="https://github.com/lazarusA" data-jscall-id="147" style="" target="_blank">Lazaro Alonso</a>&#41;
-
-                  </div>
-                </div>
-              </div>
-              <div class="w-full md:basis-2/5" data-jscall-id="148">
-                <a class="visited:text-purple-600 text-blue-600" href="https://docs.makie.org/stable/documentation/backends/rprmakie/" data-jscall-id="149" style="" target="_blank">
-                  <img class="rounded-md p-2 px-3 shadow bg-white" style="" data-jscall-id="150" src="./bonito/png/earths_creditst5498830033835721063.png" />
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="bg-gray-100 flex flex-col items-center w-full" data-jscall-id="151">
-          <div class="p-4 max-w-5xl" data-jscall-id="152">
-            <h1 class="text-xl font-black text-left my-4" data-jscall-id="153">Rich Ecosystem</h1>
-            <div class="w-full text-justify my-4" data-jscall-id="154">Makie is highly modular and extensible.
+    &#40;Image from: <a class="visited:text-purple-600 text-blue-600" href="https://github.com/lazarusA" data-jscall-id="147" style="" target="_blank">Lazaro Alonso</a>&#41;
+</div></div></div><div class="w-full md:basis-2/5" data-jscall-id="148"><a class="visited:text-purple-600 text-blue-600" href="https://docs.makie.org/stable/documentation/backends/rprmakie/" data-jscall-id="149" style="" target="_blank"><img class="rounded-md p-2 px-3 shadow bg-white" style="" data-jscall-id="150" src="./bonito/png/earths_creditst5498830033835721063.png" /></a></div></div></div></div><div class="bg-gray-100 flex flex-col items-center w-full" data-jscall-id="151"><div class="p-4 max-w-5xl" data-jscall-id="152"><h1 class="text-xl font-black text-left my-4" data-jscall-id="153">Rich Ecosystem</h1><div class="w-full text-justify my-4" data-jscall-id="154">Makie is highly modular and extensible.
 Many use cases are already covered by its inbuilt plot types and interactive elements.
 For more specialized applications, have a look at the rich third-party ecosystem that has developed around Makie:
-</div>
-            <div class="grid  gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4" data-jscall-id="155">
-              <div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="156">
-                <a class="" href="https://github.com/MakieOrg/GeoMakie.jl" data-jscall-id="157" style="" target="_blank">
-                  <div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="158">
-                    <div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="159">
-                      <span data-jscall-id="160">Geo&ZeroWidthSpace;Makie.jl</span>
-                    </div>
-                    <div class="container" data-jscall-id="161">
-                      <img class="image w-full" style="" data-jscall-id="162" src="./bonito/png/geomakie11358493969564532393.png" />
-                      <div class="overlay text-xs lg:text-base" data-jscall-id="163">Geographical plotting utilities for Makie.jl</div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="164">
-                <a class="" href="https://github.com/MakieOrg/Tyler.jl" data-jscall-id="165" style="" target="_blank">
-                  <div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="166">
-                    <div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="167">
-                      <span data-jscall-id="168">Tyler.jl</span>
-                    </div>
-                    <div class="container" data-jscall-id="169">
-                      <video class="image w-full" style="" data-jscall-id="170" muted="true" autoplay="true" loop="true">
-                        <source data-jscall-id="171" src="./bonito/mp4/tyler-sam721888137874463534.mp4" type="video/mp4" />
-                      </video>
-                      <div class="overlay text-xs lg:text-base" data-jscall-id="172">Makie package to plot maptiles from various map providers</div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="173">
-                <a class="" href="https://github.com/Ferrite-FEM/FerriteViz.jl" data-jscall-id="174" style="" target="_blank">
-                  <div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="175">
-                    <div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="176">
-                      <span data-jscall-id="177">Ferrite&ZeroWidthSpace;Viz.jl</span>
-                    </div>
-                    <div class="container" data-jscall-id="178">
-                      <video class="image w-full" style="" data-jscall-id="179" muted="true" autoplay="true" loop="true">
-                        <source data-jscall-id="180" src="./bonito/mp4/ferrite8762624152689823457.mp4" type="video/mp4" />
-                      </video>
-                      <div class="overlay text-xs lg:text-base" data-jscall-id="181">
-                        <p data-jscall-id="182">Small package to visualize 
-                          <a href="https://github.com/Ferrite-FEM/Ferrite.jl" data-jscall-id="183">Ferrite.jl</a> results, which is a simple finite element toolbox written in Julia.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="184">
-                <a class="" href="https://github.com/MakieOrg/GraphMakie.jl" data-jscall-id="185" style="" target="_blank">
-                  <div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="186">
-                    <div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="187">
-                      <span data-jscall-id="188">Graph&ZeroWidthSpace;Makie.jl</span>
-                    </div>
-                    <div class="container" data-jscall-id="189">
-                      <img class="image w-full" style="" data-jscall-id="190" src="./bonito/png/graphmakie1029472202763824743.png" />
-                      <div class="overlay text-xs lg:text-base" data-jscall-id="191">Plotting graphs with Makie</div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="192">
-                <a class="" href="https://github.com/kool7d/BioMakie.jl" data-jscall-id="193" style="" target="_blank">
-                  <div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="194">
-                    <div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="195">
-                      <span data-jscall-id="196">Bio&ZeroWidthSpace;Makie.jl</span>
-                    </div>
-                    <div class="container" data-jscall-id="197">
-                      <img class="image w-full" style="" data-jscall-id="198" src="./bonito/png/biomakie15121383689130312536.png" />
-                      <div class="overlay text-xs lg:text-base" data-jscall-id="199">User interface tools for bioinformatics</div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="200">
-                <a class="" href="https://github.com/MakieOrg/TopoPlots.jl" data-jscall-id="201" style="" target="_blank">
-                  <div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="202">
-                    <div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="203">
-                      <span data-jscall-id="204">Topo&ZeroWidthSpace;Plots.jl</span>
-                    </div>
-                    <div class="container" data-jscall-id="205">
-                      <img class="image w-full" style="" data-jscall-id="206" src="./bonito/png/topoplots7222616480617714271.png" />
-                      <div class="overlay text-xs lg:text-base" data-jscall-id="207">Makie topo plot recipes, for neuro-science, geo plots and anyone needing surface plots from unstructured data</div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="208">
-                <a class="" href="https://github.com/bradcarman/ModelingToolkitDesigner.jl" data-jscall-id="209" style="" target="_blank">
-                  <div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="210">
-                    <div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="211">
-                      <span data-jscall-id="212">Modeling&ZeroWidthSpace;Toolkit&ZeroWidthSpace;Designer.jl</span>
-                    </div>
-                    <div class="container" data-jscall-id="213">
-                      <img class="image w-full" style="" data-jscall-id="214" src="./bonito/svg/modelingtoolkitdesigner9873837794654111878.svg" />
-                      <div class="overlay text-xs lg:text-base" data-jscall-id="215">A helper tool for visualizing and editing a ModelingToolkit.jl system connections</div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="216">
-                <a class="" href="https://sefffal.github.io/PairPlots.jl/" data-jscall-id="217" style="" target="_blank">
-                  <div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="218">
-                    <div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="219">
-                      <span data-jscall-id="220">Pair&ZeroWidthSpace;Plots.jl</span>
-                    </div>
-                    <div class="container" data-jscall-id="221">
-                      <img class="image w-full" style="" data-jscall-id="222" src="./bonito/png/pairplots7116594010346861110.png" />
-                      <div class="overlay text-xs lg:text-base" data-jscall-id="223">Beautiful and flexible vizualizations of high dimensional data</div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="224">
-                <a class="" href="https://aog.makie.org/" data-jscall-id="225" style="" target="_blank">
-                  <div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="226">
-                    <div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="227">
-                      <span data-jscall-id="228">Algebra&ZeroWidthSpace;Of&ZeroWidthSpace;Graphics.jl</span>
-                    </div>
-                    <div class="container" data-jscall-id="229">
-                      <img class="image w-full" style="" data-jscall-id="230" src="./bonito/png/aog4674803173138222672.png" />
-                      <div class="overlay text-xs lg:text-base" data-jscall-id="231">AlgebraOfGraphics defines a language for data visualization. It is based on a few simple building blocks that can be combined using &#43; and *.</div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="232">
-                <a class="" href="https://github.com/TidierOrg/TidierPlots.jl" data-jscall-id="233" style="" target="_blank">
-                  <div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="234">
-                    <div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="235">
-                      <span data-jscall-id="236">Tidier&ZeroWidthSpace;Plots.jl</span>
-                    </div>
-                    <div class="container" data-jscall-id="237">
-                      <img class="image w-full" style="" data-jscall-id="238" src="./bonito/png/tidier3927288518116321855.png" />
-                      <div class="overlay text-xs lg:text-base" data-jscall-id="239">100&#37; Julia implementation of the ggplot2 R package</div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="240">
-                <a class="" href="https://github.com/JuliaGeometry/Meshes.jl" data-jscall-id="241" style="" target="_blank">
-                  <div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="242">
-                    <div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="243">
-                      <span data-jscall-id="244">Meshes.jl</span>
-                    </div>
-                    <div class="container" data-jscall-id="245">
-                      <img class="image w-full" style="" data-jscall-id="246" src="./bonito/png/meshviz9898509763900401596.png" />
-                      <div class="overlay text-xs lg:text-base" data-jscall-id="247">Makie.jl recipes for visualization of Meshes.jl</div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="248">
-                <a class="" href="https://github.com/MakieOrg/OSMMakie.jl" data-jscall-id="249" style="" target="_blank">
-                  <div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="250">
-                    <div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="251">
-                      <span data-jscall-id="252">OSMMakie.jl</span>
-                    </div>
-                    <div class="container" data-jscall-id="253">
-                      <img class="image w-full" style="" data-jscall-id="254" src="./bonito/png/osmmakie11167317753941997646.png" />
-                      <div class="overlay text-xs lg:text-base" data-jscall-id="255">A Makie.jl recipe for plotting OpenStreetMap data.</div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="256">
-                <a class="" href="https://github.com/mmkim1210/GeneticsMakie.jl" data-jscall-id="257" style="" target="_blank">
-                  <div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="258">
-                    <div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="259">
-                      <span data-jscall-id="260">Genetics&ZeroWidthSpace;Makie.jl</span>
-                    </div>
-                    <div class="container" data-jscall-id="261">
-                      <img class="image w-full" style="" data-jscall-id="262" src="./bonito/png/geneticsmakie10944343613455051445.png" />
-                      <div class="overlay text-xs lg:text-base" data-jscall-id="263">🧬High-performance genetics-related data visualization using Makie.jl</div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="264">
-                <a class="" href="https://github.com/agdestein/IncompressibleNavierStokes.jl" data-jscall-id="265" style="" target="_blank">
-                  <div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="266">
-                    <div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="267">
-                      <span data-jscall-id="268">Incompressible&ZeroWidthSpace;Navier&ZeroWidthSpace;Stokes.jl</span>
-                    </div>
-                    <div class="container" data-jscall-id="269">
-                      <video class="image w-full" style="" data-jscall-id="270" muted="true" autoplay="true" loop="true">
-                        <source data-jscall-id="271" src="./bonito/mp4/incompressiblenavierstokes17591346662483319372.mp4" type="video/mp4" />
-                      </video>
-                      <div class="overlay text-xs lg:text-base" data-jscall-id="272">Incompressible Navier-Stokes solver, utilizing Makie for interactive visualizations</div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="273">
-                <a class="" href="https://github.com/org-arl/InteractiveViz.jl" data-jscall-id="274" style="" target="_blank">
-                  <div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="275">
-                    <div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="276">
-                      <span data-jscall-id="277">Interactive&ZeroWidthSpace;Viz.jl</span>
-                    </div>
-                    <div class="container" data-jscall-id="278">
-                      <img class="image w-full" style="" data-jscall-id="279" src="./bonito/png/interactiveviz11839324825669516086.png" />
-                      <div class="overlay text-xs lg:text-base" data-jscall-id="280">Interactive visualization tools for Julia</div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="281">
-                <a class="" href="https://github.com/liuyxpp/MakiePublication.jl" data-jscall-id="282" style="" target="_blank">
-                  <div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="283">
-                    <div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="284">
-                      <span data-jscall-id="285">Makie&ZeroWidthSpace;Publications.jl</span>
-                    </div>
-                    <div class="container" data-jscall-id="286">
-                      <img class="image w-full" style="" data-jscall-id="287" src="./bonito/svg/makiepublications1759845751782845763.svg" />
-                      <div class="overlay text-xs lg:text-base" data-jscall-id="288">A Julia package for producing publication quality figures based on Makie.jl.</div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="289">
-                <a class="" href="https://github.com/unfoldtoolbox/UnfoldMakie.jl" data-jscall-id="290" style="" target="_blank">
-                  <div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="291">
-                    <div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="292">
-                      <span data-jscall-id="293">Unfold&ZeroWidthSpace;Makie.jl</span>
-                    </div>
-                    <div class="container" data-jscall-id="294">
-                      <img class="image w-full" style="" data-jscall-id="295" src="./bonito/png/unfoldmakie5430355657647577215.png" />
-                      <div class="overlay text-xs lg:text-base" data-jscall-id="296">Plotting tools for Unfold.jl based on Makie.jl and AlgebraOfGraphics.jl</div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="297">
-                <a class="" href="https://github.com/UniStuttgart-IKR/NestedGraphMakie.jl" data-jscall-id="298" style="" target="_blank">
-                  <div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="299">
-                    <div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="300">
-                      <span data-jscall-id="301">Nested&ZeroWidthSpace;Graph&ZeroWidthSpace;Makie.jl</span>
-                    </div>
-                    <div class="container" data-jscall-id="302">
-                      <img class="image w-full" style="" data-jscall-id="303" src="./bonito/png/nestedgraphmakie3062284686736338766.png" />
-                      <div class="overlay text-xs lg:text-base" data-jscall-id="304">A package for NestedGraphs.jl to make easy visualizations.</div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="305">
-                <a class="" href="https://github.com/MakieOrg/MakieDraw.jl" data-jscall-id="306" style="" target="_blank">
-                  <div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="307">
-                    <div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="308">
-                      <span data-jscall-id="309">Makie&ZeroWidthSpace;Draw.jl</span>
-                    </div>
-                    <div class="container" data-jscall-id="310">
-                      <video class="image w-full" style="" data-jscall-id="311" muted="true" autoplay="true" loop="true">
-                        <source data-jscall-id="312" src="./bonito/mp4/makiedraw63162098283058189.mp4" type="video/mp4" />
-                      </video>
-                      <div class="overlay text-xs lg:text-base" data-jscall-id="313">Plot an interactive canvas of GeometryBaseics Point, LineString or Polygon, or an ms-paint style canvas for any numerical or color Array</div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="314">
-                <a class="" href="https://juliadynamics.github.io/Agents.jl/" data-jscall-id="315" style="" target="_blank">
-                  <div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="316">
-                    <div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="317">
-                      <span data-jscall-id="318">Agents.jl</span>
-                    </div>
-                    <div class="container" data-jscall-id="319">
-                      <img class="image w-full" style="" data-jscall-id="320" src="./bonito/png/agents18301902073295593927.png" />
-                      <div class="overlay text-xs lg:text-base" data-jscall-id="321">Agents.jl is a pure Julia framework for agent-based modeling &#40;ABM&#41;</div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="322">
-                <a class="" href="https://help.juliahub.com/multibody/" data-jscall-id="323" style="" target="_blank">
-                  <div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="324">
-                    <div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="325">
-                      <span data-jscall-id="326">Multibody.jl</span>
-                    </div>
-                    <div class="container" data-jscall-id="327">
-                      <img class="image w-full" style="" data-jscall-id="328" src="./bonito/gif/robot16166619961350124336.gif" />
-                      <div class="overlay text-xs lg:text-base" data-jscall-id="329">Multibody.jl is a powerful and flexible component of JuliaSim designed to model, analyze, and simulate multibody systems in Julia.</div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="330">
-                <a class="" href="https://vezy.github.io/PlantGeom.jl" data-jscall-id="331" style="" target="_blank">
-                  <div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="332">
-                    <div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="333">
-                      <span data-jscall-id="334">Plant&ZeroWidthSpace;Geom.jl</span>
-                    </div>
-                    <div class="container" data-jscall-id="335">
-                      <img class="image w-full" style="" data-jscall-id="336" src="./bonito/png/PlantGeom4546374330117833058.png" />
-                      <div class="overlay text-xs lg:text-base" data-jscall-id="337">The package is designed around MultiScaleTreeGraph that serves as the basic structure for the plant topology and attributes.</div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="338">
-                <a class="" href="https://github.com/gridap/GridapMakie.jl" data-jscall-id="339" style="" target="_blank">
-                  <div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="340">
-                    <div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="341">
-                      <span data-jscall-id="342">Gridap&ZeroWidthSpace;Makie.jl</span>
-                    </div>
-                    <div class="container" data-jscall-id="343">
-                      <img class="image w-full" style="" data-jscall-id="344" src="./bonito/gif/gridap8771040138679553646.gif" />
-                      <div class="overlay text-xs lg:text-base" data-jscall-id="345">Makie plotting recipes for Gridap.</div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="346">
-                <a class="" href="https://github.com/MurrellGroup/ProtPlot.jl" data-jscall-id="347" style="" target="_blank">
-                  <div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="348">
-                    <div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="349">
-                      <span data-jscall-id="350">Prot&ZeroWidthSpace;Plot.jl</span>
-                    </div>
-                    <div class="container" data-jscall-id="351">
-                      <img class="image w-full" style="" data-jscall-id="352" src="./bonito/png/protplot2493410784664472937.png" />
-                      <div class="overlay text-xs lg:text-base" data-jscall-id="353">Protein ribbon plots implemented in Julia using Makie.</div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="354">
-                <a class="" href="https://github.com/JuliaPlanners/PDDLViz.jl" data-jscall-id="355" style="" target="_blank">
-                  <div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="356">
-                    <div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="357">
-                      <span data-jscall-id="358">PDDLViz.jl</span>
-                    </div>
-                    <div class="container" data-jscall-id="359">
-                      <img class="image w-full" style="" data-jscall-id="360" src="./bonito/gif/pddlviz6979268094501068365.gif" />
-                      <div class="overlay text-xs lg:text-base" data-jscall-id="361">A library for visualizing and animating PDDL domains.</div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="362">
-                <a class="" href="https://github.com/aenarete/KiteViewers.jl" data-jscall-id="363" style="" target="_blank">
-                  <div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="364">
-                    <div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="365">
-                      <span data-jscall-id="366">Kite&ZeroWidthSpace;Viewers.jl</span>
-                    </div>
-                    <div class="container" data-jscall-id="367">
-                      <img class="image w-full" style="" data-jscall-id="368" src="./bonito/png/kiteviewer13474717386061065216.png" />
-                      <div class="overlay text-xs lg:text-base" data-jscall-id="369">3D viewer for airborne wind energy systems.</div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="370">
-                <a class="" href="https://github.com/myersm0/ObservableCortex.jl" data-jscall-id="371" style="" target="_blank">
-                  <div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="372">
-                    <div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="373">
-                      <span data-jscall-id="374">Observable&ZeroWidthSpace;Cortex.jl</span>
-                    </div>
-                    <div class="container" data-jscall-id="375">
-                      <img class="image w-full" style="" data-jscall-id="376" src="./bonito/png/ObservableCortex12135998164965302104.png" />
-                      <div class="overlay text-xs lg:text-base" data-jscall-id="377">A Julia package for interactively visualizing and animating 3d cortical surface meshes.</div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="378">
-                <a class="" href="https://github.com/brendanjohnharris/AllenNeuropixels.jl" data-jscall-id="379" style="" target="_blank">
-                  <div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="380">
-                    <div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="381">
-                      <span data-jscall-id="382">Allen&ZeroWidthSpace;Neuropixels.jl</span>
-                    </div>
-                    <div class="container" data-jscall-id="383">
-                      <img class="image w-full" style="" data-jscall-id="384" src="./bonito/png/allenneuropix186213962252747251.png" />
-                      <div class="overlay text-xs lg:text-base" data-jscall-id="385">Load, format, analyze, and plot the Allen Neuropixels datasets.</div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="386">
-                <a class="" href="https://github.com/matthiashimmelmann/Implicit3DPlotting.jl" data-jscall-id="387" style="" target="_blank">
-                  <div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="388">
-                    <div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="389">
-                      <span data-jscall-id="390">Implicit3DPlotting.jl</span>
-                    </div>
-                    <div class="container" data-jscall-id="391">
-                      <img class="image w-full" style="" data-jscall-id="392" src="./bonito/png/Implicit3DPlotting6454861138342684200.png" />
-                      <div class="overlay text-xs lg:text-base" data-jscall-id="393">Load, format, analyze, and plot the Allen Neuropixels datasets.</div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="394">
-                <a class="" href="https://github.com/dsb-lab/CellBasedModels.jl" data-jscall-id="395" style="" target="_blank">
-                  <div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="396">
-                    <div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="397">
-                      <span data-jscall-id="398">Cell&ZeroWidthSpace;Based&ZeroWidthSpace;Models.jl</span>
-                    </div>
-                    <div class="container" data-jscall-id="399">
-                      <video class="image w-full" style="" data-jscall-id="400" muted="true" autoplay="true" loop="true">
-                        <source data-jscall-id="401" src="./bonito/mp4/cellbasedmodels4399382508256945386.mp4" type="video/mp4" />
-                      </video>
-                      <div class="overlay text-xs lg:text-base" data-jscall-id="402">Load, format, analyze, and plot the Allen Neuropixels datasets.</div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="403">
-                <a class="" href="https://github.com/SunnySuite/Sunny.jl" data-jscall-id="404" style="" target="_blank">
-                  <div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="405">
-                    <div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="406">
-                      <span data-jscall-id="407">Sunny.jl</span>
-                    </div>
-                    <div class="container" data-jscall-id="408">
-                      <img class="image w-full" style="" data-jscall-id="409" src="./bonito/png/sunny13432988648485176747.png" />
-                      <div class="overlay text-xs lg:text-base" data-jscall-id="410">Spin dynamics and generalization to SU&#40;N&#41; coherent states.</div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="411">
-                <a class="" href="https://github.com/alstat/Bagyo.jl" data-jscall-id="412" style="" target="_blank">
-                  <div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="413">
-                    <div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="414">
-                      <span data-jscall-id="415">Bagyo.jl</span>
-                    </div>
-                    <div class="container" data-jscall-id="416">
-                      <img class="image w-full" style="" data-jscall-id="417" src="./bonito/png/bagyo6716582543993420705.png" />
-                      <div class="overlay text-xs lg:text-base" data-jscall-id="418">Toolkit for extraction and analysis of typhoon/climate data in the Western-North Pacific &#40;WNP&#41; region.</div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="419">
-                <a class="" href="https://github.com/EnergyModelsX/EnergyModelsGUI.jl" data-jscall-id="420" style="" target="_blank">
-                  <div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="421">
-                    <div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="422">
-                      <span data-jscall-id="423">Energy&ZeroWidthSpace;Models&ZeroWidthSpace;GUI.jl</span>
-                    </div>
-                    <div class="container" data-jscall-id="424">
-                      <img class="image w-full" style="" data-jscall-id="425" src="./bonito/png/energymodel12137163859947988218.png" />
-                      <div class="overlay text-xs lg:text-base" data-jscall-id="426">EnergyModelsX is an operational, multi nodeal energy system model, written in Julia.</div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="427">
-                <a class="" href="https://github.com/SpinDoctorMRI/SpinDoctor.jl" data-jscall-id="428" style="" target="_blank">
-                  <div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="429">
-                    <div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="430">
-                      <span data-jscall-id="431">Spin&ZeroWidthSpace;Doctor.jl</span>
-                    </div>
-                    <div class="container" data-jscall-id="432">
-                      <img class="image w-full" style="" data-jscall-id="433" src="./bonito/png/SpinDoctor7995120584215354667.png" />
-                      <div class="overlay text-xs lg:text-base" data-jscall-id="434">Diffusion MRI Simulation Toolbox in Julia.</div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="435">
-                <a class="" href="https://github.com/JuliaTelecom/TempestSDR.jl" data-jscall-id="436" style="" target="_blank">
-                  <div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="437">
-                    <div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="438">
-                      <span data-jscall-id="439">Tempest&ZeroWidthSpace;SDR.jl</span>
-                    </div>
-                    <div class="container" data-jscall-id="440">
-                      <img class="image w-full" style="" data-jscall-id="441" src="./bonito/png/tempestsdr15256621377331658023.png" />
-                      <div class="overlay text-xs lg:text-base" data-jscall-id="442">Screen eavesdrop in real time leveraging SDR and pure Julia implementation.</div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="443">
-                <a class="" href="https://github.com/mi3nts/MintsMakieRecipes.jl" data-jscall-id="444" style="" target="_blank">
-                  <div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="445">
-                    <div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="446">
-                      <span data-jscall-id="447">Mints&ZeroWidthSpace;Makie&ZeroWidthSpace;Recipes.jl</span>
-                    </div>
-                    <div class="container" data-jscall-id="448">
-                      <img class="image w-full" style="" data-jscall-id="449" src="./bonito/png/mintsmakierecipes810342790746140618.png" />
-                      <div class="overlay text-xs lg:text-base" data-jscall-id="450">This package is a collection of Makie plotting recipes, themes, and configurations for generating publication-ready figures for the MINTS research group.</div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="white flex flex-col items-center w-full" data-jscall-id="451">
-          <div class="p-4 max-w-5xl" data-jscall-id="452">
-            <div class="text-xl text-black flex justify-center mt-14 mb-10 font-semibold" data-jscall-id="453">Users</div>
-            <div class="flex flex-wrap justify-center items-center -m-2 lg:-m-8" data-jscall-id="454">
-              <div class="w-1/2 sm:w-1/3 lg:w-1/5 lg:p-8 p-6 flex justify-center" data-jscall-id="455">
-                <a class="w-full" href="https://clima.caltech.edu" data-jscall-id="456" style="" target="_blank">
-                  <img class="w-full" data-jscall-id="457" src="./bonito/png/climaalliancelogo5659358840387470867.png" />
-                </a>
-              </div>
-              <div class="w-1/2 sm:w-1/3 lg:w-1/5 lg:p-8 p-6 flex justify-center" data-jscall-id="458">
-                <a class="w-full" href="https://www.bgc-jena.mpg.de/en/bgi/gallery" data-jscall-id="459" style="" target="_blank">
-                  <img class="w-full" data-jscall-id="460" src="./bonito/png/mpg_biogeochemistry7782481456607471865.png" />
-                </a>
-              </div>
-              <div class="w-1/2 sm:w-1/3 lg:w-1/5 lg:p-8 p-6 flex justify-center" data-jscall-id="461">
-                <a class="w-full" href="https://www.jpl.nasa.gov/" data-jscall-id="462" style="" target="_blank">
-                  <img class="w-full" data-jscall-id="463" src="./bonito/png/nasa_jpl437813577479306996.png" />
-                </a>
-              </div>
-              <div class="w-1/2 sm:w-1/3 lg:w-1/5 lg:p-8 p-6 flex justify-center" data-jscall-id="464">
-                <a class="w-full" href="https://www.youtube.com/watch?v=7-vN8oNAz6Y" data-jscall-id="465" style="" target="_blank">
-                  <img class="w-full" data-jscall-id="466" src="./bonito/png/microsoft4290855347513613975.png" />
-                </a>
-              </div>
-              <div class="w-1/2 sm:w-1/3 lg:w-1/5 lg:p-8 p-6 flex justify-center" data-jscall-id="467">
-                <a class="w-full" href="https://github.com/bradcarman/ModelingToolkitDesigner.jl" data-jscall-id="468" style="" target="_blank">
-                  <img class="w-full" data-jscall-id="469" src="./bonito/png/instron4540346282627290323.png" />
-                </a>
-              </div>
-              <div class="w-1/2 sm:w-1/3 lg:w-1/5 lg:p-8 p-6 flex justify-center" data-jscall-id="470">
-                <a class="w-full" href="https://www.youtube.com/watch?v=-Cg6AoymaM0" data-jscall-id="471" style="" target="_blank">
-                  <img class="w-full" data-jscall-id="472" src="./bonito/png/DWD15574948292046267337.png" />
-                </a>
-              </div>
-            </div>
-            <div class="text-xl text-black flex justify-center mt-14 mb-10 font-semibold" data-jscall-id="473">Supporters</div>
-            <div class="flex flex-wrap justify-center items-center -m-2 lg:-m-8" data-jscall-id="474">
-              <div class="w-1/2 sm:w-1/3 lg:w-1/5 lg:p-8 p-6 flex justify-center" data-jscall-id="475">
-                <a class="w-full" href="https://numfocus.org/project/julia" data-jscall-id="476" style="" target="_blank">
-                  <img class="w-full" data-jscall-id="477" src="./bonito/png/numfocus13590946236240252258.png" />
-                </a>
-              </div>
-              <div class="w-1/2 sm:w-1/3 lg:w-1/5 lg:p-8 p-6 flex justify-center" data-jscall-id="478">
-                <a class="w-full" href="https://pumas.ai" data-jscall-id="479" style="" target="_blank">
-                  <img class="w-full" data-jscall-id="480" src="./bonito/svg/pumasai14911901414396176055.svg" />
-                </a>
-              </div>
-              <div class="w-1/2 sm:w-1/3 lg:w-1/5 lg:p-8 p-6 flex justify-center" data-jscall-id="481">
-                <a class="w-full" href="https://juliahub.com" data-jscall-id="482" style="" target="_blank">
-                  <img class="w-full" data-jscall-id="483" src="./bonito/png/juliahublogo1023130632594899099.png" />
-                </a>
-              </div>
-              <div class="w-1/2 sm:w-1/3 lg:w-1/5 lg:p-8 p-6 flex justify-center" data-jscall-id="484">
-                <a class="w-full" href="https://beacon.bio" data-jscall-id="485" style="" target="_blank">
-                  <img class="w-full" data-jscall-id="486" src="./bonito/svg/beacon18443740156098832419.svg" />
-                </a>
-              </div>
-              <div class="w-1/2 sm:w-1/3 lg:w-1/5 lg:p-8 p-6 flex justify-center" data-jscall-id="487">
-                <a class="w-full" href="https://lanl.gov" data-jscall-id="488" style="" target="_blank">
-                  <img class="w-full" data-jscall-id="489" src="./bonito/svg/lanl-light12539361950650796176.svg" />
-                </a>
-              </div>
-              <div class="w-1/2 sm:w-1/3 lg:w-1/5 lg:p-8 p-6 flex justify-center" data-jscall-id="490">
-                <a class="w-full" href="https://www.ornl.gov" data-jscall-id="491" style="" target="_blank">
-                  <img class="w-full" data-jscall-id="492" src="./bonito/svg/ornl-light2223796198484360288.svg" />
-                </a>
-              </div>
-              <div class="w-1/2 sm:w-1/3 lg:w-1/5 lg:p-8 p-6 flex justify-center" data-jscall-id="493">
-                <a class="w-full" href="https://web.mit.edu/" data-jscall-id="494" style="" target="_blank">
-                  <img class="w-full" data-jscall-id="495" src="./bonito/png/mit13597939803004961334.png" />
-                </a>
-              </div>
-              <div class="w-1/2 sm:w-1/3 lg:w-1/5 lg:p-8 p-6 flex justify-center" data-jscall-id="496">
-                <a class="w-full" href="https://www.bmbf.de" data-jscall-id="497" style="" target="_blank">
-                  <img class="w-full" data-jscall-id="498" src="./bonito/svg/bmbf2236514309171705309.svg" />
-                </a>
-              </div>
-            </div>
-            <div class="text-xl text-black flex justify-center mt-14 mb-10 font-semibold" data-jscall-id="499">Follow us</div>
-            <div class="flex flex-wrap justify-center items-center -m-2 md:-m-4 lg:-m-8" data-jscall-id="500">
-              <div class="rounded-md p-2 m-2 shadow bg-white w-8" data-jscall-id="501">
-                <a class="w-full" href="https://bsky.app/profile/makie.org" data-jscall-id="502" style="" target="_blank">
-                  <img class="w-full" data-jscall-id="503" src="./bonito/svg/bluesky11398852467780038540.svg" />
-                </a>
-              </div>
-              <div class="rounded-md p-2 m-2 shadow bg-white w-8" data-jscall-id="504">
-                <a class="w-full" href="https://www.linkedin.com/company/makieorg" data-jscall-id="505" style="" target="_blank">
-                  <img class="w-full" data-jscall-id="506" src="./bonito/png/linkedin18387349306159984296.png" />
-                </a>
-              </div>
-              <div class="rounded-md p-2 m-2 shadow bg-white w-8" data-jscall-id="507">
-                <a class="w-full" href="https://github.com/MakieOrg" data-jscall-id="508" style="" target="_blank">
-                  <img class="w-full" data-jscall-id="509" src="./bonito/png/GitHub-Mark-64px3524188145242445726.png" />
-                </a>
-              </div>
-              <div class="rounded-md p-2 m-2 shadow bg-white w-8" data-jscall-id="510">
-                <a class="w-full" href="https://discord.gg/2FBjYAT3cY" data-jscall-id="511" style="" target="_blank">
-                  <img class="w-full" data-jscall-id="512" src="./bonito/svg/discord-mark-blue8475440026013128466.svg" />
-                </a>
-              </div>
-              <div class="rounded-md p-2 m-2 shadow bg-white w-8" data-jscall-id="513">
-                <a class="w-full" href="https://julialang.social/@makie" data-jscall-id="514" style="" target="_blank">
-                  <img class="w-full" data-jscall-id="515" src="./bonito/svg/mastodon11161237736348400088.svg" />
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div data-jscall-id="516">
-        <script async="true" defer="true" data-jscall-id="517" src="https://api.makie.org/latest.js"></script>
-        <noscript data-jscall-id="518">
-          <img alt="" data-jscall-id="519" src="https://api.makie.org/noscript.gif" referrerpolicy="no-referrer-when-downgrade" />
-        </noscript>
-      </div>
-    </div>
-  </body>
-</html>
+</div><div class="grid  gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4" data-jscall-id="155"><div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="156"><a class="" href="https://github.com/MakieOrg/GeoMakie.jl" data-jscall-id="157" style="" target="_blank"><div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="158"><div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="159"><span data-jscall-id="160">Geo&ZeroWidthSpace;Makie.jl</span></div><div class="container" data-jscall-id="161"><img class="image w-full" style="" data-jscall-id="162" src="./bonito/png/geomakie11358493969564532393.png" /><div class="overlay text-xs lg:text-base" data-jscall-id="163">Geographical plotting utilities for Makie.jl</div></div></div></a></div><div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="164"><a class="" href="https://github.com/MakieOrg/Tyler.jl" data-jscall-id="165" style="" target="_blank"><div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="166"><div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="167"><span data-jscall-id="168">Tyler.jl</span></div><div class="container" data-jscall-id="169"><video class="image w-full" style="" data-jscall-id="170" muted="true" autoplay="true" loop="true"><source data-jscall-id="171" src="./bonito/mp4/tyler-sam721888137874463534.mp4" type="video/mp4" /></video><div class="overlay text-xs lg:text-base" data-jscall-id="172">Makie package to plot maptiles from various map providers</div></div></div></a></div><div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="173"><a class="" href="https://github.com/Ferrite-FEM/FerriteViz.jl" data-jscall-id="174" style="" target="_blank"><div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="175"><div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="176"><span data-jscall-id="177">Ferrite&ZeroWidthSpace;Viz.jl</span></div><div class="container" data-jscall-id="178"><video class="image w-full" style="" data-jscall-id="179" muted="true" autoplay="true" loop="true"><source data-jscall-id="180" src="./bonito/mp4/ferrite8762624152689823457.mp4" type="video/mp4" /></video><div class="overlay text-xs lg:text-base" data-jscall-id="181"><p data-jscall-id="182">Small package to visualize <a href="https://github.com/Ferrite-FEM/Ferrite.jl" data-jscall-id="183">Ferrite.jl</a> results, which is a simple finite element toolbox written in Julia.</p></div></div></div></a></div><div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="184"><a class="" href="https://github.com/MakieOrg/GraphMakie.jl" data-jscall-id="185" style="" target="_blank"><div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="186"><div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="187"><span data-jscall-id="188">Graph&ZeroWidthSpace;Makie.jl</span></div><div class="container" data-jscall-id="189"><img class="image w-full" style="" data-jscall-id="190" src="./bonito/png/graphmakie1029472202763824743.png" /><div class="overlay text-xs lg:text-base" data-jscall-id="191">Plotting graphs with Makie</div></div></div></a></div><div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="192"><a class="" href="https://github.com/kool7d/BioMakie.jl" data-jscall-id="193" style="" target="_blank"><div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="194"><div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="195"><span data-jscall-id="196">Bio&ZeroWidthSpace;Makie.jl</span></div><div class="container" data-jscall-id="197"><img class="image w-full" style="" data-jscall-id="198" src="./bonito/png/biomakie15121383689130312536.png" /><div class="overlay text-xs lg:text-base" data-jscall-id="199">User interface tools for bioinformatics</div></div></div></a></div><div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="200"><a class="" href="https://github.com/MakieOrg/TopoPlots.jl" data-jscall-id="201" style="" target="_blank"><div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="202"><div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="203"><span data-jscall-id="204">Topo&ZeroWidthSpace;Plots.jl</span></div><div class="container" data-jscall-id="205"><img class="image w-full" style="" data-jscall-id="206" src="./bonito/png/topoplots7222616480617714271.png" /><div class="overlay text-xs lg:text-base" data-jscall-id="207">Makie topo plot recipes, for neuro-science, geo plots and anyone needing surface plots from unstructured data</div></div></div></a></div><div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="208"><a class="" href="https://github.com/bradcarman/ModelingToolkitDesigner.jl" data-jscall-id="209" style="" target="_blank"><div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="210"><div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="211"><span data-jscall-id="212">Modeling&ZeroWidthSpace;Toolkit&ZeroWidthSpace;Designer.jl</span></div><div class="container" data-jscall-id="213"><img class="image w-full" style="" data-jscall-id="214" src="./bonito/svg/modelingtoolkitdesigner9873837794654111878.svg" /><div class="overlay text-xs lg:text-base" data-jscall-id="215">A helper tool for visualizing and editing a ModelingToolkit.jl system connections</div></div></div></a></div><div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="216"><a class="" href="https://sefffal.github.io/PairPlots.jl/" data-jscall-id="217" style="" target="_blank"><div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="218"><div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="219"><span data-jscall-id="220">Pair&ZeroWidthSpace;Plots.jl</span></div><div class="container" data-jscall-id="221"><img class="image w-full" style="" data-jscall-id="222" src="./bonito/png/pairplots7116594010346861110.png" /><div class="overlay text-xs lg:text-base" data-jscall-id="223">Beautiful and flexible vizualizations of high dimensional data</div></div></div></a></div><div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="224"><a class="" href="https://aog.makie.org/" data-jscall-id="225" style="" target="_blank"><div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="226"><div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="227"><span data-jscall-id="228">Algebra&ZeroWidthSpace;Of&ZeroWidthSpace;Graphics.jl</span></div><div class="container" data-jscall-id="229"><img class="image w-full" style="" data-jscall-id="230" src="./bonito/png/aog4674803173138222672.png" /><div class="overlay text-xs lg:text-base" data-jscall-id="231">AlgebraOfGraphics defines a language for data visualization. It is based on a few simple building blocks that can be combined using &#43; and *.</div></div></div></a></div><div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="232"><a class="" href="https://github.com/TidierOrg/TidierPlots.jl" data-jscall-id="233" style="" target="_blank"><div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="234"><div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="235"><span data-jscall-id="236">Tidier&ZeroWidthSpace;Plots.jl</span></div><div class="container" data-jscall-id="237"><img class="image w-full" style="" data-jscall-id="238" src="./bonito/png/tidier3927288518116321855.png" /><div class="overlay text-xs lg:text-base" data-jscall-id="239">100&#37; Julia implementation of the ggplot2 R package</div></div></div></a></div><div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="240"><a class="" href="https://github.com/JuliaGeometry/Meshes.jl" data-jscall-id="241" style="" target="_blank"><div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="242"><div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="243"><span data-jscall-id="244">Meshes.jl</span></div><div class="container" data-jscall-id="245"><img class="image w-full" style="" data-jscall-id="246" src="./bonito/png/meshviz9898509763900401596.png" /><div class="overlay text-xs lg:text-base" data-jscall-id="247">Makie.jl recipes for visualization of Meshes.jl</div></div></div></a></div><div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="248"><a class="" href="https://github.com/MakieOrg/OSMMakie.jl" data-jscall-id="249" style="" target="_blank"><div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="250"><div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="251"><span data-jscall-id="252">OSMMakie.jl</span></div><div class="container" data-jscall-id="253"><img class="image w-full" style="" data-jscall-id="254" src="./bonito/png/osmmakie11167317753941997646.png" /><div class="overlay text-xs lg:text-base" data-jscall-id="255">A Makie.jl recipe for plotting OpenStreetMap data.</div></div></div></a></div><div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="256"><a class="" href="https://github.com/mmkim1210/GeneticsMakie.jl" data-jscall-id="257" style="" target="_blank"><div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="258"><div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="259"><span data-jscall-id="260">Genetics&ZeroWidthSpace;Makie.jl</span></div><div class="container" data-jscall-id="261"><img class="image w-full" style="" data-jscall-id="262" src="./bonito/png/geneticsmakie10944343613455051445.png" /><div class="overlay text-xs lg:text-base" data-jscall-id="263">🧬High-performance genetics-related data visualization using Makie.jl</div></div></div></a></div><div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="264"><a class="" href="https://github.com/agdestein/IncompressibleNavierStokes.jl" data-jscall-id="265" style="" target="_blank"><div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="266"><div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="267"><span data-jscall-id="268">Incompressible&ZeroWidthSpace;Navier&ZeroWidthSpace;Stokes.jl</span></div><div class="container" data-jscall-id="269"><video class="image w-full" style="" data-jscall-id="270" muted="true" autoplay="true" loop="true"><source data-jscall-id="271" src="./bonito/mp4/incompressiblenavierstokes17591346662483319372.mp4" type="video/mp4" /></video><div class="overlay text-xs lg:text-base" data-jscall-id="272">Incompressible Navier-Stokes solver, utilizing Makie for interactive visualizations</div></div></div></a></div><div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="273"><a class="" href="https://github.com/org-arl/InteractiveViz.jl" data-jscall-id="274" style="" target="_blank"><div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="275"><div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="276"><span data-jscall-id="277">Interactive&ZeroWidthSpace;Viz.jl</span></div><div class="container" data-jscall-id="278"><img class="image w-full" style="" data-jscall-id="279" src="./bonito/png/interactiveviz11839324825669516086.png" /><div class="overlay text-xs lg:text-base" data-jscall-id="280">Interactive visualization tools for Julia</div></div></div></a></div><div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="281"><a class="" href="https://github.com/liuyxpp/MakiePublication.jl" data-jscall-id="282" style="" target="_blank"><div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="283"><div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="284"><span data-jscall-id="285">Makie&ZeroWidthSpace;Publications.jl</span></div><div class="container" data-jscall-id="286"><img class="image w-full" style="" data-jscall-id="287" src="./bonito/svg/makiepublications1759845751782845763.svg" /><div class="overlay text-xs lg:text-base" data-jscall-id="288">A Julia package for producing publication quality figures based on Makie.jl.</div></div></div></a></div><div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="289"><a class="" href="https://github.com/unfoldtoolbox/UnfoldMakie.jl" data-jscall-id="290" style="" target="_blank"><div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="291"><div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="292"><span data-jscall-id="293">Unfold&ZeroWidthSpace;Makie.jl</span></div><div class="container" data-jscall-id="294"><img class="image w-full" style="" data-jscall-id="295" src="./bonito/png/unfoldmakie5430355657647577215.png" /><div class="overlay text-xs lg:text-base" data-jscall-id="296">Plotting tools for Unfold.jl based on Makie.jl and AlgebraOfGraphics.jl</div></div></div></a></div><div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="297"><a class="" href="https://github.com/UniStuttgart-IKR/NestedGraphMakie.jl" data-jscall-id="298" style="" target="_blank"><div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="299"><div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="300"><span data-jscall-id="301">Nested&ZeroWidthSpace;Graph&ZeroWidthSpace;Makie.jl</span></div><div class="container" data-jscall-id="302"><img class="image w-full" style="" data-jscall-id="303" src="./bonito/png/nestedgraphmakie3062284686736338766.png" /><div class="overlay text-xs lg:text-base" data-jscall-id="304">A package for NestedGraphs.jl to make easy visualizations.</div></div></div></a></div><div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="305"><a class="" href="https://github.com/MakieOrg/MakieDraw.jl" data-jscall-id="306" style="" target="_blank"><div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="307"><div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="308"><span data-jscall-id="309">Makie&ZeroWidthSpace;Draw.jl</span></div><div class="container" data-jscall-id="310"><video class="image w-full" style="" data-jscall-id="311" muted="true" autoplay="true" loop="true"><source data-jscall-id="312" src="./bonito/mp4/makiedraw63162098283058189.mp4" type="video/mp4" /></video><div class="overlay text-xs lg:text-base" data-jscall-id="313">Plot an interactive canvas of GeometryBaseics Point, LineString or Polygon, or an ms-paint style canvas for any numerical or color Array</div></div></div></a></div><div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="314"><a class="" href="https://juliadynamics.github.io/Agents.jl/" data-jscall-id="315" style="" target="_blank"><div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="316"><div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="317"><span data-jscall-id="318">Agents.jl</span></div><div class="container" data-jscall-id="319"><img class="image w-full" style="" data-jscall-id="320" src="./bonito/png/agents18301902073295593927.png" /><div class="overlay text-xs lg:text-base" data-jscall-id="321">Agents.jl is a pure Julia framework for agent-based modeling &#40;ABM&#41;</div></div></div></a></div><div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="322"><a class="" href="https://help.juliahub.com/multibody/" data-jscall-id="323" style="" target="_blank"><div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="324"><div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="325"><span data-jscall-id="326">Multibody.jl</span></div><div class="container" data-jscall-id="327"><img class="image w-full" style="" data-jscall-id="328" src="./bonito/gif/robot16166619961350124336.gif" /><div class="overlay text-xs lg:text-base" data-jscall-id="329">Multibody.jl is a powerful and flexible component of JuliaSim designed to model, analyze, and simulate multibody systems in Julia.</div></div></div></a></div><div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="330"><a class="" href="https://vezy.github.io/PlantGeom.jl" data-jscall-id="331" style="" target="_blank"><div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="332"><div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="333"><span data-jscall-id="334">Plant&ZeroWidthSpace;Geom.jl</span></div><div class="container" data-jscall-id="335"><img class="image w-full" style="" data-jscall-id="336" src="./bonito/png/PlantGeom4546374330117833058.png" /><div class="overlay text-xs lg:text-base" data-jscall-id="337">The package is designed around MultiScaleTreeGraph that serves as the basic structure for the plant topology and attributes.</div></div></div></a></div><div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="338"><a class="" href="https://github.com/gridap/GridapMakie.jl" data-jscall-id="339" style="" target="_blank"><div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="340"><div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="341"><span data-jscall-id="342">Gridap&ZeroWidthSpace;Makie.jl</span></div><div class="container" data-jscall-id="343"><img class="image w-full" style="" data-jscall-id="344" src="./bonito/gif/gridap8771040138679553646.gif" /><div class="overlay text-xs lg:text-base" data-jscall-id="345">Makie plotting recipes for Gridap.</div></div></div></a></div><div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="346"><a class="" href="https://github.com/MurrellGroup/ProtPlot.jl" data-jscall-id="347" style="" target="_blank"><div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="348"><div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="349"><span data-jscall-id="350">Prot&ZeroWidthSpace;Plot.jl</span></div><div class="container" data-jscall-id="351"><img class="image w-full" style="" data-jscall-id="352" src="./bonito/png/protplot2493410784664472937.png" /><div class="overlay text-xs lg:text-base" data-jscall-id="353">Protein ribbon plots implemented in Julia using Makie.</div></div></div></a></div><div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="354"><a class="" href="https://github.com/JuliaPlanners/PDDLViz.jl" data-jscall-id="355" style="" target="_blank"><div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="356"><div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="357"><span data-jscall-id="358">PDDLViz.jl</span></div><div class="container" data-jscall-id="359"><img class="image w-full" style="" data-jscall-id="360" src="./bonito/gif/pddlviz6979268094501068365.gif" /><div class="overlay text-xs lg:text-base" data-jscall-id="361">A library for visualizing and animating PDDL domains.</div></div></div></a></div><div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="362"><a class="" href="https://github.com/aenarete/KiteViewers.jl" data-jscall-id="363" style="" target="_blank"><div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="364"><div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="365"><span data-jscall-id="366">Kite&ZeroWidthSpace;Viewers.jl</span></div><div class="container" data-jscall-id="367"><img class="image w-full" style="" data-jscall-id="368" src="./bonito/png/kiteviewer13474717386061065216.png" /><div class="overlay text-xs lg:text-base" data-jscall-id="369">3D viewer for airborne wind energy systems.</div></div></div></a></div><div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="370"><a class="" href="https://github.com/myersm0/ObservableCortex.jl" data-jscall-id="371" style="" target="_blank"><div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="372"><div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="373"><span data-jscall-id="374">Observable&ZeroWidthSpace;Cortex.jl</span></div><div class="container" data-jscall-id="375"><img class="image w-full" style="" data-jscall-id="376" src="./bonito/png/ObservableCortex12135998164965302104.png" /><div class="overlay text-xs lg:text-base" data-jscall-id="377">A Julia package for interactively visualizing and animating 3d cortical surface meshes.</div></div></div></a></div><div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="378"><a class="" href="https://github.com/brendanjohnharris/AllenNeuropixels.jl" data-jscall-id="379" style="" target="_blank"><div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="380"><div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="381"><span data-jscall-id="382">Allen&ZeroWidthSpace;Neuropixels.jl</span></div><div class="container" data-jscall-id="383"><img class="image w-full" style="" data-jscall-id="384" src="./bonito/png/allenneuropix186213962252747251.png" /><div class="overlay text-xs lg:text-base" data-jscall-id="385">Load, format, analyze, and plot the Allen Neuropixels datasets.</div></div></div></a></div><div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="386"><a class="" href="https://github.com/matthiashimmelmann/Implicit3DPlotting.jl" data-jscall-id="387" style="" target="_blank"><div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="388"><div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="389"><span data-jscall-id="390">Implicit3DPlotting.jl</span></div><div class="container" data-jscall-id="391"><img class="image w-full" style="" data-jscall-id="392" src="./bonito/png/Implicit3DPlotting6454861138342684200.png" /><div class="overlay text-xs lg:text-base" data-jscall-id="393">Load, format, analyze, and plot the Allen Neuropixels datasets.</div></div></div></a></div><div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="394"><a class="" href="https://github.com/dsb-lab/CellBasedModels.jl" data-jscall-id="395" style="" target="_blank"><div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="396"><div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="397"><span data-jscall-id="398">Cell&ZeroWidthSpace;Based&ZeroWidthSpace;Models.jl</span></div><div class="container" data-jscall-id="399"><video class="image w-full" style="" data-jscall-id="400" muted="true" autoplay="true" loop="true"><source data-jscall-id="401" src="./bonito/mp4/cellbasedmodels4399382508256945386.mp4" type="video/mp4" /></video><div class="overlay text-xs lg:text-base" data-jscall-id="402">Load, format, analyze, and plot the Allen Neuropixels datasets.</div></div></div></a></div><div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="403"><a class="" href="https://github.com/SunnySuite/Sunny.jl" data-jscall-id="404" style="" target="_blank"><div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="405"><div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="406"><span data-jscall-id="407">Sunny.jl</span></div><div class="container" data-jscall-id="408"><img class="image w-full" style="" data-jscall-id="409" src="./bonito/png/sunny13432988648485176747.png" /><div class="overlay text-xs lg:text-base" data-jscall-id="410">Spin dynamics and generalization to SU&#40;N&#41; coherent states.</div></div></div></a></div><div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="411"><a class="" href="https://github.com/alstat/Bagyo.jl" data-jscall-id="412" style="" target="_blank"><div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="413"><div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="414"><span data-jscall-id="415">Bagyo.jl</span></div><div class="container" data-jscall-id="416"><img class="image w-full" style="" data-jscall-id="417" src="./bonito/png/bagyo6716582543993420705.png" /><div class="overlay text-xs lg:text-base" data-jscall-id="418">Toolkit for extraction and analysis of typhoon/climate data in the Western-North Pacific &#40;WNP&#41; region.</div></div></div></a></div><div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="419"><a class="" href="https://github.com/EnergyModelsX/EnergyModelsGUI.jl" data-jscall-id="420" style="" target="_blank"><div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="421"><div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="422"><span data-jscall-id="423">Energy&ZeroWidthSpace;Models&ZeroWidthSpace;GUI.jl</span></div><div class="container" data-jscall-id="424"><img class="image w-full" style="" data-jscall-id="425" src="./bonito/png/energymodel12137163859947988218.png" /><div class="overlay text-xs lg:text-base" data-jscall-id="426">EnergyModelsX is an operational, multi nodeal energy system model, written in Julia.</div></div></div></a></div><div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="427"><a class="" href="https://github.com/SpinDoctorMRI/SpinDoctor.jl" data-jscall-id="428" style="" target="_blank"><div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="429"><div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="430"><span data-jscall-id="431">Spin&ZeroWidthSpace;Doctor.jl</span></div><div class="container" data-jscall-id="432"><img class="image w-full" style="" data-jscall-id="433" src="./bonito/png/SpinDoctor7995120584215354667.png" /><div class="overlay text-xs lg:text-base" data-jscall-id="434">Diffusion MRI Simulation Toolbox in Julia.</div></div></div></a></div><div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="435"><a class="" href="https://github.com/JuliaTelecom/TempestSDR.jl" data-jscall-id="436" style="" target="_blank"><div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="437"><div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="438"><span data-jscall-id="439">Tempest&ZeroWidthSpace;SDR.jl</span></div><div class="container" data-jscall-id="440"><img class="image w-full" style="" data-jscall-id="441" src="./bonito/png/tempestsdr15256621377331658023.png" /><div class="overlay text-xs lg:text-base" data-jscall-id="442">Screen eavesdrop in real time leveraging SDR and pure Julia implementation.</div></div></div></a></div><div class="rounded-md shadow bg-white flex justify-center " data-jscall-id="443"><a class="" href="https://github.com/mi3nts/MintsMakieRecipes.jl" data-jscall-id="444" style="" target="_blank"><div class="flex flex-col mt-1 p-2 md:p-4 gap-1" data-jscall-id="445"><div class="text-xs lg:text-sm font-semibold text-center" data-jscall-id="446"><span data-jscall-id="447">Mints&ZeroWidthSpace;Makie&ZeroWidthSpace;Recipes.jl</span></div><div class="container" data-jscall-id="448"><img class="image w-full" style="" data-jscall-id="449" src="./bonito/png/mintsmakierecipes810342790746140618.png" /><div class="overlay text-xs lg:text-base" data-jscall-id="450">This package is a collection of Makie plotting recipes, themes, and configurations for generating publication-ready figures for the MINTS research group.</div></div></div></a></div></div></div></div><div class="white flex flex-col items-center w-full" data-jscall-id="451"><div class="p-4 max-w-5xl" data-jscall-id="452"><div class="text-xl text-black flex justify-center mt-14 mb-10 font-semibold" data-jscall-id="453">Users</div><div class="flex flex-wrap justify-center items-center -m-2 lg:-m-8" data-jscall-id="454"><div class="w-1/2 sm:w-1/3 lg:w-1/5 lg:p-8 p-6 flex justify-center" data-jscall-id="455"><a class="w-full" href="https://clima.caltech.edu" data-jscall-id="456" style="" target="_blank"><img class="w-full" data-jscall-id="457" src="./bonito/png/climaalliancelogo5659358840387470867.png" /></a></div><div class="w-1/2 sm:w-1/3 lg:w-1/5 lg:p-8 p-6 flex justify-center" data-jscall-id="458"><a class="w-full" href="https://www.bgc-jena.mpg.de/en/bgi/gallery" data-jscall-id="459" style="" target="_blank"><img class="w-full" data-jscall-id="460" src="./bonito/png/mpg_biogeochemistry7782481456607471865.png" /></a></div><div class="w-1/2 sm:w-1/3 lg:w-1/5 lg:p-8 p-6 flex justify-center" data-jscall-id="461"><a class="w-full" href="https://www.jpl.nasa.gov/" data-jscall-id="462" style="" target="_blank"><img class="w-full" data-jscall-id="463" src="./bonito/png/nasa_jpl437813577479306996.png" /></a></div><div class="w-1/2 sm:w-1/3 lg:w-1/5 lg:p-8 p-6 flex justify-center" data-jscall-id="464"><a class="w-full" href="https://www.youtube.com/watch?v=7-vN8oNAz6Y" data-jscall-id="465" style="" target="_blank"><img class="w-full" data-jscall-id="466" src="./bonito/png/microsoft4290855347513613975.png" /></a></div><div class="w-1/2 sm:w-1/3 lg:w-1/5 lg:p-8 p-6 flex justify-center" data-jscall-id="467"><a class="w-full" href="https://github.com/bradcarman/ModelingToolkitDesigner.jl" data-jscall-id="468" style="" target="_blank"><img class="w-full" data-jscall-id="469" src="./bonito/png/instron4540346282627290323.png" /></a></div><div class="w-1/2 sm:w-1/3 lg:w-1/5 lg:p-8 p-6 flex justify-center" data-jscall-id="470"><a class="w-full" href="https://www.youtube.com/watch?v=-Cg6AoymaM0" data-jscall-id="471" style="" target="_blank"><img class="w-full" data-jscall-id="472" src="./bonito/png/DWD15574948292046267337.png" /></a></div></div><div class="text-xl text-black flex justify-center mt-14 mb-10 font-semibold" data-jscall-id="473">Supporters</div><div class="flex flex-wrap justify-center items-center -m-2 lg:-m-8" data-jscall-id="474"><div class="w-1/2 sm:w-1/3 lg:w-1/5 lg:p-8 p-6 flex justify-center" data-jscall-id="475"><a class="w-full" href="https://numfocus.org/project/julia" data-jscall-id="476" style="" target="_blank"><img class="w-full" data-jscall-id="477" src="./bonito/png/numfocus13590946236240252258.png" /></a></div><div class="w-1/2 sm:w-1/3 lg:w-1/5 lg:p-8 p-6 flex justify-center" data-jscall-id="478"><a class="w-full" href="https://pumas.ai" data-jscall-id="479" style="" target="_blank"><img class="w-full" data-jscall-id="480" src="./bonito/svg/pumasai14911901414396176055.svg" /></a></div><div class="w-1/2 sm:w-1/3 lg:w-1/5 lg:p-8 p-6 flex justify-center" data-jscall-id="481"><a class="w-full" href="https://juliahub.com" data-jscall-id="482" style="" target="_blank"><img class="w-full" data-jscall-id="483" src="./bonito/png/juliahublogo1023130632594899099.png" /></a></div><div class="w-1/2 sm:w-1/3 lg:w-1/5 lg:p-8 p-6 flex justify-center" data-jscall-id="484"><a class="w-full" href="https://beacon.bio" data-jscall-id="485" style="" target="_blank"><img class="w-full" data-jscall-id="486" src="./bonito/svg/beacon18443740156098832419.svg" /></a></div><div class="w-1/2 sm:w-1/3 lg:w-1/5 lg:p-8 p-6 flex justify-center" data-jscall-id="487"><a class="w-full" href="https://lanl.gov" data-jscall-id="488" style="" target="_blank"><img class="w-full" data-jscall-id="489" src="./bonito/svg/lanl-light12539361950650796176.svg" /></a></div><div class="w-1/2 sm:w-1/3 lg:w-1/5 lg:p-8 p-6 flex justify-center" data-jscall-id="490"><a class="w-full" href="https://www.ornl.gov" data-jscall-id="491" style="" target="_blank"><img class="w-full" data-jscall-id="492" src="./bonito/svg/ornl-light2223796198484360288.svg" /></a></div><div class="w-1/2 sm:w-1/3 lg:w-1/5 lg:p-8 p-6 flex justify-center" data-jscall-id="493"><a class="w-full" href="https://web.mit.edu/" data-jscall-id="494" style="" target="_blank"><img class="w-full" data-jscall-id="495" src="./bonito/png/mit13597939803004961334.png" /></a></div><div class="w-1/2 sm:w-1/3 lg:w-1/5 lg:p-8 p-6 flex justify-center" data-jscall-id="496"><a class="w-full" href="https://www.bmbf.de" data-jscall-id="497" style="" target="_blank"><img class="w-full" data-jscall-id="498" src="./bonito/svg/bmbf2236514309171705309.svg" /></a></div></div><div class="text-xl text-black flex justify-center mt-14 mb-10 font-semibold" data-jscall-id="499">Follow us</div><div class="flex flex-wrap justify-center items-center -m-2 md:-m-4 lg:-m-8" data-jscall-id="500"><div class="rounded-md p-2 m-2 shadow bg-white w-8" data-jscall-id="501"><a class="w-full" href="https://bsky.app/profile/makie.org" data-jscall-id="502" style="" target="_blank"><img class="w-full" data-jscall-id="503" src="./bonito/svg/bluesky11398852467780038540.svg" /></a></div><div class="rounded-md p-2 m-2 shadow bg-white w-8" data-jscall-id="504"><a class="w-full" href="https://www.linkedin.com/company/makieorg" data-jscall-id="505" style="" target="_blank"><img class="w-full" data-jscall-id="506" src="./bonito/png/linkedin18387349306159984296.png" /></a></div><div class="rounded-md p-2 m-2 shadow bg-white w-8" data-jscall-id="507"><a class="w-full" href="https://github.com/MakieOrg" data-jscall-id="508" style="" target="_blank"><img class="w-full" data-jscall-id="509" src="./bonito/png/GitHub-Mark-64px3524188145242445726.png" /></a></div><div class="rounded-md p-2 m-2 shadow bg-white w-8" data-jscall-id="510"><a class="w-full" href="https://discord.gg/2FBjYAT3cY" data-jscall-id="511" style="" target="_blank"><img class="w-full" data-jscall-id="512" src="./bonito/svg/discord-mark-blue8475440026013128466.svg" /></a></div><div class="rounded-md p-2 m-2 shadow bg-white w-8" data-jscall-id="513"><a class="w-full" href="https://julialang.social/@makie" data-jscall-id="514" style="" target="_blank"><img class="w-full" data-jscall-id="515" src="./bonito/svg/mastodon11161237736348400088.svg" /></a></div></div></div></div></div><div data-jscall-id="516"><script async="true" defer="true" data-jscall-id="517" src="https://api.makie.org/latest.js"></script><noscript data-jscall-id="518"><img alt="" data-jscall-id="519" src="https://api.makie.org/noscript.gif" referrerpolicy="no-referrer-when-downgrade" /></noscript></div></div></body></html>
