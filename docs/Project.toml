@@ -5,4 +5,6 @@ Website = "75363ec7-b184-4002-9572-26a7eb910f3c"
 
 [sources]
 Website = {path = ".."}
-Bonito = {rev = "sd/no-pre-code"}
+
+[compat]
+Bonito = "4.1.11"
