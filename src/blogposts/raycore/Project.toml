@@ -1,0 +1,6 @@
+[deps]
+BenchmarkTools = "6e4b80f9-dd63-53aa-95a3-0cdb28fa8baf"
+Bonito = "824d6782-a2ef-11e9-3a09-e5662e0c26f8"
+GeometryBasics = "5c1252a2-5f33-56bf-86c9-59e7332b4326"
+Markdown = "d6f4376e-aef5-505a-96c1-9c027394607a"
+Raycore = "afc56b53-c9a9-482a-a956-d1d800e05559"

@@ -86,6 +86,12 @@ function website_styles()
 
         CSS("li p", "display" => "inline"),
 
+        # Reset pre tag padding/margin from browser defaults
+        CSS("pre",
+            "padding" => "0",
+            "margin" => "0"
+        ),
+
         # === BLOG ENTRY STYLES ===
         CSS("div.blog_entry h3",
             "font-weight" => "700",

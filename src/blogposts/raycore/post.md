@@ -27,8 +27,6 @@ Julia isn't perfect, and there are certainly challenges:
 In practice, compile times aren't as bad as they might sound. You keep a Julia session running and only pay the compilation cost once. There's also ongoing work on precompilation that could reduce these times to near-zero in the future and compile most kernels ahead of time.
 For GPU code, better tooling for detecting and fixing issues is on the horizon, along with improved error messages when problematic LLVM code is generated.
 
-### The Big Picture
-
 The flexibility to write a high-performance ray tracer in a high-level language opens up exciting possibilities:
 
 * **Use automatic differentiation** to optimize scene parameters or light placement
@@ -49,9 +47,28 @@ Raycore is a focused library that does one thing well: fast ray-triangle interse
 
 ### Performance
 
-The kernels and intersection code is highly optimized and running them on the GPU gains us even more performance for running millions of ray intersections.
-The below benchmark is from the GPU tutorial, which generates roughly 400x700px * 4 samples x 8 shadow rays per 3 lights + 1 reflection ray which can spawn up to 8 shadow rays, so between 1mio (one ray per sample without any further hits) to 40mio rays, which we can do in an optimized GPU kernel in around 43ms:
+Thanks to the bounding volume hierarchy, the intersection performance scales relatively well with the scene size.
+
+```julia
+using Raycore, GeometryBasics, BenchmarkTools, Markdown, Bonito
+ray = Raycore.Ray(o=Point3f(0, 0, -5), d=Vec3f(0, 0, 1))
+results = map([1, 1000, 10000]) do n
+    spheres = [Tesselation(Sphere(randn(Point3f) .* 1000f0, 0.5f0), 32) for _ in 1:n]
+    bvh = Raycore.BVH(spheres)
+    tclosest = BenchmarkTools.@belapsed Raycore.closest_hit($bvh, $ray)
+    ntriangles = length(bvh.primitives)
+    # use closest hit for time per triangle, since it needs to traverse more triangles
+    tpt = string(round((tclosest/ntriangles)*1e9, digits=5), "ns")
+    tcloseststr = string(round(tclosest * 1e6, digits=2), "μs")
+    (triangles=ntriangles, closest=tcloseststr, time_per_triangle_ns=tpt)
+end
+DOM.div(Bonito.Table(results))
+```
+
+Since you can run thousands of ray intersections in parallel on the GPU, we get pretty great performance per ray intersection.
+The below benchmark is from the GPU tutorial, which generates roughly 400x700px * 4 samples x 8 shadow rays per 3 lights + 1 reflection ray which can spawn up to 8 shadow rays, so around 40mio rays, which we can do in an optimized GPU kernel in around 43ms:
 ![GPU Benchmarks](./images/gpu-benchmarks.png)
+
 
 ## Interactive Tutorials
 
@@ -93,6 +110,7 @@ Calculate view factors, illumination, and centroids for radiosity and thermal an
 Install Raycore.jl from the Julia package manager:
 
 ```julia
+# no-eval
 using Pkg
 Pkg.add("Raycore")
 ```
