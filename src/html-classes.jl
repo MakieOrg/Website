@@ -123,7 +123,7 @@ function Navigation(highlighted="")
     github = img_asset("logos/GitHub-Mark-Light-64px.png")
     img_style = "height: 1.2rem; display: inline-block; vertical-align: text-bottom;"
     return DOM.div(
-        class="flex navbar justify-center", # TailwindCSS classes
+        class="flex navbar justify-center",
         DOM.div(
             class="flex max-w-5xl w-full md:px-4 flex-wrap",
             item("Home", "/"),
@@ -150,8 +150,7 @@ function page(body, highlighted)
         DOM.head(
             DOM.meta(name="viewport", content="width=device-width, initial-scale=1.0"),
             DOM.meta(charset="utf-8"),
-            css_asset("site.css"),
-            Bonito.TailwindCSS,
+            website_styles(),
         ),
         DOM.body(
             DOM.div(

@@ -2,17 +2,6 @@ title = "Makie Blog"
 link = "https://blog.makie.org"
 description = "A Blog about anything new in the Makie world"
 
-# Not sure why this is so complicated, but packages with unregistered dependencies are a pain
-using Pkg
-isfile(joinpath(@__DIR__, "Project.toml")) && rm(joinpath(@__DIR__, "Project.toml"))
-isfile(joinpath(@__DIR__, "Manifest.toml")) && rm(joinpath(@__DIR__, "Manifest.toml"))
-Pkg.activate(@__DIR__)
-
-website = normpath(joinpath(@__DIR__, ".."))
-pkg"add Bonito#master https://github.com/SimonDanisch/BonitoSites.jl"
-Pkg.develop(PackageSpec(path=website))
-Pkg.instantiate()
-
 using Website
 using Website.Bonito
 using Website.BonitoSites

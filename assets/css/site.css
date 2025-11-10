@@ -1,7 +1,11 @@
 :root {
-    --text-color: #494e52;
-    --background-color: #3892d2;
-    --background-color-highlight: #73b5e4;
+    /* Modern color palette */
+    --text-color: #212121;
+    --text-secondary: #424242;
+    --background-color: #2196F3;
+    --background-color-highlight: rgba(255, 255, 255, 0.2);
+    --primary-dark: #1565C0;
+    --gray-light: #F5F5F5;
 }
 
 @font-face {
@@ -25,11 +29,13 @@ body {
 }
 
 .navbar {
-    background-color: var(--background-color);
+    background: linear-gradient(135deg, var(--background-color) 0%, var(--primary-dark) 100%);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
 }
 
 .navbar-highlight {
     background-color: var(--background-color-highlight);
+    border-radius: 0.375rem;
 }
 
 .makie-blue {

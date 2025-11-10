@@ -23,6 +23,7 @@ function asset_paths()
     return [@__DIR__, asset_path(), asset_path("css"), asset_path("js"), asset_path("images")]
 end
 
+include("styles.jl")
 include("html-classes.jl")
 include("index.jl")
 include("github.jl")
@@ -31,6 +32,6 @@ include("team.jl")
 include("contact.jl")
 include("blog.jl")
 
-export index, team, contact, support, asset_path
+export index, team, contact, support, asset_path, website_styles
 
 end
