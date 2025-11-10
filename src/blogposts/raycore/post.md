@@ -29,14 +29,15 @@ For GPU code, better tooling for detecting and fixing issues is on the horizon, 
 
 The flexibility to write a high-performance ray tracer in a high-level language opens up exciting possibilities:
 
-* **Use automatic differentiation** to optimize scene parameters or light placement
+* **Use automatic differentiation** to get gradients for training ML models
 * **Plug in new optimizations seamlessly** without fighting a type system or rewriting core algorithms
 * **Democratize working on high-performance ray tracing** - contributions don't require C++ expertise and the code base is fairly small
 * **Rapid experimentation** - test new ideas without lengthy compile cycles
 
 ## What is Raycore.jl?
 
-Raycore is a focused library that does one thing well: fast ray-triangle intersections with BVH acceleration. It provides the building blocks for ray tracing applications without imposing a particular rendering architecture.
+Raycore is a focused library that does one thing well: fast ray-triangle intersections with BVH acceleration. 
+It provides the building blocks for ray tracing applications without imposing a particular rendering architecture.
 
 ### Core Features
 
@@ -82,9 +83,9 @@ Learn the fundamentals of ray-triangle intersection, BVH construction, and visua
 
 [Try the tutorial →](https://juliageometry.github.io/Raycore.jl/dev/bvh_hit_tests.html)
 
-### 2. Ray Tracing Tutorial
+### 2. Ray Tracing in one Hour
 
-Build a complete ray tracer from scratch with shadows, materials, reflections, and tone mapping.
+Build a complete ray tracer from scratch with shadows, materials, reflections, and tone mapping analogous to the famous [Ray Tracing in one Weekend](https://raytracing.github.io/).
 
 ![Ray Tracing](./images/raytracing.png)
 
@@ -92,7 +93,8 @@ Build a complete ray tracer from scratch with shadows, materials, reflections, a
 
 ### 3. Ray Tracing on the GPU
 
-Port the ray tracer to GPU and learn optimization techniques: loop unrolling, tiling, and wavefront rendering. Includes comprehensive benchmarks comparing different approaches.
+Port the ray tracer to GPU and learn optimization techniques: loop unrolling, tiling, and wavefront rendering. 
+Includes comprehensive benchmarks comparing different approaches.
 
 [Try the tutorial →](https://juliageometry.github.io/Raycore.jl/dev/gpu_raytracing.html)
 
@@ -132,9 +134,8 @@ Contributions are welcome! The codebase is designed to be approachable, and the 
 ## Acknowledgments
 
 Raycore.jl was split out from [Trace.jl](https://github.com/JuliaGraphics/Trace.jl), originally created by [Anton Smirnov](https://github.com/pxl-th). Trace.jl will soon be renamed to **Hikari** and released as the main ray tracing implementation built on top of Raycore, providing a complete path tracing framework.
-
 This project builds on the excellent work of the Julia GPU ecosystem, particularly [KernelAbstractions.jl](https://github.com/JuliaGPU/KernelAbstractions.jl) for portable GPU programming and of course all the GPU backend packages.
-
 Special thanks to everyone who helped shape Raycore.
+Parts of this work was made possible by an investment of the [Sovereign Tech Agency](https://www.sovereign.tech).
 
 I'm excited to see what can be build with Raycore.jl and how far we can push the performance as a community!
