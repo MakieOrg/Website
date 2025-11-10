@@ -1,4 +1,4 @@
-’Ç-j“Ù$34745bc7-e0b5-4608-8665-8c90627fb341€¤root”ÈQk’Ç-j“Ù$34745bc7-e0b5-4608-8665-8c90627fb341€¤root‚§payloadÈf“€ÚÅ(function() {
+’Ç-j“Ù$ade54d26-751e-4b09-9884-add34413d3a6€¤root”ÈQk’Ç-j“Ù$ade54d26-751e-4b09-9884-add34413d3a6€¤root‚§payloadÈf“€ÚÅ(function() {
     const container = document.querySelector('[data-jscall-id="100"]');
     let sort_directions = {};
     const table = container.querySelector('.comparison-table');
@@ -134,8 +134,8 @@
         });
     }
 })();
-Ù</home/runner/.julia/packages/Bonito/18mTs/src/widgets.jl:540¨msg_type¡2Èk’Ç9j“Ù$34745bc7-e0b5-4608-8665-8c90627fb341¢20Çe’¢20¡0¤rootƒ£obsÇh¢20§payloadÇ§f“€ÙWreturn (val)=> {
+Ù</home/runner/.julia/packages/Bonito/18mTs/src/widgets.jl:540¨msg_type¡2Èk’Ç9j“Ù$ade54d26-751e-4b09-9884-add34413d3a6¢20Çe’¢20¡0¤rootƒ£obsÇh¢20§payloadÇ§f“€ÙWreturn (val)=> {
     document.querySelector('[data-jscall-id="121"]').innerText = val
-}ÙJ/home/runner/.julia/packages/Bonito/18mTs/src/rendering/observables.jl:104¨msg_type¡1Çðk’ÇAj“Ù$34745bc7-e0b5-4608-8665-8c90627fb341¢18Çe’¢18©Click me!¤rootƒ£obsÇh¢18§payloadÇŠf“€ÙIreturn x=> document.querySelector('[data-jscall-id="122"]').innerText = xÙ;/home/runner/.julia/packages/Bonito/18mTs/src/widgets.jl:71¨msg_type¡1ÈBk’Ç8j“Ù$34745bc7-e0b5-4608-8665-8c90627fb341¢19Çe’¢19Â¤root‚§payloadÇïf“´18339864014779423348Çh¢19Ù“(() => {
-    document.querySelector('[data-jscall-id="122"]')['onclick'] = event=> __lookup_interpolated('18339864014779423348').notify(true);
+}ÙJ/home/runner/.julia/packages/Bonito/18mTs/src/rendering/observables.jl:104¨msg_type¡1Çðk’ÇAj“Ù$ade54d26-751e-4b09-9884-add34413d3a6¢18Çe’¢18©Click me!¤rootƒ£obsÇh¢18§payloadÇŠf“€ÙIreturn x=> document.querySelector('[data-jscall-id="122"]').innerText = xÙ;/home/runner/.julia/packages/Bonito/18mTs/src/widgets.jl:71¨msg_type¡1ÈBk’Ç8j“Ù$ade54d26-751e-4b09-9884-add34413d3a6¢19Çe’¢19Â¤root‚§payloadÇïf“´17700507897630100297Çh¢19Ù“(() => {
+    document.querySelector('[data-jscall-id="122"]')['onclick'] = event=> __lookup_interpolated('17700507897630100297').notify(true);
 })()Ù;/home/runner/.julia/packages/Bonito/18mTs/src/widgets.jl:67¨msg_type¡2
