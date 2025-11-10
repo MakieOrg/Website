@@ -36,7 +36,7 @@ The flexibility to write a high-performance ray tracer in a high-level language 
 
 ## What is Raycore.jl?
 
-Raycore is a focused library that does one thing well: fast ray-triangle intersections with BVH acceleration. 
+Raycore is a focused library that does one thing well: fast ray-triangle intersections with BVH acceleration.
 It provides the building blocks for ray tracing applications without imposing a particular rendering architecture.
 
 ### Core Features
@@ -93,7 +93,7 @@ Build a complete ray tracer from scratch with shadows, materials, reflections, a
 
 ### 3. Ray Tracing on the GPU
 
-Port the ray tracer to GPU and learn optimization techniques: loop unrolling, tiling, and wavefront rendering. 
+Port the ray tracer to GPU and learn optimization techniques: loop unrolling, tiling, and wavefront rendering.
 Includes comprehensive benchmarks comparing different approaches.
 
 [Try the tutorial →](https://juliageometry.github.io/Raycore.jl/dev/gpu_raytracing.html)
@@ -136,6 +136,6 @@ Contributions are welcome! The codebase is designed to be approachable, and the 
 Raycore.jl was split out from [Trace.jl](https://github.com/JuliaGraphics/Trace.jl), originally created by [Anton Smirnov](https://github.com/pxl-th). Trace.jl will soon be renamed to **Hikari** and released as the main ray tracing implementation built on top of Raycore, providing a complete path tracing framework.
 This project builds on the excellent work of the Julia GPU ecosystem, particularly [KernelAbstractions.jl](https://github.com/JuliaGPU/KernelAbstractions.jl) for portable GPU programming and of course all the GPU backend packages.
 Special thanks to everyone who helped shape Raycore.
-Parts of this work was made possible by an investment of the [Sovereign Tech Agency](https://www.sovereign.tech).
+Parts of this work was made possible by an investment of the [Sovereign Tech Agency](https://www.sovereign.tech) and most of the optimization and GPU work has been funded by [Muon Space](https://www.muonspace.com/).
 
 I'm excited to see what can be build with Raycore.jl and how far we can push the performance as a community!
