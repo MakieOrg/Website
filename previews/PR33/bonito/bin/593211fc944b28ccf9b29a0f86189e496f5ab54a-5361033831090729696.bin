@@ -1,4 +1,4 @@
-’Ç-j“Ù$fe0fdd74-76c6-4446-90db-1dc7caf558e9€¤root”ÈQk’Ç-j“Ù$fe0fdd74-76c6-4446-90db-1dc7caf558e9€¤root‚§payloadÈf“€ÚÅ(function() {
+’Ç-j“Ù$a64aa71d-01a7-49da-9189-12b1da2a5e8e€¤root”ÈQk’Ç-j“Ù$a64aa71d-01a7-49da-9189-12b1da2a5e8e€¤root‚§payloadÈf“€ÚÅ(function() {
     const container = document.querySelector('[data-jscall-id="100"]');
     let sort_directions = {};
     const table = container.querySelector('.comparison-table');
@@ -134,8 +134,8 @@
         });
     }
 })();
-Ù</home/runner/.julia/packages/Bonito/IGFf4/src/widgets.jl:540¨msg_type¡2Èk’Ç9j“Ù$fe0fdd74-76c6-4446-90db-1dc7caf558e9¢20Çe’¢20¡0¤rootƒ£obsÇh¢20§payloadÇ§f“€ÙWreturn (val)=> {
+Ù</home/runner/.julia/packages/Bonito/18mTs/src/widgets.jl:540¨msg_type¡2Èk’Ç9j“Ù$a64aa71d-01a7-49da-9189-12b1da2a5e8e¢20Çe’¢20¡0¤rootƒ£obsÇh¢20§payloadÇ§f“€ÙWreturn (val)=> {
     document.querySelector('[data-jscall-id="121"]').innerText = val
-}ÙJ/home/runner/.julia/packages/Bonito/IGFf4/src/rendering/observables.jl:104¨msg_type¡1Çðk’ÇAj“Ù$fe0fdd74-76c6-4446-90db-1dc7caf558e9¢18Çe’¢18©Click me!¤rootƒ£obsÇh¢18§payloadÇŠf“€ÙIreturn x=> document.querySelector('[data-jscall-id="122"]').innerText = xÙ;/home/runner/.julia/packages/Bonito/IGFf4/src/widgets.jl:71¨msg_type¡1ÈBk’Ç8j“Ù$fe0fdd74-76c6-4446-90db-1dc7caf558e9¢19Çe’¢19Â¤root‚§payloadÇïf“´10755117096199319383Çh¢19Ù“(() => {
-    document.querySelector('[data-jscall-id="122"]')['onclick'] = event=> __lookup_interpolated('10755117096199319383').notify(true);
-})()Ù;/home/runner/.julia/packages/Bonito/IGFf4/src/widgets.jl:67¨msg_type¡2
+}ÙJ/home/runner/.julia/packages/Bonito/18mTs/src/rendering/observables.jl:104¨msg_type¡1Çðk’ÇAj“Ù$a64aa71d-01a7-49da-9189-12b1da2a5e8e¢18Çe’¢18©Click me!¤rootƒ£obsÇh¢18§payloadÇŠf“€ÙIreturn x=> document.querySelector('[data-jscall-id="122"]').innerText = xÙ;/home/runner/.julia/packages/Bonito/18mTs/src/widgets.jl:71¨msg_type¡1ÈBk’Ç8j“Ù$a64aa71d-01a7-49da-9189-12b1da2a5e8e¢19Çe’¢19Â¤root‚§payloadÇïf“´14056155448700438709Çh¢19Ù“(() => {
+    document.querySelector('[data-jscall-id="122"]')['onclick'] = event=> __lookup_interpolated('14056155448700438709').notify(true);
+})()Ù;/home/runner/.julia/packages/Bonito/18mTs/src/widgets.jl:67¨msg_type¡2
