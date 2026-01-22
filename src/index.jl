@@ -12,7 +12,7 @@ function index()
             dom"""
             $(semibold("Makie")) is a modern plotting library for $Julia.
             It is easy to use, fast and powerful. Packed with features,
-            it is a general-purpose tool that makes as few compromises for specialized use cases as possible.
+            it is a general-purpose tool that also enables specialized use cases with as little compromise as possible.
             """),
         Spacer(6),
         Grid(
