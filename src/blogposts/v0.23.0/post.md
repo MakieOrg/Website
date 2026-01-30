@@ -1,6 +1,6 @@
 # Makie v0.23.0
 
-Makie 0.23.0 is a relatively small breaking release before the big 0.24.0 ComputePipeline refactor. Its only breaking change is the `arrows()` refactor.
+Makie 0.23.0 is a relatively small breaking release before the big 0.24.0 ComputePipeline refactor. Its only breaking change is the `arrows()` refactor. Parts of this work was made possible by an investment of the [Sovereign Tech Agency](https://www.sovereign.tech).
 
 ## Arrows
 
