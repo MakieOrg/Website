@@ -1,0 +1,825 @@
+<!doctype html>
+<html data-jscall-id="1"><head data-jscall-id="2"><script src="../../bonito/js/Bonito.bundled7919512299027874894.js" type="module"></script><meta name="viewport" content="width=device-width, initial-scale=1.0" data-jscall-id="3" /><meta charset="utf-8" data-jscall-id="4" /><style>.style_2 {
+  list-style-type: disc;
+}
+</style><style>:root {
+  --background-color: #2196F3;
+  --text-secondary: #424242;
+  --background-color-highlight: rgba(255, 255, 255, 0.2);
+  --primary-dark: #1565C0;
+  --gray-light: #F5F5F5;
+  --text-color: #212121;
+}
+@font-face {
+  src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+  font-family: octicons-link;
+}
+*, ::before, ::after {
+  border-width: 0;
+  border-style: solid;
+  box-sizing: border-box;
+}
+body {
+  font-size: 1rem;
+  background-color: rgb(255, 255, 255);
+  color: #212121;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  width: 100%;
+  margin: 0;
+  line-height: 1.5;
+}
+img, video {
+  height: auto;
+  max-width: 100%;
+}
+img, svg, video, canvas, audio, iframe, embed, object {
+  display: block;
+  vertical-align: middle;
+}
+.markdown-body {
+  padding: 20px;
+  color: var(--text-color);
+  font-family: -apple-system, BlinkMacSystemFont, 'Roboto', 'Segoe UI', 'Helvetica Neue', 'Lucida Grande', Arial, sans-serif;
+  margin: 20px;
+  line-height: 1.5;
+}
+li p {
+  display: inline;
+}
+pre {
+  padding: 0;
+  margin: 0;
+}
+div.blog_entry h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.75rem;
+}
+div.blog_entry h4 {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+}
+div.blog_entry .date {
+  font-size: 1rem;
+  font-weight: 400;
+  color: gray;
+  line-height: 1.6rem;
+}
+.admonition {
+  padding: 16px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  border-left: 4px solid;
+  border-radius: 8px;
+  line-height: 1.5;
+  margin: 16px 0;
+}
+.admonition.warning {
+  background-color: #fff8e1;
+  border-left-color: #ff9800;
+  color: #e65100;
+}
+.admonition .title {
+  align-items: center;
+  display: flex;
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #e65100;
+  margin: 0 0 8px 0;
+}
+.admonition .title::before {
+  content: '⚠️';
+  font-size: 1.2em;
+  margin-right: 8px;
+}
+.admonition p:not(.title) {
+  color: #bf360c;
+  margin: 0;
+}
+.admonition.info {
+  background-color: #e3f2fd;
+  border-left-color: #2196f3;
+  color: #0d47a1;
+}
+.makie-blue {
+  background-color: #8398a7;
+}
+.text {
+  font-size: 20px;
+  white-space: nowrap;
+  color: rgb(48, 48, 48);
+  position: absolute;
+  overflow: hidden;
+}
+.flex {
+  display: flex;
+}
+.grid {
+  display: grid;
+}
+.block {
+  display: block;
+}
+.inline-block {
+  display: inline-block;
+}
+.flex-row {
+  flex-direction: row;
+}
+.flex-col {
+  flex-direction: column;
+}
+.flex-row-reverse {
+  flex-direction: row-reverse;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.justify-center {
+  justify-content: center;
+}
+.items-center {
+  align-items: center;
+}
+.items-start {
+  align-items: flex-start;
+}
+.gap-1 {
+  gap: 0.25rem;
+}
+.gap-2 {
+  gap: 0.5rem;
+}
+.gap-3 {
+  gap: 0.75rem;
+}
+.gap-4 {
+  gap: 1rem;
+}
+.gap-5 {
+  gap: 1.25rem;
+}
+.gap-6 {
+  gap: 1.5rem;
+}
+.gap-8 {
+  gap: 2rem;
+}
+.gap-10 {
+  gap: 2.5rem;
+}
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.p-1 {
+  padding: 0.25rem;
+}
+.p-2 {
+  padding: 0.5rem;
+}
+.p-4 {
+  padding: 1rem;
+}
+.p-6 {
+  padding: 1.5rem;
+}
+.p-8 {
+  padding: 2rem;
+}
+.p-10 {
+  padding: 2.5rem;
+}
+.px-2 {
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+}
+.px-3 {
+  padding-right: 0.75rem;
+  padding-left: 0.75rem;
+}
+.px-4 {
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+.px-5 {
+  padding-right: 1.25rem;
+  padding-left: 1.25rem;
+}
+.py-1 {
+  padding-bottom: 0.25rem;
+  padding-top: 0.25rem;
+}
+.py-4 {
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+.m-0 {
+  margin: 0;
+}
+.m-1 {
+  margin: 0.25rem;
+}
+.m-2 {
+  margin: 0.5rem;
+}
+.m-4 {
+  margin: 1rem;
+}
+.-m-2 {
+  margin: -0.5rem;
+}
+.-m-4 {
+  margin: -1rem;
+}
+.-m-8 {
+  margin: -2rem;
+}
+.mx-auto {
+  margin-right: auto;
+  margin-left: auto;
+}
+.my-1 {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+.my-3 {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.my-6 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.my-10 {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+.my-14 {
+  margin-top: 3.5rem;
+  margin-bottom: 3.5rem;
+}
+.mt-1 {
+  margin-top: 0.25rem;
+}
+.mt-4 {
+  margin-top: 1rem;
+}
+.mt-14 {
+  margin-top: 3.5rem;
+}
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
+.w-full {
+  width: 100%;
+}
+.w-8 {
+  width: 2rem;
+}
+.w-1\/2 {
+  width: 50%;
+}
+.w-1\/3 {
+  width: 33.333333%;
+}
+.w-1\/5 {
+  width: 20%;
+}
+.w-2\/5 {
+  width: 40%;
+}
+.w-3\/5 {
+  width: 60%;
+}
+.w-96 {
+  width: 24rem;
+}
+.object-cover {
+  object-fit: cover;
+}
+.object-contain {
+  object-fit: contain;
+}
+.max-w-prose {
+  max-width: 65ch;
+}
+.max-w-5xl {
+  max-width: 64rem;
+}
+.max-w-full {
+  max-width: 100%;
+}
+.basis-2\/5 {
+  flex-basis: 40%;
+}
+.basis-3\/5 {
+  flex-basis: 60%;
+}
+.grow {
+  flex-grow: 1;
+}
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+.flex-1 {
+  flex: 1 1 0%;
+}
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+.font-semibold {
+  font-weight: 600;
+}
+.font-bold {
+  font-weight: 700;
+}
+.font-black {
+  font-weight: 900;
+}
+.text-left {
+  text-align: left;
+}
+.text-center {
+  text-align: center;
+}
+.text-justify {
+  text-align: justify;
+}
+.text-white {
+  color: #FFFFFF;
+}
+.text-black {
+  color: #212121;
+}
+.text-blue-600 {
+  color: #2196F3;
+}
+.text-purple-600 {
+  color: #7E57C2;
+}
+.text-gray-600 {
+  color: #757575;
+}
+.visited\:text-purple-600:visited {
+  color: #7E57C2;
+}
+.italic {
+  font-style: italic;
+}
+.bg-white {
+  background-color: #FFFFFF;
+}
+.bg-gray-100 {
+  background-color: #F5F5F5;
+}
+.bg-gray-200 {
+  background-color: #EEEEEE;
+}
+.rounded-md {
+  border-radius: 0.5rem;
+}
+.shadow {
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+.hover\:opacity-50:hover {
+  opacity: 0.5;
+  transition: opacity 0.2s ease-in-out;
+}
+.hover\:bg-gray-300:hover {
+  background-color: #E0E0E0;
+  transition: background-color 0.2s ease-in-out;
+}
+a {
+  text-decoration: none;
+}
+.navbar {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(135deg, #2196F3 0%, #1565C0 100%);
+}
+.navbar a {
+  display: inline-block;
+  text-decoration: none;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}
+.navbar-highlight {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 0.375rem;
+  transition: all 0.2s ease-in-out;
+}
+.card {
+  padding: 0.5rem 0.75rem;
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+.card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+@media (min-width: 640px) {
+  .sm\:flex-row-reverse {
+    flex-direction: row-reverse;
+  }
+  .sm\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .sm\:flex-row {
+    flex-direction: row;
+  }
+  .sm\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .sm\:w-1\/3 {
+    width: 33.333333%;
+  }
+}
+@media (min-width: 768px) {
+  .md\:gap-10 {
+    gap: 2.5rem;
+  }
+  .md\:px-4 {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+  .md\:basis-2\/5 {
+    flex-basis: 40%;
+  }
+  .md\:basis-3\/5 {
+    flex-basis: 60%;
+  }
+  .md\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .md\:-m-4 {
+    margin: -1rem;
+  }
+  .md\:p-4 {
+    padding: 1rem;
+  }
+}
+@media (min-width: 1024px) {
+  .lg\:text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+  .lg\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+  .lg\:w-1\/5 {
+    width: 20%;
+  }
+  .lg\:p-8 {
+    padding: 2rem;
+  }
+  .lg\:-m-8 {
+    margin: -2rem;
+  }
+}
+.container {
+  position: relative;
+}
+.overlay {
+  left: 0;
+  visibility: hidden;
+  align-items: center;
+  bottom: 0;
+  display: flex;
+  height: 100%;
+  padding: 1rem;
+  position: absolute;
+  justify-content: center;
+  background-color: #ffffff00;
+  right: 0;
+  width: 100%;
+  transition: color 0.3s ease-in, background-color 0.3s ease-in 0.3s;
+  overflow: hidden;
+  color: transparent;
+}
+.container:hover .overlay {
+  visibility: visible;
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #212121;
+  transition: color 0.5s ease-in 0.3s, background-color 0.3s ease-in;
+}
+.image {
+  max-width: none;
+  max-height: none;
+}
+.container:hover .image {
+  filter: blur(4px);
+}
+</style><link href="../../bonito/css/markdown-mobile13898764559087962533.css" rel="stylesheet" type="text/css" /><link href="../../bonito/css/github.min8213811099958948332.css" rel="stylesheet" type="text/css" /></head><body data-jscall-id="5"><script type="module">Bonito.init_session("4e3dfa6b-56dc-4278-b5a0-cf6bb48ed0bc", Bonito.fetch_binary('../../bonito/bin/977b5d7ad15fabdb0e8d4caf838f67cb639e924c-4625472408240938082.bin'), "root", false);
+</script><div data-jscall-id="6"><link href="../../bonito/png/icon_transparent1037186205570625945.png" data-jscall-id="7" rel="icon" type="image/png" /><img style="width: 100%" data-jscall-id="8" src="../../bonito/png/bannermesh_gradient12222907222071057261.png" /><div class="flex navbar justify-center" data-jscall-id="9"><div class="flex max-w-5xl w-full md:px-4 flex-wrap" data-jscall-id="10"><a href="../../" data-jscall-id="11" target=""><div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="12">Home</div></a><a href="../../team" data-jscall-id="13" target=""><div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="14">Team</div></a><a href="../../support" data-jscall-id="15" target=""><div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="16">Support</div></a><a href="../../contact" data-jscall-id="17" target=""><div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="18">Contact</div></a><a href="../../blog" data-jscall-id="19" target=""><div class="text-white cursor-pointer py-1 px-2 hover:opacity-50  navbar-highlight" data-jscall-id="20">Blog</div></a><a href="http://docs.makie.org" data-jscall-id="21" target="_blank"><div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="22">Docs</div></a><a href="https://github.com/MakieOrg/Makie.jl" data-jscall-id="23" target="_blank"><div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="24"><img style="height: 1.2rem; display: inline-block; vertical-align: text-bottom;" data-jscall-id="25" src="../../bonito/png/GitHub-Mark-Light-64px12574665218786438484.png" /></div></a></div></div><div class="p-4 w-full" data-jscall-id="26"><div data-jscall-id="27"><div class="post-date" style="color: #666; margin-bottom: 1rem; text-align: center;" data-jscall-id="28">Mon, 20 Nov 2023</div><div data-jscall-id="29"><div class="markdown-body" data-jscall-id="30"><h1 id="Makie v0.20" data-jscall-id="31">Makie v0.20</h1><p data-jscall-id="32">We&#39;re happy to present you with one of the largest Makie releases we&#39;ve made to date&#33;</p><div class="markdown-body" data-jscall-id="33"><img data-jscall-id="34" src="../../bonito/png/cell_output_11331283137102595477.png" /></div><p data-jscall-id="35">It was in the works for about a year, a year in which we&#39;ve had our first Makie conference and saw the adoption of Makie among Julia users rise. One indicator for that is the citation count of our JOSS paper &#40;thank you for acknowledging our work if it benefits you with your own&#33;&#41;, which at the moment of writing is <a href="https://scholar.google.com/citations?view_op=view_citation&#38;hl=de&#38;citation_for_view=Cg-m5A0AAAAJ:u-x6o8ySG0sC" data-jscall-id="36">just shy of 100</a>:</p><div class="markdown-body" data-jscall-id="37"><img data-jscall-id="38" src="../../bonito/png/cell_output_217572608774889064536.png" /></div><p data-jscall-id="39">It&#39;s great to flip through all those papers and see how Makie is used in the wild&#33;</p><p data-jscall-id="40">Version 0.20 will enable users to make even better plots, as it contains many long-awaited features and fixes. So let&#39;s take a look at some of the most prominent additions and improvements.</p><h2 id="" data-jscall-id="41">Better High DPI support <a href="https://github.com/MakieOrg/Makie.jl/pull/2544" data-jscall-id="42">#2544</a> &#38; <a href="https://github.com/MakieOrg/Makie.jl/pull/2346" data-jscall-id="43">#2346</a></h2><p data-jscall-id="44">CairoMakie has long had the ability to increase the resolution of saved images with the <code data-jscall-id="45">px_per_unit</code> setting. However, GLMakie could only render at exactly the <code data-jscall-id="46">resolution</code> set in a <code data-jscall-id="47">Figure</code> or <code data-jscall-id="48">Scene</code>. This caused several problems: Figures would look too small on high-dpi and too large on low-dpi screens. For inclusion of GLMakie figures in publications, users would have to compute the final resolution for the right dpi count manually, and then adjust all other sizes like fontsize, scatter markers, line widths, etc. to match.</p><p data-jscall-id="49">Now, GLMakie supports <code data-jscall-id="50">px_per_unit</code> which means that you can render high-resolution results with a simple <code data-jscall-id="51">save&#40;&#34;output.png&#34;, figure, px_per_unit &#61; 5&#41;</code>. Interactive windows can automatically adjust their <code data-jscall-id="52">px_per_unit</code> value to the screen&#39;s scaling factor reported by the operating system. This way, Makie windows should always be appropriately sized, with legible, sharp text.</p><p data-jscall-id="53">This effort was spearheaded by Justin Willmert in a heroic and completely unexpected first-contributor effort in <a href="https://github.com/MakieOrg/Makie.jl/pull/2544" data-jscall-id="54">#2544</a>, many thanks to him&#33;</p><p data-jscall-id="55">With this improvement come a few changes in the API and default Makie theme. The <code data-jscall-id="56">resolution</code> keyword is deprecated and now called <code data-jscall-id="57">size</code>, reflecting that this is not a pixel size anymore, even for GLMakie. The default figure size is now <code data-jscall-id="58">&#40;600, 450&#41;</code> instead of <code data-jscall-id="59">&#40;800, 600&#41;</code>, with a fontsize of <code data-jscall-id="60">14</code> instead of <code data-jscall-id="61">16</code> device-independent pixels &#40;10.5 instead of 12 pt&#41;. We do not have to make these sizes a compromise between high-dpi and low-dpi systems anymore, so we felt the default was too large for typical uses in documents or websites.</p><p data-jscall-id="62">Here&#39;s a screenshot from a high-dpi Macbook from the previous Makie version, where you can see that, compared with other apps and system fonts, the window and fontsize used to be pretty small due to unawareness of screen scale factors, which meant that the 800x600 window ended up at a measly 400x300 logical pixels:</p><div class="markdown-body" data-jscall-id="63"><img data-jscall-id="64" src="../../bonito/png/cell_output_37456919731790556598.png" /></div><p data-jscall-id="65">Now, the window has 600x450 logical pixels, backed by 1200x900 actual pixels, so text is sharp and much more readable.</p><div class="markdown-body" data-jscall-id="66"><img data-jscall-id="67" src="../../bonito/png/cell_output_44984865457861718938.png" /></div><p data-jscall-id="68">Speaking of websites, if you were using Makie on high-dpi screens with web-technology based tools like Pluto, Jupyter notebooks or VSCode, you probably noticed that plots &#40;except for svgs&#41; would often look blurry. Increasing <code data-jscall-id="69">resolution</code> in GLMakie or <code data-jscall-id="70">px_per_unit</code> in CairoMakie didn&#39;t make the images sharper, just bigger. The reason is that browsers by default display images at their resolution in CSS <code data-jscall-id="71">px</code> units. On high-dpi screens, one <code data-jscall-id="72">px</code> unit covers more than one screen pixel, so if you use multiple screen pixels to display one image pixel, you get a blurry result.</p><p data-jscall-id="73">Now that we interpret <code data-jscall-id="74">size</code> of a <code data-jscall-id="75">Figure</code> in device-independent pixels like CSS, we can display png images with the <code data-jscall-id="76">text/html</code> MIME type, annotated with the original size via the <code data-jscall-id="77">width</code> and <code data-jscall-id="78">height</code> HTML attributes. This way, a <code data-jscall-id="79">Figure</code> with <code data-jscall-id="80">size &#61; &#40;600, 450&#41;</code> will display at the same size, no matter how high or low <code data-jscall-id="81">px_per_unit</code> is set. To give a better default experience, we increased <code data-jscall-id="82">px_per_unit</code> to <code data-jscall-id="83">2</code> so that outputs in Pluto and other notebooks will look sharp no matter if they&#39;re later viewed on a regular or high-dpi screen &#40;at the cost of increased file size&#41;.</p><p data-jscall-id="84">Here&#39;s a screenshot from a Macbook running Pluto with the previous Makie v0.19. The default png output is large &#40;800x600 CSS pixels is larger than Pluto&#39;s output area size at 700px width, so we&#39;re even seeing a slightly scaled-down version&#41;. It&#39;s not sharp because the image only contains 800x600 pixels while the screen has double the pixels to fill.</p><div class="markdown-body" data-jscall-id="85"><img data-jscall-id="86" src="../../bonito/png/cell_output_516929174328999442827.png" /></div><p data-jscall-id="87">And here is Makie v0.20. The image has the correct size of 600x450 CSS pixels, slightly smaller than Pluto&#39;s output area. And it&#39;s sharp, because it contains 1200x900 real pixels.</p><div class="markdown-body" data-jscall-id="88"><img data-jscall-id="89" src="../../bonito/png/cell_output_610049566023728117931.png" /></div><h2 id="" data-jscall-id="90">Experimental declarative API &#40;<a href="https://github.com/MakieOrg/Makie.jl/pull/3281" data-jscall-id="91">#3281</a>, <a href="https://github.com/MakieOrg/Makie.jl/pull/2868" data-jscall-id="92">#2868</a>&#41;</h2><p data-jscall-id="93">Makie has a new <strong data-jscall-id="94">experimental declarative API</strong> called <code data-jscall-id="95">SpecApi</code>. While its interface is not yet stable, we are at a point where we want to ask the community to join forces with us in testing what works and what doesn&#39;t, so we&#39;re releasing a first version in 0.20. Note that experimental means that we may change this API at any time, so you should not build code intended to have a longer shelf life on top of it, yet.</p><p data-jscall-id="96">Before going into the details, here is an example of the <code data-jscall-id="97">SpecApi</code> in use:</p><div class="markdown-body" data-jscall-id="98"><pre data-jscall-id="99"><code class="language-julia" data-jscall-id="100">using GLMakie
+using DelimitedFiles
+using Makie.FileIO
+import Makie.SpecApi as S
+volcano &#61; readdlm&#40;Makie.assetpath&#40;&#34;volcano.csv&#34;&#41;, &#39;,&#39;, Float64&#41;
+brain &#61; load&#40;Makie.assetpath&#40;&#34;brain.stl&#34;&#41;&#41;
+r &#61; LinRange&#40;-1, 1, 100&#41;
+cube &#61; &#91;&#40;x .^ 2 &#43; y .^ 2 &#43; z .^ 2&#41; for x &#61; r, y &#61; r, z &#61; r&#93;
+
+density_plots &#61; map&#40;x -&#62; S.Density&#40;x * randn&#40;200&#41; .&#43; 3x, color&#61;:y&#41;, 1:5&#41;
+brain_mesh &#61; S.Mesh&#40;brain, colormap&#61;:Spectral, color&#61;&#91;tri&#91;1&#93;&#91;2&#93; for tri in brain for i in 1:3&#93;&#41;
+volcano_contour &#61; S.Contourf&#40;volcano; colormap&#61;:inferno&#41;
+cube_contour &#61; S.Contour&#40;cube, alpha&#61;0.5&#41;
+
+ax_densities &#61; S.Axis&#40;; plots&#61;density_plots, yautolimitmargin &#61; &#40;0, 0.1&#41;&#41;
+ax_volcano &#61; S.Axis&#40;; plots&#61;&#91;volcano_contour&#93;&#41;
+ax_brain &#61; S.Axis3&#40;; plots&#61;&#91;brain_mesh&#93;, protrusions &#61; &#40;50, 20, 10, 0&#41;&#41;
+ax_cube &#61; S.Axis3&#40;; plots&#61;&#91;cube_contour&#93;, protrusions &#61; &#40;50, 20, 10, 0&#41;&#41;
+
+spec_column_vector &#61; S.GridLayout&#40;&#91;ax_densities, ax_volcano, ax_brain&#93;&#41;;
+spec_matrix &#61; S.GridLayout&#40;&#91;ax_densities ax_volcano; ax_brain ax_cube&#93;&#41;;
+spec_row &#61; S.GridLayout&#40;&#91;spec_column_vector spec_matrix&#93;, colsizes &#61; &#91;Auto&#40;&#41;, Auto&#40;4&#41;&#93;&#41;
+
+f, ax, pl &#61; plot&#40;S.GridLayout&#40;spec_row&#41;; figure &#61; &#40;; fontsize &#61; 10&#41;&#41;</code></pre><img data-jscall-id="101" src="../../bonito/png/cell_output_74178062420492146175.png" /></div><p data-jscall-id="102">We had been thinking for quite a while about a more declarative API  which can describe complex plots as nested dicts without any <code data-jscall-id="103">Observable</code>s. A major issue has been how to keep performant animations part of such an API. The <code data-jscall-id="104">SpecApi</code> now offers this and allows <code data-jscall-id="105">Observable&#123;FigureSpec&#125;</code> to create animations of whole layouts and complex plots via diffing.</p><p data-jscall-id="106">There are at least three reasons why Makie can benefit from a declarative API:</p><ol class=" style_2" style="" data-jscall-id="107"><li data-jscall-id="108"><p data-jscall-id="109"><a href="https://aog.makie.org/stable/" data-jscall-id="110">AlgebraOfGraphics.jl</a> has never supported animating Plots, because it has been too hard to create complex layouts from data observables in Makie. Since AlgebraOfGraphics is great for interactive data dashboards, this has always been a big limitation. With the new <code data-jscall-id="111">SpecApi</code>, we will be able to rewrite AlgebraOfGraphics to be just a small generator of <code data-jscall-id="112">SpecApi</code> objects, with much better compile times and the ability to create fully interactive and performant data dashboards.</p></li><li data-jscall-id="113"><p data-jscall-id="114">Pluto and PlutoUI work best with a declarative Plotting API, and it has not been working well with Makie&#39;s observable approach. With the <code data-jscall-id="115">SpecApi</code> this will change and should make the usage of Makie in Pluto much more enjoyable. Note, that the <a href="https://github.com/fonsp/Pluto.jl/issues/2706" data-jscall-id="116">deeper integration with Pluto will still need some help from Pluto&#39;s side</a>.</p></li><li data-jscall-id="117"><p data-jscall-id="118">Nested Dicts will work well for package independent serialization of plots. We could think of serializing complete complex figures to JSON and share them like that. Or we could update figures from within Javascript, making it easier to create animations in plots exported to HTML.</p></li></ol><p data-jscall-id="119">The above JSON export isn&#39;t implemented yet, but with this update we&#39;re getting a step closer to it.</p><p data-jscall-id="120">To make it easier to work with the <code data-jscall-id="121">SpecApi</code>, we decided not to use <code data-jscall-id="122">Dict</code>s but very lightweight structs, which allow us to mirror the default Makie API:</p><div class="markdown-body" data-jscall-id="123"><pre data-jscall-id="124"><code class="language-julia" data-jscall-id="125">import Makie.SpecApi as S # For convenience import it as a shorter name
+S.Scatter&#40;1:4&#41; # create a single PlotSpec object
+
+# Create a complete figure
+spec &#61; S.GridLayout&#40;
+    S.Axis&#40;; plots&#61;&#91;
+        S.Scatter&#40;1:4&#41;
+    &#93;&#41;
+&#41;
+
+spec_observable &#61; Observable&#40;spec&#41;
+f &#61; plot&#40;spec_observable&#41; # Plot the layout into a figure
+# Efficiently update the complete figure with a new FigureSpec
+spec_observable&#91;&#93; &#61; S.GridLayout&#40;S.Axis&#40;; title&#61;&#34;lines&#34;, plots&#61;&#91;S.Lines&#40;1:4&#41;&#93;&#41;&#41;
+f</code></pre><img data-jscall-id="126" src="../../bonito/png/cell_output_814263663195854456849.png" /></div><p data-jscall-id="127">If only an attribute like a color changes from red to green, Makie will only update that color efficiently. Otherwise, plots and blocks will be deleted and re-created, which is more costly. In general, the <code data-jscall-id="128">SpecApi</code> will always be slower for animations than using pure <code data-jscall-id="129">Observable</code>s, since we will always pay the cost of finding what has changed &#40;the diffing&#41;, but it should be fast enough for lots of use cases.</p><h3 id="" data-jscall-id="130">Usage in <code data-jscall-id="131">convert_arguments</code></h3><p data-jscall-id="132">You can overload <code data-jscall-id="133">convert_arguments</code> and return an array of <code data-jscall-id="134">PlotSpec</code>s or a <code data-jscall-id="135">GridLayoutSpec</code>. The main difference between those is, that returning an array of <code data-jscall-id="136">PlotSpecs</code> can be plotted like any recipe into axes etc, while overloads returning a whole <code data-jscall-id="137">GridLayoutSpec</code> can only be plotted to whole layout position &#40;e.g. <code data-jscall-id="138">figure&#91;1, 1&#93;</code>&#41;.</p><div class="markdown-body" data-jscall-id="139"><pre data-jscall-id="140"><code class="language-julia" data-jscall-id="141">import Makie.SpecApi as S
+struct PlotGrid
+    nplots::Tuple&#123;Int,Int&#125;
+end
+
+Makie.used_attributes&#40;::PlotGrid&#41; &#61; &#40;:color,&#41;
+function Makie.convert_arguments&#40;::Type&#123;Plot&#123;plot&#125;&#125;, obj::PlotGrid; color&#61;:black&#41;
+    axes &#61; &#91;
+        S.Axis&#40;plots&#61;&#91;S.Lines&#40;cumsum&#40;randn&#40;1000&#41;&#41;; color&#61;color&#41;&#93;&#41;
+            for i in 1:obj.nplots&#91;1&#93;,
+                j in 1:obj.nplots&#91;2&#93;
+    &#93;
+    return S.GridLayout&#40;axes&#41;
+end
+
+f &#61; Figure&#40;&#41;
+plot&#40;f&#91;1, 1&#93;, PlotGrid&#40;&#40;1, 1&#41;&#41;; color&#61;Cycled&#40;1&#41;&#41;
+plot&#40;f&#91;1, 2&#93;, PlotGrid&#40;&#40;2, 2&#41;&#41;; color&#61;Cycled&#40;2&#41;&#41;
+f</code></pre><img data-jscall-id="142" src="../../bonito/png/cell_output_92208693694335841665.png" /></div><p data-jscall-id="143">You can find more examples in the docs. Note that especially the <code data-jscall-id="144">convert_argument</code> integration is <strong data-jscall-id="145">experimental and might be moved into another function and work quite differently in the future</strong>. Also, you will likely run into some bugs, especially for more complex layouts.</p><p data-jscall-id="146">The PR to introduce the <code data-jscall-id="147">SpecApi</code> had to fix quite a few internals to make this work:</p><ul class=" style_2" style="" data-jscall-id="148"><li data-jscall-id="149"><p data-jscall-id="150">Fixes multiple memory leaks for <code data-jscall-id="151">delete&#33;</code></p></li><li data-jscall-id="152"><p data-jscall-id="153">Fixes large performance bugs in plot creation. See e.g. <a href="https://github.com/MakieOrg/Makie.jl/issues/3307" data-jscall-id="154">#3307</a>, which was the worst offender.</p></li><li data-jscall-id="155"><p data-jscall-id="156">Refactors plot creation API, to make things like <code data-jscall-id="157">convert_arguments&#40;...&#41;::FigureSpec</code> easier to integrate and removes double <code data-jscall-id="158">convert_arguments</code> from previous implementation. This will also make Unit support for Axes &#38; Recipes, a.k.a axis converts <a href="https://github.com/MakieOrg/Makie.jl/pull/3226" data-jscall-id="159">#3226</a> easier.</p></li><li data-jscall-id="160"><p data-jscall-id="161">Moves cycler from Axis to Scene, so that Recipes and PlotSpec work with cycling, and cycling is applied more consistently.</p></li><li data-jscall-id="162"><p data-jscall-id="163">Moves update tracking for the GLMakie <code data-jscall-id="164">on_demand_renderloop</code> to conversion pipeline, so that less observables for tracking are created &#40;more than halfs the size of objects created for each plot&#41;.</p></li></ul><h2 id="" data-jscall-id="165">Surface fixes <a href="https://github.com/MakieOrg/Makie.jl/pull/2598" data-jscall-id="166">#2598</a></h2><p data-jscall-id="167">This release includes two fixes for surface plots. The first deals with NaN sections in the surface data which previously led to artifacts and lighting bugs across CairoMakie, GLMakie and WGLMakie. They should now consistently be excluded across all backends without lighting issues.</p><div class="markdown-body" data-jscall-id="168"><pre data-jscall-id="169"><code class="language-julia" data-jscall-id="170">rs &#61; range&#40;-1, 1, length&#61;100&#41;
+xs &#61; cospi.&#40;rs&#41;
+ys &#61; rs
+zs &#61; &#91;sinpi&#40;x&#41; for x in rs, y in rs&#93;
+zs&#91;52:68, 60:90&#93; .&#61; NaN
+
+fig &#61; Figure&#40;&#41;
+ax &#61; LScene&#40;fig&#91;1, 1&#93;, show_axis &#61; false&#41;
+surface&#33;&#40;ax, xs, ys, zs, backlight &#61; 1&#41;
+
+fig</code></pre><img data-jscall-id="171" src="../../bonito/png/cell_output_101642027859208515732.png" /></div><p data-jscall-id="172">Improving NaN-related behavior also surfaced a rendering bug which has also been fixed now. Specifically, the vertex positions were placed tightly against the edges like for <code data-jscall-id="173">image</code> while colors were centered between those vertices like in <code data-jscall-id="174">heatmap</code>. This resulted in colors at the edge of a surface being constant. The fix is most noticeable with very low-resolution surfaces, where the distances between vertices are large. The difference is almost imperceptible for higher-resolution surfaces, which is why the problem had gone unnoticed for a while.</p><div class="markdown-body" data-jscall-id="175"><pre data-jscall-id="176"><code class="language-julia" data-jscall-id="177">data &#61; &#91;
+    1 2 3;
+    2 2 2;
+    3 2 1
+&#93;
+
+fig &#61; Figure&#40;size &#61; &#40;800, 400&#41;&#41;
+
+# emulate old behaviour
+ax &#61; Axis&#40;fig&#91;1, 1&#93;, title &#61; &#34;old&#34;&#41;
+emulated &#61; &#91;
+    1.0 1.0 1.5 2.0 2.5 3.0 3.0;
+    1.0 1.0 1.5 2.0 2.5 3.0 3.0;
+    1.5 1.5 1.75 2.0 2.25 2.5 2.5;
+    2.0 2.0 2.0 2.0 2.0 2.0 2.0;
+    2.5 2.5 2.25 2.0 1.75 1.5 1.5;
+    3.0 3.0 2.5 2.0 1.5 1.0 1.0;
+    3.0 3.0 2.5 2.0 1.5 1.0 1.0;
+&#93;
+surface&#33;&#40;ax, 1..3, 1..3, emulated, shading &#61; NoShading, colormap &#61; :buda&#41;
+scatter&#33;&#40;
+    ax, &#91;Point3f&#40;x/3, y/3, 4&#41; for x in &#40;4,6,8&#41; for y in &#40;4,6,8&#41;&#93;, color &#61; :transparent,
+    strokewidth &#61; 1, strokecolor &#61; :black, markersize &#61; 20&#41;
+xlims&#33;&#40;ax, 1, 3&#41;
+ylims&#33;&#40;ax, 1, 3&#41;
+
+ax &#61; Axis&#40;fig&#91;1, 2&#93;, title &#61; &#34;new&#34;&#41;
+surface&#33;&#40;ax, data, shading &#61; NoShading, colormap &#61; :buda&#41;
+scatter&#33;&#40;
+    ax, &#91;Point3f&#40;x, y, 4&#41; for x in 1:3 for y in 1:3&#93;, color &#61; :transparent,
+    strokewidth &#61; 1, strokecolor &#61; :black, markersize &#61; 20&#41;
+xlims&#33;&#40;ax, 1, 3&#41;
+ylims&#33;&#40;ax, 1, 3&#41;
+
+fig</code></pre><img data-jscall-id="178" src="../../bonito/png/cell_output_1115377247049195954293.png" /></div><h2 id="" data-jscall-id="179">Grid conversion Traits <a href="https://github.com/MakieOrg/Makie.jl/pull/3106" data-jscall-id="180">#3106</a></h2><p data-jscall-id="181">We have replaced the <code data-jscall-id="182">SurfaceLike</code> trait and its children <code data-jscall-id="183">ContinousSurface</code> and <code data-jscall-id="184">DiscreteSurface</code> with a few new traits. These traits include:</p><ul class=" style_2" style="" data-jscall-id="185"><li data-jscall-id="186"><p data-jscall-id="187"><code data-jscall-id="188">CellGrid &#60;: GridBased</code> for plots like <code data-jscall-id="189">heatmap</code>, replacing <code data-jscall-id="190">DiscreteSurface</code>. It interprets &#40;N, M&#41; input coordinates as centers of cells and outputs &#40;N&#43;1, M&#43;1&#41; coordinates marking the corners of those cells.</p></li><li data-jscall-id="191"><p data-jscall-id="192"><code data-jscall-id="193">VertexGrid &#60;: GridBased</code> for plots such as <code data-jscall-id="194">surface</code> and <code data-jscall-id="195">contour</code>. This replaces <code data-jscall-id="196">ContinuousSurface</code> with the small change that generated x and y values now start at 1 rather than 0. This moves vertices to integer values and makes the respective plots compatible with <code data-jscall-id="197">heatmap</code></p></li><li data-jscall-id="198"><p data-jscall-id="199"><code data-jscall-id="200">ImageLike</code> for <code data-jscall-id="201">image</code> plots. This conversion trait assumes that the plot is drawn on a regular rectangle, outputting two intervals <code data-jscall-id="202">xmin..xmax</code> and <code data-jscall-id="203">ymin..ymax</code>. With no x or y values passed this assumes the 0 as the starting value like <code data-jscall-id="204">ContinuousSurface</code> did.</p></li></ul><div class="markdown-body" data-jscall-id="205"><img data-jscall-id="206" src="../../bonito/png/cell_output_123533297178806437702.png" /></div><h2 id="" data-jscall-id="207">Camera 3D <a href="https://github.com/MakieOrg/Makie.jl/pull/2746" data-jscall-id="208">#2746</a></h2><p data-jscall-id="209">With this update we have merged a number of changes and additions to <code data-jscall-id="210">Camera3D</code>, the default camera for 3D <code data-jscall-id="211">Scene</code>s and <code data-jscall-id="212">LScene</code>s.</p><ul class=" style_2" style="" data-jscall-id="213"><li data-jscall-id="214"><p data-jscall-id="215">Zooming has been reverted from an fov based zoom to a translation of <code data-jscall-id="216">eyeposition</code>. This removes the change in &#34;perspectiveness&#34; when zooming.</p></li><li data-jscall-id="217"><p data-jscall-id="218">We added a new interaction which allows you to focus on a geometry by clicking on it with the left alt key pressed.</p></li><li data-jscall-id="219"><p data-jscall-id="220">To avoid previous issues with excessive data clipping after zooming, we now have different clipping modes. The default <code data-jscall-id="221">clipping_mode &#61; :bbox_relative</code> scales <code data-jscall-id="222">near</code> and <code data-jscall-id="223">far</code> to be just outside the scenes bounding box while also keeping near in front of the camera. For this to work you may need to call <code data-jscall-id="224">center&#33;&#40;scene&#41;</code> or <code data-jscall-id="225">update_cam&#33;&#40;scene&#91;, cam&#93;, bbox&#91;, center &#61; true&#93;&#41;</code> explicitly in some cases. Other modes include <code data-jscall-id="226">:view_relative</code>  which scales near and far by <code data-jscall-id="227">norm&#40;eyeposition - lookat&#41;</code> and <code data-jscall-id="228">:static</code> which directly passes these values on.</p></li><li data-jscall-id="229"><p data-jscall-id="230">Translation speed now scales with the zoom level and fov to feel more consistent.</p></li><li data-jscall-id="231"><p data-jscall-id="232">We now take the fov into consideration when centering the camera.</p></li><li data-jscall-id="233"><p data-jscall-id="234">We adjusted some of the default key bindings to be more accessible/consistent. These include eyeposition-based zooming changing from page up/down to b/n, and the camera reset changing from the home button to control &#43; left mouse button.</p></li><li data-jscall-id="235"><p data-jscall-id="236">We added <code data-jscall-id="237">update_cam&#33;&#40;scene&#91;, cam&#93;, azimuth, elevation&#91;, radius &#61; current, center &#61; lookat&#93;&#41;</code> which adjusts the camera position according to the given angles.</p></li></ul><h2 id="" data-jscall-id="238">Lighting improvements <a href="https://github.com/MakieOrg/Makie.jl/pull/3246" data-jscall-id="239">#3246</a>, <a href="https://github.com/MakieOrg/Makie.jl/pull/3355" data-jscall-id="240">#3355</a></h2><p data-jscall-id="241">We have reworked lighting in GLMakie, adding more light types and allowing for multiple light sources at once, and we have adjusted the default setup across all backends. Furthermore we have made some general improvements to the consistency of lighting between plot types and backends.</p><h4 id="General Changes" data-jscall-id="242">General Changes</h4><p data-jscall-id="243">Before this release, the default light setup included an <code data-jscall-id="244">AmbientLight</code> which sets a base brightness for the scene and a <code data-jscall-id="245">PointLight</code> which is kept at the camera position. We have changed this to be an <code data-jscall-id="246">AmbientLight</code> with a <code data-jscall-id="247">DirectionalLight</code>. A <code data-jscall-id="248">DirectionalLight</code> works like the sun whose rays are effectively parallel when they arrive on earth. This makes adjusting lighting easier because illumination is the same for all similarly-oriented surfaces in the scene, no matter where they are placed. Before, the default point light was always placed exactly at camera position, which lights everything that the camera can see. Photographers will know that placing a light at camera position removes shadows and therefore depth cues, which is not desirable when we want to assess the three-dimensionality of objects. Our new default directional light now shines down at an angle relative to the camera, which generally makes it easier to see curvature of objects.</p><p data-jscall-id="249">We have also adjusted the default values of <code data-jscall-id="250">diffuse</code> and <code data-jscall-id="251">specular</code> that a 3D plot carries. They changed from <code data-jscall-id="252">0.4 -&#62; 1.0</code> and <code data-jscall-id="253">0.2 -&#62; 0.4</code> respectively, with light intensities &#40;given through the light color&#41; going down to compensate. This overall makes plots a bit less shiny and cleans up the overexposure you may sometimes see:</p><div class="markdown-body" data-jscall-id="254"><pre data-jscall-id="255"><code class="language-julia" data-jscall-id="256">using Makie.FileIO
+
+fig &#61; Figure&#40;backgroundcolor &#61; :black, size &#61; &#40;800, 400&#41;&#41;
+
+Label&#40;fig&#91;1, 1&#93;, &#34;Old defaults&#34;, fontsize &#61; 16, tellwidth &#61; false, color &#61; :white&#41;
+Label&#40;fig&#91;1, 2&#93;, &#34;New defaults&#34;, fontsize &#61; 16, tellwidth &#61; false, color &#61; :white&#41;
+
+# Emulate old lighting &#40;does not include changes to backlight&#41;
+lights &#61; &#91;
+    AmbientLight&#40;RGBf&#40;0.55, 0.55, 0.55&#41;&#41;,
+    PointLight&#40;RGBf&#40;1, 1, 1&#41;, Point3f&#40;3, 3, 3&#41;&#41;
+&#93;
+ax1 &#61; LScene&#40;fig&#91;2, 1&#93;, show_axis &#61; false, scenekw &#61; &#40;lights &#61; lights, &#41;&#41;
+meshscatter&#33;&#40;
+    ax1, &#91;Point3f&#40;0, 0, 0&#41;&#93;, color &#61; :white,
+    diffuse &#61; 0.4, specular &#61; 0.2,
+    backlight &#61; 1, fxaa &#61; true
+&#41;
+
+# new defaults
+ax2 &#61; LScene&#40;fig&#91;2, 2&#93;, show_axis &#61; false&#41;
+meshscatter&#33;&#40;
+    ax2, &#91;Point3f&#40;0, 0, 0&#41;&#93;, color &#61; :white,
+    backlight &#61; 1, fxaa &#61; true
+&#41;
+
+fig</code></pre><img data-jscall-id="257" src="../../bonito/png/cell_output_1318314705509612565330.png" /></div><div class="markdown-body" data-jscall-id="258"><pre data-jscall-id="259"><code class="language-julia" data-jscall-id="260">rs &#61; range&#40;-1, 1, length&#61;100&#41;
+xs &#61; cospi.&#40;rs&#41;
+ys &#61; rs
+zs &#61; &#91;&#40;y &#43; 0.5&#41; * sinpi&#40;x&#41; for x in rs, y in rs&#93;
+
+fig &#61; Figure&#40;backgroundcolor &#61; :black, size &#61; &#40;800, 400&#41;&#41;
+
+Label&#40;fig&#91;1, 1&#93;, &#34;Old defaults&#34;, fontsize &#61; 16, tellwidth &#61; false, color &#61; :white&#41;
+Label&#40;fig&#91;1, 2&#93;, &#34;New defaults&#34;, fontsize &#61; 16, tellwidth &#61; false, color &#61; :white&#41;
+
+# Emulate old lighting &#40;does not include changes to backlight&#41;
+lights &#61; &#91;
+    AmbientLight&#40;RGBf&#40;0.55, 0.55, 0.55&#41;&#41;,
+    PointLight&#40;RGBf&#40;1, 1, 1&#41;, Point3f&#40;3, 3, 3&#41;&#41;
+&#93;
+ax1 &#61; LScene&#40;fig&#91;2, 1&#93;, show_axis &#61; false, scenekw &#61; &#40;lights &#61; lights, &#41;&#41;
+surface&#33;&#40;
+    ax1, xs, ys, zs, colormap &#61; &#91;:white&#93;,
+    diffuse &#61; 0.4, specular &#61; 0.2,
+    backlight &#61; 1, fxaa &#61; true
+&#41;
+
+# new defaults
+ax2 &#61; LScene&#40;fig&#91;2, 2&#93;, show_axis &#61; false&#41;
+surface&#33;&#40;
+    ax2, xs, ys, zs, colormap &#61; &#91;:white&#93;,
+    backlight &#61; 1, fxaa &#61; true
+&#41;
+
+fig</code></pre><img data-jscall-id="261" src="../../bonito/png/cell_output_143353337836075783736.png" /></div><div class="markdown-body" data-jscall-id="262"><pre data-jscall-id="263"><code class="language-julia" data-jscall-id="264">using Makie.FileIO
+brain &#61; load&#40;Makie.assetpath&#40;&#34;brain.stl&#34;&#41;&#41;
+
+fig &#61; Figure&#40;backgroundcolor &#61; :black, size &#61; &#40;800, 400&#41;&#41;
+
+Label&#40;fig&#91;1, 1&#93;, &#34;Old defaults&#34;, fontsize &#61; 16, tellwidth &#61; false, color &#61; :white&#41;
+Label&#40;fig&#91;1, 2&#93;, &#34;New defaults&#34;, fontsize &#61; 16, tellwidth &#61; false, color &#61; :white&#41;
+
+# Emulate old lighting &#40;does not include changes to backlight&#41;
+lights &#61; &#91;
+    AmbientLight&#40;RGBf&#40;0.55, 0.55, 0.55&#41;&#41;,
+    PointLight&#40;RGBf&#40;1, 1, 1&#41;, Point3f&#40;3, 3, 3&#41;&#41;
+&#93;
+ax1 &#61; LScene&#40;fig&#91;2, 1&#93;, show_axis &#61; false, scenekw &#61; &#40;lights &#61; lights, &#41;&#41;
+mesh&#33;&#40;
+    ax1, brain, color &#61; :white,
+    diffuse &#61; 0.4, specular &#61; 0.2,
+    backlight &#61; 1, fxaa &#61; true
+&#41;
+
+# new defaults
+ax2 &#61; LScene&#40;fig&#91;2, 2&#93;, show_axis &#61; false&#41;
+mesh&#33;&#40;
+    ax2, brain, color &#61; :white,
+    backlight &#61; 1, fxaa &#61; true
+&#41;
+
+fig</code></pre><img data-jscall-id="265" src="../../bonito/png/cell_output_152333334410151854373.png" /></div><p data-jscall-id="266">And finally we have slightly reworked and cleaned up the <code data-jscall-id="267">backlight</code> attribute, which allows you to light the backside of a plot with a given weight. It now affects the normals of an object rather than the light direction, which means that specular reflections now work with it. We have also added an attribute conversion so you can now pass any number, not just a Float32.</p><h4 id="GLMakie Changes (Multiple Lights)" data-jscall-id="268">GLMakie Changes &#40;Multiple Lights&#41;</h4><p data-jscall-id="269">For GLMakie specifically we have added the option to use multiple lights as well as a number of new light types. One of those is already mentioned above - <code data-jscall-id="270">DirectionalLight</code>. The full list of available light types is now:</p><ul class=" style_2" style="" data-jscall-id="271"><li data-jscall-id="272"><p data-jscall-id="273"><code data-jscall-id="274">AmbientLight&#40;color&#41;</code> which sets a constant base light level &#40;all backends&#41;</p></li><li data-jscall-id="275"><p data-jscall-id="276"><code data-jscall-id="277">DirectionalLight&#40;color, direction&#41;</code> which casts parallel light rays in the given direction &#40;all backends&#41;</p></li><li data-jscall-id="278"><p data-jscall-id="279"><code data-jscall-id="280">PointLight&#40;color, position&#91;, attenuation&#93;&#41;</code> which casts light originating from the given position with an optional attenuation &#40;distance decay of light intensity&#41;. &#40;GLMakie &#43; RPRMakie&#41;</p></li><li data-jscall-id="281"><p data-jscall-id="282"><code data-jscall-id="283">SpotLight&#40;color, position, direction, angles&#41;</code> which casts light in a cone shape &#40;GLMakie &#43; RPRMakie&#41;</p></li><li data-jscall-id="284"><p data-jscall-id="285"><code data-jscall-id="286">RectLight&#40;color, rect, direction&#41;</code> which casts &#40;parallel&#41; light rays through a rectangle &#40;e.g a window, GLMakie&#41;</p></li><li data-jscall-id="287"><p data-jscall-id="288"><code data-jscall-id="289">EnvironmentLight&#40;intensity, image&#41;</code> which sets an image representing the environment for reflections &#40;i.e. a skybox, RPRMakie&#41;</p></li></ul><p data-jscall-id="290">To use multiple lights in GLMakie one simply needs to add multiple lights to the <code data-jscall-id="291">lights</code> vector in a Scene. If this is done before plotting, the <code data-jscall-id="292">shading</code> attribute will automatically be set to <code data-jscall-id="293">MultiLightShading</code> which enables multiple lights. &#40;Note that <code data-jscall-id="294">shading</code> cannot be changed dynamically. It needs to be set when calling <code data-jscall-id="295">plot&#33;&#40;...&#41;</code>.&#41; Once enabled you can add and remove lights, as well as change light attributes like color, position, etc by adjusting the lights in <code data-jscall-id="296">ax.scene.lights</code>.</p><p data-jscall-id="297">Here&#39;s how different a simple white meshscatter can look if you add a couple colored lights:</p><div class="markdown-body" data-jscall-id="298"><pre data-jscall-id="299"><code class="language-julia" data-jscall-id="300">using Random, Statistics
+fig &#61; Figure&#40;backgroundcolor &#61; :black&#41;
+
+# Create lights vector with different light types
+lights &#61; &#91;
+    AmbientLight&#40;RGBf&#40;0.02, 0.05, 0.25&#41;&#41;,
+    DirectionalLight&#40;RGBf&#40;0.7, 0.1, 0.05&#41;, Vec3f&#40;0, -1, -2&#41;&#41;,
+    PointLight&#40;RGBf&#40;0.6, 0.6, 0.6&#41;, Point3f&#40;0, 2, 10&#41;, 100.0&#41;
+&#93;
+
+for custom_lights in &#91;false, true&#93;
+	Random.seed&#33;&#40;123&#41;
+
+	Label&#40;fig&#91;1, custom_lights &#43; 1&#93;, &#34;&#36;&#40;custom_lights ? &#34;Custom&#34; : &#34;Default&#34;&#41; lights&#34;, tellwidth &#61; false, color &#61; :white, font &#61; :bold&#41;
+
+	# Create LScene with the lights defined above
+	ax &#61; LScene&#40;fig&#91;2, custom_lights &#43; 1&#93;, show_axis &#61; false, scenekw &#61; custom_lights ? &#40;lights &#61; lights,&#41; : &#40;;&#41;&#41;
+
+	# Prepare some data with a kernel density estimate
+	data &#61; &#91;randn&#40;30, 2&#41;; randn&#40;30, 2&#41; .&#43; &#91;3 -5&#93;; randn&#40;30, 2&#41; .&#43; &#91;7 3&#93;&#93;
+	k &#61; Makie.KernelDensity.kde&#40;data, npoints &#61; &#40;30, 30&#41;&#41;
+
+	points &#61; vec&#40;Point3f.&#40;k.x, k.y&#39;, 0&#41;&#41;
+	meshscatter&#33;&#40;
+	    ax, points,
+		marker &#61; Rect3f&#40;&#40;0, 0, 0&#41;, &#40;1, 1, 1&#41;&#41;,
+	    color &#61; :white, markersize &#61; vec&#40;Vec3f.&#40;0.5 * k.x.step.hi, 0.5 * k.y.step.hi, 10 .* k.density ./ maximum&#40;k.density&#41;&#41;&#41;&#41;
+
+	# set camera position
+	update_cam&#33;&#40;ax.scene, Vec3f&#40;17, 12, 18&#41;, Vec3f&#40;mean&#40;k.x&#41;, mean&#40;k.y&#41;, 0&#41;&#41;
+end
+
+fig</code></pre><img data-jscall-id="301" src="../../bonito/png/cell_output_1612767285828805917881.png" /></div><p data-jscall-id="302">And here&#39;s an example of all light types in one figure:</p><div class="markdown-body" data-jscall-id="303"><pre data-jscall-id="304"><code class="language-julia" data-jscall-id="305">fig &#61; Figure&#40;backgroundcolor &#61; :black&#41;
+
+# RectLights implement transformations to be a bit easier to handle
+rl &#61; RectLight&#40;RGBf&#40;0.2, 0.8, 0.2&#41;, Rect2f&#40;-1, -1, 1, 1&#41;&#41;
+rotate&#33;&#40;rl, Vec3f&#40;1, 0, 0&#41;, -pi/4&#41;
+translate&#33;&#40;rl, Vec3f&#40;0, 2, 1&#41;&#41;
+
+# Create lights vector with different light types
+lights &#61; &#91;
+    # dark blue base color
+    AmbientLight&#40;RGBf&#40;0.05, 0.1, 0.3&#41;&#41;,
+    # red-ish light coming from top right
+    DirectionalLight&#40;RGBf&#40;0.3, 0.1, 0.05&#41;, Vec3f&#40;0, -1, -1&#41;&#41;,
+    # red sport light
+    SpotLight&#40;RGBf&#40;0.8, 0.2, 0.2&#41;, Point3f&#40;2, 0, 1&#41;, Vec3f&#40;-1, 0, -1&#41;, &#91;0.5, 0.7&#93;&#41;,
+    # green rectangular light
+    rl,
+    # white point light without attenuation
+    PointLight&#40;RGBf&#40;0.6, 0.6, 0.6&#41;, Point3f&#40;-2, -2, 1&#41;&#41;
+&#93;
+
+# Create LScene with the lights defined above
+ax &#61; LScene&#40;fig&#91;1, 1&#93;, show_axis &#61; false, scenekw &#61; &#40;lights &#61; lights,&#41;&#41;
+
+# Add some more lights after Scene initialization
+# For an Axis3 you can do this instead of passing &#96;lights&#96;
+push&#33;&#40;
+    ax.scene.lights,
+    # cyan point light with attenuation &#40;larger range&#41;
+    PointLight&#40;RGBf&#40;0.0, 0.8, 0.8&#41;, Point3f&#40; 0, -3, 1&#41;, 10.0&#41;,
+    # magenta point light with attenuation &#40;smaller range&#41;
+    PointLight&#40;RGBf&#40;0.8, 0.0, 0.8&#41;, Point3f&#40;-3, 0, 1&#41;, 3.0&#41;
+&#41;
+
+# Create some plots to be lit
+mesh&#33;&#40;ax, Rect3f&#40;Point3f&#40;-6, -6, -0.5&#41;, Vec3f&#40;10, 10, 1&#41;&#41;, color &#61; :white&#41;
+meshscatter&#33;&#40;
+    ax, Point3f&#91;&#40;x, y, 0&#41; for x in -5:2:3 for y in -5:2:3&#93;,
+    color &#61; :white, markersize &#61; 1&#41;
+
+# set camera position
+update_cam&#33;&#40;ax.scene, Vec3f&#40;4, 4, 5&#41;, Vec3f&#40;-1, -1, 0&#41;&#41;
+
+
+fig</code></pre><img data-jscall-id="306" src="../../bonito/png/cell_output_174500157270928180.png" /></div><h2 id="Plot Object refactor" data-jscall-id="307">Plot Object refactor</h2><p data-jscall-id="308">We refactored the <code data-jscall-id="309">Combined</code> plot object &#40;which got stuck with a bad name for historical reasons&#41; and finally renamed it to just <code data-jscall-id="310">Plot</code>. It&#39;s now more self contained and one can now create a plot without a scene with the constructor <code data-jscall-id="311">Plot&#123;plotfunc&#125;&#40;args::Tuple, attributes::Dict&#41;</code>, and only later gets the plot connected to a scene. One can also do <code data-jscall-id="312">lift&#40;func, plotobject, args...&#41;</code>, <code data-jscall-id="313">on&#40;func, plotobject, observable&#41;</code>, <code data-jscall-id="314">onany&#40;func, plotobject, args...&#41;</code> to bind the observable to the lifecycle of a plot. If the plots gets deleted, any observable connection will get cleaned up this way without creating memory leaks. We plan to further build uppon this API, to also add event handling &#40;e.g. <code data-jscall-id="315">onmouse&#40;callback, plotobject&#41;</code>&#41;, in a way that can be better cleaned up and connected to different scenes.</p><p data-jscall-id="316">This allows a few things:</p><ul class=" style_2" style="" data-jscall-id="317"><li data-jscall-id="318"><p data-jscall-id="319">We called <code data-jscall-id="320">convert_arguments</code> multiple times in different places in the plotting pipeline, since we didn&#39;t have the plot object yet. Now, it gets only called one time.</p></li><li data-jscall-id="321"><p data-jscall-id="322">We don&#39;t need to create a temporary scene anymore, just to create a plot. This was done in the pipeline to create a first plot to decide which axis to use, since boundingbox is only defined on complete plot objects.</p></li><li data-jscall-id="323"><p data-jscall-id="324">In theory, one can now move plots between scenes/axes more easily, but we haven&#39;t implemented an API for this yet.</p></li><li data-jscall-id="325"><p data-jscall-id="326">Better compile times, since the keyword arugments are put into an untyped Dict inside the plot object immediately.</p></li></ul><p data-jscall-id="327">Ironically, this refactor removed the reliance on the first plots boundingbox for deciding which axis to use. Instead we now use this overloadable interface:</p><pre data-jscall-id="328"><code class="language-julia" data-jscall-id="329">
+
+Makie.args_preferred_axis&#40;&#91;PlotType&#93;, plot_arguments...&#41; &#61; PreferredAxisType
+Makie.preferred_axis_type&#40;plot::PlotType&#41; &#61; PreferredAxisType
+# Which is used like this:
+# Always use 3D axis for 3d points
+Makie.args_preferred_axis&#40;::AbstractVector&#123;&#60;:Point3&#125;&#41; &#61; LScene
+# Always use LScene for Volume plots
+preferred_axis_type&#40;::Volume&#41; &#61; LScene</code></pre><p data-jscall-id="330">If no overload is found, we fallback to <code data-jscall-id="331">Axis</code>. We also introduced <code data-jscall-id="332">AbstractAxis</code>, which Blocks can inherit from to get all the basic functionality most axes will need &#40;e.g. plotting into them&#41;. The default behaviour is defined with these fallbacks &#40;which can be overloaded of course&#41;:</p><pre data-jscall-id="333"><code class="language-julia" data-jscall-id="334">
+# falls back to resetting limits
+update_state_before_display&#33;&#40;ax::AbstractAxis&#41; &#61; reset_limits&#33;&#40;ax&#41;
+Makie.can_be_current_axis&#40;ax::AbstractAxis&#41; &#61; true
+
+function plot&#33;&#40;ax::AbstractAxis, plot::AbstractPlot&#41;
+    plot&#33;&#40;ax.scene, plot&#41;
+    needs_tight_limits&#40;plot&#41; &#38;&#38; tightlimits&#33;&#40;ax&#41;
+    if is_open_or_any_parent&#40;ax.scene&#41;
+        reset_limits&#33;&#40;ax&#41;
+    end
+    return plot
+end
+figurelike_return&#40;ax::AbstractAxis, plot::AbstractPlot&#41; &#61; AxisPlot&#40;ax, plot&#41;</code></pre><p data-jscall-id="335">All these changes led to significant performance improvements while simplifying the plotting pipeline:</p><div class="markdown-body" data-jscall-id="336"><img data-jscall-id="337" src="../../bonito/png/cell_output_1817238325122647293496.png" /></div><h2 id="WGLMakie improvements" data-jscall-id="338">WGLMakie improvements</h2><ul class=" style_2" style="" data-jscall-id="339"><li data-jscall-id="340"><p data-jscall-id="341">Faster line rendering with less bugs <a href="https://github.com/MakieOrg/Makie.jl/pull/3062" data-jscall-id="342">#3062</a>.</p></li><li data-jscall-id="343"><p data-jscall-id="344">Improved compile times and display times.</p></li><li data-jscall-id="345"><p data-jscall-id="346">Memory leak fixes in JSServe and WGLMakie.</p></li><li data-jscall-id="347"><p data-jscall-id="348">Uses Makie&#39;s 3D camera if connected to Julia, switches to ThreeJS orbit camera for e.g. static export, which now supports panning and touch controls.</p></li></ul><h2 id="Deprecations" data-jscall-id="349">Deprecations</h2><ul class=" style_2" style="" data-jscall-id="350"><li data-jscall-id="351"><p data-jscall-id="352">Deprecated the <code data-jscall-id="353">resolution</code> keyword in favor of <code data-jscall-id="354">size</code> to reflect that this value is not a pixel resolution anymore <a href="https://github.com/MakieOrg/Makie.jl/pull/3343" data-jscall-id="355">#3343</a>.</p></li><li data-jscall-id="356"><p data-jscall-id="357">Deprecated <code data-jscall-id="358">pixelarea&#40;scene&#41;</code> and <code data-jscall-id="359">scene.px_area</code> in favor of <code data-jscall-id="360">viewport</code></p></li><li data-jscall-id="361"><p data-jscall-id="362">Deprecated <code data-jscall-id="363">shading::Bool</code> in favor of <code data-jscall-id="364">shading::ShadingAlgorithm</code></p></li><li data-jscall-id="365"><p data-jscall-id="366">Deprecated <code data-jscall-id="367">SurfaceLike</code> traits &#40;<code data-jscall-id="368">ContinuousSurface</code> and <code data-jscall-id="369">DiscreteSurface</code>&#41; in favor of <code data-jscall-id="370">CellBasedGrid</code>, <code data-jscall-id="371">VertexBasedGrid</code> and <code data-jscall-id="372">ImageLike</code></p></li></ul><h3 id="Old deprecations that got removed" data-jscall-id="373">Old deprecations that got removed</h3><p data-jscall-id="374">If you haven&#39;t run Makie with <code data-jscall-id="375">julia --depwarn&#61;true</code> previously, you may run into errors with these deprecations which are now no longer graceful:</p><ul class=" style_2" style="" data-jscall-id="376"><li data-jscall-id="377"><p data-jscall-id="378"><code data-jscall-id="379">&#64;deprecate GLMakie.set_window_config&#33;&#40;; screen_config...&#41; GLMakie.activate&#33;&#40;; screen_config...&#41;</code></p></li><li data-jscall-id="380"><p data-jscall-id="381"><code data-jscall-id="382">&#64;deprecate ispressed&#40;scene, ::Nothing&#41; ispressed&#40;parent, true&#41;</code></p></li><li data-jscall-id="383"><p data-jscall-id="384"><code data-jscall-id="385">&#64;deprecate flatten_plots&#40;scenelike&#41; collect_atomic_plots&#40;scenelike&#41;</code></p></li><li data-jscall-id="386"><p data-jscall-id="387"><code data-jscall-id="388">&#64;deprecate mouse_selection pick</code></p></li><li data-jscall-id="389"><p data-jscall-id="390"><code data-jscall-id="391">&#64;deprecate_binding GLVisualize GLMakie</code></p></li><li data-jscall-id="392"><p data-jscall-id="393"><code data-jscall-id="394">&#64;deprecate_binding MakieLayout Makie</code></p></li><li data-jscall-id="395"><p data-jscall-id="396"><code data-jscall-id="397">&#64;deprecate_binding _current_figure CURRENT_FIGURE</code></p></li><li data-jscall-id="398"><p data-jscall-id="399"><code data-jscall-id="400">&#64;deprecate_binding default_palettes DEFAULT_PALETTES</code></p></li><li data-jscall-id="401"><p data-jscall-id="402"><code data-jscall-id="403">&#64;deprecate_binding minimal_default MAKIE_DEFAULT_THEME</code></p></li><li data-jscall-id="404"><p data-jscall-id="405"><code data-jscall-id="406">&#64;deprecate_binding _default_font DEFAULT_FONT</code></p></li><li data-jscall-id="407"><p data-jscall-id="408"><code data-jscall-id="409">&#64;deprecate_binding _alternative_fonts ALTERNATIVE_FONTS</code></p></li></ul><h2 id="Changes in defaults/behaviour" data-jscall-id="410">Changes in defaults/behaviour</h2><ul class=" style_2" style="" data-jscall-id="411"><li data-jscall-id="412"><p data-jscall-id="413">Changed default of <code data-jscall-id="414">transform_marker</code> to <code data-jscall-id="415">false</code> for text</p></li><li data-jscall-id="416"><p data-jscall-id="417">Changed default <code data-jscall-id="418">diffuse</code> to 1, <code data-jscall-id="419">specular &#61; 0.4</code> and lowered light intensity to match</p></li><li data-jscall-id="420"><p data-jscall-id="421">Changed <code data-jscall-id="422">backlight</code> to reverse normals rather than the light direction.</p></li><li data-jscall-id="423"><p data-jscall-id="424">Changed default light position/direction and type</p></li><li data-jscall-id="425"><p data-jscall-id="426">Changed <code data-jscall-id="427">surface</code> rendering to align colors with vertices</p></li><li data-jscall-id="428"><p data-jscall-id="429">Changed <code data-jscall-id="430">Camera3D</code> &#40;<code data-jscall-id="431">cam3d&#33;</code>, <code data-jscall-id="432">cam3d_cad&#33;</code>&#41; back to eyeposition-based zooming</p></li></ul></div><div data-jscall-id="433"><script data-jscall-id="434" src="../../bonito/js/highlight.pack13102628173626074447.js"></script><script data-jscall-id="435">hljs.highlightAll()</script></div></div></div></div><div data-jscall-id="436"><script async="true" defer="true" data-jscall-id="437" src="https://api.makie.org/latest.js"></script><noscript data-jscall-id="438"><img alt="" data-jscall-id="439" src="https://api.makie.org/noscript.gif" referrerpolicy="no-referrer-when-downgrade" /></noscript></div></div></body></html>
