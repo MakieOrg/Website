@@ -1,6 +1,6 @@
 # Makie v0.22.2
 
-Makie 0.22.2 is finally here and introduces many fixes and improvements.
+Makie 0.22.2 is finally here and introduces many fixes and improvements. Parts of this work was made possible by an investment of the [Sovereign Tech Agency](https://www.sovereign.tech).
 
 ## [Cleanup Patterns/Hatching](https://github.com/MakieOrg/Makie.jl/pull/4715)
 
