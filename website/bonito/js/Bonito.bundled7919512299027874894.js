@@ -3807,17 +3807,55 @@ const PING_INTERVAL = 5000;
 function clean_stack(stack) {
     return stack.replaceAll(/(data:\w+\/\w+;base64,)[a-zA-Z0-9\+\/=]+:/g, "$1<<BASE64>>:");
 }
+const ConnectionStatus = {
+    CONNECTING: "connecting",
+    CONNECTED: "connected",
+    DISCONNECTED: "disconnected",
+    NO_CONNECTION: "no_connection"
+};
 const CONNECTION = {
     send_message: undefined,
     queue: [],
-    status: "closed",
+    status: "connecting",
     compression_enabled: false,
-    lastPing: Date.now()
+    lastPing: Date.now(),
+    indicator: null
 };
+function register_connection_indicator(indicator) {
+    CONNECTION.indicator = indicator;
+    notify_indicator_status();
+}
+function unregister_connection_indicator() {
+    CONNECTION.indicator = null;
+}
+function set_no_connection() {
+    CONNECTION.status = "no_connection";
+    notify_indicator_status();
+}
+function notify_indicator_status() {
+    if (CONNECTION.indicator && typeof CONNECTION.indicator.onStatusChange === 'function') {
+        let status;
+        if (CONNECTION.status === "no_connection") {
+            status = ConnectionStatus.NO_CONNECTION;
+        } else if (CONNECTION.status === "open") {
+            status = ConnectionStatus.CONNECTED;
+        } else if (CONNECTION.status === "connecting") {
+            status = ConnectionStatus.CONNECTING;
+        } else {
+            status = ConnectionStatus.DISCONNECTED;
+        }
+        CONNECTION.indicator.onStatusChange(status);
+    }
+}
+function on_connection_connecting() {
+    CONNECTION.status = "connecting";
+    notify_indicator_status();
+}
 function on_connection_open(send_message_callback, compression_enabled, enable_pings = true) {
     CONNECTION.send_message = send_message_callback;
     CONNECTION.status = "open";
     CONNECTION.compression_enabled = compression_enabled;
+    notify_indicator_status();
     CONNECTION.queue.forEach((message)=>send_to_julia(message));
     if (enable_pings) {
         send_pings();
@@ -3825,6 +3863,7 @@ function on_connection_open(send_message_callback, compression_enabled, enable_p
 }
 function on_connection_close() {
     CONNECTION.status = "closed";
+    notify_indicator_status();
 }
 function can_send_to_julia() {
     return CONNECTION.status === "open";
@@ -3832,11 +3871,18 @@ function can_send_to_julia() {
 function is_julia_responsive() {
     return Date.now() - CONNECTION.lastPing < 2 * 5000;
 }
+class UnpackContext {
+    constructor(session_id, session_status){
+        this.session_id = session_id;
+        this.session_status = session_status;
+    }
+}
 const EXTENSION_CODEC = new ExtensionCodec();
 window.EXTENSION_CODEC = EXTENSION_CODEC;
-function unpack(uint8array) {
+function unpack(uint8array, context) {
     return decode(uint8array, {
-        extensionCodec: EXTENSION_CODEC
+        extensionCodec: EXTENSION_CODEC,
+        context
     });
 }
 function pack(object) {
@@ -3879,7 +3925,7 @@ register_ext_array(0x18, Float64Array);
 function register_ext(type_tag, decode, encode) {
     EXTENSION_CODEC.register({
         type: type_tag,
-        decode,
+        decode: (data, extType, context)=>decode(data, context),
         encode
     });
 }
@@ -3889,8 +3935,8 @@ class JLArray {
         this.array = array;
     }
 }
-register_ext(99, (uint_8_array)=>{
-    const [size, array] = unpack(uint_8_array);
+register_ext(99, (uint_8_array, context)=>{
+    const [size, array] = unpack(uint_8_array, context);
     return new JLArray(size, array);
 }, (object)=>{
     if (object instanceof JLArray) {
@@ -3922,16 +3968,12 @@ function lookup_global_object(key) {
     console.warn(`Key ${key} not found! ${object}`);
     return null;
 }
-function send_error(message, exception) {
-    console.error(message);
-    console.error(exception);
+function send_pingpong() {
     send_to_julia({
-        msg_type: JavascriptError,
-        message: message,
-        exception: String(exception),
-        stacktrace: exception === null ? "" : clean_stack(exception.stack)
+        msg_type: PingPong
     });
 }
+let timeout = null;
 function is_still_referenced(id) {
     for(const session_id in SESSIONS){
         const [tracked_objects, allow_delete] = SESSIONS[session_id];
@@ -4008,12 +4050,6 @@ function track_deleted_sessions() {
         DELETE_OBSERVER = observer;
     }
 }
-function send_pingpong() {
-    send_to_julia({
-        msg_type: PingPong
-    });
-}
-let timeout = null;
 function send_pings() {
     clearTimeout(timeout);
     if (!can_send_to_julia()) {
@@ -4022,6 +4058,68 @@ function send_pings() {
     send_pingpong();
     timeout = setTimeout(send_pings, PING_INTERVAL);
 }
+function send_error(message, exception) {
+    console.error(message);
+    console.error(exception);
+    send_to_julia({
+        msg_type: JavascriptError,
+        message: message,
+        exception: String(exception),
+        stacktrace: exception === null ? "" : clean_stack(exception.stack)
+    });
+}
+function send_done_loading(session, exception) {
+    send_to_julia({
+        msg_type: JSDoneLoading,
+        session,
+        message: "",
+        exception: exception === null ? "nothing" : String(exception),
+        stacktrace: exception === null ? "" : clean_stack(exception.stack)
+    });
+}
+function done_initializing_session(session_id) {
+    if (!(session_id in SESSIONS)) {
+        console.warn(`Session ${session_id} got deleted before done initializing!`);
+        send_done_loading(session_id, new Error("Session deleted before initialization completed"));
+        return;
+    }
+    send_done_loading(session_id, null);
+    if (SESSIONS[session_id][1] != "root") {
+        SESSIONS[session_id][1] = "delete";
+    }
+}
+function init_session_from_msgs(session_id, messages) {
+    try {
+        messages.forEach(process_message);
+        done_initializing_session(session_id);
+    } catch (error) {
+        send_done_loading(session_id, error);
+        console.error(error.stack);
+        throw error;
+    }
+}
+register_ext(102, (uint_8_array, context)=>{
+    const [interpolated_objects, source, julia_file] = unpack(uint_8_array, context);
+    const lookup_interpolated = (id)=>interpolated_objects[id];
+    try {
+        const eval_func = new Function("__lookup_interpolated", "Bonito", source);
+        return ()=>{
+            try {
+                return eval_func(lookup_interpolated, window.Bonito);
+            } catch (err) {
+                console.log(`error in closure from: ${julia_file}`);
+                console.log(`Source:`);
+                console.log(source);
+                throw err;
+            }
+        };
+    } catch (err) {
+        console.log(`error in closure from: ${julia_file}`);
+        console.log(`Source:`);
+        console.log(source);
+        throw err;
+    }
+});
 function encode_binary(data, compression_enabled) {
     if (compression_enabled) {
         return ml(pack(data));
@@ -4033,10 +4131,12 @@ function send_to_julia(message) {
     const { send_message , status , compression_enabled  } = CONNECTION;
     if (send_message !== undefined && status === "open") {
         send_message(encode_binary(message, compression_enabled));
-    } else if (status === "closed") {
+    } else if (status === "connecting") {
         CONNECTION.queue.push(message);
     } else {
+        console.log(status);
         console.log("Trying to send messages while connection is offline");
+        console.log(message);
     }
 }
 class Observable {
@@ -4068,120 +4168,6 @@ class Observable {
     on(callback) {
         this.#callbacks.push(callback);
     }
-}
-register_ext(101, (uint_8_array)=>{
-    const [id, value] = unpack(uint_8_array);
-    return new Observable(id, value);
-});
-register_ext(102, (uint_8_array)=>{
-    const [interpolated_objects, source, julia_file] = unpack(uint_8_array);
-    const lookup_interpolated = (id)=>interpolated_objects[id];
-    try {
-        const eval_func = new Function("__lookup_interpolated", "Bonito", source);
-        return ()=>{
-            try {
-                return eval_func(lookup_interpolated, window.Bonito);
-            } catch (err) {
-                console.log(`error in closure from: ${julia_file}`);
-                console.log(`Source:`);
-                console.log(source);
-                throw err;
-            }
-        };
-    } catch (err) {
-        console.log(`error in closure from: ${julia_file}`);
-        console.log(`Source:`);
-        console.log(source);
-        throw err;
-    }
-});
-register_ext(103, (uint_8_array)=>{
-    const real_value = unpack(uint_8_array);
-    return new Retain(real_value);
-});
-register_ext(104, (uint_8_array)=>{
-    const key = unpack(uint_8_array);
-    return lookup_global_object(key);
-});
-function create_tag(tag, attributes) {
-    if (attributes.juliasvgnode) {
-        return document.createElementNS("http://www.w3.org/2000/svg", tag);
-    } else {
-        return document.createElement(tag);
-    }
-}
-register_ext(105, (uint_8_array)=>{
-    const [tag, children, attributes] = unpack(uint_8_array);
-    const node = create_tag(tag, attributes);
-    Object.keys(attributes).forEach((key)=>{
-        if (key == "juliasvgnode") {
-            return;
-        }
-        if (key == "class") {
-            node.className = attributes[key];
-        } else {
-            node.setAttribute(key, attributes[key]);
-        }
-    });
-    children.forEach((child)=>node.append(child));
-    return node;
-});
-register_ext(108, (uint_8_array)=>{
-    const html = unpack(uint_8_array);
-    const div = document.createElement("div");
-    div.innerHTML = html;
-    return div;
-});
-function send_done_loading(session, exception) {
-    send_to_julia({
-        msg_type: JSDoneLoading,
-        session,
-        message: "",
-        exception: exception === null ? "nothing" : String(exception),
-        stacktrace: exception === null ? "" : clean_stack(exception.stack)
-    });
-}
-function done_initializing_session(session_id) {
-    if (!(session_id in SESSIONS)) {
-        console.warn(`Session ${session_id} got deleted before done initializing!`);
-        return;
-    }
-    send_done_loading(session_id, null);
-    if (SESSIONS[session_id][1] != "root") {
-        SESSIONS[session_id][1] = "delete";
-    }
-}
-function init_session_from_msgs(session_id, messages) {
-    try {
-        messages.forEach(process_message);
-        done_initializing_session(session_id);
-    } catch (error) {
-        send_done_loading(session_id, error);
-        console.error(error.stack);
-        throw error;
-    }
-}
-function decode_binary(binary, compression_enabled) {
-    const serialized_message = unpack_binary(binary, compression_enabled);
-    const [session_id, message_data] = serialized_message;
-    return message_data;
-}
-function init_session(session_id, message_promise, session_status, compression) {
-    SESSIONS[session_id] = [
-        new Set(),
-        session_status
-    ];
-    track_deleted_sessions();
-    lock_loading(()=>{
-        return Promise.resolve(message_promise).then((binary)=>{
-            const messages = binary ? decode_binary(binary, compression) : [];
-            init_session_from_msgs(session_id, messages);
-        }).catch((error)=>{
-            send_done_loading(session_id, error);
-            console.error(error.stack);
-            throw error;
-        });
-    });
 }
 function close_session(session_id) {
     const session = SESSIONS[session_id];
@@ -4217,15 +4203,20 @@ function free_session(session_id) {
         tracked_objects.clear();
     });
 }
-function on_node_available(node_id, timeout) {
-    return new Promise((resolve)=>{
-        function test_node(timeout) {
+function on_node_available(node_id, timeout, max_timeout = 30000) {
+    return new Promise((resolve, reject)=>{
+        let elapsed = 0;
+        function test_node(current_timeout) {
             const node = document.querySelector(`[data-jscall-id='${node_id}']`);
             if (node) {
                 resolve(node);
             } else {
-                const new_timeout = 2 * timeout;
-                console.log(new_timeout);
+                elapsed += current_timeout;
+                if (elapsed > max_timeout) {
+                    reject(new Error(`Timeout waiting for DOM node with data-jscall-id='${node_id}' after ${max_timeout}ms`));
+                    return;
+                }
+                const new_timeout = Math.min(current_timeout * 2, 1000);
                 setTimeout(test_node, new_timeout, new_timeout);
             }
         }
@@ -4242,9 +4233,18 @@ function update_or_replace(node, new_html, replace) {
         node.append(new_html);
     }
 }
+function ensure_session_exists(session_id, session_status) {
+    if (!(session_id in SESSIONS)) {
+        SESSIONS[session_id] = [
+            new Set(),
+            session_status
+        ];
+    }
+}
 function update_session_dom(message) {
     lock_loading(()=>{
-        const { session_id , messages , html , dom_node_selector , replace  } = message;
+        const { session_id , session_status , messages , html , dom_node_selector , replace  } = message;
+        ensure_session_exists(session_id, session_status || "sub");
         return on_node_available(dom_node_selector, 1).then((dom)=>{
             update_or_replace(dom, html, replace);
             init_session_from_msgs(session_id, messages);
@@ -4253,19 +4253,27 @@ function update_session_dom(message) {
         });
     });
 }
+function track_in_session(session_id, key, session_status) {
+    ensure_session_exists(session_id, session_status);
+    const tracked_objects = SESSIONS[session_id][0];
+    tracked_objects.add(key);
+    if (!(key in GLOBAL_OBJECT_CACHE)) {
+        console.warn(`TrackingOnly: Key ${key} not found in GLOBAL_OBJECT_CACHE`);
+    }
+}
+function register_in_session_cache(session_id, key, object, session_status) {
+    ensure_session_exists(session_id, session_status);
+    const tracked_objects = SESSIONS[session_id][0];
+    tracked_objects.add(key);
+    if (!(key in GLOBAL_OBJECT_CACHE)) {
+        GLOBAL_OBJECT_CACHE[key] = object;
+    }
+}
 function update_session_cache(session_id, new_jl_objects, session_status) {
     function update_cache(tracked_objects) {
-        for(const key in new_jl_objects){
+        for (const [key, new_object] of new_jl_objects){
             tracked_objects.add(key);
-            const new_object = new_jl_objects[key];
-            if (new_object == "tracking-only") {
-                if (!(key in GLOBAL_OBJECT_CACHE)) {
-                    throw new Error(`Key ${key} only send for tracking, but not already tracked!!!`);
-                }
-            } else {
-                if (key in GLOBAL_OBJECT_CACHE) {
-                    console.warn(`${key} in session cache and send again!! ${new_object}`);
-                }
+            if (!(key in GLOBAL_OBJECT_CACHE)) {
                 GLOBAL_OBJECT_CACHE[key] = new_object;
             }
         }
@@ -4282,32 +4290,69 @@ function update_session_cache(session_id, new_jl_objects, session_status) {
         update_cache(tracked_items);
     }
 }
-const mod = {
-    SESSIONS: SESSIONS,
-    GLOBAL_OBJECT_CACHE: GLOBAL_OBJECT_CACHE,
-    OBJECT_FREEING_LOCK: OBJECT_FREEING_LOCK,
-    lock_loading: lock_loading,
-    lookup_global_object: lookup_global_object,
-    force_free_object: force_free_object,
-    free_object: free_object,
-    track_deleted_sessions: track_deleted_sessions,
-    done_initializing_session: done_initializing_session,
-    init_session: init_session,
-    close_session: close_session,
-    free_session: free_session,
-    on_node_available: on_node_available,
-    update_or_replace: update_or_replace,
-    update_session_dom: update_session_dom,
-    update_session_cache: update_session_cache
-};
-register_ext(106, (uint_8_array)=>{
-    const [session_id, objects, session_status] = unpack(uint_8_array);
-    update_session_cache(session_id, objects, session_status);
+register_ext(101, (uint_8_array, context)=>{
+    const [id, value] = unpack(uint_8_array, context);
+    const obs = new Observable(id, value);
+    register_in_session_cache(context.session_id, id, obs, context.session_status);
+    return obs;
+});
+register_ext(103, (uint_8_array, context)=>{
+    const real_value = unpack(uint_8_array, context);
+    const retain = new Retain(real_value);
+    GLOBAL_OBJECT_CACHE[real_value.id] = retain;
+    return retain;
+});
+register_ext(104, (uint_8_array, context)=>{
+    const key = unpack(uint_8_array, context);
+    return lookup_global_object(key);
+});
+register_ext(109, (uint_8_array, context)=>{
+    const key = unpack(uint_8_array, context);
+    track_in_session(context.session_id, key, context.session_status);
+    return lookup_global_object(key);
+});
+function create_tag(tag, attributes) {
+    if (attributes.juliasvgnode) {
+        return document.createElementNS("http://www.w3.org/2000/svg", tag);
+    } else {
+        return document.createElement(tag);
+    }
+}
+register_ext(105, (uint_8_array, context)=>{
+    const [tag, children, attributes] = unpack(uint_8_array, context);
+    const node = create_tag(tag, attributes);
+    Object.keys(attributes).forEach((key)=>{
+        if (key == "juliasvgnode") {
+            return;
+        }
+        if (key == "class") {
+            node.className = attributes[key];
+        } else {
+            node.setAttribute(key, attributes[key]);
+        }
+    });
+    children.forEach((child)=>node.append(child));
+    return node;
+});
+register_ext(108, (uint_8_array, context)=>{
+    const html = unpack(uint_8_array, context);
+    const div = document.createElement("div");
+    div.innerHTML = html;
+    return div;
+});
+register_ext(106, (uint_8_array, context)=>{
+    const [session_id, session_status, packed_objects_ext] = decode(uint_8_array);
+    ensure_session_exists(session_id, session_status);
+    const ctx = new UnpackContext(session_id, session_status);
+    unpack(packed_objects_ext.data, ctx);
     return session_id;
 });
-register_ext(107, (uint_8_array)=>{
-    const [session_id, message] = unpack(uint_8_array);
-    return message;
+register_ext(107, (uint_8_array, context)=>{
+    const [session_id, session_status, packed_cache_ext, packed_data_ext] = decode(uint_8_array);
+    const ctx = new UnpackContext(session_id, session_status);
+    ensure_session_exists(session_id, session_status);
+    unpack(packed_cache_ext.data, ctx);
+    return unpack(packed_data_ext.data, ctx);
 });
 function base64encode(data_as_uint8array) {
     const base64_promise = new Promise((resolve)=>{
@@ -4335,6 +4380,9 @@ function base64decode(base64_str) {
 function decode_base64_message(base64_string, compression_enabled) {
     return base64decode(base64_string).then((x)=>decode_binary(x, compression_enabled));
 }
+function decode_binary(binary, compression_enabled) {
+    return unpack_binary(binary, compression_enabled);
+}
 function unpack_binary(binary, compression_enabled) {
     if (compression_enabled) {
         return unpack(Ol(binary));
@@ -4342,7 +4390,7 @@ function unpack_binary(binary, compression_enabled) {
         return unpack(binary);
     }
 }
-const mod1 = {
+const mod = {
     Retain: Retain,
     base64encode: base64encode,
     base64decode: base64decode,
@@ -4350,6 +4398,44 @@ const mod1 = {
     decode_binary: decode_binary,
     unpack_binary: unpack_binary,
     encode_binary: encode_binary
+};
+function init_session(session_id, message_promise, session_status, compression) {
+    SESSIONS[session_id] = [
+        new Set(),
+        session_status
+    ];
+    track_deleted_sessions();
+    lock_loading(()=>{
+        return Promise.resolve(message_promise).then((binary)=>{
+            const messages = binary ? decode_binary(binary, compression) : [];
+            init_session_from_msgs(session_id, messages);
+        }).catch((error)=>{
+            send_done_loading(session_id, error);
+            console.error(error.stack);
+            throw error;
+        });
+    });
+}
+const mod1 = {
+    SESSIONS: SESSIONS,
+    GLOBAL_OBJECT_CACHE: GLOBAL_OBJECT_CACHE,
+    OBJECT_FREEING_LOCK: OBJECT_FREEING_LOCK,
+    lock_loading: lock_loading,
+    lookup_global_object: lookup_global_object,
+    force_free_object: force_free_object,
+    free_object: free_object,
+    track_deleted_sessions: track_deleted_sessions,
+    done_initializing_session: done_initializing_session,
+    init_session: init_session,
+    close_session: close_session,
+    free_session: free_session,
+    on_node_available: on_node_available,
+    update_or_replace: update_or_replace,
+    update_session_dom: update_session_dom,
+    ensure_session_exists: ensure_session_exists,
+    track_in_session: track_in_session,
+    register_in_session_cache: register_in_session_cache,
+    update_session_cache: update_session_cache
 };
 function send_warning(message) {
     console.warn(message);
@@ -4403,6 +4489,11 @@ const mod2 = {
     RegisterObservable: RegisterObservable,
     JSDoneLoading: JSDoneLoading,
     FusedMessage: FusedMessage,
+    ConnectionStatus: ConnectionStatus,
+    register_connection_indicator: register_connection_indicator,
+    unregister_connection_indicator: unregister_connection_indicator,
+    set_no_connection: set_no_connection,
+    on_connection_connecting: on_connection_connecting,
     on_connection_open: on_connection_open,
     on_connection_close: on_connection_close,
     can_send_to_julia: can_send_to_julia,
@@ -4421,9 +4512,9 @@ function onany(observables, f) {
         obs.on(callback);
     });
 }
-const { send_error: send_error1 , send_warning: send_warning1 , process_message: process_message1 , on_connection_open: on_connection_open1 , on_connection_close: on_connection_close1 , send_close_session: send_close_session1 , send_pingpong: send_pingpong1 , can_send_to_julia: can_send_to_julia1 , send_to_julia: send_to_julia1  } = mod2;
-const { base64decode: base64decode1 , base64encode: base64encode1 , decode_binary: decode_binary1 , encode_binary: encode_binary1 , decode_base64_message: decode_base64_message1  } = mod1;
-const { init_session: init_session1 , free_session: free_session1 , lookup_global_object: lookup_global_object1 , update_or_replace: update_or_replace1 , lock_loading: lock_loading1 , OBJECT_FREEING_LOCK: OBJECT_FREEING_LOCK1 , free_object: free_object1 , force_free_object: force_free_object1  } = mod;
+const { send_error: send_error1 , send_warning: send_warning1 , process_message: process_message1 , on_connection_open: on_connection_open1 , on_connection_close: on_connection_close1 , on_connection_connecting: on_connection_connecting1 , send_close_session: send_close_session1 , send_pingpong: send_pingpong1 , can_send_to_julia: can_send_to_julia1 , send_to_julia: send_to_julia1 , register_connection_indicator: register_connection_indicator1 , unregister_connection_indicator: unregister_connection_indicator1 , set_no_connection: set_no_connection1 , ConnectionStatus: ConnectionStatus1  } = mod2;
+const { base64decode: base64decode1 , base64encode: base64encode1 , decode_binary: decode_binary1 , encode_binary: encode_binary1 , decode_base64_message: decode_base64_message1  } = mod;
+const { init_session: init_session1 , free_session: free_session1 , lookup_global_object: lookup_global_object1 , update_or_replace: update_or_replace1 , lock_loading: lock_loading1 , OBJECT_FREEING_LOCK: OBJECT_FREEING_LOCK1 , free_object: free_object1 , force_free_object: force_free_object1  } = mod1;
 function update_node_attribute(node, attribute, value) {
     if (node) {
         if (attribute === "class") {
@@ -4522,7 +4613,7 @@ function generate_state_key(v) {
     }
 }
 const Bonito = {
-    Protocol: mod1,
+    Protocol: mod,
     base64decode: base64decode1,
     base64encode: base64encode1,
     decode_binary: decode_binary1,
@@ -4536,9 +4627,14 @@ const Bonito = {
     process_message: process_message1,
     on_connection_open: on_connection_open1,
     on_connection_close: on_connection_close1,
+    on_connection_connecting: on_connection_connecting1,
     send_close_session: send_close_session1,
     send_pingpong: send_pingpong1,
-    Sessions: mod,
+    register_connection_indicator: register_connection_indicator1,
+    unregister_connection_indicator: unregister_connection_indicator1,
+    set_no_connection: set_no_connection1,
+    ConnectionStatus: ConnectionStatus1,
+    Sessions: mod1,
     init_session: init_session1,
     free_session: free_session1,
     lock_loading: lock_loading1,
@@ -4556,6 +4652,6 @@ const Bonito = {
     generate_state_key
 };
 window.Bonito = Bonito;
-export { mod1 as Protocol, base64decode1 as base64decode, base64encode1 as base64encode, decode_binary1 as decode_binary, encode_binary1 as encode_binary, decode_base64_message1 as decode_base64_message, fetch_binary as fetch_binary, load_script as load_script, mod2 as Connection, send_error1 as send_error, send_warning1 as send_warning, process_message1 as process_message, on_connection_open1 as on_connection_open, on_connection_close1 as on_connection_close, send_close_session1 as send_close_session, send_pingpong1 as send_pingpong, mod as Sessions, init_session1 as init_session, free_session1 as free_session, lock_loading1 as lock_loading, update_node_attribute as update_node_attribute, update_dom_node as update_dom_node, lookup_global_object1 as lookup_global_object, update_or_replace1 as update_or_replace, onany as onany, OBJECT_FREEING_LOCK1 as OBJECT_FREEING_LOCK, can_send_to_julia1 as can_send_to_julia, free_object1 as free_object, send_to_julia1 as send_to_julia, throttle_function as throttle_function };
+export { mod as Protocol, base64decode1 as base64decode, base64encode1 as base64encode, decode_binary1 as decode_binary, encode_binary1 as encode_binary, decode_base64_message1 as decode_base64_message, fetch_binary as fetch_binary, load_script as load_script, mod2 as Connection, send_error1 as send_error, send_warning1 as send_warning, process_message1 as process_message, on_connection_open1 as on_connection_open, on_connection_close1 as on_connection_close, on_connection_connecting1 as on_connection_connecting, send_close_session1 as send_close_session, send_pingpong1 as send_pingpong, register_connection_indicator1 as register_connection_indicator, unregister_connection_indicator1 as unregister_connection_indicator, set_no_connection1 as set_no_connection, ConnectionStatus1 as ConnectionStatus, mod1 as Sessions, init_session1 as init_session, free_session1 as free_session, lock_loading1 as lock_loading, update_node_attribute as update_node_attribute, update_dom_node as update_dom_node, lookup_global_object1 as lookup_global_object, update_or_replace1 as update_or_replace, onany as onany, OBJECT_FREEING_LOCK1 as OBJECT_FREEING_LOCK, can_send_to_julia1 as can_send_to_julia, free_object1 as free_object, send_to_julia1 as send_to_julia, throttle_function as throttle_function };
 export { generate_state_key as generate_state_key };
 
