@@ -1,0 +1,561 @@
+<!doctype html>
+<html data-jscall-id="1"><head data-jscall-id="2"><script src="../../bonito/js/Bonito.bundled7919512299027874894.js" type="module"></script><meta name="viewport" content="width=device-width, initial-scale=1.0" data-jscall-id="3" /><meta charset="utf-8" data-jscall-id="4" /><style>.style_2 {
+  list-style-type: disc;
+}
+</style><style>:root {
+  --background-color: #2196F3;
+  --text-secondary: #424242;
+  --background-color-highlight: rgba(255, 255, 255, 0.2);
+  --primary-dark: #1565C0;
+  --gray-light: #F5F5F5;
+  --text-color: #212121;
+}
+@font-face {
+  src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+  font-family: octicons-link;
+}
+*, ::before, ::after {
+  border-width: 0;
+  border-style: solid;
+  box-sizing: border-box;
+}
+body {
+  font-size: 1rem;
+  background-color: rgb(255, 255, 255);
+  color: #212121;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  width: 100%;
+  margin: 0;
+  line-height: 1.5;
+}
+img, video {
+  height: auto;
+  max-width: 100%;
+}
+img, svg, video, canvas, audio, iframe, embed, object {
+  display: block;
+  vertical-align: middle;
+}
+.markdown-body {
+  padding: 20px;
+  color: var(--text-color);
+  font-family: -apple-system, BlinkMacSystemFont, 'Roboto', 'Segoe UI', 'Helvetica Neue', 'Lucida Grande', Arial, sans-serif;
+  margin: 20px;
+  line-height: 1.5;
+}
+li p {
+  display: inline;
+}
+pre {
+  padding: 0;
+  margin: 0;
+}
+div.blog_entry h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.75rem;
+}
+div.blog_entry h4 {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+}
+div.blog_entry .date {
+  font-size: 1rem;
+  font-weight: 400;
+  color: gray;
+  line-height: 1.6rem;
+}
+.admonition {
+  padding: 16px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  border-left: 4px solid;
+  border-radius: 8px;
+  line-height: 1.5;
+  margin: 16px 0;
+}
+.admonition.warning {
+  background-color: #fff8e1;
+  border-left-color: #ff9800;
+  color: #e65100;
+}
+.admonition .title {
+  align-items: center;
+  display: flex;
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #e65100;
+  margin: 0 0 8px 0;
+}
+.admonition .title::before {
+  content: '⚠️';
+  font-size: 1.2em;
+  margin-right: 8px;
+}
+.admonition p:not(.title) {
+  color: #bf360c;
+  margin: 0;
+}
+.admonition.info {
+  background-color: #e3f2fd;
+  border-left-color: #2196f3;
+  color: #0d47a1;
+}
+.makie-blue {
+  background-color: #8398a7;
+}
+.text {
+  font-size: 20px;
+  white-space: nowrap;
+  color: rgb(48, 48, 48);
+  position: absolute;
+  overflow: hidden;
+}
+.flex {
+  display: flex;
+}
+.grid {
+  display: grid;
+}
+.block {
+  display: block;
+}
+.inline-block {
+  display: inline-block;
+}
+.flex-row {
+  flex-direction: row;
+}
+.flex-col {
+  flex-direction: column;
+}
+.flex-row-reverse {
+  flex-direction: row-reverse;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.justify-center {
+  justify-content: center;
+}
+.items-center {
+  align-items: center;
+}
+.items-start {
+  align-items: flex-start;
+}
+.gap-1 {
+  gap: 0.25rem;
+}
+.gap-2 {
+  gap: 0.5rem;
+}
+.gap-3 {
+  gap: 0.75rem;
+}
+.gap-4 {
+  gap: 1rem;
+}
+.gap-5 {
+  gap: 1.25rem;
+}
+.gap-6 {
+  gap: 1.5rem;
+}
+.gap-8 {
+  gap: 2rem;
+}
+.gap-10 {
+  gap: 2.5rem;
+}
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.p-1 {
+  padding: 0.25rem;
+}
+.p-2 {
+  padding: 0.5rem;
+}
+.p-4 {
+  padding: 1rem;
+}
+.p-6 {
+  padding: 1.5rem;
+}
+.p-8 {
+  padding: 2rem;
+}
+.p-10 {
+  padding: 2.5rem;
+}
+.px-2 {
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+}
+.px-3 {
+  padding-right: 0.75rem;
+  padding-left: 0.75rem;
+}
+.px-4 {
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+.px-5 {
+  padding-right: 1.25rem;
+  padding-left: 1.25rem;
+}
+.py-1 {
+  padding-bottom: 0.25rem;
+  padding-top: 0.25rem;
+}
+.py-4 {
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+.m-0 {
+  margin: 0;
+}
+.m-1 {
+  margin: 0.25rem;
+}
+.m-2 {
+  margin: 0.5rem;
+}
+.m-4 {
+  margin: 1rem;
+}
+.-m-2 {
+  margin: -0.5rem;
+}
+.-m-4 {
+  margin: -1rem;
+}
+.-m-8 {
+  margin: -2rem;
+}
+.mx-auto {
+  margin-right: auto;
+  margin-left: auto;
+}
+.my-1 {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+.my-3 {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.my-6 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.my-10 {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+.my-14 {
+  margin-top: 3.5rem;
+  margin-bottom: 3.5rem;
+}
+.mt-1 {
+  margin-top: 0.25rem;
+}
+.mt-4 {
+  margin-top: 1rem;
+}
+.mt-14 {
+  margin-top: 3.5rem;
+}
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
+.w-full {
+  width: 100%;
+}
+.w-8 {
+  width: 2rem;
+}
+.w-1\/2 {
+  width: 50%;
+}
+.w-1\/3 {
+  width: 33.333333%;
+}
+.w-1\/5 {
+  width: 20%;
+}
+.w-2\/5 {
+  width: 40%;
+}
+.w-3\/5 {
+  width: 60%;
+}
+.w-96 {
+  width: 24rem;
+}
+.object-cover {
+  object-fit: cover;
+}
+.object-contain {
+  object-fit: contain;
+}
+.max-w-prose {
+  max-width: 65ch;
+}
+.max-w-5xl {
+  max-width: 64rem;
+}
+.max-w-full {
+  max-width: 100%;
+}
+.basis-2\/5 {
+  flex-basis: 40%;
+}
+.basis-3\/5 {
+  flex-basis: 60%;
+}
+.grow {
+  flex-grow: 1;
+}
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+.flex-1 {
+  flex: 1 1 0%;
+}
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+.font-semibold {
+  font-weight: 600;
+}
+.font-bold {
+  font-weight: 700;
+}
+.font-black {
+  font-weight: 900;
+}
+.text-left {
+  text-align: left;
+}
+.text-center {
+  text-align: center;
+}
+.text-justify {
+  text-align: justify;
+}
+.text-white {
+  color: #FFFFFF;
+}
+.text-black {
+  color: #212121;
+}
+.text-blue-600 {
+  color: #2196F3;
+}
+.text-purple-600 {
+  color: #7E57C2;
+}
+.text-gray-600 {
+  color: #757575;
+}
+.visited\:text-purple-600:visited {
+  color: #7E57C2;
+}
+.italic {
+  font-style: italic;
+}
+.bg-white {
+  background-color: #FFFFFF;
+}
+.bg-gray-100 {
+  background-color: #F5F5F5;
+}
+.bg-gray-200 {
+  background-color: #EEEEEE;
+}
+.rounded-md {
+  border-radius: 0.5rem;
+}
+.shadow {
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+.hover\:opacity-50:hover {
+  opacity: 0.5;
+  transition: opacity 0.2s ease-in-out;
+}
+.hover\:bg-gray-300:hover {
+  background-color: #E0E0E0;
+  transition: background-color 0.2s ease-in-out;
+}
+a {
+  text-decoration: none;
+}
+.navbar {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(135deg, #2196F3 0%, #1565C0 100%);
+}
+.navbar a {
+  display: inline-block;
+  text-decoration: none;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}
+.navbar-highlight {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 0.375rem;
+  transition: all 0.2s ease-in-out;
+}
+.card {
+  padding: 0.5rem 0.75rem;
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+.card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+@media (min-width: 640px) {
+  .sm\:flex-row-reverse {
+    flex-direction: row-reverse;
+  }
+  .sm\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .sm\:flex-row {
+    flex-direction: row;
+  }
+  .sm\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .sm\:w-1\/3 {
+    width: 33.333333%;
+  }
+}
+@media (min-width: 768px) {
+  .md\:gap-10 {
+    gap: 2.5rem;
+  }
+  .md\:px-4 {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+  .md\:basis-2\/5 {
+    flex-basis: 40%;
+  }
+  .md\:basis-3\/5 {
+    flex-basis: 60%;
+  }
+  .md\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .md\:-m-4 {
+    margin: -1rem;
+  }
+  .md\:p-4 {
+    padding: 1rem;
+  }
+}
+@media (min-width: 1024px) {
+  .lg\:text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+  .lg\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+  .lg\:w-1\/5 {
+    width: 20%;
+  }
+  .lg\:p-8 {
+    padding: 2rem;
+  }
+  .lg\:-m-8 {
+    margin: -2rem;
+  }
+}
+.container {
+  position: relative;
+}
+.overlay {
+  left: 0;
+  visibility: hidden;
+  align-items: center;
+  bottom: 0;
+  display: flex;
+  height: 100%;
+  padding: 1rem;
+  position: absolute;
+  justify-content: center;
+  background-color: #ffffff00;
+  right: 0;
+  width: 100%;
+  transition: color 0.3s ease-in, background-color 0.3s ease-in 0.3s;
+  overflow: hidden;
+  color: transparent;
+}
+.container:hover .overlay {
+  visibility: visible;
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #212121;
+  transition: color 0.5s ease-in 0.3s, background-color 0.3s ease-in;
+}
+.image {
+  max-width: none;
+  max-height: none;
+}
+.container:hover .image {
+  filter: blur(4px);
+}
+</style><link href="../../bonito/css/markdown-mobile13898764559087962533.css" rel="stylesheet" type="text/css" /><link href="../../bonito/css/github.min8213811099958948332.css" rel="stylesheet" type="text/css" /></head><body data-jscall-id="5"><script type="module">Bonito.init_session("27ea3fb8-a58e-4366-baf4-b34899aba962", Bonito.fetch_binary('../../bonito/bin/479ee9d1c46bd272689d9a688d82d8d68c3a7197-12566232223921067090.bin'), "root", false);
+</script><div data-jscall-id="6"><link href="../../bonito/png/icon_transparent1037186205570625945.png" data-jscall-id="7" rel="icon" type="image/png" /><img style="width: 100%" data-jscall-id="8" src="../../bonito/png/bannermesh_gradient12222907222071057261.png" /><div class="flex navbar justify-center" data-jscall-id="9"><div class="flex max-w-5xl w-full md:px-4 flex-wrap" data-jscall-id="10"><a href="../../" data-jscall-id="11" target=""><div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="12">Home</div></a><a href="../../team" data-jscall-id="13" target=""><div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="14">Team</div></a><a href="../../support" data-jscall-id="15" target=""><div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="16">Support</div></a><a href="../../contact" data-jscall-id="17" target=""><div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="18">Contact</div></a><a href="../../blog" data-jscall-id="19" target=""><div class="text-white cursor-pointer py-1 px-2 hover:opacity-50  navbar-highlight" data-jscall-id="20">Blog</div></a><a href="http://docs.makie.org" data-jscall-id="21" target="_blank"><div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="22">Docs</div></a><a href="https://github.com/MakieOrg/Makie.jl" data-jscall-id="23" target="_blank"><div class="text-white cursor-pointer py-1 px-2 hover:opacity-50 " data-jscall-id="24"><img style="height: 1.2rem; display: inline-block; vertical-align: text-bottom;" data-jscall-id="25" src="../../bonito/png/GitHub-Mark-Light-64px12574665218786438484.png" /></div></a></div></div><div class="p-4 w-full" data-jscall-id="26"><div data-jscall-id="27"><div class="post-date" style="color: #666; margin-bottom: 1rem; text-align: center;" data-jscall-id="28">Sun, 9 Nov 2025</div><div data-jscall-id="29"><div class="markdown-body" data-jscall-id="30"><h1 id="Announcing Raycore.jl: High-Performance Ray Tracing for CPU and GPU" data-jscall-id="31">Announcing Raycore.jl: High-Performance Ray Tracing for CPU and GPU</h1><p data-jscall-id="32">I&#39;m excited to announce <a href="https://github.com/JuliaGeometry/Raycore.jl" data-jscall-id="33">Raycore.jl</a>, a high-performance ray-triangle intersection engine with <a href="https://en.wikipedia.org/wiki/Bounding_volume_hierarchy" data-jscall-id="34">Bounding Volume Hierarchy &#40;BVH&#41;</a> acceleration, designed for both CPU and GPU execution in Julia. Raycore will power a new raytracing backend for Makie, bringing photorealistic rendering to the Makie ecosystem with the familiar Makie API. We factored out the ray intersection engine, since it can be used in many other fields like simulating light transport, heat transfer, or acoustig propagation and many other.</p><h2 id="Why Write a New Ray Intersection Engine?" data-jscall-id="35">Why Write a New Ray Intersection Engine?</h2><p data-jscall-id="36">You might wonder: why build yet another ray tracer? The answer lies in Julia&#39;s unique strengths, the opportunities they create, and the flexibility we gain from having complete control over the rendering implementation.</p><h3 id="Advantages of Julia" data-jscall-id="37">Advantages of Julia</h3><ul class=" style_2" style="" data-jscall-id="38"><li data-jscall-id="39"><p data-jscall-id="40"><strong data-jscall-id="41">High-level language with performance close to C/C&#43;&#43;</strong> - Write readable code that runs fast</p></li><li data-jscall-id="42"><p data-jscall-id="43"><strong data-jscall-id="44">Great GPU support</strong> - Single codebase runs on CUDA, AMD, Metal, oneAPI, and OpenCL via KernelAbstractions.jl</p></li><li data-jscall-id="45"><p data-jscall-id="46"><strong data-jscall-id="47">Multiple dispatch for different geometries, algorithms, and materials</strong> - Extend the system cleanly without modifying core code</p></li><li data-jscall-id="48"><p data-jscall-id="49"><strong data-jscall-id="50">Pluggable architecture for new features</strong> - Add custom materials, sampling strategies, or acceleration structures</p></li><li data-jscall-id="51"><p data-jscall-id="52"><strong data-jscall-id="53">One of the best languages to write out math</strong> - The code looks like the equations you&#39;d write on paper</p></li></ul><h3 id="Honest Assessment: The Tradeoffs" data-jscall-id="54">Honest Assessment: The Tradeoffs</h3><p data-jscall-id="55">Julia isn&#39;t perfect, and there are certainly challenges:</p><ul class=" style_2" style="" data-jscall-id="56"><li data-jscall-id="57"><p data-jscall-id="58"><strong data-jscall-id="59">Long compile times for first use</strong> - The first run of a function triggers JIT compilation</p></li><li data-jscall-id="60"><p data-jscall-id="61"><strong data-jscall-id="62">GPU code still has some rough edges</strong> - Complex kernels require careful attention to avoid allocations and GPU-unfriendly constructs</p></li><li data-jscall-id="63"><p data-jscall-id="64"><strong data-jscall-id="65">Not all backends work yet</strong> - I&#39;ve only tested AMDGPU and OpenCL.jl. Metal.jl and OpenCL on macOS don&#39;t work yet, though I think it&#39;s just a matter of time to support all backends.</p></li></ul><p data-jscall-id="66">In practice, compile times aren&#39;t as bad as they might sound. You keep a Julia session running and only pay the compilation cost once. There&#39;s also ongoing work on precompilation that could reduce these times to near-zero in the future and compile most kernels ahead of time. For GPU code, better tooling for detecting and fixing issues is on the horizon, along with improved error messages when problematic LLVM code is generated.</p><p data-jscall-id="67">The flexibility to write a high-performance ray tracer in a high-level language opens up exciting possibilities:</p><ul class=" style_2" style="" data-jscall-id="68"><li data-jscall-id="69"><p data-jscall-id="70"><strong data-jscall-id="71">Use automatic differentiation</strong> to get gradients for training ML models</p></li><li data-jscall-id="72"><p data-jscall-id="73"><strong data-jscall-id="74">Plug in new optimizations seamlessly</strong> without fighting a type system or rewriting core algorithms</p></li><li data-jscall-id="75"><p data-jscall-id="76"><strong data-jscall-id="77">Democratize working on high-performance ray tracing</strong> - contributions don&#39;t require C&#43;&#43; expertise and the code base is fairly small</p></li><li data-jscall-id="78"><p data-jscall-id="79"><strong data-jscall-id="80">Rapid experimentation</strong> - test new ideas without lengthy compile cycles</p></li></ul><h2 id="What is Raycore.jl?" data-jscall-id="81">What is Raycore.jl?</h2><p data-jscall-id="82">Raycore is a focused library that does one thing well: fast ray-triangle intersections with BVH acceleration. It provides the building blocks for ray tracing applications without imposing a particular rendering architecture.</p><h3 id="Core Features" data-jscall-id="83">Core Features</h3><ul class=" style_2" style="" data-jscall-id="84"><li data-jscall-id="85"><p data-jscall-id="86">Fast BVH construction and traversal</p></li><li data-jscall-id="87"><p data-jscall-id="88">CPU and GPU support via KernelAbstractions.jl</p></li><li data-jscall-id="89"><p data-jscall-id="90">Analysis tools: centroid calculation, illumination analysis, view factors for radiosity</p></li><li data-jscall-id="91"><p data-jscall-id="92">Makie integration for visualization</p></li></ul><h3 id="Performance" data-jscall-id="93">Performance</h3><p data-jscall-id="94">Thanks to the bounding volume hierarchy, the intersection performance scales relatively well with the scene size.</p><div class="markdown-body" data-jscall-id="95"><pre data-jscall-id="96"><code class="language-julia" data-jscall-id="97">using Raycore, GeometryBasics, BenchmarkTools, Markdown, Bonito
+ray &#61; Raycore.Ray&#40;o&#61;Point3f&#40;0, 0, -5&#41;, d&#61;Vec3f&#40;0, 0, 1&#41;&#41;
+results &#61; map&#40;&#91;1, 1000, 10000&#93;&#41; do n
+    spheres &#61; &#91;Tesselation&#40;Sphere&#40;randn&#40;Point3f&#41; .* 1000f0, 0.5f0&#41;, 32&#41; for _ in 1:n&#93;
+    bvh &#61; Raycore.BVH&#40;spheres&#41;
+    tclosest &#61; BenchmarkTools.&#64;belapsed Raycore.closest_hit&#40;&#36;bvh, &#36;ray&#41;
+    ntriangles &#61; length&#40;bvh.primitives&#41;
+    # use closest hit for time per triangle, since it needs to traverse more triangles
+    tpt &#61; string&#40;round&#40;&#40;tclosest/ntriangles&#41;*1e9, digits&#61;5&#41;, &#34;ns&#34;&#41;
+    tcloseststr &#61; string&#40;round&#40;tclosest * 1e6, digits&#61;2&#41;, &#34;μs&#34;&#41;
+    &#40;triangles&#61;ntriangles, closest&#61;tcloseststr, time_per_triangle_ns&#61;tpt&#41;
+end
+DOM.div&#40;Bonito.Table&#40;results&#41;&#41;</code></pre><div data-jscall-id="1"><div data-jscall-id="2"><div class="table-container" data-jscall-id="3"><table class="comparison-table " data-jscall-id="4"><thead data-jscall-id="5"><tr data-jscall-id="6"><th class="table-header" data-jscall-id="7" data-column="0">triangles</th><th class="table-header" data-jscall-id="8" data-column="1">closest</th><th class="table-header" data-jscall-id="9" data-column="2">time_per_triangle_ns</th></tr></thead><tbody data-jscall-id="10"><tr class="table-row" data-jscall-id="11" data-row="0"><td data-value="1922" class="table-cell cell-default" style="" data-jscall-id="12"><span class="text-plain" style="white-space: pre-wrap">1922</span></td><td data-value="0.01μs" class="table-cell cell-default" style="" data-jscall-id="13">0.01μs</td><td data-value="0.0064ns" class="table-cell cell-default" style="" data-jscall-id="14">0.0064ns</td></tr><tr class="table-row" data-jscall-id="15" data-row="1"><td data-value="1922000" class="table-cell cell-default" style="" data-jscall-id="16"><span class="text-plain" style="white-space: pre-wrap">1922000</span></td><td data-value="0.58μs" class="table-cell cell-default" style="" data-jscall-id="17">0.58μs</td><td data-value="0.0003ns" class="table-cell cell-default" style="" data-jscall-id="18">0.0003ns</td></tr><tr class="table-row" data-jscall-id="19" data-row="2"><td data-value="19220000" class="table-cell cell-default" style="" data-jscall-id="20"><span class="text-plain" style="white-space: pre-wrap">19220000</span></td><td data-value="4.01μs" class="table-cell cell-default" style="" data-jscall-id="21">4.01μs</td><td data-value="0.00021ns" class="table-cell cell-default" style="" data-jscall-id="22">0.00021ns</td></tr></tbody></table></div></div></div></div><p data-jscall-id="98">Since you can run thousands of ray intersections in parallel on the GPU, we get pretty great performance per ray intersection. The below benchmark is from the GPU tutorial, which generates roughly 400x700px * 4 samples x 8 shadow rays per 3 lights &#43; 1 reflection ray which can spawn up to 8 shadow rays, so around 40mio rays, which we can do in an optimized GPU kernel in around 43ms: <img alt="GPU Benchmarks" data-jscall-id="99" src="../../bonito/png/gpu-benchmarks3166936516134264577.png" /></p><h2 id="Interactive Tutorials" data-jscall-id="100">Interactive Tutorials</h2><p data-jscall-id="101">The documentation includes several hands-on tutorials that build from basics to advanced GPU optimization:</p><h3 id="1. BVH Hit Tests &#38; Basics" data-jscall-id="102">1. BVH Hit Tests &#38; Basics</h3><p data-jscall-id="103">Learn the fundamentals of ray-triangle intersection, BVH construction, and visualization.</p><p data-jscall-id="104"><img alt="BVH Basics" data-jscall-id="105" src="../../bonito/png/basics17973172770616896775.png" /></p><p data-jscall-id="106"><a href="https://juliageometry.github.io/Raycore.jl/dev/bvh_hit_tests.html" data-jscall-id="107">Try the tutorial →</a></p><h3 id="2. Ray Tracing in one Hour" data-jscall-id="108">2. Ray Tracing in one Hour</h3><p data-jscall-id="109">Build a complete ray tracer from scratch with shadows, materials, reflections, and tone mapping analogous to the famous <a href="https://raytracing.github.io/" data-jscall-id="110">Ray Tracing in one Weekend</a>.</p><p data-jscall-id="111"><img alt="Ray Tracing" data-jscall-id="112" src="../../bonito/png/raytracing2247886781251700338.png" /></p><p data-jscall-id="113"><a href="https://juliageometry.github.io/Raycore.jl/dev/raytracing_tutorial.html" data-jscall-id="114">Try the tutorial →</a></p><h3 id="3. Ray Tracing on the GPU" data-jscall-id="115">3. Ray Tracing on the GPU</h3><p data-jscall-id="116">Port the ray tracer to GPU and learn optimization techniques: loop unrolling, tiling, and wavefront rendering. Includes comprehensive benchmarks comparing different approaches.</p><p data-jscall-id="117"><a href="https://juliageometry.github.io/Raycore.jl/dev/gpu_raytracing.html" data-jscall-id="118">Try the tutorial →</a></p><h3 id="4. View Factors &#38; Analysis" data-jscall-id="119">4. View Factors &#38; Analysis</h3><p data-jscall-id="120">Calculate view factors, illumination, and centroids for radiosity and thermal analysis applications.</p><p data-jscall-id="121"><img alt="View Factors" data-jscall-id="122" src="../../bonito/png/viewfactors14029512001707507999.png" /></p><p data-jscall-id="123"><a href="https://juliageometry.github.io/Raycore.jl/dev/viewfactors.html" data-jscall-id="124">Try the tutorial →</a></p><h2 id="Getting Started" data-jscall-id="125">Getting Started</h2><p data-jscall-id="126">Install Raycore.jl from the Julia package manager:</p><pre data-jscall-id="127"><code class="language-julia" data-jscall-id="128">
+using Pkg
+Pkg.add&#40;&#34;Raycore&#34;&#41;</code></pre><p data-jscall-id="129">Then check out the <a href="https://juliageometry.github.io/Raycore.jl/dev/" data-jscall-id="130">interactive tutorials</a> to start building your first ray tracer&#33;</p><h2 id="Future Work" data-jscall-id="131">Future Work</h2><p data-jscall-id="132">We have some plans for further improving the Package in the future:</p><ul class=" style_2" style="" data-jscall-id="133"><li data-jscall-id="134"><p data-jscall-id="135"><strong data-jscall-id="136">Makie raytracing backend</strong> - Bringing photorealistic rendering to the Makie ecosystem</p></li><li data-jscall-id="137"><p data-jscall-id="138"><strong data-jscall-id="139">Advanced acceleration structures</strong> - Explore alternatives to BVH like kd-trees or octrees for specific use cases</p></li><li data-jscall-id="140"><p data-jscall-id="141"><strong data-jscall-id="142">GPU memory optimizations</strong> - Reduce memory footprint for larger scenes</p></li><li data-jscall-id="143"><p data-jscall-id="144"><strong data-jscall-id="145">Improved precompilation</strong> - Further reduce first-run latency</p></li><li data-jscall-id="146"><p data-jscall-id="147"><strong data-jscall-id="148">Further optimize performance</strong> - It would be great to have as many people as possible work on optimizing this to the core :&#41;</p></li></ul><p data-jscall-id="149">Contributions are welcome&#33; The codebase is designed to be approachable, and the Julia community is friendly and helpful.</p><h2 id="Acknowledgments" data-jscall-id="150">Acknowledgments</h2><p data-jscall-id="151">Raycore.jl was split out from <a href="https://github.com/JuliaGraphics/Trace.jl" data-jscall-id="152">Trace.jl</a>, originally created by <a href="https://github.com/pxl-th" data-jscall-id="153">Anton Smirnov</a>. Trace.jl will soon be renamed to <strong data-jscall-id="154">Hikari</strong> and released as the main ray tracing implementation built on top of Raycore, providing a complete path tracing framework. This project builds on the excellent work of the Julia GPU ecosystem, particularly <a href="https://github.com/JuliaGPU/KernelAbstractions.jl" data-jscall-id="155">KernelAbstractions.jl</a> for portable GPU programming and of course all the GPU backend packages. Special thanks to everyone who helped shape Raycore. Parts of this work was made possible by an investment of the <a href="https://www.sovereign.tech" data-jscall-id="156">Sovereign Tech Agency</a> and most of the optimization and GPU work has been funded by <a href="https://www.muonspace.com/" data-jscall-id="157">Muon Space</a>.</p><p data-jscall-id="158">I&#39;m excited to see what can be build with Raycore.jl and how far we can push the performance as a community&#33;</p></div><div data-jscall-id="159"><script data-jscall-id="160" src="../../bonito/js/highlight.pack13102628173626074447.js"></script><script data-jscall-id="161">hljs.highlightAll()</script></div></div></div></div><div data-jscall-id="162"><script async="true" defer="true" data-jscall-id="163" src="https://api.makie.org/latest.js"></script><noscript data-jscall-id="164"><img alt="" data-jscall-id="165" src="https://api.makie.org/noscript.gif" referrerpolicy="no-referrer-when-downgrade" /></noscript></div></div></body></html>
