@@ -5,8 +5,6 @@ Any Makie scene can now be rendered with photorealistic path tracing: just swap 
 
 All showcase scripts and demo scenes from this post are available at [github.com/SimonDanisch/RayDemo](https://github.com/SimonDanisch/RayDemo).
 
-![Terrain with volumetric clouds over the Austrian Alps](./images/terrain.png)
-
 ## Why Ray Tracing in Julia?
 
 Research groups across many fields (climate science, structural biology, fluid dynamics, particle physics) produce complex 3D data that needs to be communicated clearly and compellingly.
