@@ -1,7 +1,7 @@
 <item>
   <title>Ray Tracing in Makie: From Research Data to Photorealistic Renders</title>
   <link>./blogposts/raytracing</link>
-  <description>Announcing TraceMakie and Hikari — physically-based GPU ray tracing integrated into Makie, bringing photorealistic rendering to scientific Julia workflows.</description>
+  <description>Announcing RayMakie and Hikari — physically-based GPU ray tracing integrated into Makie, bringing photorealistic rendering to scientific Julia workflows.</description>
   <pubDate>Mon, 16 Feb 2026 12:00:00</pubDate>
   <image>
     <url>./images/terrain.png</url>

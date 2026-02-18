@@ -1,7 +1,7 @@
 # Ray Tracing in Makie: From Research Data to Photorealistic Renders
 
-We're excited to announce **TraceMakie** and **Hikari**, a physically-based GPU ray tracing pipeline integrated directly into [Makie](https://docs.makie.org).
-Any Makie scene can now be rendered with photorealistic path tracing: just swap `colorbuffer` parameters and get global illumination, volumetric media, spectral rendering, and physically-based materials, all running on the GPU.
+We're excited to announce [RayMakie](https://github.com/MakieOrg/RayMakie.jl) and [Hikari](https://github.com/MakieOrg/Hikari.jl), a physically-based GPU ray tracing pipeline integrated directly into [Makie](https://docs.makie.org).
+Any Makie scene can now be rendered with photorealistic path tracing: just swap out the backend and get global illumination, volumetric media, spectral rendering, and physically-based materials, all running on the GPU.
 
 All showcase scripts and demo scenes from this post are available at [github.com/SimonDanisch/RayDemo](https://github.com/SimonDanisch/RayDemo).
 
@@ -12,7 +12,7 @@ All showcase scripts and demo scenes from this post are available at [github.com
 Research groups across many fields (climate science, structural biology, fluid dynamics, particle physics) produce complex 3D data that needs to be communicated clearly and compellingly.
 Photorealistic rendering can transform dense simulation output into images that reveal structure and tell a story. But getting research data into a traditional ray tracer usually means exporting meshes, learning new tools, and losing the interactive workflow.
 
-By building ray tracing directly into Makie, we eliminate that gap. The same scene you explore interactively with GLMakie can be rendered photorealistically with TraceMakie, no export step, no new API to learn.
+By building ray tracing directly into Makie, we eliminate that gap. The same scene you explore interactively with GLMakie can be rendered photorealistically with RayMakie, no export step, no new API to learn.
 
 Writing the implementation in Julia gives us:
 
@@ -26,11 +26,11 @@ Writing the implementation in Julia gives us:
 
 Hikari is a Julia port of [pbrt-v4](https://pbrt.org/), the reference implementation from *Physically Based Rendering* (Pharr, Jakob, Humphreys). It implements a wavefront volumetric path tracer with spectral rendering, supporting participating media (NanoVDB, grid-based volumes), physically-based materials (metals, dielectrics, coated surfaces), and environment/sun-sky lighting. The ray intersection engine lives in [Raycore.jl](https://github.com/JuliaGeometry/Raycore.jl), a standalone package factored out of Hikari and based on AMD's [Radeon Rays SDK](https://github.com/GPUOpen-LibrariesAndSDKs/RadeonRays_SDK) and [HIPRT](https://gpuopen.com/hiprt/).
 
-TraceMakie connects Hikari to Makie's scene graph. You build a scene with standard Makie calls (`mesh!`, `surface!`, `volume!`, `meshscatter!`), set materials and lights, then render:
+RayMakie connects Hikari to Makie's scene graph. You build a scene with standard Makie calls (`mesh!`, `surface!`, `volume!`, `meshscatter!`), set materials and lights, then render:
 
 ```julia
 # no-eval
-using TraceMakie, Hikari
+using RayMakie, Hikari
 
 scene = Scene(size=(1920, 1080), lights=[SunSkyLight(Vec3f(1, 2, 8))])
 cam3d!(scene)
@@ -84,7 +84,7 @@ ProtPlot also powers animated visualizations of protein folding trajectories, th
 
 ```julia
 # no-eval
-using TraceMakie, ProtPlot, Hikari, AMDGPU
+using RayMakie, ProtPlot, Hikari, AMDGPU
 
 device = AMDGPU.ROCBackend()
 
@@ -96,7 +96,7 @@ set_theme!(lights=[
 ProtPlot.animate_molecule_dir("trajectory.mp4", tracks)
 ```
 
-The `animate_molecule_dir` function is pure ProtPlot code, building Makie figures with `Axis3`, `atomplot!`, and `ribbon!` as usual. TraceMakie intercepts the `record` call and path-traces each frame automatically.
+The `animate_molecule_dir` function is pure ProtPlot code, building Makie figures with `Axis3`, `atomplot!`, and `ribbon!` as usual. RayMakie intercepts the `record` call and path-traces each frame automatically.
 
 ![Protein folding trajectory](./images/protplot_trajectory.mp4)
 
@@ -133,13 +133,13 @@ The **HL-20 spacecraft** (model provided by [JuliaHub](https://juliahub.com)) wi
 
 ### GLTF Models: Emissive Textures and Scene Composition
 
-TraceMakie loads GLTF/GLB models and automatically maps their PBR materials to Hikari equivalents. Emissive texture maps create area lights that both glow and illuminate the scene. The Christmas tree decorations below are lit entirely by their own emissive maps; the quadcopter model was provided by [JuliaHub](https://juliahub.com):
+RayMakie loads GLTF/GLB models and automatically maps their PBR materials to Hikari equivalents. Emissive texture maps create area lights that both glow and illuminate the scene. The Christmas tree decorations below are lit entirely by their own emissive maps; the quadcopter model was provided by [JuliaHub](https://juliahub.com):
 
 ![Christmas tree with glowing decorations and drone](./images/drone_christmas.png)
 
 ### Geant4: Particle Detector Visualization
 
-[Geant4.jl](https://github.com/JuliaHEP/Geant4.jl) provides Julia bindings to the CERN Geant4 particle physics simulation toolkit. The CMS (Compact Muon Solenoid) detector at CERN is one of the largest and most complex scientific instruments ever built. TraceMakie can load the full detector geometry from GDML files, apply a quadrant cut to reveal internal structure, and render the result with physically-based metal materials (gold, copper, silver, aluminum, iron).
+[Geant4.jl](https://github.com/JuliaHEP/Geant4.jl) provides Julia bindings to the CERN Geant4 particle physics simulation toolkit. The CMS (Compact Muon Solenoid) detector at CERN is one of the largest and most complex scientific instruments ever built. RayMakie can load the full detector geometry from GDML files, apply a quadrant cut to reveal internal structure, and render the result with physically-based metal materials (gold, copper, silver, aluminum, iron).
 
 | | |
 |:---:|:---:|
@@ -155,13 +155,19 @@ Because Julia's multiple dispatch compiles these custom methods directly into th
 
 ![Black hole with accretion disk and gravitational lensing](./images/blackhole.png)
 
+The black hole can also be explored interactively. RayMakie's interactive mode progressively refines the path-traced image while you move the camera in real time:
+
+![Interactive black hole scene](./images/blackhole-interactive.mp4)
+
+An overlay renderer composites rasterized elements (lines, text, wireframes) on top of the ray-traced image, so Makie's standard 2D overlays like legends, colorbars, and annotations work alongside path tracing. The interactive window can also target individual subscenes and axes, so you can place a ray-traced view next to other plots in a GLMakie figure.
+
 ## Getting Started
 
-TraceMakie is available as a Makie backend. To render any existing Makie scene with ray tracing:
+RayMakie is available as a Makie backend. To render any existing Makie scene with ray tracing:
 
 ```julia
 # no-eval
-using TraceMakie, Hikari
+using RayMakie, Hikari
 
 # Build your scene with standard Makie
 scene = Scene(size=(800, 600), lights=[SunSkyLight(Vec3f(1, 2, 8))])
@@ -175,7 +181,7 @@ img = colorbuffer(scene;
 )
 ```
 
-For interactive exploration, use `TraceMakie.interactive_window` to progressively refine the image while adjusting the camera in real time.
+For interactive exploration, use `RayMakie.interactive_window` to progressively refine the image while adjusting the camera in real time.
 
 ## Future Work
 
