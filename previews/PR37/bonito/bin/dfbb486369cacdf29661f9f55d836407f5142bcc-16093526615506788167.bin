@@ -1,36 +1,0 @@
-»
-‹kîŸ$50d472b2-754b-4dfc-9b9c-f392e0b3a2d1§root«2«/jìŸ$50d472b2-754b-4dfc-9b9c-f392e0b3a2d1§root‘ê»
-wî»kîŸ$50d472b2-754b-4dfc-9b9c-f392e0b3a2d1§root«A«>jìŸ$50d472b2-754b-4dfc-9b9c-f392e0b3a2d1§rootÿë«eí¢27ßr_0 > 0»†Çßpayload»àfìÅ¥13266632463903858557«h¢27⁄'const elem = document.querySelector('[data-jscall-id="53"]');
-// uh, observable has better escaping for strings instead of interpolating it directly
-const source = __lookup_interpolated('13266632463903858557').value;
-const displayMode = false;
-import(new URL('../../bonito/js/katex.bundled4541376072251690627.js', window.location.href).href).then(Katex=> {
-        Katex.default.render(source, elem, {displayMode: displayMode});
-}).catch(e => {
-    console.warn("KaTeX loading error:", e);
-    elem.textContent = source; // Fallback to plain text
-});
-Ÿ?/home/runner/.julia/packages/Bonito/OJTyF/src/components.jl:613®msg_type°2»kîŸ$50d472b2-754b-4dfc-9b9c-f392e0b3a2d1§root«A«>jìŸ$50d472b2-754b-4dfc-9b9c-f392e0b3a2d1§root«ë«eí¢28¶\theta»†Çßpayload»àfìÅ¥18329303497871682291«h¢28⁄'const elem = document.querySelector('[data-jscall-id="55"]');
-// uh, observable has better escaping for strings instead of interpolating it directly
-const source = __lookup_interpolated('18329303497871682291').value;
-const displayMode = false;
-import(new URL('../../bonito/js/katex.bundled4541376072251690627.js', window.location.href).href).then(Katex=> {
-        Katex.default.render(source, elem, {displayMode: displayMode});
-}).catch(e => {
-    console.warn("KaTeX loading error:", e);
-    elem.textContent = source; // Fallback to plain text
-});
-Ÿ?/home/runner/.julia/packages/Bonito/OJTyF/src/components.jl:613®msg_type°2»kîŸ$50d472b2-754b-4dfc-9b9c-f392e0b3a2d1§root«=«:jìŸ$50d472b2-754b-4dfc-9b9c-f392e0b3a2d1§root«ë◊eí¢29£\pi»ûÇßpayload»ÜfìÅ≥8104188769440054194«h¢29⁄&const elem = document.querySelector('[data-jscall-id="57"]');
-// uh, observable has better escaping for strings instead of interpolating it directly
-const source = __lookup_interpolated('8104188769440054194').value;
-const displayMode = false;
-import(new URL('../../bonito/js/katex.bundled4541376072251690627.js', window.location.href).href).then(Katex=> {
-        Katex.default.render(source, elem, {displayMode: displayMode});
-}).catch(e => {
-    console.warn("KaTeX loading error:", e);
-    elem.textContent = source; // Fallback to plain text
-});
-Ÿ?/home/runner/.julia/packages/Bonito/OJTyF/src/components.jl:613®msg_type°2»0kîŸ$50d472b2-754b-4dfc-9b9c-f392e0b3a2d1§root«2«/jìŸ$50d472b2-754b-4dfc-9b9c-f392e0b3a2d1§root‘ê«ÃÇßpayload«µfìÄŸcif (typeof Bonito !== 'undefined' && Bonito.set_no_connection) {
-    Bonito.set_no_connection();
-}
-ŸL/home/runner/.julia/packages/Bonito/OJTyF/src/connection/no-connection.jl:13®msg_type°2
