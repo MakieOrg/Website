@@ -102,9 +102,9 @@ The `animate_molecule_dir` function is pure ProtPlot code, building Makie figure
 
 ![Protein folding trajectory](./images/protplot_trajectory.mp4)
 
-> My lab is working on new kinds of generative models, primarily for protein structures. These work by specifying a process that transports randomly sampled noise to a biophysically plausible protein structure, and training a deep neural network to learn how to do this. But the details of this transport process are critical and, while you can to some extent mathematically reason about it, there is no substitute to being able to actually see it in action, both when you're designing it and when investigating how well the model has actually learned it. We rely entirely on Makie for this. These are not just for our internal use, but can be valuable for communicating how the methods work. Developments like raytracing will allow us to configure these to show exactly the details we seek to communicate without them getting buried in the complexity.
+> My lab is working on new kinds of generative models, primarily for protein structures. These work by specifying a process that transports randomly sampled noise to a biophysically plausible protein structure, and training a deep neural network to learn how to do this. But the details of this transport process are critical and, while you can to some extent mathematically reason about it, there is no substitute to being able to actually see it in action, both when you're designing it and when investigating how well the model has actually learned it. We work with visualization tools, like ProtPlot.jl, primarily developed by Anton Oresten in my lab, which rely entirely on Makie for this. These visualizations are not just for our internal use, but can be valuable for communicating how the methods work. Developments like raytracing will allow us to configure these to show exactly the details we seek to communicate without them getting buried in the complexity.
 >
-> **Ben Murrell**, Karolinska Institutet, developer of ProtPlot.jl
+> **Ben Murrell**, Karolinska Institutet
 
 ### TrixiParticles: Fluid Simulation
 
