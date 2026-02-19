@@ -1,9 +1,13 @@
 # Ray Tracing in Makie: From Research Data to Photorealistic Renders
 
+![BOMEX cumulus clouds rendered with volumetric path tracing](./images/breeze.png)
+
 We're excited to announce [RayMakie](https://github.com/MakieOrg/RayMakie.jl) and [Hikari](https://github.com/MakieOrg/Hikari.jl), a physically-based GPU ray tracing pipeline integrated directly into [Makie](https://docs.makie.org).
 Any Makie scene can now be rendered with photorealistic path tracing: just swap out the backend and get global illumination, volumetric media, spectral rendering, and physically-based materials, all running on the GPU.
 
 All showcase scripts and demo scenes from this post are available at [github.com/SimonDanisch/RayDemo](https://github.com/SimonDanisch/RayDemo).
+
+**Note:** RayMakie, Hikari, and Raycore are not fully released yet — we plan to publish official releases in the coming weeks. In the meantime, the `Project.toml` in [RayDemo](https://github.com/SimonDanisch/RayDemo) will be kept up to date so you can already try things out.
 
 ## Why Ray Tracing in Julia?
 
