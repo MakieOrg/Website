@@ -78,9 +78,9 @@ The ray-traced oil palm uses coated diffuse transmission materials to simulate t
 [ProtPlot.jl](https://github.com/MurrellGroup/ProtPlot.jl) renders protein ribbon diagrams with physically-based materials.
 Different materials reveal different aspects of the structure: glass refractions show the interior ribbon path, while a coated diffuse surface with shallow depth of field draws attention to specific regions of the fold. Specular highlights, ambient occlusion, and defocus blur make spatial relationships immediately clear in a way that flat shading cannot.
 
-| Glass | Coated Diffuse with Depth of Field |
+| Glass | Physical based Gold with Depth of Field |
 |:---:|:---:|
-| ![Protein ribbon with glass material](./images/protplot_glass.png) | ![Protein ribbon with coated diffuse material and depth of field](./images/protplot_7pkz.png) |
+| ![Protein ribbon with glass material](./images/protplot_glass.png) | ![Protein ribbon with a gold material and depth of field](./images/protplot_7pkz.png) |
 
 ProtPlot also powers animated visualizations of protein folding trajectories, the transport process that generative models learn to perform. Ray tracing makes the spatial relationships in these animations immediately legible. The code to produce this is almost entirely standard Makie and ProtPlot, only the imports and a few rendering parameters change:
 
@@ -98,7 +98,7 @@ set_theme!(lights=[
 ProtPlot.animate_molecule_dir("trajectory.mp4", tracks)
 ```
 
-The `animate_molecule_dir` function is pure ProtPlot code, building Makie figures with `Axis3`, `atomplot!`, and `ribbon!` as usual. RayMakie intercepts the `record` call and path-traces each frame automatically.
+The `animate_molecule_dir` function is pure ProtPlot code, building Makie figures with `Axis3`, `atomplot!`, and `ribbon!` as usual. Then when using the RayMakie backend, Makie will use it to render the video without requiring any additional changes.
 
 ![Protein folding trajectory](./images/protplot_trajectory.mp4)
 
@@ -109,7 +109,7 @@ The `animate_molecule_dir` function is pure ProtPlot code, building Makie figure
 ### TrixiParticles: Fluid Simulation
 
 [TrixiParticles.jl](https://github.com/trixi-framework/TrixiParticles.jl) simulates fluid dynamics with smoothed particle hydrodynamics.
-The water splash demo renders SPH surface meshes with glass materials (IOR 1.33). Fresnel reflections and refractions create the characteristic look of water without any post-processing. The animation shows a gold ball dropping into water, with each frame independently path-traced:
+The water splash demo renders SPH surface meshes with a dielectric material (IOR 1.33) simulating water. Fresnel reflections and refractions create the characteristic look of water without any post-processing. The animation shows a gold ball dropping into water, with each frame independently path-traced:
 
 ![Water splash animation](./images/trixi_water.mp4)
 
@@ -161,7 +161,7 @@ The black hole can also be explored interactively. RayMakie's interactive mode p
 
 ![Interactive black hole scene](./images/blackhole-interactive.mp4)
 
-An overlay renderer composites rasterized elements (lines, text, wireframes) on top of the ray-traced image, so Makie's standard 2D overlays like legends, colorbars, and annotations work alongside path tracing. The interactive window can also target individual subscenes and axes, so you can place a ray-traced view next to other plots in a GLMakie figure.
+An overlay renderer composites rasterized elements (lines, text, wireframes) on top of the ray-traced image, so Makie's standard 2D overlays like legends, colorbars, and annotations work alongside path tracing. The interactive window can also target individual subscenes and axes, so you can place a ray-traced view next to other plots in a GLMakie figure. Looking ahead, this overlay renderer has the potential to grow into a full pure-Julia GPU-accelerated rasterizer, which could eventually replace OpenGL as Makie's primary rendering backend.
 
 ## Getting Started
 
