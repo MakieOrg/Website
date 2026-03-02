@@ -115,7 +115,7 @@ The water splash demo renders SPH surface meshes with a dielectric material (IOR
 
 > Native raytracing in Makie would let us move some of our workflows entirely into Julia, from simulation to publication-ready figures, without relying on external tools.
 >
-> **Dr. Michael Schlottke-Lakemper**, University of Stuttgart, lead developer of TrixiParticles.jl
+> **Dr. Michael Schlottke-Lakemper**, University of Augsburg, Scientific co-lead for TrixiParticles.jl
 
 ### Volumetric Rendering: Clouds, Smoke, and Exhaust Plumes
 
