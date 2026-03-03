@@ -1,0 +1,9 @@
+<item>
+  <title>Cool Makie Papers</title>
+  <link>./blogposts/cool-makie-papers</link>
+  <description> Highlighting scientific papers with stunning Makie.jl visualizations </description>
+  <pubDate>Mon, 03 Mar 2026 12:00:00</pubDate>
+  <image>
+    <url>./images/eht_black_holes.png</url>
+  </image>
+</item>
