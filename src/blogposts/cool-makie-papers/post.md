@@ -1,6 +1,6 @@
 # Cool Makie Papers: Science Visualized with Makie.jl
 
-We've collected some cool recent papers that use Makie.jl for their figures and visualizations. They cover a nice range of fields -- from black hole imaging and ocean modeling to quantum physics and biofilm research. Here we highlight ten of them with a short summary and a representative figure each.
+We've collected some cool recent papers that use Makie.jl for their figures and visualizations. They cover a nice range of fields, from black hole imaging and ocean modeling to quantum physics and biofilm research. Here we highlight ten of them with a short summary and a representative figure each.
 
 If you're using Makie in your research and would like to be featured in a future blog post, [please contact us](https://makie.org/website/contact)!
 
