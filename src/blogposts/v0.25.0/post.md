@@ -1,5 +1,118 @@
 # Makie 0.25
 
+## Complex Recipes/Block Recipes
+
+We have extended the `@Block` macro to double as a recipe for blocks.
+They can now be used to define a layout of Blocks, which can also be plotted to by the block recipe.
+This could be used, for example, to define a new block which creates an Axis and a plot based on user arguments and automatically adds a Legend and/or Colorbar to its internal layout.
+
+```julia
+# no-eval
+# Block recipes can be added to a figure like any other block
+fig = Figure()
+block = MyBlock(fig[1, 1], rand(10))
+
+# Blocks are now also allowed to directly create figures:
+fig, block = MyBlock(rand(10))
+```
+
+### Block Recipe Interface
+
+Block recipes are similar to plot recipes.
+To define one the `@block` macro is used to define a new block type, similar to how `@recipe` is used for plots.
+Then an `initialize_block!()` method is implemented to add blocks and plots to the new block type, similar to how `plot!()` adds other plots to a recipe plot.
+
+#### Minimal example
+
+A bare bones version of the `MyBlock` recipe may look like this:
+
+```julia
+@Block MyBlock (positions,) begin
+    @attributes begin
+        "Color of scatter markers"
+        color = :red
+    end
+end
+
+Makie.conversion_trait(::Type{<:MyBlock}) = PointBased()
+
+function Makie.initialize_block!(b::MyBlock)
+    ax = Axis(b[1, 1])
+    scatter!(ax, b.positions, color = b.color, label = "Scatter Plot")
+    Legend(b[0, 1], ax, tellwidth = false, tellheight = true)
+    return
+end
+
+f, b = MyBlock(rand(10), color = :orange)
+```
+
+The `@Block` macro defines the name of the new block as `MyBlock`.
+It then defines the converted arguments as `positions`.
+Unlike with `@recipe` this is currently required for blocks.
+Finally it defines a single attribute `color` with a docstring in an `@attributes begin ... end` block.
+
+Following that is an overload of `conversion_trait` for the new block type.
+This tells the conversion pipeline how to convert the arguments given to `MyBlock`.
+The result will be contained in `block.positions`, just like with `@recipe`.
+
+The final part is the `initialize_block!(b::MyBlock)` implementation.
+As you can see other blocks can be added to the parent block `b` as if it were a figure.
+Plots can be added to any axis-like added to `b`.
+The attributes of MyBlock can be accessed an passed around with `b.attribute_name` just like with plot recipes.
+
+#### Working with recipe blocks
+
+A content of a recipe block can be accessed and manipulated in the same way it does in `initialize_block!()` once it is created.
+If you wanted to add another plot to the axis of `MyBlock` you could do so with `plot!(b[1, 1], ...)`.
+If you wanted to add another block, you can add it with `Label(b[-1, 1], "Title")`.
+If you want to get the Axis block out of `b`, you can grab it from `ax = b.blocks[1]`.
+From there you can access the plots added to the axis `ax.plots`.
+
+#### `@Block` macro
+
+The example above does not include all the options the `@Block` macro provides.
+A more feature complete example would be
+
+```julia
+# no-eval
+abstract type ParentType end
+
+@Block MyBlock <: ParentType (positions::Vector{<:Point},) begin
+    field1
+    field2::Int
+    @attributes begin
+        # undocumented
+        attribute1 = 1
+        "documented"
+        attribute2 = 2
+        "documented + typed"
+        attribute3::Int = 3
+    end
+end
+```
+
+This adds:
+- a parent type `<: ParentType` for the block
+- a type annotation `::Vector{<:Point}` for the converted arguments, enabling type checks
+- an untyped `field1` and typed `field2` which will be added to the `MyBlock` struct directly
+- an undocumented `attribute1` and a typed `attribute3`
+
+Adding a type annotation to an attribute causes the attribute to be passed to `BlockAttributeConvert{TargetType}()(value)`, after which it must be of the given type.
+If the target type is not already handled by Makie and requires a conversion, a new method of `(::Makie.BlockAttributeConvert{TargetType})(value)` needs to be implemented.
+
+#### Argument Conversions
+
+Internally the only difference with argument handling between plot and block recipes is that block recipes do not include dim converts.
+This means that blocks call the same `convert_arguments` interface, just with a block instead of a plot.
+You can thus define `conversion_trait(::Type{MyBlock})` or `convert_arguments(::Type{MyBlock}, args...)` just like with plots.
+You can also use the `used_attributes()` interface to mark attributes (or more generally keyword arguments) as used by `convert_arguments()`.
+(Using `<:MyBlock` is not necessary here because blocks are not a parametric type.)
+
+TODO:
+- maybe mention (hacky?) interceptions (e.g. implementing `MyBlock(args...M kwargs...)` (see Colorbar) or `initialize_block!(block, arg1, args...; kwargs...)` (see Label))
+- mention field initialization
+
+
 ## Dim Converts
 
 Dim converts are Makie's system for handling dates, units, categorical data and other data that needs to synchronize across plots.
@@ -54,6 +167,17 @@ end
 
 Note that the default `argument_dims` can already handle point-like data and x, y(, z) data.
 If included via `argument_dim_kwargs` it will also handle `direction` and `orientation`.
+
+
+
+## Nested Attributes
+
+TODO
+- connect to Block recipes
+- mention easier update (no plot.x[].y = ...)
+- recursive merging now works
+
+
 
 ## DataInspector [#5241](https://github.com/MakieOrg/Makie.jl/pull/5241)
 
@@ -177,6 +301,18 @@ end
 
 Note that `Lines`, `LineSegments` and `Scatter` already have definitions.
 This system may change some more in the future if more flexibility is needed.
+
+
+
+## Fixes
+
+TODO:
+- barplot
+- Legend
+- maybe compute graph concurrency
+- maybe merge precedence
+
+
 
 ## Render Pipeline (GLMakie)
 
