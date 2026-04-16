@@ -5,6 +5,15 @@
     <link>https://blog.makie.org</link>
     <description>A Blog about anything new in the Makie world</description>
     <item>
+      <title>Cool Makie Papers</title>
+      <link>./blogposts/cool-makie-papers</link>
+      <description>Highlighting scientific papers with stunning Makie.jl visualizations</description>
+      <pubDate>Tue, 3 Mar 2026 12:0:0</pubDate>
+      <image>
+        <url>/home/runner/work/Website/Website/src/blogposts/cool-makie-papers/./website/images/eht_black_holes.png</url>
+      </image>
+    </item>
+    <item>
       <title>Ray Tracing in Makie: From Research Data to Photorealistic Renders</title>
       <link>./blogposts/raytracing</link>
       <description>Announcing RayMakie and Hikari — physically-based GPU ray tracing integrated into Makie, bringing photorealistic rendering to scientific Julia workflows.</description>
