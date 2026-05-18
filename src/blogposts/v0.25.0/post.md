@@ -22,7 +22,7 @@ Block recipes are similar to plot recipes.
 To define one the `@block` macro is used to define a new block type, similar to how `@recipe` is used for plots.
 Then an `initialize_block!()` method is implemented to add blocks and plots to the new block type, similar to how `plot!()` adds other plots to a recipe plot.
 
-#### Minimal example
+#### Small example
 
 A bare bones version of the `MyBlock` recipe may look like this:
 
@@ -75,7 +75,7 @@ A more feature complete example would be
 
 ```julia
 # no-eval
-abstract type ParentType end
+abstract type ParentType <: Block end
 
 @Block MyBlock <: ParentType (positions::Vector{<:Point},) begin
     field1
@@ -108,16 +108,18 @@ You can thus define `conversion_trait(::Type{MyBlock})` or `convert_arguments(::
 You can also use the `used_attributes()` interface to mark attributes (or more generally keyword arguments) as used by `convert_arguments()`.
 (Using `<:MyBlock` is not necessary here because blocks are not a parametric type.)
 
-TODO:
-- maybe mention (hacky?) interceptions (e.g. implementing `MyBlock(args...M kwargs...)` (see Colorbar) or `initialize_block!(block, arg1, args...; kwargs...)` (see Label))
-- mention field initialization
+### Traditional Blocks
 
+The changes made to the block infrastructure should have little effect on pre-0.25 blocks.
+The main change for them is that attributes moved from fields to a compute graph.
+This should not break old `initialize_block!()` implementations, as attributes can be accessed the same way they did before and they can be treated as Observables.
+Using `notify(block.attribute)` to initialize observable chains of a block should also continue to work, even if the attribute is now a compute graph node.
 
 ## Dim Converts
 
-Dim converts are Makie's system for handling dates, units, categorical data and other data that needs to synchronize across plots.
-Up until 0.25, this would only work with `x, y` and `x, y, z` data, meaning data where each plot argument represents one dimension and either 2 or 3 were present.
-The system has now been expanded to also allow point-like data, different argument orders (e.g. `y, x`), arguments that are not dimensional (e.g. the matrix passed to image) as well as repeated multiple arguments using the same dimension.
+Dim converts are Makie's system for handling dates and time, units, categorical data and other data that needs to synchronize across plots.
+Up until 0.25, this only worked with `x, y` and `x, y, z` data, meaning data where each plot argument represents one dimension and either 2 or 3 were present.
+The system has now been expanded to also allow point-like data, different argument orders (e.g. `y, x`), arguments that are not dimensional (e.g. the matrix passed to image) as well as multiple arguments acting in the same dimension.
 As a result almost every plot now works with dim converts.
 
 ```julia
@@ -142,7 +144,7 @@ f
 ```
 
 We also added some more dim converts related attributes to `Axis` and `Axis3`.
-You can use `x_unit_in_ticklabel` (etc.) to toggle units (or Dates, Categorical values) appearing in ticklabels, `x_unit_in_label` (etc.) to toggle them in axis labels, `xlabel_suffix` (etc.) to set a formatter for units in axis labels and use `use_short_x_units` to toggle between abbreviations ("s") and full names ("Second") in labels.
+You can use `x_unit_in_ticklabel` (etc.) to toggle units (or Dates, Categorical values) appearing in ticklabels, `x_unit_in_label` (etc.) to toggle them in axis labels, `xlabel_suffix` (etc.) to set a formatter for units in axis labels and use `use_short_x_units` to toggle between abbreviations ("s") and full names ("Second") in axis labels.
 
 To make dim converts compatible with all the different argument structures recipes may have we added two new interface functions: `Makie.argument_dims()` and `Makie.argument_dim_kwargs()`.
 The first allows you to map arguments to the dimensions they should convert with.
@@ -172,12 +174,179 @@ If included via `argument_dim_kwargs` it will also handle `direction` and `orien
 
 ## Nested Attributes
 
-TODO
-- connect to Block recipes
-- mention easier update (no plot.x[].y = ...)
-- recursive merging now works
+With 0.25 nested attributes are now supported directly by the compute graph.
 
+### Makie before 0.25
 
+Since 0.24 nested attributes were more or less broken. Defining them in a recipe
+
+```julia
+# no-eval
+@recipe MyPlot begin
+    outer = Attributes(
+        inner1 = 1.0,
+        inner2 = 1
+    )
+end
+```
+
+would not create some kind of nested compute graph structure.
+Instead the `Attributes` would be treated like any other default value, i.e. as the initial value of the `plot.outer` node.
+As a result accessing nested attributes required fetching the node first `outer = plot.outer[]` and then working with the enclosed observable `outer.inner1`.
+In a recipe this means either working with them as observables or adding them as inputs with `add_input!(plot, :outer_inner1, plot.outer[].inner1)`.
+In either case a user could break interactivity by updating `plot.outer = Attributes(...)`.
+Furthermore calling `myplot(..., outer = (x = 2.0,))` would not validate names and overwrite `outer` entirely rather than merging with the nested defaults.
+All of this is also true for the old `@recipe ... do scene ... end` style of recipes.
+
+### Makie after 0.25
+
+With the 0.25 release nested attributes are now supported in a consistent manner across (new) plot and Block recipes.
+
+#### Nested Attribute Definition
+
+`@attributes begin ... end` blocks are used to define nested attributes.
+Docstrings can be added not just to the inner "leaf" attributes, but also to the branches containing them.
+
+```julia
+# no-eval
+@recipe MyPlot begin
+    "outer container"
+    outer = @attributes begin
+        "inner1"
+        inner1 = 1.0
+        inner2 = 1
+    end
+end
+```
+
+These docstrings can be queried with `?MyPlot.outer` or `help(MyPlot, :outer, :inner1)` for nested attributes.
+Mixin expressions, e.g. `Makie.documented_attributes(Scatter)...` can also be used within an `@attributes` block.
+
+!!! note
+    The old `@recipe .... do scene ... end` style of recipes now translates `Attributes()` to `@attributes` blocks.
+    The newer `@recipe ... begin ... end` style does not, and instead continues to treats them as values.
+
+#### Access and Updates
+
+Nested attributes are converted to individual compute nodes.
+Their names are a merged version of their nesting path, e.g. `Symbol("outer.inner1")`.
+They can be accessed using that name directly, or more comfortably using nested `getindex` or `getproperty` expressions:
+
+```julia
+# no-eval
+plot[Symbol("outer.inner1")]
+plot.outer.inner1
+plot[:outer][:inner1]
+```
+
+Accessing an incomplete path, e.g. `plot.outer`, will show all the attributes inside that branch.
+
+Attributes can be updated with `setproperty` and `setindex` expressions just like unnested attributes.
+`update!()` allows the merged name or tuples to be used to refer to an attribute.
+Additionally plots also allow a branch to be updated with a dict-like container.
+
+```julia
+# no-eval
+plot[Symbol("outer.inner1")] = 1
+plot.outer.inner1 = 1
+plot[:outer][:inner1] = 1
+update!(plot, Symbol("outer.inner1") => 1)
+update!(plot, Dict((:outer, :inner1) => 1))
+plot.outer = Dict(:inner1 => 1)
+```
+
+#### Computations
+
+Since nested attributes lower to individual compute nodes they can be addressed without problems.
+They can be referred to by a tuple or a merged symbol, or they can directly be passed as a node.
+Outputs can be created in nested scope if their name is given as a tuple.
+
+```julia
+# no-eval
+# by name
+map!(plot, [(:outer, :inner1), Symbol("outer.inner2")], :output) do x1, x2
+    ...
+end
+# creates: plot.output
+
+# explicit node (can be mixed)
+map!(plot, [plot.outer.inner1, (:outer, :inner2)], (:outer, :output)) do x1, x2
+    ...
+end
+# creates: plot.outer.output
+```
+
+Computations can also be defined relative to a nesting scope, e.g. `plot.outer`.
+The input and output names are then evaluated relative to that scope, e.g. `:inner1` will refer to `plot.outer.inner1`.
+This can be useful if you have a set of computations that needs to act in different contexts.
+For example `Axis` now has an `xaxis` and `yaxis` scope which contains the respective tick and label calculations.
+
+```julia
+# no-eval
+# scoped (explicitly passed nodes can escape scope)
+map!(plot.outer, [:inner1, plot.other], :output) do x1, x2
+    ...
+end
+# creates: plot.outer.output
+```
+
+### ComputePipeline
+
+On the ComputePipeline side nested input attributes can be added with any of
+
+```julia
+# no-eval
+graph = ComputeGraph()
+add_input!(graph, :outer, :inner1, 1)
+add_input!(graph, (:outer, :inner2), 2)
+add_input!(graph.outer, :inner3, 3) # requires graph.outer to be accessible
+```
+
+Each version saves some nesting information and adds a normal input node with names like `Symbol("outer.inner1")`.
+When accessing `graph.outer`, the nesting information is checked to ensure that this nesting path leads to something.
+If it does a `ComputeGraphView(graph, :outer)` is returned, which acts as a view into the "nested" graph.
+Once the nesting path leads a node, e.g. `graph.outer.inner1`, the view resolves to that node.
+
+Note that manually creating a `ComputeGraphView(graph, name)` will create an unfinished path instead of erroring if `graph[name]` does not yet exist.
+(This can be useful if you want a function to fill out a nesting scope that doesn't yet exist/has no content.)
+
+From here, access and computations work the same as discussed above.
+
+### Old Recipes
+
+Old recipes, e.g.
+
+```julia
+# no-eval
+@recipe MyPlot do scene
+    return Attributes(
+        a = 1,
+        b = get_theme(scene, :markercolor)
+    )
+end
+```
+
+are now marked as deprecated.
+The `@recipe ... begin ... end` style (Makie 0.21+) should be used instead.
+The translation should be relatively straight forward:
+- the outer most `Attributes()` call is dropped
+- `get_theme(scene, :key)` translates to `@inherit :key`
+- nested `Attributes(...)` translate to `@attributes begin ... end`
+- `default_theme(scene, PlotType)` translates to `documented_attributes(PlotType)`, `filtered_attributes(PlotType)` or explicitly defining attributes depending on its usage
+
+And additionally you will be able to set docstrings by adding a string above an attribute definition.
+
+The example above translates to:
+
+```julia
+# no-eval
+@recipe MyPlot begin
+    a = 1
+    b = @inherit :markercolor
+end
+```
+
+Note that `?Makie.@DocumentedAttributes` now documents the syntax for attributes within `@recipe`, `@Block` and `Makie.@DocumentedAttributes`.
 
 ## DataInspector [#5241](https://github.com/MakieOrg/Makie.jl/pull/5241)
 
