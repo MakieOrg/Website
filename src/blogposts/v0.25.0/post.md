@@ -475,13 +475,106 @@ This system may change some more in the future if more flexibility is needed.
 
 ## Fixes
 
-TODO:
-- barplot
-- Legend
-- maybe compute graph concurrency
-- maybe merge precedence
+### Infinite `barplot`
 
+Bars can now start at `-Inf`.
+This fixes issues with log barplots and histograms, where bars starting at `log(0) = -Inf` would previously fail to render.
 
+```julia
+f = Figure(size = (800, 400))
+ys = 2 .+ sin.(1:6)
+barplot(f[1, 1], 1:6, ys, fillto = -Inf)
+
+xs = [1, 2, 3, 1, 2, 3]
+groups = [1, 1, 1, 2, 2, 2]
+barplot(f[1, 2], xs, ys, stack = groups, color = groups, axis = (yscale = log10,))
+
+hist(f[1, 3], sin.(1:100), axis = (yscale = log10,))
+f
+```
+
+### Legend Visibility Toggles
+
+0.22.5 added functionality for toggling visibility of plots by clicking on their legend entries.
+This broke in 0.24 for most recipe plots due to stricter updating requirements of compute graphs.
+The problem was fixed in 0.25 by restructuring the related code.
+
+If you implemented your own `LegendElement` type and added `plots` for this functionality you can now remove them again.
+The plots are now tracked by `LegendEntry` instead, which Makie manages.
+
+### ComputeGraph Concurrency
+
+Makie does not use multiple threads or processes, but GLMakie and WGLMakie do run an asynchronous renderloop and have asynchronous (keyboard, mouse, etc.) events.
+Updates and access to compute graphs can therefore happen asynchronously regardless of user code.
+To prevent issues we had previously set up a `ReentrantLock` per compute graph which gets locked when updating and resolving nodes.
+This is not enough for connected compute graphs.
+To keep things short, it was possible to start an update in a parent graph before a resolve in a child graph completed which would result in nodes not being marked as "resolved" when they should not be.
+This would then cause the nodes to be outdated until another update marks them.
+
+To fix the issue we have made the graph lock global for now.
+This means that compute graphs are forced to update and resolve in a serially, even if the graphs are completely independent.
+We have also added a lock to `ComputePipeline.mark_dity!()` to make it safe to call.
+
+It should also be noted that resolving or updating nodes from within an edge callback is undefined behavior.
+Depending on how nodes are connected and how we handle simultaneous access, graph operations may cause state corruption (like above), deadlocks or errors.
+So don't do this:
+
+```julia
+map!(graph1, inputs, outputs) do args...
+    graph2.a[]
+    graph3.b = ...
+end
+```
+
+Instead, connect the nodes directly with inputs and outputs.
+If that is not possible, you should rely on the Observable infrastructure:
+
+```julia
+on(graph1.x) do x
+    graph3.b = x
+end
+```
+
+### ComputeGraph Additions
+
+#### Update Controls
+
+We added the `ExplicitUpdate(value, rule)` wrapper as a way for edge callbacks to control the propagation of their outputs.
+
+```julia
+map!(graph, inputs, outputs) do arg1, arg2, arg3
+    # Any dependent of output1 will run even if the value didn't change
+    output1 = ExplicitUpdate(arg1, :force)
+    # output2 will not trigger any dependent to run even if the value changed
+    output2 = ExplicitUpdate(arg2, :deny)
+    # Dependents will be triggered if the value changed (default case)
+    output3 = ExplicitUpdate(arg3, :auto)
+    return output1, output2, output3
+end
+```
+
+Note that the `ExplicitUpdate` wrapper does not get removed automatically to allow dependents to propagate forced updates further.
+You can use `unwrap_explicit_update` to remove the wrapper or just access `wrapped.data`.
+ComputeGraph inputs now also have a `force_update` field that can be set to `true` directly, with `ComputePipeline.enabke_forced_updates!(input)` or with `add_input!(..., force_update = true)`.
+
+#### Observables
+
+ComputePipeline.jl includes methods for `on`, `onany`, `map`, `map!` and `connect!` for easy interoperability with Observables.jl.
+The methods for `onany`, `map` and `map!` previously required the first input to be a compute graph node.
+Now there are additional methods so that interoperability works if any of the first 10 inputs is a compute node.
+
+#### `ComputePipeline.set_type!()`
+
+We added `set_type!(node, Type)` as a way to initialize the value type of a compute graph node.
+This is an alternative to wrapping the output of an edge callback in a `Ref{Type}(value)`.
+
+```julia
+map!(x -> Ref{Any}(x), graph, :input, :output)
+
+# Alternatively:
+map!(identity, graph, :input, :output)
+ComputePipeline.set_type!(graph.output, Any)
+```
 
 ## Render Pipeline (GLMakie)
 
