@@ -227,7 +227,7 @@ function index()
         For more specialized applications, have a look at the rich third-party ecosystem that has developed around Makie:
         """, class="my-4"),
         Grid(
-            DetailedCard(
+	    DetailedCard(
                 title="GeoMakie.jl",
                 link="https://github.com/MakieOrg/GeoMakie.jl",
                 image="ecosystem/geomakie.png",
@@ -247,6 +247,13 @@ function index()
                 image="ecosystem/ferrite.mp4",
                 imclass=eco_class,
                 details=md"Small package to visualize [Ferrite.jl](https://github.com/Ferrite-FEM/Ferrite.jl) results, which is a simple finite element toolbox written in Julia."
+            ),
+            DetailedCard(
+                title="Comodo.jl",
+                link="https://github.com/COMODO-research/Comodo.jl",
+                image="ecosystem/Comodo_overview.jpg",
+                imclass=eco_class,
+                details="Computational (bio)mechanics and computational design",
             ),
             DetailedCard(
                 title="GraphMakie.jl",
