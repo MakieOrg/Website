@@ -3,29 +3,39 @@ GHProject(x) = link(
     "https://github.com/$(x)"
 )
 
+# Inline list of links separated by ", " (the old "," join rendered without spaces)
+function link_list(links)
+    elems = Any[]
+    for (i, l) in enumerate(links)
+        i > 1 && push!(elems, ", ")
+        push!(elems, l)
+    end
+    return DOM.span(elems...)
+end
+
 function team()
-    c = ","
-    projects = [
-        GHProject("MakieOrg/Makie.jl"), c,
-        GHProject("JuliaGPU/GPUArrays.jl"), c,
-        GHProject("JuliaIO/FileIO.jl"), c,
-        GHProject("SimonDanisch/Bonito.jl"), c,
-        GHProject("JuliaLang/PackageCompiler.jl"), c,
-        GHProject("JuliaGPU/CLArrays.jl"), c,
-        GHProject("JuliaGeometry/GeometryBasics.jl"), c,
-        GHProject("JuliaGraphics/FreeTypeAbstraction.jl"), c,
-        GHProject("SimonDanisch/Matcha.jl"), c,
-        GHProject("JuliaGeometry/Tetgen.jl"), c,
-        GHProject("JuliaGeometry/EarCut.jl"), c,
-        GHProject("JuliaGL/ModernGL.jl")
-    ]
+    projects = link_list(GHProject.([
+        "MakieOrg/Makie.jl",
+        "JuliaGPU/GPUArrays.jl",
+        "JuliaIO/FileIO.jl",
+        "SimonDanisch/Bonito.jl",
+        "JuliaLang/PackageCompiler.jl",
+        "JuliaGPU/CLArrays.jl",
+        "JuliaGeometry/GeometryBasics.jl",
+        "JuliaGraphics/FreeTypeAbstraction.jl",
+        "SimonDanisch/Matcha.jl",
+        "JuliaGeometry/Tetgen.jl",
+        "JuliaGeometry/EarCut.jl",
+        "JuliaGL/ModernGL.jl",
+    ]))
 
     simon = Section(
         FocusBlock(
             [
-                H2Focus("Simon Danisch - Author of Makie"),
+                H2Focus("Simon Danisch, Author of Makie"),
                 DOM.p(
                 """
+                I work as an independent developer on Makie and much of its surrounding Julia graphics, GPU and web ecosystem.
                 I began my studies in Cognitive Science at the University of Osnabrück in 2010, with a focus on computer vision and machine learning.
                 In search of a language that could deliver superior performance for interactive computing and great GPU integration, along with an elegant alternative to OOP for math,
                 I discovered Julia in 2012. It's been my language of choice ever since.
@@ -34,7 +44,7 @@ function team()
                 Since then, I've contributed significantly to the development of Julia's graphic, GPU, and plotting infrastructure, and authored numerous related packages:""",
                 DOM.br(),
                 projects,
-                "and ", GHProject("SimonDanisch/FixedSizeArrays.jl"), "which became ", GHProject("JuliaArrays/StaticArrays.jl"))
+                " and ", GHProject("SimonDanisch/FixedSizeArrays.jl"), ", which later became ", GHProject("JuliaArrays/StaticArrays.jl"), ".")
             ];
             link="https://github.com/SimonDanisch",
             image="simon.jpg",
@@ -44,47 +54,50 @@ function team()
     julius = Section(
         FocusBlock(
             [
-                H2Focus("Julius Krumbiegel - Co-Author"),
+                H2Focus("Julius Krumbiegel, Co-Author"),
                 DOM.p(
+                "I currently work at Pumas.ai and maintain Makie's layout system and 2D graphics. ",
                 "I joined the Makie project in 2019 when I created its layout system ",
                 GHProject("jkrumbiegel/GridLayoutBase.jl"),
                 " and most of the GUI objects currently available in what used to be the separate package ",
                 GHProject("jkrumbiegel/MakieLayout.jl"),
                 ". Owing to my academic history in psychology and vision science, my focus is on 2D plots and visual quality, which is why much of my work has revolved around our default themes, plot recipes, text and figure layouting as well as vector graphics output through CairoMakie.jl. ",
                 "I'm also the author of packages such as ",
-                [
-                    GHProject("jkrumbiegel/Chain.jl"), c,
-                    GHProject("jkrumbiegel/DataFrameMacros.jl"), c,
-                    GHProject("jkrumbiegel/ReadableRegex.jl"), c,
-                    GHProject("jkrumbiegel/Animations.jl"), " and ",
-                    GHProject("jkrumbiegel/SankeyMakie.jl"), "."
-                ]
+                link_list(GHProject.([
+                    "jkrumbiegel/Chain.jl",
+                    "jkrumbiegel/DataFrameMacros.jl",
+                    "jkrumbiegel/ReadableRegex.jl",
+                    "jkrumbiegel/Animations.jl",
+                    "jkrumbiegel/SankeyMakie.jl",
+                ])),
+                "."
                 )
             ];
             link="https://github.com/jkrumbiegel",
             image="julius.jpg"
         )
     )
-    coauthored = [
-        GHProject("ffreyer/SphereSurfaceHistogram.jl"), c,
-        GHProject("carstenbauer/BinningAnalysis.jl"), c,
-        GHProject("carstenbauer/MonteCarlo.jl"), c,
-        GHProject("ffreyer/LatPhysPlottingMakie.jl"),
-    ]
-    contributions = [
-        GHProject("MakieOrg/Makie.jl"), c,
-        GHProject("fatteneder/MakieSlides.jl"), c,
-        GHProject("JuliaPlots/MakieTeX.jl"), c,
-        GHProject("JuliaIO/MeshIO.jl"), c,
-        GHProject("JuliaGizmos/Observables.jl"), c,
-        GHProject("JuliaGeometry/GeometryBasics.jl"),
-    ]
+    coauthored = link_list(GHProject.([
+        "ffreyer/SphereSurfaceHistogram.jl",
+        "carstenbauer/BinningAnalysis.jl",
+        "carstenbauer/MonteCarlo.jl",
+        "ffreyer/LatPhysPlottingMakie.jl",
+    ]))
+    contributions = link_list(GHProject.([
+        "MakieOrg/Makie.jl",
+        "fatteneder/MakieSlides.jl",
+        "JuliaPlots/MakieTeX.jl",
+        "JuliaIO/MeshIO.jl",
+        "JuliaGizmos/Observables.jl",
+        "JuliaGeometry/GeometryBasics.jl",
+    ]))
     frederic = Section(
         FocusBlock(
             [
-                H2Focus("Frederic Freyer - GLMakie expert"),
+                H2Focus("Frederic Freyer, GLMakie expert"),
                 DOM.p(
                 """
+                I work as a freelance developer, focused on Makie's rendering backends and core internals.
                 I've started using Julia in 2018 to write a Monte-Carlo simulation for my Bachelor thesis in condensed matter physics. The project continued afterwards with code running on our HPC cluster, resulting in two papers. Since then I have continued working with Julia and contributed to various open source projects.
 
                 Packages I (co-)authored include:
@@ -109,7 +122,17 @@ function team()
 
     contributors = Section(
         H2("Makie Contributors"),
-        FlexGrid(DOM.div.(OWNERS, class="px-4 py-1")...)
+        FlexGrid(DOM.div.(OWNERS, class="px-3 py-1 m-1 text-sm bg-gray-100 rounded-full")...; class="justify-center")
     )
-    return page(DOM.div(simon, julius, frederic, contributors; class="flex flex-col items-center w-full"), "Team")
+    intro = Section(
+        H1("Core Maintainers"),
+        TextBlock(
+        """
+        Makie is developed and maintained by a small group of independent developers, each \
+        focused on different parts of the library and its ecosystem, from rendering backends \
+        to layout, geometry and the web stack. We work on Makie alongside our own jobs and \
+        projects; below are the people behind it.
+        """; width="w-full")
+    )
+    return page(DOM.div(intro, simon, julius, frederic, contributors; class="flex flex-col items-center w-full"), "Maintainers")
 end
