@@ -1,0 +1,794 @@
+<!doctype html>
+<html data-jscall-id="1"><head data-jscall-id="2"><script src="../bonito/js/Bonito.bundled7919512299027874894.js" type="module"></script><meta name="viewport" content="width=device-width, initial-scale=1.0" data-jscall-id="3" /><meta charset="utf-8" data-jscall-id="4" /><link href="../bonito/png/icon_transparent1037186205570625945.png" data-jscall-id="5" rel="icon" type="image/png" /><style></style><style>:root {
+  --brand: #3B5BDB;
+  --background-color: #3B5BDB;
+  --primary-dark: #2F4AC0;
+  --shadow-lg: 0 12px 32px -8px rgba(15, 23, 42, 0.15);
+  --text-heading: #0F172A;
+  --gray-light: #F1F5F9;
+  --text-muted: #64748B;
+  --surface: #F8FAFC;
+  --background-color-highlight: rgba(255, 255, 255, 0.2);
+  --border: #E2E8F0;
+  --shadow-md: 0 4px 12px -2px rgba(15, 23, 42, 0.10);
+  --brand-light: #EEF2FF;
+  --text-color: #334155;
+  --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.06);
+  --brand-dark: #2F4AC0;
+}
+@font-face {
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+  font-family: octicons-link;
+}
+*, ::before, ::after {
+  border-width: 0;
+  border-style: solid;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-size: 1rem;
+  background-color: rgb(255, 255, 255);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  color: #334155;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  margin: 0;
+  line-height: 1.6;
+  width: 100%;
+}
+img, video {
+  height: auto;
+  max-width: 100%;
+}
+img, svg, video, canvas, audio, iframe, embed, object {
+  display: block;
+  vertical-align: middle;
+}
+a {
+  text-decoration: none;
+  color: #3B5BDB;
+}
+p {
+  margin: 0 0 0.75rem 0;
+}
+.markdown-body {
+  padding: 20px;
+  color: var(--text-color);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  margin: 20px;
+  line-height: 1.6;
+}
+li p {
+  display: inline;
+}
+pre {
+  padding: 0;
+  margin: 0;
+}
+div.blog_entry {
+  display: flex;
+  padding: 1rem;
+  gap: 0.375rem;
+  flex-direction: column;
+}
+div.blog_entry h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0F172A;
+  margin: 0;
+  line-height: 1.4;
+}
+div.blog_entry h4 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #334155;
+  margin: 0;
+  line-height: 1.5;
+}
+div.blog_entry p {
+  margin: 0;
+}
+div.blog_entry img, div.blog_entry video {
+  width: 100%;
+  border-radius: 0.5rem;
+  margin: 0.25rem 0;
+}
+div.blog_entry .date, .post-date {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #64748B;
+  line-height: 1.5;
+}
+a.blog_card:hover h3 {
+  color: #3B5BDB;
+}
+.admonition {
+  padding: 16px 20px;
+  box-shadow: var(--shadow-sm);
+  border-left: 4px solid;
+  border-radius: 8px;
+  line-height: 1.5;
+  margin: 16px 0;
+}
+.admonition.warning {
+  background-color: #fff8e1;
+  border-left-color: #ff9800;
+  color: #e65100;
+}
+.admonition .title {
+  align-items: center;
+  display: flex;
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #e65100;
+  margin: 0 0 8px 0;
+}
+.admonition .title::before {
+  content: '⚠️';
+  font-size: 1.2em;
+  margin-right: 8px;
+}
+.admonition p:not(.title) {
+  color: #bf360c;
+  margin: 0;
+}
+.admonition.info {
+  background-color: #e3f2fd;
+  border-left-color: #2196f3;
+  color: #0d47a1;
+}
+.makie-blue {
+  background-color: #8398a7;
+}
+.text {
+  font-size: 20px;
+  white-space: nowrap;
+  color: rgb(48, 48, 48);
+  position: absolute;
+  overflow: hidden;
+}
+.flex {
+  display: flex;
+}
+.grid {
+  display: grid;
+}
+.block {
+  display: block;
+}
+.inline-block {
+  display: inline-block;
+}
+.flex-row {
+  flex-direction: row;
+}
+.flex-col {
+  flex-direction: column;
+}
+.flex-row-reverse {
+  flex-direction: row-reverse;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.justify-center {
+  justify-content: center;
+}
+.items-center {
+  align-items: center;
+}
+.items-start {
+  align-items: flex-start;
+}
+.gap-1 {
+  gap: 0.25rem;
+}
+.gap-2 {
+  gap: 0.5rem;
+}
+.gap-3 {
+  gap: 0.75rem;
+}
+.gap-4 {
+  gap: 1rem;
+}
+.gap-5 {
+  gap: 1.25rem;
+}
+.gap-6 {
+  gap: 1.5rem;
+}
+.gap-8 {
+  gap: 2rem;
+}
+.gap-10 {
+  gap: 2.5rem;
+}
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.p-1 {
+  padding: 0.25rem;
+}
+.p-2 {
+  padding: 0.5rem;
+}
+.p-3 {
+  padding: 0.75rem;
+}
+.p-4 {
+  padding: 1rem;
+}
+.p-6 {
+  padding: 1.5rem;
+}
+.p-8 {
+  padding: 2rem;
+}
+.p-10 {
+  padding: 2.5rem;
+}
+.px-2 {
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+}
+.px-3 {
+  padding-right: 0.75rem;
+  padding-left: 0.75rem;
+}
+.px-4 {
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+.px-5 {
+  padding-right: 1.25rem;
+  padding-left: 1.25rem;
+}
+.px-6 {
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+}
+.py-1 {
+  padding-bottom: 0.25rem;
+  padding-top: 0.25rem;
+}
+.py-2 {
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+}
+.py-3 {
+  padding-bottom: 0.75rem;
+  padding-top: 0.75rem;
+}
+.py-4 {
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+.py-6 {
+  padding-bottom: 1.5rem;
+  padding-top: 1.5rem;
+}
+.py-8 {
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+}
+.m-0 {
+  margin: 0;
+}
+.m-1 {
+  margin: 0.25rem;
+}
+.m-2 {
+  margin: 0.5rem;
+}
+.m-4 {
+  margin: 1rem;
+}
+.-m-2 {
+  margin: -0.5rem;
+}
+.-m-4 {
+  margin: -1rem;
+}
+.-m-8 {
+  margin: -2rem;
+}
+.mx-auto {
+  margin-right: auto;
+  margin-left: auto;
+}
+.my-1 {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+.my-3 {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.my-6 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.my-10 {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+.my-14 {
+  margin-top: 3.5rem;
+  margin-bottom: 3.5rem;
+}
+.mt-1 {
+  margin-top: 0.25rem;
+}
+.mt-2 {
+  margin-top: 0.5rem;
+}
+.mt-4 {
+  margin-top: 1rem;
+}
+.mt-14 {
+  margin-top: 3.5rem;
+}
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
+.w-full {
+  width: 100%;
+}
+.w-8 {
+  width: 2rem;
+}
+.w-10 {
+  width: 2.5rem;
+}
+.w-1\/2 {
+  width: 50%;
+}
+.w-1\/3 {
+  width: 33.333333%;
+}
+.w-1\/5 {
+  width: 20%;
+}
+.w-2\/5 {
+  width: 40%;
+}
+.w-3\/5 {
+  width: 60%;
+}
+.w-96 {
+  width: 24rem;
+}
+.object-cover {
+  object-fit: cover;
+}
+.object-contain {
+  object-fit: contain;
+}
+.max-w-prose {
+  max-width: 65ch;
+}
+.max-w-xl {
+  max-width: 36rem;
+}
+.max-w-2xl {
+  max-width: 42rem;
+}
+.max-w-5xl {
+  max-width: 64rem;
+}
+.max-w-6xl {
+  max-width: 72rem;
+}
+.max-w-full {
+  max-width: 100%;
+}
+.basis-2\/5 {
+  flex-basis: 40%;
+}
+.basis-3\/5 {
+  flex-basis: 60%;
+}
+.grow {
+  flex-grow: 1;
+}
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+.flex-1 {
+  flex: 1 1 0%;
+}
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+.text-base {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.65;
+}
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 1.3;
+}
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 1.25;
+}
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 1.15;
+}
+.font-semibold {
+  font-weight: 600;
+}
+.font-bold {
+  font-weight: 700;
+}
+.font-black {
+  font-weight: 900;
+}
+.tracking-tight {
+  letter-spacing: -0.02em;
+}
+.text-left {
+  text-align: left;
+}
+.text-center {
+  text-align: center;
+}
+.text-justify {
+  text-align: justify;
+}
+.text-white {
+  color: #FFFFFF;
+}
+.text-black {
+  color: #0F172A;
+}
+.text-blue-600 {
+  color: #3B5BDB;
+}
+.text-purple-600 {
+  color: #3B5BDB;
+}
+.text-gray-500 {
+  color: #64748B;
+}
+.text-gray-600 {
+  color: #475569;
+}
+.visited\:text-purple-600:visited {
+  color: #3B5BDB;
+}
+.italic {
+  font-style: italic;
+}
+.list-disc {
+  list-style-type: disc;
+}
+.list-inside {
+  list-style-position: inside;
+}
+.list-disc li + li {
+  margin-top: 0.375rem;
+}
+.bg-white {
+  background-color: #FFFFFF;
+}
+.bg-gray-50 {
+  background-color: #F8FAFC;
+}
+.bg-gray-100 {
+  background-color: #F1F5F9;
+}
+.bg-gray-200 {
+  background-color: #E2E8F0;
+}
+.rounded-md {
+  border-radius: 0.5rem;
+}
+.rounded-lg {
+  border-radius: 0.625rem;
+}
+.rounded-xl {
+  border-radius: 0.875rem;
+}
+.rounded-full {
+  border-radius: 9999px;
+}
+.border {
+  border-color: #E2E8F0;
+  border-width: 1px;
+}
+.shadow-sm {
+  box-shadow: var(--shadow-sm);
+}
+.shadow {
+  box-shadow: var(--shadow-md);
+}
+.shadow-lg {
+  box-shadow: var(--shadow-lg);
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+.hover\:opacity-50:hover {
+  opacity: 0.5;
+  transition: opacity 0.2s ease-in-out;
+}
+.hover\:bg-gray-300:hover {
+  background-color: #CBD5E1;
+  transition: background-color 0.2s ease-in-out;
+}
+.hover\:underline:hover {
+  text-decoration: underline;
+}
+.logo-img {
+  filter: grayscale(1);
+  opacity: 0.65;
+  transition: filter 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+.logo-img:hover {
+  filter: grayscale(0);
+  opacity: 1;
+}
+.quote-card {
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+.quote-card:hover {
+  border-color: #3B5BDB;
+  box-shadow: var(--shadow-sm);
+}
+.navbar {
+  -webkit-backdrop-filter: blur(10px);
+  font-size: 0.9375rem;
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.88);
+  border-bottom: 1px solid var(--border);
+  font-weight: 500;
+  top: 0;
+  position: sticky;
+  z-index: 50;
+}
+.navbar a {
+  display: inline-block;
+  text-decoration: none;
+  color: #334155;
+  transition: color 0.15s ease-in-out;
+}
+.navbar a:hover {
+  color: #3B5BDB;
+}
+.navbar-highlight {
+  font-weight: 600;
+  color: #3B5BDB !important;
+}
+.nav-desktop {
+  display: none;
+}
+@media (min-width: 768px) {
+  .nav-desktop {
+    display: flex;
+  }
+  .md\:gap-10 {
+    gap: 2.5rem;
+  }
+  .md\:px-4 {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+  .md\:basis-2\/5 {
+    flex-basis: 40%;
+  }
+  .md\:basis-3\/5 {
+    flex-basis: 60%;
+  }
+  .nav-mobile {
+    display: none;
+  }
+  .md\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .md\:-m-4 {
+    margin: -1rem;
+  }
+  .md\:p-4 {
+    padding: 1rem;
+  }
+}
+.nav-mobile {
+  position: relative;
+}
+.nav-mobile summary {
+  font-size: 1.375rem;
+  list-style: none;
+  padding: 0.375rem 0.625rem;
+  color: #0F172A;
+  border-radius: 0.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.nav-mobile summary::-webkit-details-marker {
+  display: none;
+}
+.nav-mobile summary:hover {
+  background-color: #F1F5F9;
+}
+.nav-menu {
+  min-width: 11rem;
+  z-index: 60;
+  display: flex;
+  padding: 0.375rem;
+  box-shadow: var(--shadow-lg);
+  position: absolute;
+  border-radius: 0.75rem;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  background-color: #FFFFFF;
+  right: 0;
+  top: calc(100% + 0.5rem);
+}
+.nav-menu a {
+  padding: 0.5rem 0.75rem;
+  color: #334155;
+  border-radius: 0.5rem;
+}
+.nav-menu a:hover {
+  background-color: #F1F5F9;
+  color: #3B5BDB;
+}
+.card {
+  border: 1px solid var(--border);
+  background-color: #FFFFFF;
+  box-shadow: var(--shadow-sm);
+  border-radius: 0.875rem;
+  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+.card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+.btn {
+  display: inline-block;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.625rem;
+  line-height: 1.4;
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+}
+.btn-primary {
+  background-color: #3B5BDB;
+  box-shadow: var(--shadow-sm);
+  color: #FFFFFF !important;
+}
+.btn-primary:hover {
+  background-color: #2F4AC0;
+}
+.btn-outline {
+  border: 1px solid var(--border);
+  background-color: #FFFFFF;
+  color: #0F172A !important;
+}
+.btn-outline:hover {
+  border-color: #3B5BDB;
+  color: #3B5BDB !important;
+}
+@media (min-width: 640px) {
+  .sm\:w-1\/3 {
+    width: 33.333333%;
+  }
+  .sm\:flex-row-reverse {
+    flex-direction: row-reverse;
+  }
+  .sm\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .sm\:flex-row {
+    flex-direction: row;
+  }
+  .sm\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  div.blog_entry {
+    padding: 1.5rem;
+  }
+  .sm\:p-8 {
+    padding: 2rem;
+  }
+}
+@media (min-width: 1024px) {
+  .lg\:text-sm {
+    font-size: 0.875rem;
+    line-height: 1.4;
+  }
+  .lg\:text-base {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .lg\:w-1\/5 {
+    width: 20%;
+  }
+  .lg\:p-8 {
+    padding: 2rem;
+  }
+  .lg\:w-1\/3 {
+    width: 33.333333%;
+  }
+  .lg\:-m-8 {
+    margin: -2rem;
+  }
+}
+.container {
+  position: relative;
+}
+.overlay {
+  left: 0;
+  visibility: hidden;
+  align-items: center;
+  bottom: 0;
+  display: flex;
+  height: 100%;
+  padding: 1rem;
+  position: absolute;
+  border-radius: 0.875rem;
+  justify-content: center;
+  background-color: #ffffff00;
+  right: 0;
+  width: 100%;
+  transition: color 0.3s ease-in, background-color 0.3s ease-in 0.3s;
+  overflow: hidden;
+  color: transparent;
+}
+.container:hover .overlay {
+  visibility: visible;
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #334155;
+  transition: color 0.5s ease-in 0.3s, background-color 0.3s ease-in;
+}
+.image {
+  max-width: none;
+  max-height: none;
+}
+.container:hover .image {
+  filter: blur(4px);
+}
+</style></head><body data-jscall-id="6"><script type="module">Bonito.init_session("a99a0a06-89ca-4d65-89f4-d7a92eb9bcbd", Bonito.fetch_binary('../bonito/bin/286abc88a8525e8648c0f23c9108b7094428d962-8122207428058590150.bin'), "root", false);
+</script><div class="navbar flex justify-center" data-jscall-id="7"><div class="flex max-w-6xl w-full px-4 py-2 items-center" data-jscall-id="8"><a href="../" data-jscall-id="9"><div class="flex items-center gap-2" data-jscall-id="10"><img style="height: 1.75rem; width: auto; display: inline-block;" data-jscall-id="11" src="../bonito/png/icon_transparent1037186205570625945.png" /><span class="font-bold text-lg text-black tracking-tight" data-jscall-id="12">Makie</span></div></a><div class="grow" data-jscall-id="13"></div><div class="nav-desktop items-center gap-1" data-jscall-id="14"><a class="cursor-pointer py-1 px-3" href="../" data-jscall-id="15" target="">Home</a><a class="cursor-pointer py-1 px-3" href="../team" data-jscall-id="16" target="">Maintainers</a><a class="cursor-pointer py-1 px-3" href="../support" data-jscall-id="17" target="">Support</a><a class="cursor-pointer py-1 px-3" href="../contact" data-jscall-id="18" target="">Contact</a><a class="cursor-pointer py-1 px-3 navbar-highlight" href="../blog" data-jscall-id="19" target="">Blog</a><a class="cursor-pointer py-1 px-3" href="http://docs.makie.org" data-jscall-id="20" target="_blank">Docs</a><a class="cursor-pointer py-1 px-3" href="https://github.com/MakieOrg/Makie.jl" data-jscall-id="21" target="_blank">GitHub</a></div><details class="nav-mobile" data-jscall-id="22"><summary data-jscall-id="23">☰</summary><div class="nav-menu" data-jscall-id="24"><a class="cursor-pointer py-1 px-3" href="../" data-jscall-id="15" target="">Home</a><a class="cursor-pointer py-1 px-3" href="../team" data-jscall-id="16" target="">Maintainers</a><a class="cursor-pointer py-1 px-3" href="../support" data-jscall-id="17" target="">Support</a><a class="cursor-pointer py-1 px-3" href="../contact" data-jscall-id="18" target="">Contact</a><a class="cursor-pointer py-1 px-3 navbar-highlight" href="../blog" data-jscall-id="19" target="">Blog</a><a class="cursor-pointer py-1 px-3" href="http://docs.makie.org" data-jscall-id="20" target="_blank">Docs</a><a class="cursor-pointer py-1 px-3" href="https://github.com/MakieOrg/Makie.jl" data-jscall-id="21" target="_blank">GitHub</a></div></details></div></div><div class=" flex flex-col items-center w-full" data-jscall-id="25"><div class="px-4 py-6 max-w-6xl w-full mx-auto" data-jscall-id="26"><div class="max-w-3xl mx-auto w-full flex flex-col gap-4" data-jscall-id="27"><h1 class="text-3xl font-bold text-left tracking-tight text-black my-4" data-jscall-id="28">Blog</h1><link rel="alternate" data-jscall-id="29" href="./rss.xml" title="Makie Blog rss feed" type="application/rss+xml" /><div class="flex flex-col gap-6 w-full" data-jscall-id="30"><a class="card w-full blog_card" href="../blogposts/cool-makie-papers" data-jscall-id="31"><div class="blog_entry" data-jscall-id="32"><h3 data-jscall-id="33">Cool Makie Papers</h3><h4 data-jscall-id="34">Highlighting scientific papers with stunning Makie.jl visualizations</h4><img data-jscall-id="35" src="../bonito/png/eht_black_holes12516427601747108679.png" /><div class="date" data-jscall-id="36">Tue, 3 Mar 2026</div></div></a><a class="card w-full blog_card" href="../blogposts/raytracing" data-jscall-id="37"><div class="blog_entry" data-jscall-id="38"><h3 data-jscall-id="39">Ray Tracing in Makie: From Research Data to Photorealistic Renders</h3><h4 data-jscall-id="40">Announcing RayMakie and Hikari — physically-based GPU ray tracing integrated into Makie, bringing photorealistic rendering to scientific Julia workflows.</h4><img data-jscall-id="41" src="../bonito/png/terrain794547408289448833.png" /><div class="date" data-jscall-id="42">Mon, 16 Feb 2026</div></div></a><a class="card w-full blog_card" href="../blogposts/raycore" data-jscall-id="43"><div class="blog_entry" data-jscall-id="44"><h3 data-jscall-id="45">Announcing Raycore.jl: High-Performance Ray Tracing for CPU and GPU</h3><h4 data-jscall-id="46">A high-performance ray-triangle intersection engine with BVH acceleration for Julia</h4><img data-jscall-id="47" src="../bonito/png/raytracing2247886781251700338.png" /><div class="date" data-jscall-id="48">Sun, 9 Nov 2025</div></div></a><a class="card w-full blog_card" href="../blogposts/bonito" data-jscall-id="49"><div class="blog_entry" data-jscall-id="50"><h3 data-jscall-id="51">Bonito.jl</h3><h4 data-jscall-id="52">Finally announcing Bonito.jl, the flashy Julia web framework</h4><img data-jscall-id="53" src="../bonito/png/network-inspector7846425683295821523.png" /><div class="date" data-jscall-id="54">Wed, 1 Oct 2025</div></div></a><a class="card w-full blog_card" href="../blogposts/v0.24.0" data-jscall-id="55"><div class="blog_entry" data-jscall-id="56"><h3 data-jscall-id="57">Makie v0.24.0</h3><h4 data-jscall-id="58">Replacing internal Observables with a ComputeGraph</h4><img data-jscall-id="59" src="../bonito/svg/wglmakie-benchmark10001366977198623661.svg" /><div class="date" data-jscall-id="60">Wed, 25 Jun 2025</div></div></a><a class="card w-full blog_card" href="../blogposts/v0.23.0" data-jscall-id="61"><div class="blog_entry" data-jscall-id="62"><h3 data-jscall-id="63">Makie v0.23.0</h3><h4 data-jscall-id="64">We&#39;re happy to release Makie v0.23&#33; This version features a new dendrogram recipe, a
+    breaking cleanup of the arrow recipe, and many other improvements.</h4><img data-jscall-id="65" src="../bonito/png/cell_output_68498708477586951694.png" /><div class="date" data-jscall-id="66">Thu, 12 Jun 2025</div></div></a><a class="card w-full blog_card" href="../blogposts/v0.22.2" data-jscall-id="67"><div class="blog_entry" data-jscall-id="68"><h3 data-jscall-id="69">Makie v0.22.2</h3><h4 data-jscall-id="70">Improvements for voxel plots, enhanced slider options for optimized rendering, updated documentation and many more</h4><img data-jscall-id="71" src="../bonito/png/img111003437329908463615.png" /><div class="date" data-jscall-id="72">Wed, 26 Feb 2025</div></div></a><a class="card w-full blog_card" href="../blogposts/showcases" data-jscall-id="73"><div class="blog_entry" data-jscall-id="74"><h3 data-jscall-id="75">Makie Showcases</h3><h4 data-jscall-id="76">Showing off some nice projects created with Makie.jl</h4><img data-jscall-id="77" src="../bonito/png/robot13847475165183575324.png" /><div class="date" data-jscall-id="78">Wed, 22 Jan 2025</div></div></a><a class="card w-full blog_card" href="../blogposts/v0.22" data-jscall-id="79"><div class="blog_entry" data-jscall-id="80"><h3 data-jscall-id="81">v0.22</h3><h4 data-jscall-id="82">Makie.jl 0.22&#39;s is out: Better Geometry handling, curvilinear contour plots, and
+    &#96;fullbox&#96; feature for Axis3.</h4><img data-jscall-id="83" src="../bonito/png/sponza10049286866202656474.png" /><div class="date" data-jscall-id="84">Tue, 17 Dec 2024</div></div></a><a class="card w-full blog_card" href="../blogposts/v0.21" data-jscall-id="85"><div class="blog_entry" data-jscall-id="86"><h3 data-jscall-id="87">v0.21</h3><h4 data-jscall-id="88">Updates in Makie version v0.21</h4><img data-jscall-id="89" src="../bonito/png/rJYi3UN1C13703621970489152880.png" /><div class="date" data-jscall-id="90">Fri, 24 May 2024</div></div></a><a class="card w-full blog_card" href="../blogposts/v0.20" data-jscall-id="91"><div class="blog_entry" data-jscall-id="92"><h3 data-jscall-id="93">v0.20</h3><h4 data-jscall-id="94">Updates in Makie version v0.20</h4><img data-jscall-id="95" src="../bonito/png/lighting4500157270928180.png" /><div class="date" data-jscall-id="96">Mon, 20 Nov 2023</div></div></a><a class="card w-full blog_card" href="../blogposts/v0.19.9-12" data-jscall-id="97"><div class="blog_entry" data-jscall-id="98"><h3 data-jscall-id="99">v0.19.9-12</h3><h4 data-jscall-id="100">Updates in Makie version v0.19.9-12</h4><img data-jscall-id="101" src="../bonito/png/cell_output_714330203192250491016.png" /><div class="date" data-jscall-id="102">Mon, 30 Oct 2023</div></div></a><a class="card w-full blog_card" href="../blogposts/v0.19.7" data-jscall-id="103"><div class="blog_entry" data-jscall-id="104"><h3 data-jscall-id="105">v0.19.7</h3><h4 data-jscall-id="106">Updates in Makie version v0.19.7</h4><img data-jscall-id="107" src="../bonito/png/f2c1fac.CoqexF4t15365325229093021326.png" /><div class="date" data-jscall-id="108">Wed, 26 Jul 2023</div></div></a><a class="card w-full blog_card" href="../blogposts/May-2023-News" data-jscall-id="109"><div class="blog_entry" data-jscall-id="110"><h3 data-jscall-id="111">May 2024 News</h3><h4 data-jscall-id="112">News from MakieCon and updates about Makie</h4><img data-jscall-id="113" src="../bonito/png/stars13647811333759453799.png" /><div class="date" data-jscall-id="114">Mon, 15 May 2023</div></div></a><a class="card w-full blog_card" href="../blogposts/v0.18" data-jscall-id="115"><div class="blog_entry" data-jscall-id="116"><h3 data-jscall-id="117">v0.18</h3><h4 data-jscall-id="118">Updates in Makie version v0.18</h4><img data-jscall-id="119" src="../bonito/png/cell_output_210585194576485686362.png" /><div class="date" data-jscall-id="120">Wed, 12 Oct 2022</div></div></a><a class="card w-full blog_card" href="../blogposts/v0.16" data-jscall-id="121"><div class="blog_entry" data-jscall-id="122"><h3 data-jscall-id="123">v0.16</h3><h4 data-jscall-id="124">Updates in Makie version v0.16</h4><img data-jscall-id="125" src="../bonito/png/materials9408697043137038988.png" /><div class="date" data-jscall-id="126">Wed, 16 Mar 2022</div></div></a><a class="card w-full blog_card" href="../blogposts/makiecon" data-jscall-id="127"><div class="blog_entry" data-jscall-id="128"><h3 data-jscall-id="129">MakieCon 2022</h3><h4 data-jscall-id="130">Updates From MakieCon</h4><div class="date" data-jscall-id="131">Thu, 19 Dec 2</div></div></a></div></div></div></div><div class="w-full flex justify-center mt-14" style="border-top: 1px solid var(--border)" data-jscall-id="132"><div class="max-w-6xl w-full px-4 py-8 flex flex-wrap gap-4 items-center text-sm" data-jscall-id="133"><span class="text-gray-500" data-jscall-id="134">© 2026 MakieOrg</span><div class="grow" data-jscall-id="135"></div><a class="text-gray-500 hover:underline" href="https://github.com/MakieOrg/Makie.jl" data-jscall-id="136" target="_blank">GitHub</a><a class="text-gray-500 hover:underline" href="https://docs.makie.org" data-jscall-id="137" target="_blank">Docs</a><a class="text-gray-500 hover:underline" href="../blog" data-jscall-id="138">Blog</a></div></div><div data-jscall-id="139"><script async="true" defer="true" data-jscall-id="140" src="https://api.makie.org/latest.js"></script><noscript data-jscall-id="141"><img alt="" data-jscall-id="142" src="https://api.makie.org/noscript.gif" referrerpolicy="no-referrer-when-downgrade" /></noscript></div></body></html>

@@ -1,0 +1,828 @@
+<!doctype html>
+<html data-jscall-id="1"><head data-jscall-id="2"><script src="../../bonito/js/Bonito.bundled7919512299027874894.js" type="module"></script><meta name="viewport" content="width=device-width, initial-scale=1.0" data-jscall-id="3" /><meta charset="utf-8" data-jscall-id="4" /><link href="../../bonito/png/icon_transparent1037186205570625945.png" data-jscall-id="5" rel="icon" type="image/png" /><style>.style_2 {
+  list-style-type: disc;
+}
+</style><style>:root {
+  --brand: #3B5BDB;
+  --background-color: #3B5BDB;
+  --primary-dark: #2F4AC0;
+  --shadow-lg: 0 12px 32px -8px rgba(15, 23, 42, 0.15);
+  --text-heading: #0F172A;
+  --gray-light: #F1F5F9;
+  --text-muted: #64748B;
+  --surface: #F8FAFC;
+  --background-color-highlight: rgba(255, 255, 255, 0.2);
+  --border: #E2E8F0;
+  --shadow-md: 0 4px 12px -2px rgba(15, 23, 42, 0.10);
+  --brand-light: #EEF2FF;
+  --text-color: #334155;
+  --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.06);
+  --brand-dark: #2F4AC0;
+}
+@font-face {
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+  font-family: octicons-link;
+}
+*, ::before, ::after {
+  border-width: 0;
+  border-style: solid;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-size: 1rem;
+  background-color: rgb(255, 255, 255);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  color: #334155;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  margin: 0;
+  line-height: 1.6;
+  width: 100%;
+}
+img, video {
+  height: auto;
+  max-width: 100%;
+}
+img, svg, video, canvas, audio, iframe, embed, object {
+  display: block;
+  vertical-align: middle;
+}
+a {
+  text-decoration: none;
+  color: #3B5BDB;
+}
+p {
+  margin: 0 0 0.75rem 0;
+}
+.markdown-body {
+  padding: 20px;
+  color: var(--text-color);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  margin: 20px;
+  line-height: 1.6;
+}
+li p {
+  display: inline;
+}
+pre {
+  padding: 0;
+  margin: 0;
+}
+div.blog_entry {
+  display: flex;
+  padding: 1rem;
+  gap: 0.375rem;
+  flex-direction: column;
+}
+div.blog_entry h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0F172A;
+  margin: 0;
+  line-height: 1.4;
+}
+div.blog_entry h4 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #334155;
+  margin: 0;
+  line-height: 1.5;
+}
+div.blog_entry p {
+  margin: 0;
+}
+div.blog_entry img, div.blog_entry video {
+  width: 100%;
+  border-radius: 0.5rem;
+  margin: 0.25rem 0;
+}
+div.blog_entry .date, .post-date {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #64748B;
+  line-height: 1.5;
+}
+a.blog_card:hover h3 {
+  color: #3B5BDB;
+}
+.admonition {
+  padding: 16px 20px;
+  box-shadow: var(--shadow-sm);
+  border-left: 4px solid;
+  border-radius: 8px;
+  line-height: 1.5;
+  margin: 16px 0;
+}
+.admonition.warning {
+  background-color: #fff8e1;
+  border-left-color: #ff9800;
+  color: #e65100;
+}
+.admonition .title {
+  align-items: center;
+  display: flex;
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #e65100;
+  margin: 0 0 8px 0;
+}
+.admonition .title::before {
+  content: '⚠️';
+  font-size: 1.2em;
+  margin-right: 8px;
+}
+.admonition p:not(.title) {
+  color: #bf360c;
+  margin: 0;
+}
+.admonition.info {
+  background-color: #e3f2fd;
+  border-left-color: #2196f3;
+  color: #0d47a1;
+}
+.makie-blue {
+  background-color: #8398a7;
+}
+.text {
+  font-size: 20px;
+  white-space: nowrap;
+  color: rgb(48, 48, 48);
+  position: absolute;
+  overflow: hidden;
+}
+.flex {
+  display: flex;
+}
+.grid {
+  display: grid;
+}
+.block {
+  display: block;
+}
+.inline-block {
+  display: inline-block;
+}
+.flex-row {
+  flex-direction: row;
+}
+.flex-col {
+  flex-direction: column;
+}
+.flex-row-reverse {
+  flex-direction: row-reverse;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.justify-center {
+  justify-content: center;
+}
+.items-center {
+  align-items: center;
+}
+.items-start {
+  align-items: flex-start;
+}
+.gap-1 {
+  gap: 0.25rem;
+}
+.gap-2 {
+  gap: 0.5rem;
+}
+.gap-3 {
+  gap: 0.75rem;
+}
+.gap-4 {
+  gap: 1rem;
+}
+.gap-5 {
+  gap: 1.25rem;
+}
+.gap-6 {
+  gap: 1.5rem;
+}
+.gap-8 {
+  gap: 2rem;
+}
+.gap-10 {
+  gap: 2.5rem;
+}
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.p-1 {
+  padding: 0.25rem;
+}
+.p-2 {
+  padding: 0.5rem;
+}
+.p-3 {
+  padding: 0.75rem;
+}
+.p-4 {
+  padding: 1rem;
+}
+.p-6 {
+  padding: 1.5rem;
+}
+.p-8 {
+  padding: 2rem;
+}
+.p-10 {
+  padding: 2.5rem;
+}
+.px-2 {
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+}
+.px-3 {
+  padding-right: 0.75rem;
+  padding-left: 0.75rem;
+}
+.px-4 {
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+.px-5 {
+  padding-right: 1.25rem;
+  padding-left: 1.25rem;
+}
+.px-6 {
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+}
+.py-1 {
+  padding-bottom: 0.25rem;
+  padding-top: 0.25rem;
+}
+.py-2 {
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+}
+.py-3 {
+  padding-bottom: 0.75rem;
+  padding-top: 0.75rem;
+}
+.py-4 {
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+.py-6 {
+  padding-bottom: 1.5rem;
+  padding-top: 1.5rem;
+}
+.py-8 {
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+}
+.m-0 {
+  margin: 0;
+}
+.m-1 {
+  margin: 0.25rem;
+}
+.m-2 {
+  margin: 0.5rem;
+}
+.m-4 {
+  margin: 1rem;
+}
+.-m-2 {
+  margin: -0.5rem;
+}
+.-m-4 {
+  margin: -1rem;
+}
+.-m-8 {
+  margin: -2rem;
+}
+.mx-auto {
+  margin-right: auto;
+  margin-left: auto;
+}
+.my-1 {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+.my-3 {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.my-6 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.my-10 {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+.my-14 {
+  margin-top: 3.5rem;
+  margin-bottom: 3.5rem;
+}
+.mt-1 {
+  margin-top: 0.25rem;
+}
+.mt-2 {
+  margin-top: 0.5rem;
+}
+.mt-4 {
+  margin-top: 1rem;
+}
+.mt-14 {
+  margin-top: 3.5rem;
+}
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
+.w-full {
+  width: 100%;
+}
+.w-8 {
+  width: 2rem;
+}
+.w-10 {
+  width: 2.5rem;
+}
+.w-1\/2 {
+  width: 50%;
+}
+.w-1\/3 {
+  width: 33.333333%;
+}
+.w-1\/5 {
+  width: 20%;
+}
+.w-2\/5 {
+  width: 40%;
+}
+.w-3\/5 {
+  width: 60%;
+}
+.w-96 {
+  width: 24rem;
+}
+.object-cover {
+  object-fit: cover;
+}
+.object-contain {
+  object-fit: contain;
+}
+.max-w-prose {
+  max-width: 65ch;
+}
+.max-w-xl {
+  max-width: 36rem;
+}
+.max-w-2xl {
+  max-width: 42rem;
+}
+.max-w-5xl {
+  max-width: 64rem;
+}
+.max-w-6xl {
+  max-width: 72rem;
+}
+.max-w-full {
+  max-width: 100%;
+}
+.basis-2\/5 {
+  flex-basis: 40%;
+}
+.basis-3\/5 {
+  flex-basis: 60%;
+}
+.grow {
+  flex-grow: 1;
+}
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+.flex-1 {
+  flex: 1 1 0%;
+}
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+.text-base {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.65;
+}
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 1.3;
+}
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 1.25;
+}
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 1.15;
+}
+.font-semibold {
+  font-weight: 600;
+}
+.font-bold {
+  font-weight: 700;
+}
+.font-black {
+  font-weight: 900;
+}
+.tracking-tight {
+  letter-spacing: -0.02em;
+}
+.text-left {
+  text-align: left;
+}
+.text-center {
+  text-align: center;
+}
+.text-justify {
+  text-align: justify;
+}
+.text-white {
+  color: #FFFFFF;
+}
+.text-black {
+  color: #0F172A;
+}
+.text-blue-600 {
+  color: #3B5BDB;
+}
+.text-purple-600 {
+  color: #3B5BDB;
+}
+.text-gray-500 {
+  color: #64748B;
+}
+.text-gray-600 {
+  color: #475569;
+}
+.visited\:text-purple-600:visited {
+  color: #3B5BDB;
+}
+.italic {
+  font-style: italic;
+}
+.list-disc {
+  list-style-type: disc;
+}
+.list-inside {
+  list-style-position: inside;
+}
+.list-disc li + li {
+  margin-top: 0.375rem;
+}
+.bg-white {
+  background-color: #FFFFFF;
+}
+.bg-gray-50 {
+  background-color: #F8FAFC;
+}
+.bg-gray-100 {
+  background-color: #F1F5F9;
+}
+.bg-gray-200 {
+  background-color: #E2E8F0;
+}
+.rounded-md {
+  border-radius: 0.5rem;
+}
+.rounded-lg {
+  border-radius: 0.625rem;
+}
+.rounded-xl {
+  border-radius: 0.875rem;
+}
+.rounded-full {
+  border-radius: 9999px;
+}
+.border {
+  border-color: #E2E8F0;
+  border-width: 1px;
+}
+.shadow-sm {
+  box-shadow: var(--shadow-sm);
+}
+.shadow {
+  box-shadow: var(--shadow-md);
+}
+.shadow-lg {
+  box-shadow: var(--shadow-lg);
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+.hover\:opacity-50:hover {
+  opacity: 0.5;
+  transition: opacity 0.2s ease-in-out;
+}
+.hover\:bg-gray-300:hover {
+  background-color: #CBD5E1;
+  transition: background-color 0.2s ease-in-out;
+}
+.hover\:underline:hover {
+  text-decoration: underline;
+}
+.logo-img {
+  filter: grayscale(1);
+  opacity: 0.65;
+  transition: filter 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+.logo-img:hover {
+  filter: grayscale(0);
+  opacity: 1;
+}
+.quote-card {
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+.quote-card:hover {
+  border-color: #3B5BDB;
+  box-shadow: var(--shadow-sm);
+}
+.navbar {
+  -webkit-backdrop-filter: blur(10px);
+  font-size: 0.9375rem;
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.88);
+  border-bottom: 1px solid var(--border);
+  font-weight: 500;
+  top: 0;
+  position: sticky;
+  z-index: 50;
+}
+.navbar a {
+  display: inline-block;
+  text-decoration: none;
+  color: #334155;
+  transition: color 0.15s ease-in-out;
+}
+.navbar a:hover {
+  color: #3B5BDB;
+}
+.navbar-highlight {
+  font-weight: 600;
+  color: #3B5BDB !important;
+}
+.nav-desktop {
+  display: none;
+}
+@media (min-width: 768px) {
+  .nav-desktop {
+    display: flex;
+  }
+  .md\:gap-10 {
+    gap: 2.5rem;
+  }
+  .md\:px-4 {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+  .md\:basis-2\/5 {
+    flex-basis: 40%;
+  }
+  .md\:basis-3\/5 {
+    flex-basis: 60%;
+  }
+  .nav-mobile {
+    display: none;
+  }
+  .md\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .md\:-m-4 {
+    margin: -1rem;
+  }
+  .md\:p-4 {
+    padding: 1rem;
+  }
+}
+.nav-mobile {
+  position: relative;
+}
+.nav-mobile summary {
+  font-size: 1.375rem;
+  list-style: none;
+  padding: 0.375rem 0.625rem;
+  color: #0F172A;
+  border-radius: 0.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.nav-mobile summary::-webkit-details-marker {
+  display: none;
+}
+.nav-mobile summary:hover {
+  background-color: #F1F5F9;
+}
+.nav-menu {
+  min-width: 11rem;
+  z-index: 60;
+  display: flex;
+  padding: 0.375rem;
+  box-shadow: var(--shadow-lg);
+  position: absolute;
+  border-radius: 0.75rem;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  background-color: #FFFFFF;
+  right: 0;
+  top: calc(100% + 0.5rem);
+}
+.nav-menu a {
+  padding: 0.5rem 0.75rem;
+  color: #334155;
+  border-radius: 0.5rem;
+}
+.nav-menu a:hover {
+  background-color: #F1F5F9;
+  color: #3B5BDB;
+}
+.card {
+  border: 1px solid var(--border);
+  background-color: #FFFFFF;
+  box-shadow: var(--shadow-sm);
+  border-radius: 0.875rem;
+  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+.card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+.btn {
+  display: inline-block;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.625rem;
+  line-height: 1.4;
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+}
+.btn-primary {
+  background-color: #3B5BDB;
+  box-shadow: var(--shadow-sm);
+  color: #FFFFFF !important;
+}
+.btn-primary:hover {
+  background-color: #2F4AC0;
+}
+.btn-outline {
+  border: 1px solid var(--border);
+  background-color: #FFFFFF;
+  color: #0F172A !important;
+}
+.btn-outline:hover {
+  border-color: #3B5BDB;
+  color: #3B5BDB !important;
+}
+@media (min-width: 640px) {
+  .sm\:w-1\/3 {
+    width: 33.333333%;
+  }
+  .sm\:flex-row-reverse {
+    flex-direction: row-reverse;
+  }
+  .sm\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .sm\:flex-row {
+    flex-direction: row;
+  }
+  .sm\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  div.blog_entry {
+    padding: 1.5rem;
+  }
+  .sm\:p-8 {
+    padding: 2rem;
+  }
+}
+@media (min-width: 1024px) {
+  .lg\:text-sm {
+    font-size: 0.875rem;
+    line-height: 1.4;
+  }
+  .lg\:text-base {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .lg\:w-1\/5 {
+    width: 20%;
+  }
+  .lg\:p-8 {
+    padding: 2rem;
+  }
+  .lg\:w-1\/3 {
+    width: 33.333333%;
+  }
+  .lg\:-m-8 {
+    margin: -2rem;
+  }
+}
+.container {
+  position: relative;
+}
+.overlay {
+  left: 0;
+  visibility: hidden;
+  align-items: center;
+  bottom: 0;
+  display: flex;
+  height: 100%;
+  padding: 1rem;
+  position: absolute;
+  border-radius: 0.875rem;
+  justify-content: center;
+  background-color: #ffffff00;
+  right: 0;
+  width: 100%;
+  transition: color 0.3s ease-in, background-color 0.3s ease-in 0.3s;
+  overflow: hidden;
+  color: transparent;
+}
+.container:hover .overlay {
+  visibility: visible;
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #334155;
+  transition: color 0.5s ease-in 0.3s, background-color 0.3s ease-in;
+}
+.image {
+  max-width: none;
+  max-height: none;
+}
+.container:hover .image {
+  filter: blur(4px);
+}
+</style><link href="../../bonito/css/markdown-mobile13898764559087962533.css" rel="stylesheet" type="text/css" /><link href="../../bonito/css/github.min8213811099958948332.css" rel="stylesheet" type="text/css" /></head><body data-jscall-id="6"><script type="module">Bonito.init_session("bbf25319-152d-4c6a-b9d5-1183e7d4d10e", Bonito.fetch_binary('../../bonito/bin/3a861b992187019ab30c335941ee438b62b90232-15834139032426557334.bin'), "root", false);
+</script><div class="navbar flex justify-center" data-jscall-id="7"><div class="flex max-w-6xl w-full px-4 py-2 items-center" data-jscall-id="8"><a href="../../" data-jscall-id="9"><div class="flex items-center gap-2" data-jscall-id="10"><img style="height: 1.75rem; width: auto; display: inline-block;" data-jscall-id="11" src="../../bonito/png/icon_transparent1037186205570625945.png" /><span class="font-bold text-lg text-black tracking-tight" data-jscall-id="12">Makie</span></div></a><div class="grow" data-jscall-id="13"></div><div class="nav-desktop items-center gap-1" data-jscall-id="14"><a class="cursor-pointer py-1 px-3" href="../../" data-jscall-id="15" target="">Home</a><a class="cursor-pointer py-1 px-3" href="../../team" data-jscall-id="16" target="">Maintainers</a><a class="cursor-pointer py-1 px-3" href="../../support" data-jscall-id="17" target="">Support</a><a class="cursor-pointer py-1 px-3" href="../../contact" data-jscall-id="18" target="">Contact</a><a class="cursor-pointer py-1 px-3 navbar-highlight" href="../../blog" data-jscall-id="19" target="">Blog</a><a class="cursor-pointer py-1 px-3" href="http://docs.makie.org" data-jscall-id="20" target="_blank">Docs</a><a class="cursor-pointer py-1 px-3" href="https://github.com/MakieOrg/Makie.jl" data-jscall-id="21" target="_blank">GitHub</a></div><details class="nav-mobile" data-jscall-id="22"><summary data-jscall-id="23">☰</summary><div class="nav-menu" data-jscall-id="24"><a class="cursor-pointer py-1 px-3" href="../../" data-jscall-id="15" target="">Home</a><a class="cursor-pointer py-1 px-3" href="../../team" data-jscall-id="16" target="">Maintainers</a><a class="cursor-pointer py-1 px-3" href="../../support" data-jscall-id="17" target="">Support</a><a class="cursor-pointer py-1 px-3" href="../../contact" data-jscall-id="18" target="">Contact</a><a class="cursor-pointer py-1 px-3 navbar-highlight" href="../../blog" data-jscall-id="19" target="">Blog</a><a class="cursor-pointer py-1 px-3" href="http://docs.makie.org" data-jscall-id="20" target="_blank">Docs</a><a class="cursor-pointer py-1 px-3" href="https://github.com/MakieOrg/Makie.jl" data-jscall-id="21" target="_blank">GitHub</a></div></details></div></div><div class="p-4 w-full" data-jscall-id="25"><div data-jscall-id="26"><div class="post-date" style="color: #666; margin-bottom: 1rem; text-align: center;" data-jscall-id="27">Mon, 16 Feb 2026</div><div data-jscall-id="28"><div class="markdown-body" data-jscall-id="29"><h1 id="Ray Tracing in Makie: From Research Data to Photorealistic Renders" data-jscall-id="30">Ray Tracing in Makie: From Research Data to Photorealistic Renders</h1><p data-jscall-id="31"><img alt="BOMEX cumulus clouds rendered with volumetric path tracing" data-jscall-id="32" src="../../bonito/png/breeze7235631823897871785.png" /></p><p data-jscall-id="33">We&#39;re excited to announce <a href="https://github.com/MakieOrg/Makie.jl/pull/5532" data-jscall-id="34">RayMakie</a> and <a href="https://github.com/JuliaGraphics/Hikari.jl" data-jscall-id="35">Hikari</a>, a physically-based GPU ray tracing pipeline integrated directly into <a href="https://docs.makie.org" data-jscall-id="36">Makie</a>. Any Makie scene can now be rendered with photorealistic path tracing: just swap out the backend and get global illumination, volumetric media, spectral rendering, and physically-based materials, all running on the GPU.</p><p data-jscall-id="37">All showcase scripts and demo scenes from this post are available at <a href="https://github.com/SimonDanisch/RayDemo" data-jscall-id="38">github.com/SimonDanisch/RayDemo</a>.</p><p data-jscall-id="39"><strong data-jscall-id="40">Note:</strong> RayMakie, Hikari, and Raycore are not fully released yet — we plan to publish official releases in the coming weeks. In the meantime, the <code data-jscall-id="41">Project.toml</code> in <a href="https://github.com/SimonDanisch/RayDemo" data-jscall-id="42">RayDemo</a> will be kept up to date so you can already try things out.</p><h2 id="Why Ray Tracing in Julia?" data-jscall-id="43">Why Ray Tracing in Julia?</h2><p data-jscall-id="44">Research groups across many fields &#40;climate science, structural biology, fluid dynamics, particle physics&#41; produce complex 3D data that needs to be communicated clearly and compellingly. Photorealistic rendering can transform dense simulation output into images that reveal structure and tell a story. But getting research data into a traditional ray tracer usually means exporting meshes, learning new tools, and losing the interactive workflow.</p><p data-jscall-id="45">By building ray tracing directly into Makie, we eliminate that gap. The same scene you explore interactively with GLMakie can be rendered photorealistically with RayMakie, no export step, no new API to learn.</p><p data-jscall-id="46">Writing the implementation in Julia gives us:</p><ul class=" style_2" style="" data-jscall-id="47"><li data-jscall-id="48"><p data-jscall-id="49"><strong data-jscall-id="50">Performance</strong>: Julia compiles to efficient GPU code, competitive with C&#43;&#43; ray tracers</p></li><li data-jscall-id="51"><p data-jscall-id="52"><strong data-jscall-id="53">Cross-vendor GPU support</strong>: A single codebase runs on AMD, NVIDIA, and CPU via <a href="https://github.com/JuliaGPU/KernelAbstractions.jl" data-jscall-id="54">KernelAbstractions.jl</a></p></li><li data-jscall-id="55"><p data-jscall-id="56"><strong data-jscall-id="57">Makie integration</strong>: The familiar Makie API for scene construction, camera control, and lighting, with ray tracing as a drop-in rendering option</p></li><li data-jscall-id="58"><p data-jscall-id="59"><strong data-jscall-id="60">Modular architecture</strong>: Custom materials, media, and integrators run directly on the GPU through Julia&#39;s multiple dispatch, opening up novel visualization and simulation use cases</p></li><li data-jscall-id="61"><p data-jscall-id="62"><strong data-jscall-id="63">Hackability</strong>: A state-of-the-art spectral path tracer in a high-level language makes ray tracing research and experimentation accessible to a much wider audience</p></li></ul><h2 id="How It Works" data-jscall-id="64">How It Works</h2><p data-jscall-id="65">Hikari is a Julia port of <a href="https://pbrt.org/" data-jscall-id="66">pbrt-v4</a>, the reference implementation from <em data-jscall-id="67">Physically Based Rendering</em> &#40;Pharr, Jakob, Humphreys&#41;. It implements a wavefront volumetric path tracer with spectral rendering, supporting participating media &#40;NanoVDB, grid-based volumes&#41;, physically-based materials &#40;metals, dielectrics, coated surfaces&#41;, and environment/sun-sky lighting. The ray intersection engine lives in <a href="https://github.com/JuliaGeometry/Raycore.jl" data-jscall-id="68">Raycore.jl</a>, a standalone package factored out of Hikari and based on AMD&#39;s <a href="https://github.com/GPUOpen-LibrariesAndSDKs/RadeonRays_SDK" data-jscall-id="69">Radeon Rays SDK</a> and <a href="https://gpuopen.com/hiprt/" data-jscall-id="70">HIPRT</a>.</p><p data-jscall-id="71">RayMakie connects Hikari to Makie&#39;s scene graph. You build a scene with standard Makie calls &#40;<code data-jscall-id="72">mesh&#33;</code>, <code data-jscall-id="73">surface&#33;</code>, <code data-jscall-id="74">volume&#33;</code>, <code data-jscall-id="75">meshscatter&#33;</code>&#41;, set materials and lights, then render:</p><pre data-jscall-id="76"><code class="language-julia" data-jscall-id="77">
+using RayMakie, Hikari
+
+scene &#61; Scene&#40;size&#61;&#40;1920, 1080&#41;, lights&#61;&#91;SunSkyLight&#40;Vec3f&#40;1, 2, 8&#41;&#41;&#93;&#41;
+cam3d&#33;&#40;scene&#41;
+mesh&#33;&#40;scene, my_mesh; material&#61;Hikari.Gold&#40;roughness&#61;0.1&#41;&#41;
+
+img &#61; colorbuffer&#40;scene;
+    device&#61;AMDGPU.ROCBackend&#40;&#41;,  # or CUDABackend&#40;&#41;, CPU&#40;&#41;
+    integrator&#61;Hikari.VolPath&#40;samples&#61;100, max_depth&#61;12&#41;,
+    sensor&#61;Hikari.FilmSensor&#40;iso&#61;100, white_balance&#61;6500&#41;,
+&#41;</code></pre><h2 id="Showcases" data-jscall-id="78">Showcases</h2><h3 id="Breeze: Volumetric Cloud Rendering" data-jscall-id="79">Breeze: Volumetric Cloud Rendering</h3><p data-jscall-id="80"><a href="https://github.com/NumericalEarth/Breeze.jl/" data-jscall-id="81">Breeze.jl</a> generates cloud fields from Large Eddy Simulations powered by <a href="https://github.com/CliMA/Oceananigans.jl" data-jscall-id="82">Oceananigans.jl</a>, a GPU-accelerated ocean and atmosphere simulator developed at MIT&#39;s Climate Modeling Alliance &#40;CliMA&#41;. The demo renders BOMEX cumulus clouds as photorealistic volumetric media, using NanoVDB sparse grids for efficient storage and Hikari&#39;s volumetric path tracing for physically-accurate light scattering through the cloud medium.</p><p data-jscall-id="83"><img alt="BOMEX cumulus clouds rendered with volumetric path tracing" data-jscall-id="84" src="../../bonito/png/breeze7235631823897871785.png" /></p><p data-jscall-id="85">The terrain demo combines real elevation data from ArcGIS &#40;via <a href="https://github.com/MakieOrg/Tyler.jl" data-jscall-id="86">Tyler.jl</a>&#41; with BOMEX cloud volumes, inspired by <a href="https://www.rayshader.com/" data-jscall-id="87">rayshader</a>.</p><p data-jscall-id="88"><img alt="Alpine terrain with volumetric clouds" data-jscall-id="89" src="../../bonito/png/terrain794547408289448833.png" /></p><blockquote data-jscall-id="90"><p data-jscall-id="91">Makie-Oceananigans integration has been a major initiative over the past year. The ray tracing work with Breeze is truly groundbreaking in my opinion. It may be crucial for science, for inspecting the structure of clouds and thunderstorms. It also has the potential to lead to commercial products.</p><p data-jscall-id="92"><strong data-jscall-id="93">Gregory Wagner</strong>, Research Scientist at MIT and CliMA &#40;Climate Modeling Alliance&#41;, lead developer of Oceananigans.jl and Breeze.jl</p></blockquote><h3 id="PlantGeom: Digital Twins for Agriculture" data-jscall-id="94">PlantGeom: Digital Twins for Agriculture</h3><p data-jscall-id="95"><a href="https://github.com/VEZY/PlantGeom.jl" data-jscall-id="96">PlantGeom.jl</a> renders biophysically accurate 3D plant models for agricultural research. The ray-traced oil palm uses coated diffuse transmission materials to simulate the waxy leaf cuticle and subsurface light transport through leaf tissue.</p><p data-jscall-id="97"><img alt="Ray-traced oil palm with translucent leaves" data-jscall-id="98" src="../../bonito/png/plants9877348102989772360.png" /></p><blockquote data-jscall-id="99"><p data-jscall-id="100">Makie has become a central part of my daily scientific workflow. The fact that a single plotting ecosystem can cover the entire spectrum from high-performance 3D scenes to publication-ready figures is just exceptional. Several of the packages I develop would simply not exist in their current form without Makie. My research focuses on developing plant-scale digital twins to study complex agricultural systems &#40;agroforestry, species mixtures, agrivoltaics&#41; with the goal of understanding crop responses to climate and contributing to food security and climate-change adaptation. The recent work on ray tracing is especially exciting: beyond rendering, I am planning to use RayCore.jl for scientific applications such as computing radiation interception in plant canopies, which enables organ-scale energy balance calculations &#40;latent and sensible heat fluxes&#41; and photosynthesis modeling. Understanding how plant shadows affect heat transfer is crucial for adapting agriculture to extreme heat events. Makie has been a genuine force multiplier for my research.</p><p data-jscall-id="101"><strong data-jscall-id="102">Remi Vezy</strong>, CIRAD, developer of PlantGeom.jl</p></blockquote><h3 id="ProtPlot: Protein Structure Visualization" data-jscall-id="103">ProtPlot: Protein Structure Visualization</h3><p data-jscall-id="104"><a href="https://github.com/MurrellGroup/ProtPlot.jl" data-jscall-id="105">ProtPlot.jl</a> renders protein ribbon diagrams with physically-based materials. Different materials reveal different aspects of the structure: glass refractions show the interior ribbon path, while a coated diffuse surface with shallow depth of field draws attention to specific regions of the fold. Specular highlights, ambient occlusion, and defocus blur make spatial relationships immediately clear in a way that flat shading cannot.</p><table data-jscall-id="106"><tr data-jscall-id="107"><th data-jscall-id="108" align="center">Glass</th><th data-jscall-id="109" align="center">Physical based Gold with Depth of Field</th></tr><tr data-jscall-id="110"><td data-jscall-id="111" align="center"><img alt="Protein ribbon with glass material" data-jscall-id="112" src="../../bonito/png/protplot_glass2422419635124639137.png" /></td><td data-jscall-id="113" align="center"><img alt="Protein ribbon with a gold material and depth of field" data-jscall-id="114" src="../../bonito/png/protplot_7pkz4446811177816820644.png" /></td></tr></table><p data-jscall-id="115">ProtPlot also powers animated visualizations of protein folding trajectories, the transport process that generative models learn to perform. Ray tracing makes the spatial relationships in these animations immediately legible. The code to produce this is almost entirely standard Makie and ProtPlot, only the imports and a few rendering parameters change:</p><pre data-jscall-id="116"><code class="language-julia" data-jscall-id="117">
+using RayMakie, ProtPlot, Hikari, AMDGPU
+
+device &#61; AMDGPU.ROCBackend&#40;&#41;
+
+tracks &#61; readdir&#40;&#34;Trajectories/samp_00015&#34;, join&#61;true&#41;
+set_theme&#33;&#40;lights&#61;&#91;
+    Makie.SunSkyLight&#40;Vec3f&#40;0.4, -0.3, 0.7&#41;;
+        intensity&#61;1.0f0, turbidity&#61;3.0f0, ground_enabled&#61;false&#41;,
+&#93;&#41;
+ProtPlot.animate_molecule_dir&#40;&#34;trajectory.mp4&#34;, tracks&#41;</code></pre><p data-jscall-id="118">The <code data-jscall-id="119">animate_molecule_dir</code> function is pure ProtPlot code, building Makie figures with <code data-jscall-id="120">Axis3</code>, <code data-jscall-id="121">atomplot&#33;</code>, and <code data-jscall-id="122">ribbon&#33;</code> as usual. Then when using the RayMakie backend, Makie will use it to render the video without requiring any additional changes.</p><p data-jscall-id="123"><video controls="true" data-jscall-id="124" autoplay="true"><source data-jscall-id="125" src="../../bonito/mp4/protplot_trajectory15578641909313541279.mp4" type="video/mp4" /></video></p><blockquote data-jscall-id="126"><p data-jscall-id="127">My lab is working on new kinds of generative models, primarily for protein structures. These work by specifying a process that transports randomly sampled noise to a biophysically plausible protein structure, and training a deep neural network to learn how to do this. But the details of this transport process are critical and, while you can to some extent mathematically reason about it, there is no substitute to being able to actually see it in action, both when you&#39;re designing it and when investigating how well the model has actually learned it. We work with visualization tools, like ProtPlot.jl, primarily developed by Anton Oresten in my lab, which rely entirely on Makie for this. These visualizations are not just for our internal use, but can be valuable for communicating how the methods work. Developments like raytracing will allow us to configure these to show exactly the details we seek to communicate without them getting buried in the complexity.</p><p data-jscall-id="128"><strong data-jscall-id="129">Ben Murrell</strong>, Karolinska Institutet</p></blockquote><h3 id="TrixiParticles: Fluid Simulation" data-jscall-id="130">TrixiParticles: Fluid Simulation</h3><p data-jscall-id="131"><a href="https://github.com/trixi-framework/TrixiParticles.jl" data-jscall-id="132">TrixiParticles.jl</a> simulates fluid dynamics with smoothed particle hydrodynamics. The water splash demo renders SPH surface meshes with a dielectric material &#40;IOR 1.33&#41; simulating water. Fresnel reflections and refractions create the characteristic look of water without any post-processing. The animation shows a gold ball dropping into water, with each frame independently path-traced:</p><p data-jscall-id="133"><video controls="true" data-jscall-id="134" autoplay="true"><source data-jscall-id="135" src="../../bonito/mp4/trixi_water16844679495158326979.mp4" type="video/mp4" /></video></p><blockquote data-jscall-id="136"><p data-jscall-id="137">Native raytracing in Makie would let us move some of our workflows entirely into Julia, from simulation to publication-ready figures, without relying on external tools.</p><p data-jscall-id="138"><strong data-jscall-id="139">Dr. Michael Schlottke-Lakemper</strong>, University of Augsburg, Scientific co-lead for TrixiParticles.jl</p></blockquote><h3 id="Volumetric Rendering: Clouds, Smoke, and Exhaust Plumes" data-jscall-id="140">Volumetric Rendering: Clouds, Smoke, and Exhaust Plumes</h3><p data-jscall-id="141">Participating media are first-class citizens in Hikari&#39;s path tracer. Light scatters through volumes realistically, no billboard tricks or screen-space approximations. Hikari supports two volume representations: <strong data-jscall-id="142">NanoVDB</strong> sparse grids for large-scale data &#40;like the cloud simulations above&#41;, and <strong data-jscall-id="143">RGBGridMedium</strong> for dense grids with per-voxel color, emission, and scattering properties. Both integrate directly with Makie&#39;s <code data-jscall-id="144">volume&#33;</code> plot or can be attached to any mesh as a <code data-jscall-id="145">MediumInterface</code>.</p><p data-jscall-id="146">The <strong data-jscall-id="147">Stanford bunny cloud</strong> from the <a href="https://github.com/mmp/pbrt-v4-scenes" data-jscall-id="148">pbrt-v4 test scenes</a>, rendered with NanoVDB and Henyey-Greenstein phase function scattering:</p><p data-jscall-id="149"><img alt="Stanford bunny cloud" data-jscall-id="150" src="../../bonito/png/bunny3536803747307745313.png" /></p><p data-jscall-id="151">A <strong data-jscall-id="152">sphere wake</strong> from <a href="https://github.com/WaterLily-jl/WaterLily.jl" data-jscall-id="153">WaterLily.jl</a> LES simulation, visualized as volumetric smoke. The volume density is updated in-place each frame via <code data-jscall-id="154">RGBGridMedium</code> with a colormap, so the scene never needs to be rebuilt:</p><p data-jscall-id="155"><video controls="true" data-jscall-id="156" autoplay="true"><source data-jscall-id="157" src="../../bonito/mp4/waterlily17355397283016883949.mp4" type="video/mp4" /></video></p><p data-jscall-id="158">The <strong data-jscall-id="159">HL-20 spacecraft</strong> &#40;model provided by <a href="https://juliahub.com" data-jscall-id="160">JuliaHub</a>&#41; with a procedurally generated emissive rocket exhaust plume. <code data-jscall-id="161">RGBGridMedium</code> with per-voxel emission creates the blue-white core fading to orange at the edges:</p><p data-jscall-id="162"><img alt="HL-20 spacecraft with volumetric exhaust" data-jscall-id="163" src="../../bonito/png/spacecraft12604446927484047855.png" /></p><h3 id="GLTF Models: Emissive Textures and Scene Composition" data-jscall-id="164">GLTF Models: Emissive Textures and Scene Composition</h3><p data-jscall-id="165">RayMakie loads GLTF/GLB models and automatically maps their PBR materials to Hikari equivalents. Emissive texture maps create area lights that both glow and illuminate the scene. The Christmas tree decorations below are lit entirely by their own emissive maps; the quadcopter model was provided by <a href="https://juliahub.com" data-jscall-id="166">JuliaHub</a>:</p><p data-jscall-id="167"><img alt="Christmas tree with glowing decorations and drone" data-jscall-id="168" src="../../bonito/png/drone_christmas13347553003851564844.png" /></p><h3 id="Geant4: Particle Detector Visualization" data-jscall-id="169">Geant4: Particle Detector Visualization</h3><p data-jscall-id="170"><a href="https://github.com/JuliaHEP/Geant4.jl" data-jscall-id="171">Geant4.jl</a> provides Julia bindings to the CERN Geant4 particle physics simulation toolkit. The CMS &#40;Compact Muon Solenoid&#41; detector at CERN is one of the largest and most complex scientific instruments ever built. RayMakie can load the full detector geometry from GDML files, apply a quadrant cut to reveal internal structure, and render the result with physically-based metal materials &#40;gold, copper, silver, aluminum, iron&#41;.</p><table data-jscall-id="172"><tr data-jscall-id="173"><th data-jscall-id="174" align="center"></th><th data-jscall-id="175" align="center"></th></tr><tr data-jscall-id="176"><td data-jscall-id="177" align="center"><img alt="CMS detector close-up" data-jscall-id="178" src="../../bonito/png/cms_detector24219475611935801176.png" /></td><td data-jscall-id="179" align="center"><img alt="CMS detector full view" data-jscall-id="180" src="../../bonito/png/cms_detector5584426331694323319.png" /></td></tr></table><p data-jscall-id="181">The detector meshes are generated from Geant4&#39;s tessellated polyhedra with crease-angle vertex splitting for smooth normals on curved barrel surfaces while preserving hard edges at structural boundaries.</p><h3 id="Black Hole: Custom GPU Materials" data-jscall-id="182">Black Hole: Custom GPU Materials</h3><p data-jscall-id="183">One of the most powerful aspects of building a ray tracer in Julia is that users can define entirely new physics by subtyping <code data-jscall-id="184">Hikari.Medium</code>. The black hole demo demonstrates this: a custom <code data-jscall-id="185">SpacetimeMedium</code> struct implements gravitational lensing by overriding <code data-jscall-id="186">Hikari.apply_deflection</code> to bend light rays according to the Schwarzschild metric. The accretion disk is an emissive volumetric density field with temperature-dependent coloring, hotter near the event horizon, cooler at the outer edge.</p><p data-jscall-id="187">Because Julia&#39;s multiple dispatch compiles these custom methods directly into the GPU kernels alongside the built-in materials, there is no performance penalty for user-defined physics. The same wavefront path tracer handles standard glass and metals alongside relativistic spacetime curvature.</p><p data-jscall-id="188"><img alt="Black hole with accretion disk and gravitational lensing" data-jscall-id="189" src="../../bonito/png/blackhole2083336987488631976.png" /></p><p data-jscall-id="190">The black hole can also be explored interactively. RayMakie&#39;s interactive mode progressively refines the path-traced image while you move the camera in real time:</p><p data-jscall-id="191"><video controls="true" data-jscall-id="192" autoplay="true"><source data-jscall-id="193" src="../../bonito/mp4/blackhole-interactive18445466477779609916.mp4" type="video/mp4" /></video></p><p data-jscall-id="194">An overlay renderer composites rasterized elements &#40;lines, text, wireframes&#41; on top of the ray-traced image, so Makie&#39;s standard 2D overlays like legends, colorbars, and annotations work alongside path tracing. The interactive window can also target individual subscenes and axes, so you can place a ray-traced view next to other plots in a GLMakie figure. Looking ahead, this overlay renderer has the potential to grow into a full pure-Julia GPU-accelerated rasterizer, which could eventually replace OpenGL as Makie&#39;s primary rendering backend.</p><h2 id="Getting Started" data-jscall-id="195">Getting Started</h2><p data-jscall-id="196">RayMakie is available as a Makie backend. To render any existing Makie scene with ray tracing:</p><pre data-jscall-id="197"><code class="language-julia" data-jscall-id="198">
+using RayMakie, Hikari
+
+# Build your scene with standard Makie
+scene &#61; Scene&#40;size&#61;&#40;800, 600&#41;, lights&#61;&#91;SunSkyLight&#40;Vec3f&#40;1, 2, 8&#41;&#41;&#93;&#41;
+cam3d&#33;&#40;scene&#41;
+mesh&#33;&#40;scene, my_geometry; material&#61;Hikari.Gold&#40;&#41;&#41;
+
+# Render with path tracing
+img &#61; colorbuffer&#40;scene;
+    device&#61;AMDGPU.ROCBackend&#40;&#41;,
+    integrator&#61;Hikari.VolPath&#40;samples&#61;100, max_depth&#61;12&#41;,
+&#41;</code></pre><p data-jscall-id="199">For interactive exploration, use <code data-jscall-id="200">RayMakie.interactive_window</code> to progressively refine the image while adjusting the camera in real time.</p><h2 id="Future Work" data-jscall-id="201">Future Work</h2><ul class=" style_2" style="" data-jscall-id="202"><li data-jscall-id="203"><p data-jscall-id="204"><strong data-jscall-id="205">Memory optimizations</strong>: GPU memory is currently allocated eagerly and not released early, making it easy to run out of VRAM on complex scenes. We plan to implement early release of intermediate GPU buffers and more careful memory management. We also can still improve packing and our struct sizes and test that we dont do unecessary allocations.</p></li><li data-jscall-id="206"><p data-jscall-id="207"><strong data-jscall-id="208">Performance optimizations</strong>: While rendering is already fast, there is significant room for optimization in BVH construction, batching ray intersections, kernel occupancy, and data layout.</p></li><li data-jscall-id="209"><p data-jscall-id="210"><strong data-jscall-id="211">Code quality and Makie integration</strong>: The current implementation is a solid prototype, but needs cleanup and full integration of experimental features. Some internal code paths and the Makie backend interface need improvement.</p></li><li data-jscall-id="212"><p data-jscall-id="213"><strong data-jscall-id="214">SPPM for caustics</strong>: Stochastic Progressive Photon Mapping was removed and deprioritized, but we would like to bring caustic rendering back in the future.</p></li><li data-jscall-id="215"><p data-jscall-id="216"><strong data-jscall-id="217">GPU backend testing</strong>: Currently only AMD GPUs &#40;via AMDGPU.jl&#41; are fully tested and guaranteed to work well. NVIDIA support via CUDA.jl should work but needs more testing. The CPU backend still has allocation issues that are likely a Julia-level bug requiring further investigation.</p></li><li data-jscall-id="218"><p data-jscall-id="219"><strong data-jscall-id="220">Makie tests</strong> We still need to port the whole Makie test suite with reference tests, right now tests are minimal and no visual regression tests.</p></li></ul><h2 id="Acknowledgments" data-jscall-id="221">Acknowledgments</h2><p data-jscall-id="222">Hikari is a Julia port of <a href="https://pbrt.org/" data-jscall-id="223">pbrt-v4</a> by Matt Pharr, Wenzel Jakob, and Greg Humphreys. It builds on <a href="https://github.com/JuliaGraphics/Trace.jl" data-jscall-id="224">Trace.jl</a>, originally created by <a href="https://github.com/pxl-th" data-jscall-id="225">Anton Smirnov</a>, and on the <a href="https://github.com/JuliaGeometry/Raycore.jl" data-jscall-id="226">Raycore.jl</a> intersection engine. GPU support is powered by <a href="https://github.com/JuliaGPU/KernelAbstractions.jl" data-jscall-id="227">KernelAbstractions.jl</a> and the Julia GPU ecosystem. The quadcopter and HL-20 spacecraft GLTF models were provided by <a href="https://juliahub.com" data-jscall-id="228">JuliaHub</a>.</p><p data-jscall-id="229">This work was made possible by an investment of the <a href="https://www.sovereign.tech" data-jscall-id="230">Sovereign Tech Agency</a>.</p><p data-jscall-id="231">Some of the optimization and GPU work on Raycore has been funded by <a href="https://www.muonspace.com/" data-jscall-id="232">Muon Space</a>.</p></div><div data-jscall-id="233"><script data-jscall-id="234" src="../../bonito/js/highlight.pack13102628173626074447.js"></script><script data-jscall-id="235">hljs.highlightAll()</script></div></div></div></div><div class="w-full flex justify-center mt-14" style="border-top: 1px solid var(--border)" data-jscall-id="236"><div class="max-w-6xl w-full px-4 py-8 flex flex-wrap gap-4 items-center text-sm" data-jscall-id="237"><span class="text-gray-500" data-jscall-id="238">© 2026 MakieOrg</span><div class="grow" data-jscall-id="239"></div><a class="text-gray-500 hover:underline" href="https://github.com/MakieOrg/Makie.jl" data-jscall-id="240" target="_blank">GitHub</a><a class="text-gray-500 hover:underline" href="https://docs.makie.org" data-jscall-id="241" target="_blank">Docs</a><a class="text-gray-500 hover:underline" href="../../blog" data-jscall-id="242">Blog</a></div></div><div data-jscall-id="243"><script async="true" defer="true" data-jscall-id="244" src="https://api.makie.org/latest.js"></script><noscript data-jscall-id="245"><img alt="" data-jscall-id="246" src="https://api.makie.org/noscript.gif" referrerpolicy="no-referrer-when-downgrade" /></noscript></div></body></html>

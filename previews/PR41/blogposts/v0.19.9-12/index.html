@@ -1,0 +1,826 @@
+<!doctype html>
+<html data-jscall-id="1"><head data-jscall-id="2"><script src="../../bonito/js/Bonito.bundled7919512299027874894.js" type="module"></script><meta name="viewport" content="width=device-width, initial-scale=1.0" data-jscall-id="3" /><meta charset="utf-8" data-jscall-id="4" /><link href="../../bonito/png/icon_transparent1037186205570625945.png" data-jscall-id="5" rel="icon" type="image/png" /><style>.style_2 {
+  list-style-type: disc;
+}
+</style><style>:root {
+  --brand: #3B5BDB;
+  --background-color: #3B5BDB;
+  --primary-dark: #2F4AC0;
+  --shadow-lg: 0 12px 32px -8px rgba(15, 23, 42, 0.15);
+  --text-heading: #0F172A;
+  --gray-light: #F1F5F9;
+  --text-muted: #64748B;
+  --surface: #F8FAFC;
+  --background-color-highlight: rgba(255, 255, 255, 0.2);
+  --border: #E2E8F0;
+  --shadow-md: 0 4px 12px -2px rgba(15, 23, 42, 0.10);
+  --brand-light: #EEF2FF;
+  --text-color: #334155;
+  --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.06);
+  --brand-dark: #2F4AC0;
+}
+@font-face {
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+  font-family: octicons-link;
+}
+*, ::before, ::after {
+  border-width: 0;
+  border-style: solid;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-size: 1rem;
+  background-color: rgb(255, 255, 255);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  color: #334155;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  margin: 0;
+  line-height: 1.6;
+  width: 100%;
+}
+img, video {
+  height: auto;
+  max-width: 100%;
+}
+img, svg, video, canvas, audio, iframe, embed, object {
+  display: block;
+  vertical-align: middle;
+}
+a {
+  text-decoration: none;
+  color: #3B5BDB;
+}
+p {
+  margin: 0 0 0.75rem 0;
+}
+.markdown-body {
+  padding: 20px;
+  color: var(--text-color);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  margin: 20px;
+  line-height: 1.6;
+}
+li p {
+  display: inline;
+}
+pre {
+  padding: 0;
+  margin: 0;
+}
+div.blog_entry {
+  display: flex;
+  padding: 1rem;
+  gap: 0.375rem;
+  flex-direction: column;
+}
+div.blog_entry h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0F172A;
+  margin: 0;
+  line-height: 1.4;
+}
+div.blog_entry h4 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #334155;
+  margin: 0;
+  line-height: 1.5;
+}
+div.blog_entry p {
+  margin: 0;
+}
+div.blog_entry img, div.blog_entry video {
+  width: 100%;
+  border-radius: 0.5rem;
+  margin: 0.25rem 0;
+}
+div.blog_entry .date, .post-date {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #64748B;
+  line-height: 1.5;
+}
+a.blog_card:hover h3 {
+  color: #3B5BDB;
+}
+.admonition {
+  padding: 16px 20px;
+  box-shadow: var(--shadow-sm);
+  border-left: 4px solid;
+  border-radius: 8px;
+  line-height: 1.5;
+  margin: 16px 0;
+}
+.admonition.warning {
+  background-color: #fff8e1;
+  border-left-color: #ff9800;
+  color: #e65100;
+}
+.admonition .title {
+  align-items: center;
+  display: flex;
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #e65100;
+  margin: 0 0 8px 0;
+}
+.admonition .title::before {
+  content: '⚠️';
+  font-size: 1.2em;
+  margin-right: 8px;
+}
+.admonition p:not(.title) {
+  color: #bf360c;
+  margin: 0;
+}
+.admonition.info {
+  background-color: #e3f2fd;
+  border-left-color: #2196f3;
+  color: #0d47a1;
+}
+.makie-blue {
+  background-color: #8398a7;
+}
+.text {
+  font-size: 20px;
+  white-space: nowrap;
+  color: rgb(48, 48, 48);
+  position: absolute;
+  overflow: hidden;
+}
+.flex {
+  display: flex;
+}
+.grid {
+  display: grid;
+}
+.block {
+  display: block;
+}
+.inline-block {
+  display: inline-block;
+}
+.flex-row {
+  flex-direction: row;
+}
+.flex-col {
+  flex-direction: column;
+}
+.flex-row-reverse {
+  flex-direction: row-reverse;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.justify-center {
+  justify-content: center;
+}
+.items-center {
+  align-items: center;
+}
+.items-start {
+  align-items: flex-start;
+}
+.gap-1 {
+  gap: 0.25rem;
+}
+.gap-2 {
+  gap: 0.5rem;
+}
+.gap-3 {
+  gap: 0.75rem;
+}
+.gap-4 {
+  gap: 1rem;
+}
+.gap-5 {
+  gap: 1.25rem;
+}
+.gap-6 {
+  gap: 1.5rem;
+}
+.gap-8 {
+  gap: 2rem;
+}
+.gap-10 {
+  gap: 2.5rem;
+}
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.p-1 {
+  padding: 0.25rem;
+}
+.p-2 {
+  padding: 0.5rem;
+}
+.p-3 {
+  padding: 0.75rem;
+}
+.p-4 {
+  padding: 1rem;
+}
+.p-6 {
+  padding: 1.5rem;
+}
+.p-8 {
+  padding: 2rem;
+}
+.p-10 {
+  padding: 2.5rem;
+}
+.px-2 {
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+}
+.px-3 {
+  padding-right: 0.75rem;
+  padding-left: 0.75rem;
+}
+.px-4 {
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+.px-5 {
+  padding-right: 1.25rem;
+  padding-left: 1.25rem;
+}
+.px-6 {
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+}
+.py-1 {
+  padding-bottom: 0.25rem;
+  padding-top: 0.25rem;
+}
+.py-2 {
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+}
+.py-3 {
+  padding-bottom: 0.75rem;
+  padding-top: 0.75rem;
+}
+.py-4 {
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+.py-6 {
+  padding-bottom: 1.5rem;
+  padding-top: 1.5rem;
+}
+.py-8 {
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+}
+.m-0 {
+  margin: 0;
+}
+.m-1 {
+  margin: 0.25rem;
+}
+.m-2 {
+  margin: 0.5rem;
+}
+.m-4 {
+  margin: 1rem;
+}
+.-m-2 {
+  margin: -0.5rem;
+}
+.-m-4 {
+  margin: -1rem;
+}
+.-m-8 {
+  margin: -2rem;
+}
+.mx-auto {
+  margin-right: auto;
+  margin-left: auto;
+}
+.my-1 {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+.my-3 {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.my-6 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.my-10 {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+.my-14 {
+  margin-top: 3.5rem;
+  margin-bottom: 3.5rem;
+}
+.mt-1 {
+  margin-top: 0.25rem;
+}
+.mt-2 {
+  margin-top: 0.5rem;
+}
+.mt-4 {
+  margin-top: 1rem;
+}
+.mt-14 {
+  margin-top: 3.5rem;
+}
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
+.w-full {
+  width: 100%;
+}
+.w-8 {
+  width: 2rem;
+}
+.w-10 {
+  width: 2.5rem;
+}
+.w-1\/2 {
+  width: 50%;
+}
+.w-1\/3 {
+  width: 33.333333%;
+}
+.w-1\/5 {
+  width: 20%;
+}
+.w-2\/5 {
+  width: 40%;
+}
+.w-3\/5 {
+  width: 60%;
+}
+.w-96 {
+  width: 24rem;
+}
+.object-cover {
+  object-fit: cover;
+}
+.object-contain {
+  object-fit: contain;
+}
+.max-w-prose {
+  max-width: 65ch;
+}
+.max-w-xl {
+  max-width: 36rem;
+}
+.max-w-2xl {
+  max-width: 42rem;
+}
+.max-w-5xl {
+  max-width: 64rem;
+}
+.max-w-6xl {
+  max-width: 72rem;
+}
+.max-w-full {
+  max-width: 100%;
+}
+.basis-2\/5 {
+  flex-basis: 40%;
+}
+.basis-3\/5 {
+  flex-basis: 60%;
+}
+.grow {
+  flex-grow: 1;
+}
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+.flex-1 {
+  flex: 1 1 0%;
+}
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+.text-base {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.65;
+}
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 1.3;
+}
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 1.25;
+}
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 1.15;
+}
+.font-semibold {
+  font-weight: 600;
+}
+.font-bold {
+  font-weight: 700;
+}
+.font-black {
+  font-weight: 900;
+}
+.tracking-tight {
+  letter-spacing: -0.02em;
+}
+.text-left {
+  text-align: left;
+}
+.text-center {
+  text-align: center;
+}
+.text-justify {
+  text-align: justify;
+}
+.text-white {
+  color: #FFFFFF;
+}
+.text-black {
+  color: #0F172A;
+}
+.text-blue-600 {
+  color: #3B5BDB;
+}
+.text-purple-600 {
+  color: #3B5BDB;
+}
+.text-gray-500 {
+  color: #64748B;
+}
+.text-gray-600 {
+  color: #475569;
+}
+.visited\:text-purple-600:visited {
+  color: #3B5BDB;
+}
+.italic {
+  font-style: italic;
+}
+.list-disc {
+  list-style-type: disc;
+}
+.list-inside {
+  list-style-position: inside;
+}
+.list-disc li + li {
+  margin-top: 0.375rem;
+}
+.bg-white {
+  background-color: #FFFFFF;
+}
+.bg-gray-50 {
+  background-color: #F8FAFC;
+}
+.bg-gray-100 {
+  background-color: #F1F5F9;
+}
+.bg-gray-200 {
+  background-color: #E2E8F0;
+}
+.rounded-md {
+  border-radius: 0.5rem;
+}
+.rounded-lg {
+  border-radius: 0.625rem;
+}
+.rounded-xl {
+  border-radius: 0.875rem;
+}
+.rounded-full {
+  border-radius: 9999px;
+}
+.border {
+  border-color: #E2E8F0;
+  border-width: 1px;
+}
+.shadow-sm {
+  box-shadow: var(--shadow-sm);
+}
+.shadow {
+  box-shadow: var(--shadow-md);
+}
+.shadow-lg {
+  box-shadow: var(--shadow-lg);
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+.hover\:opacity-50:hover {
+  opacity: 0.5;
+  transition: opacity 0.2s ease-in-out;
+}
+.hover\:bg-gray-300:hover {
+  background-color: #CBD5E1;
+  transition: background-color 0.2s ease-in-out;
+}
+.hover\:underline:hover {
+  text-decoration: underline;
+}
+.logo-img {
+  filter: grayscale(1);
+  opacity: 0.65;
+  transition: filter 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+.logo-img:hover {
+  filter: grayscale(0);
+  opacity: 1;
+}
+.quote-card {
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+.quote-card:hover {
+  border-color: #3B5BDB;
+  box-shadow: var(--shadow-sm);
+}
+.navbar {
+  -webkit-backdrop-filter: blur(10px);
+  font-size: 0.9375rem;
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.88);
+  border-bottom: 1px solid var(--border);
+  font-weight: 500;
+  top: 0;
+  position: sticky;
+  z-index: 50;
+}
+.navbar a {
+  display: inline-block;
+  text-decoration: none;
+  color: #334155;
+  transition: color 0.15s ease-in-out;
+}
+.navbar a:hover {
+  color: #3B5BDB;
+}
+.navbar-highlight {
+  font-weight: 600;
+  color: #3B5BDB !important;
+}
+.nav-desktop {
+  display: none;
+}
+@media (min-width: 768px) {
+  .nav-desktop {
+    display: flex;
+  }
+  .md\:gap-10 {
+    gap: 2.5rem;
+  }
+  .md\:px-4 {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+  .md\:basis-2\/5 {
+    flex-basis: 40%;
+  }
+  .md\:basis-3\/5 {
+    flex-basis: 60%;
+  }
+  .nav-mobile {
+    display: none;
+  }
+  .md\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .md\:-m-4 {
+    margin: -1rem;
+  }
+  .md\:p-4 {
+    padding: 1rem;
+  }
+}
+.nav-mobile {
+  position: relative;
+}
+.nav-mobile summary {
+  font-size: 1.375rem;
+  list-style: none;
+  padding: 0.375rem 0.625rem;
+  color: #0F172A;
+  border-radius: 0.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.nav-mobile summary::-webkit-details-marker {
+  display: none;
+}
+.nav-mobile summary:hover {
+  background-color: #F1F5F9;
+}
+.nav-menu {
+  min-width: 11rem;
+  z-index: 60;
+  display: flex;
+  padding: 0.375rem;
+  box-shadow: var(--shadow-lg);
+  position: absolute;
+  border-radius: 0.75rem;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  background-color: #FFFFFF;
+  right: 0;
+  top: calc(100% + 0.5rem);
+}
+.nav-menu a {
+  padding: 0.5rem 0.75rem;
+  color: #334155;
+  border-radius: 0.5rem;
+}
+.nav-menu a:hover {
+  background-color: #F1F5F9;
+  color: #3B5BDB;
+}
+.card {
+  border: 1px solid var(--border);
+  background-color: #FFFFFF;
+  box-shadow: var(--shadow-sm);
+  border-radius: 0.875rem;
+  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+.card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+.btn {
+  display: inline-block;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.625rem;
+  line-height: 1.4;
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+}
+.btn-primary {
+  background-color: #3B5BDB;
+  box-shadow: var(--shadow-sm);
+  color: #FFFFFF !important;
+}
+.btn-primary:hover {
+  background-color: #2F4AC0;
+}
+.btn-outline {
+  border: 1px solid var(--border);
+  background-color: #FFFFFF;
+  color: #0F172A !important;
+}
+.btn-outline:hover {
+  border-color: #3B5BDB;
+  color: #3B5BDB !important;
+}
+@media (min-width: 640px) {
+  .sm\:w-1\/3 {
+    width: 33.333333%;
+  }
+  .sm\:flex-row-reverse {
+    flex-direction: row-reverse;
+  }
+  .sm\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .sm\:flex-row {
+    flex-direction: row;
+  }
+  .sm\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  div.blog_entry {
+    padding: 1.5rem;
+  }
+  .sm\:p-8 {
+    padding: 2rem;
+  }
+}
+@media (min-width: 1024px) {
+  .lg\:text-sm {
+    font-size: 0.875rem;
+    line-height: 1.4;
+  }
+  .lg\:text-base {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .lg\:w-1\/5 {
+    width: 20%;
+  }
+  .lg\:p-8 {
+    padding: 2rem;
+  }
+  .lg\:w-1\/3 {
+    width: 33.333333%;
+  }
+  .lg\:-m-8 {
+    margin: -2rem;
+  }
+}
+.container {
+  position: relative;
+}
+.overlay {
+  left: 0;
+  visibility: hidden;
+  align-items: center;
+  bottom: 0;
+  display: flex;
+  height: 100%;
+  padding: 1rem;
+  position: absolute;
+  border-radius: 0.875rem;
+  justify-content: center;
+  background-color: #ffffff00;
+  right: 0;
+  width: 100%;
+  transition: color 0.3s ease-in, background-color 0.3s ease-in 0.3s;
+  overflow: hidden;
+  color: transparent;
+}
+.container:hover .overlay {
+  visibility: visible;
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #334155;
+  transition: color 0.5s ease-in 0.3s, background-color 0.3s ease-in;
+}
+.image {
+  max-width: none;
+  max-height: none;
+}
+.container:hover .image {
+  filter: blur(4px);
+}
+</style><link href="../../bonito/css/markdown-mobile13898764559087962533.css" rel="stylesheet" type="text/css" /><link href="../../bonito/css/katex.min6751968427317360032.css" rel="stylesheet" type="text/css" /><link href="../../bonito/css/github.min8213811099958948332.css" rel="stylesheet" type="text/css" /></head><body data-jscall-id="6"><script type="module">Bonito.init_session("a70c41f2-8e1c-4d47-984c-92eee32691fa", Bonito.fetch_binary('../../bonito/bin/18687aad89aea6e60f210d2ee2f5986bdf740628-5733602764130236031.bin'), "root", false);
+</script><div class="navbar flex justify-center" data-jscall-id="7"><div class="flex max-w-6xl w-full px-4 py-2 items-center" data-jscall-id="8"><a href="../../" data-jscall-id="9"><div class="flex items-center gap-2" data-jscall-id="10"><img style="height: 1.75rem; width: auto; display: inline-block;" data-jscall-id="11" src="../../bonito/png/icon_transparent1037186205570625945.png" /><span class="font-bold text-lg text-black tracking-tight" data-jscall-id="12">Makie</span></div></a><div class="grow" data-jscall-id="13"></div><div class="nav-desktop items-center gap-1" data-jscall-id="14"><a class="cursor-pointer py-1 px-3" href="../../" data-jscall-id="15" target="">Home</a><a class="cursor-pointer py-1 px-3" href="../../team" data-jscall-id="16" target="">Maintainers</a><a class="cursor-pointer py-1 px-3" href="../../support" data-jscall-id="17" target="">Support</a><a class="cursor-pointer py-1 px-3" href="../../contact" data-jscall-id="18" target="">Contact</a><a class="cursor-pointer py-1 px-3 navbar-highlight" href="../../blog" data-jscall-id="19" target="">Blog</a><a class="cursor-pointer py-1 px-3" href="http://docs.makie.org" data-jscall-id="20" target="_blank">Docs</a><a class="cursor-pointer py-1 px-3" href="https://github.com/MakieOrg/Makie.jl" data-jscall-id="21" target="_blank">GitHub</a></div><details class="nav-mobile" data-jscall-id="22"><summary data-jscall-id="23">☰</summary><div class="nav-menu" data-jscall-id="24"><a class="cursor-pointer py-1 px-3" href="../../" data-jscall-id="15" target="">Home</a><a class="cursor-pointer py-1 px-3" href="../../team" data-jscall-id="16" target="">Maintainers</a><a class="cursor-pointer py-1 px-3" href="../../support" data-jscall-id="17" target="">Support</a><a class="cursor-pointer py-1 px-3" href="../../contact" data-jscall-id="18" target="">Contact</a><a class="cursor-pointer py-1 px-3 navbar-highlight" href="../../blog" data-jscall-id="19" target="">Blog</a><a class="cursor-pointer py-1 px-3" href="http://docs.makie.org" data-jscall-id="20" target="_blank">Docs</a><a class="cursor-pointer py-1 px-3" href="https://github.com/MakieOrg/Makie.jl" data-jscall-id="21" target="_blank">GitHub</a></div></details></div></div><div class="p-4 w-full" data-jscall-id="25"><div data-jscall-id="26"><div class="post-date" style="color: #666; margin-bottom: 1rem; text-align: center;" data-jscall-id="27">Mon, 30 Oct 2023</div><div data-jscall-id="28"><div class="markdown-body" data-jscall-id="29"><h1 id="v0.19.9-12" data-jscall-id="30">v0.19.9-12</h1><h2 id="" data-jscall-id="31">Datashader <a href="https://github.com/MakieOrg/Makie.jl/pull/2883" data-jscall-id="32">#2883</a></h2><p data-jscall-id="33">Makie has its own <a href="https://docs.makie.org/stable/reference/plots/datashader/" data-jscall-id="34">datashader</a> plot type now. This is fast CPU-based binning algorithm that automatically adjusts the domain it&#39;s applied to to the current axis limits. It&#39;s useful to explore large datasets, such as this dataset with 14 million points</p><div class="markdown-body" data-jscall-id="35"><video controls="true" data-jscall-id="1" muted="true" autoplay="true" loop="true"><source data-jscall-id="2" src="https://docs.makie.org/v0.21/assets/datashader-14million.Vl17VWzZ.mp4" type="video/mp4" /></video></div><p data-jscall-id="36">Or this one with 3.2 billion points</p><div class="markdown-body" data-jscall-id="37"><video controls="true" data-jscall-id="1" muted="true" autoplay="true" loop="true"><source data-jscall-id="2" src="https://docs.makie.org/v0.21/assets/datashader_2-7_billion.D1p2iTV4.mp4" type="video/mp4" /></video></div><p data-jscall-id="38">It can be customized with different aggregation functions as well as local and global transformations. The <code data-jscall-id="39">datashader</code> plot type is currently considered experimental and might experience API breakage in patch versions.</p><h2 id="" data-jscall-id="40">PolarAxis improvements <a href="https://github.com/MakieOrg/Makie.jl/pull/3154" data-jscall-id="41">#3154</a></h2><p data-jscall-id="42">PolarAxis has gotten a large number of changes, some of which are breaking. As we currently consider PolarAxis an experimental feature, we have pushed those changes through in a patch version.</p><p data-jscall-id="43">The most important breaking change is that the order of arguments has been reversed to be in line with other plotting packages. By default plots that use the Polar transform now take arguments <code data-jscall-id="44">&#40;theta, r&#41;</code>.  This can be reversed by setting <code data-jscall-id="45">theta_as_x &#61; false</code> in the transform or the PolarAxis.</p><div class="markdown-body" data-jscall-id="46"><pre data-jscall-id="47"><code class="language-julia" data-jscall-id="48">using CairoMakie
+fig &#61; Figure&#40;resolution &#61; &#40;800, 450&#41;&#41;
+ax1 &#61; PolarAxis&#40;fig&#91;1, 1&#93;, theta_as_x &#61; true, title &#61; &#34;theta_as_x &#61; true &#40;default&#41;&#34;&#41;
+ax2 &#61; PolarAxis&#40;fig&#91;1, 2&#93;, theta_as_x &#61; false, title &#61; &#34;theta_as_x &#61; false&#34;&#41;
+lines&#33;&#40;ax1, 0:0.05:2.0, &#91;2 for _ in 1:41&#93;&#41;
+lines&#33;&#40;ax2, 0:0.05:2.0, &#91;2 for _ in 1:41&#93;&#41;
+rlims&#33;.&#40;&#40;ax1, ax2&#41;, 0, 2.5&#41;
+fig</code></pre><img data-jscall-id="49" src="../../bonito/png/cell_output_315645311670701431943.png" /></div><p data-jscall-id="50">Most of the other changes revolve around plotting on sectors, i.e. limits where <span class="katex-container" data-jscall-id="51"><span data-jscall-id="52"></span></span> and/or <span class="katex-container" data-jscall-id="53"><span data-jscall-id="54"></span></span> spans less than 2<span class="katex-container" data-jscall-id="55"><span data-jscall-id="56"></span></span>. This means that PolarAxis now has <code data-jscall-id="57">thetalimits &#61; &#40;thetamin, thetamax&#41;</code> as a new attribute and that <code data-jscall-id="58">radius &#61; rmax</code> has been replaced by <code data-jscall-id="59">rlimits &#61; &#40;rmin, rmax&#41;</code>.</p><div class="markdown-body" data-jscall-id="60"><pre data-jscall-id="61"><code class="language-julia" data-jscall-id="62">r &#61; range&#40;0.3pi, 0.7pi, length&#61;21&#41;
+xs &#61; vcat&#40;r, &#91;r&#91;end&#93; for _ in 1:20&#93;, r&#91;end:-1:1&#93;, &#91;r&#91;1&#93; for _ in 1:20&#93;&#41;
+ys &#61; vcat&#40;&#91;r&#91;1&#93; for _ in 1:20&#93;, r, &#91;r&#91;end&#93; for _ in 1:20&#93;, r&#91;end:-1:1&#93;&#41;
+fig &#61; Figure&#40;resolution &#61; &#40;800, 500&#41;&#41;
+ax &#61; PolarAxis&#40;fig&#91;1, 1&#93;, rlimits &#61; &#40;r&#91;1&#93;-0.1, r&#91;end&#93;&#43;0.1&#41;, thetalimits &#61; &#40;r&#91;1&#93;-0.1, r&#91;end&#93;&#43;0.1&#41;&#41;
+lines&#33;&#40;ax, xs, ys&#41;
+fig</code></pre><img data-jscall-id="63" src="../../bonito/png/cell_output_410761320311268937748.png" /></div><p data-jscall-id="64">There are many other small changes related to making this work, such as changes to <code data-jscall-id="65">autolimits</code>, interactivity, tick placement and the behind-the-scenes rendering of the PolarAxis. You can find a summary of these changes in the pull request.</p><h2 id="" data-jscall-id="66">Colorbar <a href="https://github.com/MakieOrg/Makie.jl/pull/3090" data-jscall-id="67">#3090</a></h2><p data-jscall-id="68">Refactors Colorbar to use image and heatmap instead of the heavier poly &#43; image. Uses now ColorMapping, internally in Colorbar, to have a more consistent interface, while keeping construction of <code data-jscall-id="69">Colorbar&#40;colormap&#61;cmap, ...&#41;</code> still working.</p><p data-jscall-id="70">Introduces <code data-jscall-id="71">extract_colormap</code>, which Colorbar now uses to extract the colormapping from any plot type. The function has a fallback for any recipe, which recursively searches the child plots. One can also directly overload it for a recipe, where this isn&#39;t a good default. Will error if multiple colormappings are found in a recipe. Introduced an experimental <code data-jscall-id="72">colormap&#61;Categorical&#40;colormap&#41;</code>, which creates a true categorical colormap:</p><div class="markdown-body" data-jscall-id="73"><pre data-jscall-id="74"><code class="language-julia" data-jscall-id="75">f, ax, pl &#61; barplot&#40;1:3, color&#61;1:3, colormap&#61;Makie.Categorical&#40;:viridis&#41;&#41;
+Colorbar&#40;f&#91;1, 2&#93;, pl&#41;
+f</code></pre><img data-jscall-id="76" src="../../bonito/png/cell_output_510729720122753113790.png" /></div><h2 id="" data-jscall-id="77">ReversibleScale <a href="https://github.com/MakieOrg/Makie.jl/pull/3095" data-jscall-id="78">#3095</a></h2><p data-jscall-id="79">Add and export ReversibleScale type, which makes it easier to create custom scale types, while still getting correct ticks in Colorbar and Axis.</p><h2 id="" data-jscall-id="80">Delaunay Recipes <a href="https://github.com/MakieOrg/Makie.jl/pull/3102" data-jscall-id="81">#3102</a>, <a href="https://github.com/MakieOrg/Makie.jl/pull/3159" data-jscall-id="82">#3159</a></h2><p data-jscall-id="83">Thanks to <a href="https://github.com/DanielVandH" data-jscall-id="84">Daniel VandenHeuvel</a> Makie now has two new plotting functions - <code data-jscall-id="85">triplot</code> and <code data-jscall-id="86">voronoiplot</code>. These have been moved from <a href="https://github.com/DanielVandH/DelaunayTriangulation.jl" data-jscall-id="87">DelaunayTriangulation.jl </a>. The former, <code data-jscall-id="88">triplot</code>, will generate a triangulation given an abitrary set of 2D points.</p><div class="markdown-body" data-jscall-id="89"><pre data-jscall-id="90"><code class="language-julia" data-jscall-id="91">using Random
+grid &#61; shuffle&#40;&#91;Point2f&#40;x, y&#41; for x in 1:4 for y in 1:4&#93;&#41;
+f, a, p &#61; triplot&#40;grid, figure &#61; &#40;resolution &#61; &#40;500, 400&#41;,&#41;&#41;</code></pre><img data-jscall-id="92" src="../../bonito/png/cell_output_615031541049401829216.png" /></div><p data-jscall-id="93">The latter, <code data-jscall-id="94">voronoiplot</code>, will generate cells around points where the edges are halfway between neighboring points. These plots can be used as heatmaps for data that does not lie on a grid. As such they can be used as a replacement for heatmap in PolarAxis.</p><div class="markdown-body" data-jscall-id="95"><pre data-jscall-id="96"><code class="language-julia" data-jscall-id="97">fig &#61; Figure&#40;&#41;
+voronoiplot&#40;fig&#91;1, 1&#93;, rand&#40;100&#41;, rand&#40;100&#41;&#41;
+ax &#61; PolarAxis&#40;fig&#91;1, 2&#93;, theta_0 &#61; -pi/2&#41;
+xs &#61; range&#40;0, pi, length&#61;30&#41;
+ys &#61; range&#40;1, 2, length&#61;10&#41;
+zs &#61; &#91;theta for theta in xs, _ in ys&#93;
+voronoiplot&#33;&#40;ax, xs, ys, zs, show_generators &#61; false, colormap &#61; &#91;:white, :lightgreen, :yellow, :darkred&#93;&#41;
+autolimits&#33;&#40;ax&#41;
+fig</code></pre><img data-jscall-id="98" src="../../bonito/png/cell_output_714330203192250491016.png" /></div><h2 id="" data-jscall-id="99">Bar label alignment <a href="https://github.com/MakieOrg/Makie.jl/pull/3177" data-jscall-id="100">#3177</a></h2><p data-jscall-id="101">Improved the automatic barplot label alignment and added the attribute <code data-jscall-id="102">label_align</code> for custom placement.</p><h2 id="" data-jscall-id="103">Tex theme <a href="https://github.com/MakieOrg/Makie.jl/pull/3180" data-jscall-id="104">#3180</a></h2><p data-jscall-id="105">Added a theme <code data-jscall-id="106">theme_latexfonts</code> that uses the latex font family as default fonts</p><div class="markdown-body" data-jscall-id="107"><pre data-jscall-id="108"><code class="language-julia" data-jscall-id="109">set_theme&#33;&#40;theme_latexfonts&#40;&#41;&#41;
+
+fig &#61; Figure&#40;&#41;
+Label&#40;fig&#91;1, 1&#93;, &#34;A standard Label&#34;, tellwidth &#61; false&#41;
+Label&#40;fig&#91;2, 1&#93;, L&#34;A LaTeXString with a small formula &#36;x^2&#36;&#34;, tellwidth &#61; false&#41;
+Axis&#40;fig&#91;3, 1&#93;, title &#61; &#34;An axis with matching font for the tick labels&#34;&#41;
+fig</code></pre><img data-jscall-id="110" src="../../bonito/png/cell_output_88020899987481745101.png" /></div><h2 id="" data-jscall-id="111">Docs improvements <a href="https://github.com/MakieOrg/Makie.jl/pull/3183" data-jscall-id="112">#3183</a>, <a href="https://github.com/MakieOrg/Makie.jl/pull/3185" data-jscall-id="113">#3185</a> &#38; <a href="https://github.com/MakieOrg/Makie.jl/pull/3244" data-jscall-id="114">#3244</a></h2><p data-jscall-id="115">In the process of making the docs more structured, the <code data-jscall-id="116">Examples</code> section was renamed to <code data-jscall-id="117">Reference</code> and the <code data-jscall-id="118">Documentation</code> section to <code data-jscall-id="119">Explanations</code>, a how-to section was also recently added on master. In the future, it should become easier to find concrete information about what each plot and block does and how the attributes behave.</p><p data-jscall-id="120">The docs style was overhauled a little as well. The page content overview on the right is now separate from the navigation on the left. This way, everything should stay more readable, especially on large pages with many sections. The docs now make better use of the available screen width.</p><p data-jscall-id="121">The static search plugin was changed from <a href="https://github.com/jameslittle230/stork" data-jscall-id="122"><code data-jscall-id="123">stork</code></a> to <a href="https://pagefind.app/docs/" data-jscall-id="124"><code data-jscall-id="125">pagefind</code></a> as <code data-jscall-id="126">stork</code> is not being maintained anymore. On desktop, the search should be easier to read as it lives in its own modal now.</p><p data-jscall-id="127"><img alt="Example search" data-jscall-id="128" src="../../bonito/png/269546466-2198057f-1dc5-401f-9bed-f36cbb736a8910163210568545447015.png" /></p><h2 id="" data-jscall-id="129">Linestyle type <a href="https://github.com/MakieOrg/Makie.jl/pull/3193" data-jscall-id="130">#3193</a>, <a href="https://github.com/MakieOrg/Makie.jl/pull/3135" data-jscall-id="131">#3135</a></h2><p data-jscall-id="132">Deprecates <code data-jscall-id="133">linestyle&#61;Vector&#123;&#60;:Real&#125;</code> for custom linestyles in favor of <code data-jscall-id="134">linestyle&#61;Linestyle&#40;value::Vector&#123;&#60;:Real&#125;&#41;</code>, to make it less ambigious if the attribute is per linepoint or for the whole line.</p><h2 id="Smaller changes" data-jscall-id="135">Smaller changes</h2><ul class=" style_2" style="" data-jscall-id="136"><li data-jscall-id="137"><p data-jscall-id="138">Fix deactivated scroll interactions still consuming event <a href="https://github.com/MakieOrg/Makie.jl/pull/3272" data-jscall-id="139">#3272</a></p></li><li data-jscall-id="140"><p data-jscall-id="141">Fix grouping of zero-height bar in barplot <a href="https://github.com/MakieOrg/Makie.jl/pull/3058" data-jscall-id="142">#3058</a></p></li><li data-jscall-id="143"><p data-jscall-id="144">Upgrade StableHashTraits <a href="https://github.com/MakieOrg/Makie.jl/pull/3309" data-jscall-id="145">#3309</a></p></li><li data-jscall-id="146"><p data-jscall-id="147">DataInspector: fix an attribute extraction bug for heatmaps &#38; images <a href="https://github.com/MakieOrg/Makie.jl/pull/3260" data-jscall-id="148">#3260</a></p></li><li data-jscall-id="149"><p data-jscall-id="150">Fix bezier construction for strings starting with m <a href="https://github.com/MakieOrg/Makie.jl/pull/3313" data-jscall-id="151">#3313</a></p></li><li data-jscall-id="152"><p data-jscall-id="153">Fix grouping of a zero-height bar in barplot. Now a zero-height bar shares the same properties of the previous bar, and if the bar is the first one, its height is treated as positive if and only if there exists a bar of positive height or all bars are zero-height <a href="https://github.com/MakieOrg/Makie.jl/pull/3058" data-jscall-id="154">#3058</a></p></li><li data-jscall-id="155"><p data-jscall-id="156">Fixed a bug where Axis still consumes scroll events when interactions are disabled <a href="https://github.com/MakieOrg/Makie.jl/pull/3272" data-jscall-id="157">#3272</a>.</p></li><li data-jscall-id="158"><p data-jscall-id="159">Added cornerradius attribute to Box for rounded corners <a href="https://github.com/MakieOrg/Makie.jl/pull/3308" data-jscall-id="160">#3308</a></p></li><li data-jscall-id="161"><p data-jscall-id="162">Upgraded StableHashTraits from 1.0 to 1.1 <a href="https://github.com/MakieOrg/Makie.jl/pull/3309" data-jscall-id="163">#3309</a></p></li></ul></div><div data-jscall-id="164"><script data-jscall-id="165" src="../../bonito/js/highlight.pack13102628173626074447.js"></script><script data-jscall-id="166">hljs.highlightAll()</script></div></div></div></div><div class="w-full flex justify-center mt-14" style="border-top: 1px solid var(--border)" data-jscall-id="167"><div class="max-w-6xl w-full px-4 py-8 flex flex-wrap gap-4 items-center text-sm" data-jscall-id="168"><span class="text-gray-500" data-jscall-id="169">© 2026 MakieOrg</span><div class="grow" data-jscall-id="170"></div><a class="text-gray-500 hover:underline" href="https://github.com/MakieOrg/Makie.jl" data-jscall-id="171" target="_blank">GitHub</a><a class="text-gray-500 hover:underline" href="https://docs.makie.org" data-jscall-id="172" target="_blank">Docs</a><a class="text-gray-500 hover:underline" href="../../blog" data-jscall-id="173">Blog</a></div></div><div data-jscall-id="174"><script async="true" defer="true" data-jscall-id="175" src="https://api.makie.org/latest.js"></script><noscript data-jscall-id="176"><img alt="" data-jscall-id="177" src="https://api.makie.org/noscript.gif" referrerpolicy="no-referrer-when-downgrade" /></noscript></div></body></html>
