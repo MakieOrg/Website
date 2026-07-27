@@ -1,5 +1,5 @@
-Èøk”Ù$91b6959d-833a-4a0b-801f-ef3f55539edb¤rootÇ2Ç/j“Ù$91b6959d-833a-4a0b-801f-ef3f55539edb¤rootÔÈ“•È…k”Ù$91b6959d-833a-4a0b-801f-ef3f55539edb¤rootÇ2Ç/j“Ù$91b6959d-833a-4a0b-801f-ef3f55539edb¤rootÔÈ ‚§payloadÈf“€ÚÅ(function() {
-    const container = document.querySelector('[data-jscall-id="100"]');
+Èùk”Ù$667cf1ea-f18a-4a67-a4be-ddadfab4ea2d¤rootÇ2Ç/j“Ù$667cf1ea-f18a-4a67-a4be-ddadfab4ea2d¤rootÔÈ”•È„k”Ù$667cf1ea-f18a-4a67-a4be-ddadfab4ea2d¤rootÇ2Ç/j“Ù$667cf1ea-f18a-4a67-a4be-ddadfab4ea2d¤rootÔÈ‚§payloadÈf“€ÚÄ(function() {
+    const container = document.querySelector('[data-jscall-id="99"]');
     let sort_directions = {};
     const table = container.querySelector('.comparison-table');
     const tbody = table.querySelector('tbody');
@@ -134,12 +134,12 @@
         });
     }
 })();
-Ù</home/runner/.julia/packages/Bonito/OJTyF/src/widgets.jl:549¨msg_type¡2È6k”Ù$91b6959d-833a-4a0b-801f-ef3f55539edb¤rootÇ<Ç9j“Ù$91b6959d-833a-4a0b-801f-ef3f55539edb¤rootÇ
+Ù</home/runner/.julia/packages/Bonito/OJTyF/src/widgets.jl:549¨msg_type¡2È6k”Ù$667cf1ea-f18a-4a67-a4be-ddadfab4ea2d¤rootÇ<Ç9j“Ù$667cf1ea-f18a-4a67-a4be-ddadfab4ea2d¤rootÇ
 ‘Çe’¢24¡0ÇÈƒ£obsÇh¢24§payloadÇ§f“€ÙWreturn (val)=> {
-    document.querySelector('[data-jscall-id="121"]').innerText = val
-}ÙJ/home/runner/.julia/packages/Bonito/OJTyF/src/rendering/observables.jl:104¨msg_type¡1È!k”Ù$91b6959d-833a-4a0b-801f-ef3f55539edb¤rootÇDÇAj“Ù$91b6959d-833a-4a0b-801f-ef3f55539edb¤rootÇ‘Çe’¢22©Click me!Ç«ƒ£obsÇh¢22§payloadÇŠf“€ÙIreturn x=> document.querySelector('[data-jscall-id="122"]').innerText = xÙ;/home/runner/.julia/packages/Bonito/OJTyF/src/widgets.jl:71¨msg_type¡1Èrk”Ù$91b6959d-833a-4a0b-801f-ef3f55539edb¤rootÇ;Ç8j“Ù$91b6959d-833a-4a0b-801f-ef3f55539edb¤rootÇ	‘Çe’¢23ÂÈ‚§payloadÇíf“³2423289972316999145Çh¢23Ù’(() => {
-    document.querySelector('[data-jscall-id="122"]')['onclick'] = event=> __lookup_interpolated('2423289972316999145').notify(true);
-})()Ù;/home/runner/.julia/packages/Bonito/OJTyF/src/widgets.jl:67¨msg_type¡2È0k”Ù$91b6959d-833a-4a0b-801f-ef3f55539edb¤rootÇ2Ç/j“Ù$91b6959d-833a-4a0b-801f-ef3f55539edb¤rootÔÇÌ‚§payloadÇµf“€Ùcif (typeof Bonito !== 'undefined' && Bonito.set_no_connection) {
+    document.querySelector('[data-jscall-id="120"]').innerText = val
+}ÙJ/home/runner/.julia/packages/Bonito/OJTyF/src/rendering/observables.jl:104¨msg_type¡1È!k”Ù$667cf1ea-f18a-4a67-a4be-ddadfab4ea2d¤rootÇDÇAj“Ù$667cf1ea-f18a-4a67-a4be-ddadfab4ea2d¤rootÇ‘Çe’¢22©Click me!Ç«ƒ£obsÇh¢22§payloadÇŠf“€ÙIreturn x=> document.querySelector('[data-jscall-id="121"]').innerText = xÙ;/home/runner/.julia/packages/Bonito/OJTyF/src/widgets.jl:71¨msg_type¡1Ètk”Ù$667cf1ea-f18a-4a67-a4be-ddadfab4ea2d¤rootÇ;Ç8j“Ù$667cf1ea-f18a-4a67-a4be-ddadfab4ea2d¤rootÇ	‘Çe’¢23ÂÈ‚§payloadÇïf“´16249471750427830613Çh¢23Ù“(() => {
+    document.querySelector('[data-jscall-id="121"]')['onclick'] = event=> __lookup_interpolated('16249471750427830613').notify(true);
+})()Ù;/home/runner/.julia/packages/Bonito/OJTyF/src/widgets.jl:67¨msg_type¡2È0k”Ù$667cf1ea-f18a-4a67-a4be-ddadfab4ea2d¤rootÇ2Ç/j“Ù$667cf1ea-f18a-4a67-a4be-ddadfab4ea2d¤rootÔÇÌ‚§payloadÇµf“€Ùcif (typeof Bonito !== 'undefined' && Bonito.set_no_connection) {
     Bonito.set_no_connection();
 }
 ÙL/home/runner/.julia/packages/Bonito/OJTyF/src/connection/no-connection.jl:13¨msg_type¡2
