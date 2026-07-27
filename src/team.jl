@@ -56,7 +56,7 @@ function team()
             [
                 H2Focus("Julius Krumbiegel, Co-Author"),
                 DOM.p(
-                "I currently work at Pumas.ai and maintain Makie's layout system and 2D graphics. ",
+                "I currently work at [PumasAI](https://pumas.ai/) and maintain Makie's layout system and 2D graphics. ",
                 "I joined the Makie project in 2019 when I created its layout system ",
                 GHProject("jkrumbiegel/GridLayoutBase.jl"),
                 " and most of the GUI objects currently available in what used to be the separate package ",
