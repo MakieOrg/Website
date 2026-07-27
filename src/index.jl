@@ -7,13 +7,24 @@ function index()
     Julia = link("Julia", "https://julialang.org")
 
     intro = Section(
-        Spacer(4),
-        FullWidthText(
-            dom"""
-            $(semibold("Makie")) is a modern plotting library for $Julia.
-            It is easy to use, fast and powerful. Packed with features,
-            it is a general-purpose tool that also enables specialized use cases with as little compromise as possible.
-            """),
+        Spacer(6),
+        DOM.div(
+            DOM.img(src=img_asset("icon_transparent.png"); style="height: 4.5rem; width: auto;"),
+            DOM.h1("Makie"; class="text-4xl font-black tracking-tight text-black text-center my-4"),
+            FullWidthText(
+                dom"""
+                $(semibold("Makie")) is a modern plotting library for $Julia.
+                It is easy to use, fast and powerful. Packed with features,
+                it is a general-purpose tool that also enables specialized use cases with as little compromise as possible.
+                """;
+                class="text-center max-w-2xl mx-auto text-gray-600"),
+            DOM.div(
+                DOM.a("Get started"; href="https://docs.makie.org", target="_blank", class="btn btn-primary"),
+                DOM.a("GitHub"; href="https://github.com/MakieOrg/Makie.jl", target="_blank", class="btn btn-outline"),
+                class="flex gap-4 justify-center mt-4 flex-wrap"
+            );
+            class="flex flex-col items-center"
+        ),
         Spacer(6),
         Grid(
             Showcase(
@@ -482,7 +493,7 @@ function index()
         ),
     )
     users = Section(bg="white",
-        DOM.div("Users"; class="text-xl text-black flex justify-center mt-14 mb-10 font-semibold"),
+        DOM.div("Users"; class="text-2xl font-bold text-black text-center mt-14 mb-10"),
         FlexGrid(
             Logo(image="logos/climaalliancelogo.png", link="https://clima.caltech.edu"),
             Logo(image="logos/mpg_biogeochemistry.png", link="https://www.bgc-jena.mpg.de/en/bgi/gallery"),
@@ -490,9 +501,9 @@ function index()
             Logo(image="logos/microsoft.png", link="https://www.youtube.com/watch?v=7-vN8oNAz6Y"),
             Logo(image="logos/instron.png", link="https://github.com/bradcarman/ModelingToolkitDesigner.jl"),
             Logo(image="logos/DWD.png", link="https://www.youtube.com/watch?v=-Cg6AoymaM0"),
-            class="justify-center items-center -m-2 lg:-m-8",
+            class="justify-center items-center",
         ),
-        DOM.div("Supporters"; class="text-xl text-black flex justify-center mt-14 mb-10 font-semibold"),
+        DOM.div("Supporters"; class="text-2xl font-bold text-black text-center mt-14 mb-10"),
         FlexGrid(
             Logo(image="logos/numfocus.png", link="https://numfocus.org/project/julia"),
             Logo(image="logos/pumasai.svg", link="https://pumas.ai"),
@@ -502,15 +513,15 @@ function index()
             Logo(image="logos/ornl-light.svg", link="https://www.ornl.gov"),
             Logo(image="logos/mit.png", link="https://web.mit.edu/"),
             Logo(image="logos/bmbf.svg", link="https://www.bmbf.de"),
-            class="justify-center items-center -m-2 lg:-m-8",
+            class="justify-center items-center",
         ),
-        DOM.div("Follow us"; class="text-xl text-black flex justify-center mt-14 mb-10 font-semibold"),
+        DOM.div("Follow us"; class="text-2xl font-bold text-black text-center mt-14 mb-10"),
         FlexGrid(
             SmallLogo(image="logos/bluesky.svg", link="https://bsky.app/profile/makie.org"),
             SmallLogo(image="logos/linkedin.png", link="https://www.linkedin.com/company/makieorg"),
             SmallLogo(image="logos/GitHub-Mark-64px.png", link="https://github.com/MakieOrg"),
             SmallLogo(image="logos/discord-mark-blue.svg", link="https://discord.gg/2FBjYAT3cY"),
-            SmallLogo(image="logos/mastodon.svg", link="https://julialang.social/@makie"), class="justify-center items-center -m-2 md:-m-4 lg:-m-8",
+            SmallLogo(image="logos/mastodon.svg", link="https://julialang.social/@makie"), class="justify-center items-center",
         )
     )
     body = DOM.div(

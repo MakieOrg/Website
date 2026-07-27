@@ -1,7 +1,6 @@
 module Website
 
 using Bonito, Markdown
-import Bonito.TailwindDashboard as D
 import GitHub
 
 function asset_path(files...)

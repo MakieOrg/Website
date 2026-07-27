@@ -30,6 +30,31 @@ function add_blogposts!(routes)
     return routes
 end
 
+# Own card rendering for SiteEntry: BonitoSites' jsrender shows a
+# date-time ("... 12:0:0") and ships inline styles that fight blog_entry CSS.
+function blog_entry_card(entry)
+    human_date = Dates.format(entry.date, "e, d u Y")
+    link = replace(entry.link, "./" => "/")
+    img = if isempty(entry.image)
+        nothing
+    elseif endswith(entry.image, ".mp4")
+        DOM.video(src=Asset(entry.image); autoplay=true, loop=true, muted=true)
+    else
+        DOM.img(src=Asset(entry.image))
+    end
+    return DOM.a(
+        DOM.div(
+            DOM.h3(entry.title),
+            DOM.h4(entry.description),
+            img,
+            DOM.div(human_date; class="date");
+            class="blog_entry"
+        );
+        href=Bonito.Link(link),
+        class="card w-full blog_card"
+    )
+end
+
 function blog()
     rss_link = DOM.link(
         rel="alternate",
@@ -38,17 +63,13 @@ function blog()
         href="./rss.xml"
     )
     entries = all_posts()
-    site_entries = map(entries) do (_, entry)
-        style = """
-        div.blog_entry h3 {
-            font-weight:700;
-            font-size:1.125rem;
-            line-height:1.75rem;
-        }
-        """
-        DOM.div(entry, class="$CARD_STYLE blog_entry max-w-prose", style=style)
-    end
-    body = DOM.div(rss_link, Bonito.Col(site_entries...))
+    cards = [blog_entry_card(entry) for (_, entry) in entries]
+    body = DOM.div(
+        H1("Blog"),
+        rss_link,
+        DOM.div(cards...; class="flex flex-col gap-6 w-full");
+        class="max-w-3xl mx-auto w-full flex flex-col gap-4"
+    )
     return page(Section(body), "Blog")
 end
 
