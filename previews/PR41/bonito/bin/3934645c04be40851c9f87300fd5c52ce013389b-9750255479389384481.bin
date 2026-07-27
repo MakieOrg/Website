@@ -1,0 +1,14 @@
+»wkîŸ$85a2ec74-4070-40db-b464-eb7ed62ddb97§root«2«/jìŸ$85a2ec74-4070-40db-b464-eb7ed62ddb97§root‘ê»ñ»=kîŸ$85a2ec74-4070-40db-b464-eb7ed62ddb97§root«2«/jìŸ$85a2ec74-4070-40db-b464-eb7ed62ddb97§root‘ê«ŸÇßpayload«¬fìÄŸä(() => {
+    document.querySelector('[data-jscall-id="32"]')['onclick'] = ()=> location.href = 'https://github.com/sponsors/MakieOrg'
+})()Ÿ2/home/runner/work/Website/Website/src/support.jl:9®msg_type°2»#kîŸ$85a2ec74-4070-40db-b464-eb7ed62ddb97§root«2«/jìŸ$85a2ec74-4070-40db-b464-eb7ed62ddb97§root‘ê«øÇßpayload«®fìÄŸp(() => {
+    document.querySelector('[data-jscall-id="37"]')['onclick'] = ()=> location.href = '../contact'
+})()Ÿ2/home/runner/work/Website/Website/src/support.jl:9®msg_type°2»#kîŸ$85a2ec74-4070-40db-b464-eb7ed62ddb97§root«2«/jìŸ$85a2ec74-4070-40db-b464-eb7ed62ddb97§root‘ê«øÇßpayload«®fìÄŸp(() => {
+    document.querySelector('[data-jscall-id="41"]')['onclick'] = ()=> location.href = '../contact'
+})()Ÿ2/home/runner/work/Website/Website/src/support.jl:9®msg_type°2»#kîŸ$85a2ec74-4070-40db-b464-eb7ed62ddb97§root«2«/jìŸ$85a2ec74-4070-40db-b464-eb7ed62ddb97§root‘ê«øÇßpayload«®fìÄŸp(() => {
+    document.querySelector('[data-jscall-id="45"]')['onclick'] = ()=> location.href = '../contact'
+})()Ÿ2/home/runner/work/Website/Website/src/support.jl:9®msg_type°2»#kîŸ$85a2ec74-4070-40db-b464-eb7ed62ddb97§root«2«/jìŸ$85a2ec74-4070-40db-b464-eb7ed62ddb97§root‘ê«øÇßpayload«®fìÄŸp(() => {
+    document.querySelector('[data-jscall-id="58"]')['onclick'] = ()=> location.href = '../contact'
+})()Ÿ2/home/runner/work/Website/Website/src/support.jl:9®msg_type°2»0kîŸ$85a2ec74-4070-40db-b464-eb7ed62ddb97§root«2«/jìŸ$85a2ec74-4070-40db-b464-eb7ed62ddb97§root‘ê«ÃÇßpayload«µfìÄŸcif (typeof Bonito !== 'undefined' && Bonito.set_no_connection) {
+    Bonito.set_no_connection();
+}
+ŸL/home/runner/.julia/packages/Bonito/OJTyF/src/connection/no-connection.jl:13®msg_type°2
